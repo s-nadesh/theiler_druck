@@ -1,0 +1,53 @@
+<div class="sidebar collapse">
+    <div class="sidebar-content">
+
+        <!-- User dropdown -->
+        <div class="user-menu dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="http://placehold.it/300">
+                <div class="user-info">
+                    <?php echo $this->Session->read('Admin.name'); ?>
+                </div>
+            </a>
+        </div>
+        <!-- /user dropdown -->
+
+        <!-- Main navigation -->
+        <?php
+        $marray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11); //define number of main menus
+        if ($admin_menu == 'admins')
+            $marray[0] = 'active';
+        elseif ($admin_menu == 'paper_variants')
+            $marray[1] = 'active';
+        elseif ($admin_menu == 'products')
+            $marray[2] = 'active';
+        elseif ($admin_menu == 'shipping_costs')
+            $marray[3] = 'active';
+        elseif ($admin_menu == 'product_prices')
+            $marray[4] = 'active';
+        ?>
+        <ul class="navigation">
+            <li class="<?php echo $marray[0] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin">
+                    <span><?php echo __("Dashboard"); ?></span> <i class="icon-dashboard"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[1] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/paper_variants">
+                    <span><?php echo __("Paper Variants"); ?></span><i class="icon-file6"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[2] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/products">
+                    <span><?php echo __("Products"); ?></span><i class="icon-paragraph-justify2"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[3] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/shipping_costs">
+                    <span><?php echo __("Shipping Costs"); ?></span><i class="icon-coin"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- /main navigation -->
+    </div>
+</div>

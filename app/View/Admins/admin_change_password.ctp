@@ -1,0 +1,34 @@
+<?php
+$this->Html->addCrumb('Change Password');
+
+echo $this->Form->create('Admin', array(
+    "class" => "form-horizontal form-bordered admin_change_password",
+    "role" => "form",
+));
+?>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><i class="icon-checkmark-circle"></i> <?php echo __('Change Password'); ?></h6>
+    </div>
+
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><?php echo __('New Password'); ?> <span class="mandatory">*</span></label>
+            <div class="col-sm-10">
+                <?php echo $this->Form->input('admin_new_password', array('type'=>'password', 'class' => 'required form-control', 'label' => false)); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><?php echo __('Confirm Password'); ?> <span class="mandatory">*</span></label>
+            <div class="col-sm-10">
+                <?php echo $this->Form->input('admin_confirm_password', array('type'=>'password', 'class' => 'required form-control', 'label' => false)); ?>
+            </div>
+        </div>
+
+        <div class="form-actions text-right">
+            <input type="submit" value="Change Password" class="btn btn-primary">
+        </div>
+    </div>
+</div>
+<?php echo $this->form->end(); ?>

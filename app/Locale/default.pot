@@ -1,0 +1,258 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-04-29 13:57+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/AdminsController.php:34
+msgid "Email/Password combination was wrong"
+msgstr ""
+
+#: Controller/AdminsController.php:45
+msgid "You have logged out successfully!!!."
+msgstr ""
+
+#: Controller/AdminsController.php:61
+msgid "Profile has been updated successfully!!!."
+msgstr ""
+
+#: Controller/AdminsController.php:63
+msgid "Profile can not be update."
+msgstr ""
+
+#: Controller/AdminsController.php:81
+msgid "Password changed successfully."
+msgstr ""
+
+#: Controller/AdminsController.php:83
+msgid "Password can not be changed ."
+msgstr ""
+
+#: View/Admins/admin_change_password.ctp:11
+msgid "Change Password"
+msgstr ""
+
+#: View/Admins/admin_change_password.ctp:16
+msgid "New Password"
+msgstr ""
+
+#: View/Admins/admin_change_password.ctp:23
+msgid "Confirm Password"
+msgstr ""
+
+#: View/Admins/admin_login.ctp:3
+msgid "Admin Login"
+msgstr ""
+
+#: View/Admins/admin_login.ctp:7;8
+#: View/Admins/admin_profile.ctp:23
+msgid "Email"
+msgstr ""
+
+#: View/Admins/admin_login.ctp:13;14
+msgid "Password"
+msgstr ""
+
+#: View/Admins/admin_login.ctp:23
+msgid "Sign in"
+msgstr ""
+
+#: View/Admins/admin_profile.ctp:11
+msgid "Admin Profile"
+msgstr ""
+
+#: View/Admins/admin_profile.ctp:16
+msgid "Name"
+msgstr ""
+
+#: View/Elements/admin/sidebar.ctp:32
+msgid "Dashboard"
+msgstr ""
+
+#: View/Elements/admin/sidebar.ctp:37
+msgid "Paper Variants"
+msgstr ""
+
+#: View/Elements/admin/sidebar.ctp:42
+msgid "Products"
+msgstr ""
+
+#: View/Elements/admin/sidebar.ctp:47
+msgid "Shipping Costs"
+msgstr ""
+
+#: View/PaperVariants/admin_edit.ctp:12
+msgid "Edit Paper Variant"
+msgstr ""
+
+#: View/PaperVariants/admin_edit.ctp:13
+#: View/Products/admin_add.ctp:14
+#: View/Products/admin_edit.ctp:26
+#: View/Products/admin_view.ctp:8
+#: View/ShippingCosts/admin_edit.ctp:13
+msgid "Back"
+msgstr ""
+
+#: View/PaperVariants/admin_edit.ctp:18
+msgid "Paper Name"
+msgstr ""
+
+#: View/PaperVariants/admin_edit.ctp:25
+msgid "Range in milligram"
+msgstr ""
+
+#: View/PaperVariants/admin_index.ctp:4
+msgid "Manage Paper Variants"
+msgstr ""
+
+#: View/PaperVariants/admin_index.ctp:11
+msgid "Paper range in mg"
+msgstr ""
+
+#: View/PaperVariants/admin_index.ctp:12
+msgid "Paper range in gram"
+msgstr ""
+
+#: View/PaperVariants/admin_index.ctp:13
+msgid "Paper name"
+msgstr ""
+
+#: View/PaperVariants/admin_index.ctp:14
+#: View/Products/admin_index.ctp:17
+#: View/ShippingCosts/admin_index.ctp:14
+msgid "Action"
+msgstr ""
+
+#: View/Products/admin_add.ctp:13
+#: View/Products/admin_index.ctp:6
+msgid "Add Product"
+msgstr ""
+
+#: View/Products/admin_add.ctp:19
+#: View/Products/admin_edit.ctp:31
+#: View/Products/admin_index.ctp:13
+#: View/Products/admin_view.ctp:14
+msgid "Product Name"
+msgstr ""
+
+#: View/Products/admin_add.ctp:26
+#: View/Products/admin_edit.ctp:38
+#: View/Products/admin_view.ctp:18
+msgid "Product Description"
+msgstr ""
+
+#: View/Products/admin_add.ctp:33
+#: View/Products/admin_edit.ctp:47
+#: View/Products/admin_index.ctp:14
+#: View/Products/admin_view.ctp:22
+msgid "Product SKU"
+msgstr ""
+
+#: View/Products/admin_add.ctp:40
+#: View/Products/admin_edit.ctp:56
+#: View/Products/admin_index.ctp:15
+#: View/Products/admin_view.ctp:26
+msgid "Product Factor"
+msgstr ""
+
+#: View/Products/admin_add.ctp:47
+#: View/Products/admin_edit.ctp:65
+msgid "Product No.Of Pages"
+msgstr ""
+
+#: View/Products/admin_add.ctp:54
+msgid "Product No.Of Copies"
+msgstr ""
+
+#: View/Products/admin_add.ctp:61
+#: View/Products/admin_edit.ctp:90
+#: View/Products/admin_view.ctp:52
+msgid "Product Image"
+msgstr ""
+
+#: View/Products/admin_edit.ctp:8
+msgid "Product"
+msgstr ""
+
+#: View/Products/admin_edit.ctp:9
+msgid "Product Price Calculation"
+msgstr ""
+
+#: View/Products/admin_edit.ctp:25
+msgid "Edit Product"
+msgstr ""
+
+#: View/Products/admin_edit.ctp:77
+msgid "Product \nNo.Of Copies"
+msgstr ""
+
+#: View/Products/admin_edit.ctp:135
+msgid "Price Calculation"
+msgstr ""
+
+#: View/Products/admin_index.ctp:5
+msgid "Manage Products"
+msgstr ""
+
+#: View/Products/admin_index.ctp:16
+msgid "Created"
+msgstr ""
+
+#: View/Products/admin_view.ctp:7
+msgid "View Product"
+msgstr ""
+
+#: View/Products/admin_view.ctp:30
+msgid "Product No.of pages"
+msgstr ""
+
+#: View/Products/admin_view.ctp:41
+msgid "Product No.of copies"
+msgstr ""
+
+#: View/ShippingCosts/admin_edit.ctp:12
+msgid "Edit Shipping Cost"
+msgstr ""
+
+#: View/ShippingCosts/admin_edit.ctp:18
+msgid "Target Zip From"
+msgstr ""
+
+#: View/ShippingCosts/admin_edit.ctp:25
+msgid "Target Zip To"
+msgstr ""
+
+#: View/ShippingCosts/admin_edit.ctp:32
+msgid "Basic Weight Price"
+msgstr ""
+
+#: View/ShippingCosts/admin_edit.ctp:39
+msgid "Additional Weight Price"
+msgstr ""
+
+#: View/ShippingCosts/admin_index.ctp:4
+msgid "Manage Shipping Costs"
+msgstr ""
+
+#: View/ShippingCosts/admin_index.ctp:11
+msgid "Taget ZIP"
+msgstr ""
+
+#: View/ShippingCosts/admin_index.ctp:12
+msgid "Basic Price"
+msgstr ""
+
+#: View/ShippingCosts/admin_index.ctp:13
+msgid "Additional Price"
+msgstr ""
+
