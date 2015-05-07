@@ -64,11 +64,9 @@ $this->Html->addCrumb(__('Cart'));
 
                                                 <td class="product-quantity">
                                                     <div class="quantity">
-                                                        <input type="button" class="minus" value="-">
                                                         <?php
-                                                        echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text", "title" => "Qty", "value" => $carts['cart_quantity'], "min" => "1", "step" => "1", "label" => false));
+                                                        echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => $carts['cart_quantity'], "min" => "1", "step" => "1", "label" => false));
                                                         ?>
-                                                        <input type="button" class="plus" value="+">
                                                     </div>
                                                 </td>
 

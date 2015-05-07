@@ -31,7 +31,7 @@
         <!--[if lte IE 8]>
         <?php echo $this->Html->script('/vendor/respond'); ?>
         <![endif]-->
-        
+
         <?php
         echo $this->fetch('meta');
         echo $this->fetch('css');
@@ -42,14 +42,17 @@
     <body>
         <div class="body">
             <?php echo $this->element('header'); ?>
-            
+
             <?php echo $this->fetch('content'); ?>
-            
+
             <?php echo $this->element('footer'); ?>
         </div>
 
         <?php
-        echo $this->Html->script(array('/vendor/jquery', 'plugins', '/vendor/jquery.easing', '/vendor/jquery.appear', '/vendor/jquery.cookie', '/vendor/bootstrap', '/vendor/twitterjs/twitter', '/vendor/rs-plugin/js/jquery.themepunch.plugins.min', '/vendor/rs-plugin/js/jquery.themepunch.revolution.min', '/vendor/owl-carousel/owl.carousel', '/vendor/circle-flip-slideshow/js/jquery.flipshow', '/vendor/magnific-popup/magnific-popup', '/vendor/jquery.validate', 'views/view.home', 'theme', 'custom'));
+        echo $this->Html->script(array('/vendor/jquery', 'plugins', '/vendor/jquery.easing', '/vendor/jquery.appear', '/vendor/jquery.cookie', '/vendor/bootstrap', '/vendor/bootstrap/bootstrap-number-input', '/vendor/twitterjs/twitter', '/vendor/rs-plugin/js/jquery.themepunch.plugins.min', '/vendor/rs-plugin/js/jquery.themepunch.revolution.min', '/vendor/owl-carousel/owl.carousel', '/vendor/circle-flip-slideshow/js/jquery.flipshow', '/vendor/magnific-popup/magnific-popup', '/vendor/jquery.validate', 'views/view.home', 'theme', 'custom'));
         ?>
+        <script>
+            
+        </script>
     </body>
 </html>

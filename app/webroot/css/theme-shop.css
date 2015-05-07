@@ -515,7 +515,7 @@ div.shop .quantity {
 	margin: 0 15px 25px 0;
 	overflow: hidden;
 	position: relative;
-	width: 125px;
+	width: 141px;
 	height: 35px;
 	float: left;
 }
@@ -554,10 +554,10 @@ div.shop .quantity .qty {
 	border: 1px solid #CCC;
 	box-shadow: none;
 	float: left;
-	height: 35px;
-	padding: 0 39px;
+	height: 34px;
+/*	padding: 0 39px;*/
 	text-align: center;
-	width: 125px;
+	width: 79px;
 	font-size: 1em;
 }
 

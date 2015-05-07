@@ -88,9 +88,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     </div>
                     
                     <div class="quantity">
-                        <input type="button" class="minus" value="-">
-                        <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text", "title" => "Qty", "value" => "1", "min" => "1", "step" => "1", 'label' => false)); ?>
-                        <input type="button" class="plus" value="+">
+                        <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => "1", "min" => "1", "step" => "1", 'label' => false)); ?>
                     </div>
 
                     <?php echo $this->Form->submit(__("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>

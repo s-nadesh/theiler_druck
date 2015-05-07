@@ -30,4 +30,6 @@ $(document).ready(function() {
                     .remove();
         }
     });
+    
+    $('.quantity_number').bootstrapNumber();
 }); 
