@@ -1,3 +1,4 @@
+
 <?php echo $this->Html->css(array('theme-shop', 'theme-blog'), array('inline' => false)); ?>
 
 <?php
@@ -46,7 +47,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-3 control-label"><?php echo __('No of pages') ?></label>
                         <div class="col-md-6">
-                            <select name="data[Cart][no_of_pages]" class="form-control">
+                            <select name="data[Cart][no_of_pages]" class="form-control" id="no-of-pages" onchange="getProductPrice()">
                                 <?php foreach ($no_of_pages_array as $page_value) { ?>
                                     <option value="<?php echo $page_value ?>"><?php echo $page_value ?></option>
                                 <?php } ?>
@@ -57,7 +58,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-3 control-label"><?php echo __('No of copies') ?></label>
                         <div class="col-md-6">
-                            <select name="data[Cart][no_of_copies]" class="form-control">
+                            <select name="data[Cart][no_of_copies]" class="form-control" id="no-of-copies" onchange="getProductPrice()">
                                 <?php foreach ($no_of_copies_array as $copies_value) { ?>
                                     <option value="<?php echo $copies_value ?>"><?php echo $copies_value ?></option>
                                 <?php } ?>
@@ -86,12 +87,21 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                             </select>
                         </div>
                     </div>
-                    
-                    <div class="quantity">
-                        <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => "1", "min" => "1", "step" => "1", 'label' => false)); ?>
-                    </div>
 
-                    <?php echo $this->Form->submit(__("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>
+                    <hr class="short">
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
+                            <div class="quantity">
+                                <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => "1", "min" => "1", "step" => "1", 'label' => false, 'onchange' => 'getProductPrice()')); ?>
+                            </div>
+                            <?php echo $this->Form->submit(__("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+                            <span class="price" style="font-size: 24px">
+                                Price: <span id="product-price"></span>
+                            </span>
+                        </div>
+                    </div>
                     <?php echo $this->Form->end(); ?>
                 </div>
             </div>
@@ -192,3 +202,27 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
 
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        getProductPrice();
+
+        $("body").on("click",".quantity .input-group-btn",function() {
+            getProductPrice();
+        });
+    });
+
+    function getProductPrice() {
+        var product_id = $("#CartProductId").val();
+        var no_of_pages = $("#no-of-pages").val();
+        var no_of_copies = $("#no-of-copies").val();
+        var quantity = $("#CartQuantity").val();
+        $.ajax({
+            url: "<?php echo SITE_BASE_URL ?>product_prices/getProductPrice/" + product_id + "/" + no_of_pages + "/" + no_of_copies + "/" + quantity,
+            type: "POST",
+            success: function(result) {
+                $("#product-price").html(result + "CHF");
+            }
+        });
+    }
+</script>

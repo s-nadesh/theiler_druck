@@ -46,5 +46,11 @@ class ProductPricesController extends AppController {
         ));
         return $result;
     }
+    
+    public function getProductPrice($product_id, $no_of_pages, $no_of_coipes, $quantity){
+        $price = MyClass::priceCalculationPerProduct($product_id, $no_of_pages, $no_of_coipes, $quantity);
+        echo $price; 
+        exit;
+    }
 
 }
