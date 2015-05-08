@@ -32,7 +32,7 @@
             <nav class="nav-main mega-menu">
                 <ul class="nav nav-pills nav-main" id="mainMenu">
                     <li class="dropdown active">
-                        <a class="dropdown-toggle" href="#"> Start </a>
+                        <a class="dropdown-toggle" href="<?php echo SITE_BASE_URL?>"> Start </a>
                     </li>
                     <li class="dropdown active">
                         <a class="dropdown-toggle" href="#"> Kontakt </a>
