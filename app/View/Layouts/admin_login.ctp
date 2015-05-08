@@ -20,7 +20,6 @@
         echo $this->fetch('css');
         echo $this->fetch('script');
         ?>
-
     </head>
 
     <body class="full-width page-condensed">
@@ -33,7 +32,6 @@
                     <i class="icon-grid3"></i>
                 </button>
                 <a class="navbar-brand" href="<?php echo SITE_BASE_URL?>admin/login">
-<!--                    <img src="images/logo.png" alt="Theiler Druck">-->
                     <?php echo SITE_NAME; ?>
                 </a>
             </div>

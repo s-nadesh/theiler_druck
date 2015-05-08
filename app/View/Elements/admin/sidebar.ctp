@@ -3,7 +3,7 @@
 
         <!-- User dropdown -->
         <div class="user-menu dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="<?php echo SITE_BASE_URL?>admin" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="http://placehold.it/300">
                 <div class="user-info">
                     <?php echo $this->Session->read('Admin.name'); ?>

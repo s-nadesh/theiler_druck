@@ -21,6 +21,7 @@
  */
 App::uses('Controller', 'Controller');
 App::uses('MyClass', 'Vendor');
+App::uses('CakeEmail', 'Network/Email');
 
 /**
  * Application Controller

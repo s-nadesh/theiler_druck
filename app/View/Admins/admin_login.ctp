@@ -17,7 +17,7 @@
 
     <div class="row form-actions">
         <div class="col-xs-6">
-
+            <a href="<?php echo SITE_BASE_URL?>admin/forgot_password"><?php echo __("Forgot Password"); ?></a>
         </div>
         <div class="col-xs-6">
             <button type="submit" class="btn btn-warning pull-right"><i class="icon-menu2"></i> <?php echo __('Sign in'); ?></button>

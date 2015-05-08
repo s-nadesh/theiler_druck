@@ -32,6 +32,7 @@ Router::connect('/admin/login', array('controller' => 'admins', 'action' => 'log
 Router::connect('/admin/profile', array('controller' => 'admins', 'action' => 'profile', 'admin' => true));
 Router::connect('/admin/change_password', array('controller' => 'admins', 'action' => 'change_password', 'admin' => true));
 Router::connect('/admin/logout', array('controller' => 'admins', 'action' => 'logout', 'admin' => true));
+Router::connect('/admin/forgot_password', array('controller' => 'admins', 'action' => 'forgot_password', 'admin' => true));
 
 Router::connect('/product/:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('slug')));
 /**

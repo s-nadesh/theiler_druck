@@ -1,6 +1,5 @@
-<?php
-$this->Html->addCrumb('Dashboard');
-?>
+<?php $this->Html->addCrumb(__('Dashboard')); ?>
+
 <!-- Info blocks -->
 <ul class="info-blocks">
     <li class="bg-primary">

@@ -42,13 +42,12 @@
                 <!-- Breadcrumbs line -->
                 <div class="breadcrumb-line">
                     <?php
-                    echo $this->Html->getCrumbList(
-                            array(
+                    echo $this->Html->getCrumbList(array(
                         'firstClass' => false,
                         'lastClass' => 'active',
                         'class' => 'breadcrumb'
                             ), array(
-                        'text' => 'Home',
+                        'text' => __('Home'),
                         'url' => array('controller' => 'admins', 'action' => 'index', 'admin' => true),
                             )
                     );
@@ -59,7 +58,7 @@
                 <!-- Page header -->
                 <div class="page-header">
                     <div class="page-title">
-                        <h3><?php echo __($title_for_layout); ?></h3>
+                        <h3><?php echo $title_for_layout; ?></h3>
                     </div>
                 </div>
                 <!-- /page header -->

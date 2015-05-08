@@ -12,6 +12,16 @@ $(document).ready(function() {
             },
         },
     });
+    
+    //Admin Login form Validation
+    $(".admin_forgot_password_form").validate({
+        rules: {
+            'data[Admin][admin_email]': {
+                required: true,
+                email: true
+            },
+        },
+    });
 
     //Admin Profile Validation
     $(".admin_profile").validate({

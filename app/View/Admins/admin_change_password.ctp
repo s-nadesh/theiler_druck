@@ -1,5 +1,5 @@
 <?php
-$this->Html->addCrumb('Change Password');
+$this->Html->addCrumb(__('Change Password'));
 
 echo $this->Form->create('Admin', array(
     "class" => "form-horizontal form-bordered admin_change_password",
@@ -8,7 +8,7 @@ echo $this->Form->create('Admin', array(
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-checkmark-circle"></i> <?php echo __('Change Password'); ?></h6>
+        <h6 class="panel-title"><i class="icon-key"></i> <?php echo __('Change Password'); ?></h6>
     </div>
 
     <div class="panel-body">
@@ -27,7 +27,7 @@ echo $this->Form->create('Admin', array(
         </div>
 
         <div class="form-actions text-right">
-            <input type="submit" value="Change Password" class="btn btn-primary">
+            <input type="submit" value="<?php echo __('Change Password'); ?>" class="btn btn-primary">
         </div>
     </div>
 </div>

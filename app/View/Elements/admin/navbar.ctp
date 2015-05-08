@@ -1,7 +1,6 @@
 <div class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
         <a class="navbar-brand" href="<?php echo SITE_BASE_URL?>admin">
-            <!--<img src="images/logo.png" alt="">-->
             <?php echo SITE_NAME; ?>
         </a>
         <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
@@ -23,9 +22,9 @@
                 <i class="caret"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-right icons-right">
-                <li><a href="<?php echo SITE_BASE_URL?>admin/profile"><i class="icon-user"></i> Profile</a></li>
-                <li><a href="<?php echo SITE_BASE_URL?>admin/change_password"><i class="icon-key"></i> Change Password</a></li>
-                <li><a href="<?php echo SITE_BASE_URL?>admin/logout"><i class="icon-exit"></i> Logout</a></li>
+                <li><a href="<?php echo SITE_BASE_URL?>admin/profile"><i class="icon-user"></i> <?php echo __("Profile"); ?></a></li>
+                <li><a href="<?php echo SITE_BASE_URL?>admin/change_password"><i class="icon-key"></i> <?php echo __("Change Password"); ?></a></li>
+                <li><a href="<?php echo SITE_BASE_URL?>admin/logout"><i class="icon-exit"></i> <?php echo __("Logout"); ?> </a></li>
             </ul>
         </li>
     </ul>

@@ -1,7 +1,7 @@
 <?php
 
 define('SITE_NAME', 'Theiler Druck');
-define('TIME_ZONE', 'UTC');
+define('TIME_ZONE', 'Asia/Kolkata');
 putenv('TZ=' . TIME_ZONE);
 date_default_timezone_set(TIME_ZONE);
 if (isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['REMOTE_ADDR'] == "127.0.0.1" || $_SERVER['HTTP_HOST'] == "arkinfotec.in" || $_SERVER['HTTP_HOST'] == "demo.arkinfotec.in")) {
@@ -9,6 +9,18 @@ if (isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST'] == 'localhost' || $_S
 } else {
     define('LOCALHOST', 0);
 }
+
+define('IPADDRESS', $_SERVER['REMOTE_ADDR']);
+
+$whitelist = array('127.0.0.1', '::1');
+if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
+    $mailsendby = 'gmail';
+} else {
+    $mailsendby = '';
+}
+
+define('MAILSENDBY', $mailsendby);
+define('SITEMAIL', 'admin@theilerdruck.com');
 
 if (LOCALHOST) {
     define('DEBUG', 1);

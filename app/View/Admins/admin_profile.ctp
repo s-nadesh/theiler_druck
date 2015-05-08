@@ -1,5 +1,5 @@
 <?php
-$this->Html->addCrumb('Profile');
+$this->Html->addCrumb(__('Profile'));
 
 echo $this->Form->create('Admin', array(
     "class" => "form-horizontal form-bordered admin_profile",
@@ -8,7 +8,7 @@ echo $this->Form->create('Admin', array(
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-checkmark-circle"></i> <?php echo __('Admin Profile'); ?></h6>
+        <h6 class="panel-title"><i class="icon-user"></i> <?php echo __('Admin Profile'); ?></h6>
     </div>
 
     <div class="panel-body">
@@ -27,7 +27,7 @@ echo $this->Form->create('Admin', array(
         </div>
 
         <div class="form-actions text-right">
-            <input type="submit" value="Update Profile" class="btn btn-primary">
+            <input type="submit" value="<?php echo __("Update Profile"); ?>" class="btn btn-primary">
         </div>
     </div>
 </div>
