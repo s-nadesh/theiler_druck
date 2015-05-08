@@ -1286,9 +1286,9 @@ div.nivo-slider  {
 }
 
 div.nivo-slider .theme-default .nivoSlider {
-	-moz-border-radius: 10px 10px 0px 0px;
+/*	-moz-border-radius: 10px 10px 0px 0px;
 	-webkit-border-radius: 10px 10px 0px 0px;
-	border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px;*/
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -1296,9 +1296,9 @@ div.nivo-slider .theme-default .nivoSlider {
 }
 
 div.nivo-slider .theme-default .nivoSlider img {
-	-moz-border-radius: 10px 10px 0px 0px;
+/*	-moz-border-radius: 10px 10px 0px 0px;
 	-webkit-border-radius: 10px 10px 0px 0px;
-	border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px;*/
 }
 
 div.nivo-slider .theme-default .nivo-controlNav {

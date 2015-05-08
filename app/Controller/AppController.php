@@ -34,6 +34,7 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class AppController extends Controller {
 
+    //default component  
     public $components = array(
         'Session',
         'Auth'
@@ -82,7 +83,7 @@ class AppController extends Controller {
                 ),
             ), 'Form'
         );
-        
+
         $this->Auth->allow();
 
         $this->set('logged_in', $this->Auth->loggedIn());

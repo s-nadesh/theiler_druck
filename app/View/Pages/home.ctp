@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <section class="parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/parallax.jpg);">
+        <section class="parallax" data-parallax="scroll" data-image-src="<?php echo SITE_BASE_URL ?>img/parallax.jpg" >
             <div class="container">
                 <div class="row center">
                     <div class="col-md-12">
