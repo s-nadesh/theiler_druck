@@ -10,7 +10,7 @@
                     'class' => 'breadcrumb'
                         ), array(
                     'text' => 'Home',
-                    'url' => array('controller' => 'admins', 'action' => 'index', 'admin' => true),
+                    'url' => array('controller' => 'pages', 'action' => 'display', 'home'),
                         )
                 );
                 ?>
