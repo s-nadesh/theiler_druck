@@ -1,4 +1,3 @@
-
 <?php echo $this->Html->css(array('theme-shop', 'theme-blog'), array('inline' => false)); ?>
 
 <?php
@@ -42,11 +41,11 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
 
                     <?php
                     echo $this->Form->create('Cart', array("action" => "add", "method" => "post", "class" => "cart"));
-                    echo $this->Form->input('product_id', array('type' => 'hidden', 'value' => $product['Product']['product_id']));
+                    echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id']));
                     ?>
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-3 control-label"><?php echo __('No of pages') ?></label>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <select name="data[Cart][no_of_pages]" class="form-control" id="no-of-pages" onchange="getProductPrice()">
                                 <?php foreach ($no_of_pages_array as $page_value) { ?>
                                     <option value="<?php echo $page_value ?>"><?php echo $page_value ?></option>
@@ -57,7 +56,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
 
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-3 control-label"><?php echo __('No of copies') ?></label>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <select name="data[Cart][no_of_copies]" class="form-control" id="no-of-copies" onchange="getProductPrice()">
                                 <?php foreach ($no_of_copies_array as $copies_value) { ?>
                                     <option value="<?php echo $copies_value ?>"><?php echo $copies_value ?></option>
@@ -68,7 +67,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
 
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-3 control-label"><?php echo __('Papers') ?></label>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <select name="data[Cart][paper_id]" class="form-control">
                                 <?php foreach ($paper_array as $paper_key => $paper_value) { ?>
                                     <option value="<?php echo $paper_key ?>"><?php echo $paper_value ?></option>
@@ -79,12 +78,28 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
 
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-3 control-label"><?php echo __('Zip code') ?></label>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <select name="data[Cart][sh_cost_id]" class="form-control">
                                 <?php foreach ($zip_code_list as $zip_key => $zip_value) { ?>
                                     <option value="<?php echo $zip_key ?>"><?php echo $zip_value ?></option>
                                 <?php } ?>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputDefault" class="col-md-5 control-label"><?php echo __("Good for print on paper"); ?></label>
+                        <div class="col-md-7">
+                            <input type="radio" name="data[Cart][good_for_print_on_paper]" value="0" checked="checked" onclick="getProductPrice()"> With Out
+                            <input type="radio" name="data[Cart][good_for_print_on_paper]" value="<?php echo GOOD_FOR_PRINT_ON_PAPER ?>" onclick="getProductPrice()"> With
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputDefault" class="col-md-5 control-label"><?php echo __("Express within 4 days"); ?></label>
+                        <div class="col-md-7">
+                            <input type="radio" name="data[Cart][express_within_4_days]" value="0" checked="checked" onclick="getProductPrice()"> With Out
+                            <input type="radio" name="data[Cart][express_within_4_days]" value="<?php echo EXPRESS_WITHIN_4_DAYS ?>" onclick="getProductPrice()"> With
                         </div>
                     </div>
 
@@ -207,7 +222,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
     $(document).ready(function() {
         getProductPrice();
 
-        $("body").on("click",".quantity .input-group-btn",function() {
+        $("body").on("click", ".quantity .input-group-btn", function() {
             getProductPrice();
         });
     });
@@ -221,8 +236,15 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
             url: "<?php echo SITE_BASE_URL ?>product_prices/getProductPrice/" + product_id + "/" + no_of_pages + "/" + no_of_copies + "/" + quantity,
             type: "POST",
             success: function(result) {
-                $("#product-price").html(result + "CHF");
+                placePrice(result);
             }
         });
+    }
+
+    function placePrice(result) {
+        var good_for_print = $('input:radio[name="data[Cart][good_for_print_on_paper]"]:checked').val();
+        var express = $('input:radio[name="data[Cart][express_within_4_days]"]:checked').val();
+        var total = parseFloat(good_for_print) + parseFloat(express) + parseFloat(result);
+        $("#product-price").html(total + "CHF");
     }
 </script>

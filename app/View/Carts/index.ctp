@@ -9,18 +9,9 @@ $this->Html->addCrumb(__('Cart'));
         <?php echo $this->Session->flash(); ?>
         <div class="row">
             <div class="col-md-12">
-                <?php if (!empty($carts)) { ?>
-                    <?php
-                    $product = $this->requestAction('products/getProduct/' . $carts['product_id']);
-                    $paper_variant = $this->requestAction('paper_variants/getPaperVariant/' . $carts['paper_id']);
-                    ?>
-                    <?php echo $this->Form->create('Cart', array('action' => 'add')); ?>
-                    <?php
-                    echo $this->Form->hidden('product_id', array('value' => $carts['product_id']));
-                    echo $this->Form->hidden('no_of_pages', array('value' => $carts['cart_product_no_of_pages']));
-                    echo $this->Form->hidden('no_of_copies', array('value' => $carts['cart_product_no_of_copies']));
-                    echo $this->Form->hidden('paper_id', array('value' => $carts['paper_id']));
-                    ?>
+                <?php if ($this->Session->check('Shop')) { ?>
+
+                    <?php echo $this->Form->create('Cart', array('action' => 'update')); ?>
                     <div class="row featured-boxes">
                         <div class="col-md-12">
                             <div class="featured-box featured-box-secundary featured-box-cart">
@@ -37,44 +28,54 @@ $this->Html->addCrumb(__('Cart'));
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="cart_table_item">
+                                            <?php
+                                            $shop = $this->Session->read('Shop');
+                                            foreach ($shop['CartItems'] as $key => $value) {
+                                                $product = $this->requestAction('products/getProduct/' . $value['product_id']);
+                                                $paper_variant = $this->requestAction('paper_variants/getPaperVariant/' . $value['paper_id']);
+                                                echo $this->Form->hidden('CartItems.' . $key . '.product_id', array('value' => $value['product_id']));
+                                                echo $this->Form->hidden('CartItems.' . $key . '.no_of_pages', array('value' => $value['item_product_no_of_pages']));
+                                                echo $this->Form->hidden('CartItems.' . $key . '.no_of_copies', array('value' => $value['item_product_no_of_copies']));
+                                                echo $this->Form->hidden('CartItems.' . $key . '.paper_id', array('value' => $value['paper_id']));
+                                                ?>
+                                                <tr class="cart_table_item">
 
-                                                <td class="product-remove">
-                                                    <a title="Remove this item" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove">
-                                                        <i class="icon icon-times"></i>
-                                                    </a>
-                                                </td>
+                                                    <td class="product-remove">
+                                                        <a title="Remove this item" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove">
+                                                            <i class="icon icon-times"></i>
+                                                        </a>
+                                                    </td>
 
-                                                <td class="product-thumbnail">
-                                                    <?php echo $this->Html->image('/' . PRODUCT_IMAGE_RESIZE_FOLDER . $product['Product']['product_image'], array("class" => "img-responsive")); ?>
-                                                </td>
+                                                    <td class="product-thumbnail">
+                                                        <?php echo $this->Html->image('/' . PRODUCT_IMAGE_RESIZE_FOLDER . $product['Product']['product_image'], array("class" => "img-responsive")); ?>
+                                                    </td>
 
-                                                <td class="product-name">
-                                                    <?php
-                                                    echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['product_slug'])) . '<br>';
-                                                    echo __("No.of Pages") . ": " . $carts['cart_product_no_of_pages'] . '<br>';
-                                                    echo __("No.of Copies") . ": " . $carts['cart_product_no_of_copies'] . '<br>';
-                                                    echo __("Paper") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
-                                                    ?>
-                                                </td>
-
-                                                <td class="product-price">
-                                                    <span class="amount"><?php echo $carts['cart_price'] ?>CHF</span>
-                                                </td>
-
-                                                <td class="product-quantity">
-                                                    <div class="quantity">
+                                                    <td class="product-name">
                                                         <?php
-                                                        echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => $carts['cart_quantity'], "min" => "1", "step" => "1", "label" => false));
+                                                        echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['product_slug'])) . '<br>';
+                                                        echo __("No.of Pages") . ": " . $value['item_product_no_of_pages'] . '<br>';
+                                                        echo __("No.of Copies") . ": " . $value['item_product_no_of_copies'] . '<br>';
+                                                        echo __("Paper") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
                                                         ?>
-                                                    </div>
-                                                </td>
+                                                    </td>
 
-                                                <td class="product-subtotal">
-                                                    <span class="amount"><?php echo $carts['cart_total_price'] ?>CHF</span>
-                                                </td>
-                                            </tr>
+                                                    <td class="product-price">
+                                                        <span class="amount"><?php echo $value['item_price'] ?>CHF</span>
+                                                    </td>
 
+                                                    <td class="product-quantity">
+                                                        <div class="quantity">
+                                                            <?php
+                                                            echo $this->Form->input('CartItems.' . $key . '.quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => $value['item_quantity'], "min" => "1", "step" => "1", "label" => false));
+                                                            ?>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="product-subtotal">
+                                                        <span class="amount"><?php echo $value['item_sub_price'] ?>CHF</span>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -103,7 +104,9 @@ $this->Html->addCrumb(__('Cart'));
                                                 <label>Zip Code</label>
                                                 <?php
                                                 $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
-                                                echo $this->Form->input("sh_cost_id", array("type" => "select", "class" => "form-control", "label" => false, 'options' => $zip_code_list, "default" => $carts['sh_cost_id']));
+                                                echo $this->Form->input("sh_cost_id", array("type" => "select", "class" => "form-control", "label" => false, 'options' => $zip_code_list, "default" => $shop['Additional']['sh_cost_id']));
+                                                echo $this->Form->hidden("good_for_print_on_paper", array('value' => $shop['Additional']['good_for_print_on_paper']));
+                                                echo $this->Form->hidden("express_within_4_days", array('value' => $shop['Additional']['express_within_4_days']));
                                                 ?>
                                             </div>
                                         </div>
@@ -127,19 +130,30 @@ $this->Html->addCrumb(__('Cart'));
                                                     <strong>Cart Subtotal</strong>
                                                 </th>
                                                 <td>
-                                                    <strong><span class="amount"><?php echo $carts['cart_total_price'] ?>CHF</span></strong>
+                                                    <strong><span class="amount"><?php echo $shop['Additional']['cart_sub_price'] ?>CHF</span></strong>
                                                 </td>
                                             </tr>
                                             <tr class="shipping">
                                                 <th> Shipping  </th>
-                                                <td> <?php echo $carts['shipping_cost'] ?>CHF </td>
+                                                <td> <?php echo $shop['Additional']['shipping_cost'] ?>CHF </td>
                                             </tr>
+
+                                            <?php
+                                            $additional_charge = $shop['Additional']['good_for_print_on_paper'] + $shop['Additional']['express_within_4_days'];
+                                            if ($additional_charge > 0) {
+                                                ?>
+                                                <tr class="shipping">
+                                                    <th> Additional Services  </th>
+                                                    <td> <?php echo $additional_charge ?>CHF </td>
+                                                </tr>
+                                            <?php } ?>
+
                                             <tr class="total">
                                                 <th>
                                                     <strong>Order Total</strong>
                                                 </th>
                                                 <td>
-                                                    <strong><span class="amount"><?php echo $carts['order_total'] ?>CHF</span></strong>
+                                                    <strong><span class="amount"><?php echo $shop['Additional']['cart_total_price'] ?>CHF</span></strong>
                                                 </td>
                                             </tr>
 
@@ -156,19 +170,9 @@ $this->Html->addCrumb(__('Cart'));
                             </div>
                         </div>
                     </div>
-
                     <?php echo $this->Form->end(); ?>
 
-                    <div class="row featured-boxes">
-                        <div class="col-md-12">
-                            <div class="actions-continue">
-                                <input type="submit" value="Proceed to Checkout →" name="proceed" class="btn btn-lg btn-primary">
-                            </div>
-                        </div>
-                    </div>
-
                 <?php } else { ?>
-
                     <div class="row featured-boxes">
                         <div class="col-md-12">
                             <div class="featured-box featured-box-secundary featured-box-cart">
@@ -178,9 +182,7 @@ $this->Html->addCrumb(__('Cart'));
                             </div>
                         </div>
                     </div>
-
                 <?php } ?>
-
             </div>
         </div>
     </div>
