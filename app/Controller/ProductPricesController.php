@@ -6,13 +6,13 @@ class ProductPricesController extends AppController {
 
     //This function will run before every action
     public function beforeFilter() {
+        parent::beforeFilter();
         $admin_auth_actions = array('admin_update_price_calculation', 'admin_get_pp');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
         $this->set('admin_menu', 'product_prices');
-        parent::beforeFilter();
     }
 
     //Admin Update price calculation product wise
@@ -31,7 +31,7 @@ class ProductPricesController extends AppController {
                     }
                 }
             }
-            $this->Session->setFlash('Price Calculation Updated Successfully!!!', 'flash_success');
+            $this->Session->setFlash(__('Price Calculation Updated Successfully!!!'), 'flash_success');
             $this->redirect(array('controller' => 'products', 'action' => 'edit', $product_id, 'admin' => true));
         }
     }
@@ -46,10 +46,10 @@ class ProductPricesController extends AppController {
         ));
         return $result;
     }
-    
-    public function getProductPrice($product_id, $no_of_pages, $no_of_coipes, $quantity){
+
+    public function getProductPrice($product_id, $no_of_pages, $no_of_coipes, $quantity) {
         $price = MyClass::priceCalculationPerProduct($product_id, $no_of_pages, $no_of_coipes, $quantity);
-        echo $price; 
+        echo $price;
         exit;
     }
 

@@ -15,15 +15,15 @@
         <!-- Main navigation -->
         <?php
         $marray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11); //define number of main menus
-        if ($admin_menu == 'admins')
+        if (@$admin_menu == 'admins')
             $marray[0] = 'active';
-        elseif ($admin_menu == 'paper_variants')
+        elseif (@$admin_menu == 'paper_variants')
             $marray[1] = 'active';
-        elseif ($admin_menu == 'products')
+        elseif (@$admin_menu == 'products')
             $marray[2] = 'active';
-        elseif ($admin_menu == 'shipping_costs')
+        elseif (@$admin_menu == 'shipping_costs')
             $marray[3] = 'active';
-        elseif ($admin_menu == 'product_prices')
+        elseif (@$admin_menu == 'product_prices')
             $marray[4] = 'active';
         ?>
         <ul class="navigation">

@@ -40,6 +40,7 @@ class AppController extends Controller {
         'Auth'
     );
 
+    //This function run every time before the action.
     public function beforeFilter() {
         parent::beforeFilter();
         $this->setLayout();
@@ -94,14 +95,17 @@ class AppController extends Controller {
         return true;
     }
 
+    //Common Function
     public function goAdminHome() {
         $this->redirect(array('controller' => 'admins', 'action' => 'index', 'admin' => true));
     }
 
+    //Common Function
     public function goAdminLogin() {
         $this->redirect(array('controller' => 'admins', 'action' => 'login', 'admin' => true));
     }
 
+    //Common Function
     public function goHome() {
         $this->redirect('/');
     }

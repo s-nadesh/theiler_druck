@@ -55,6 +55,17 @@ class MyClass {
         return $result;
     }
 
+    public static function getDefaultCoipes() {
+        $default_copies = array(
+            '1000' => '1000',
+            '5000' => '5000',
+            '10000' => '10000',
+            '-1' => 'Additional 1000',
+        );
+        
+        return $default_copies;
+    }
+
     public static function priceCalculationPerProduct($product_id, $no_of_pages, $no_of_copies, $qunatity = 1) {
         $model = ClassRegistry::init('ProductPrice');
 

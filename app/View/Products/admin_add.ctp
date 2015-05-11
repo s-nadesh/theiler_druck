@@ -1,6 +1,6 @@
 <?php
-$this->Html->addCrumb('Products', array('controller' => 'products', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb('Product Add');
+$this->Html->addCrumb(__('Products'), array('controller' => 'products', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(__('Product Add'));
 
 echo $this->Form->create('Product', array(
     "class" => "form-horizontal form-bordered admin_product_form_add",
@@ -10,7 +10,7 @@ echo $this->Form->create('Product', array(
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-checkmark-circle"></i> <?php echo __('Add Product'); ?></h6>
+        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __('Add Product'); ?></h6>
         <a href="<?php echo SITE_BASE_URL ?>admin/products" class="btn btn-primary pull-right"><?php echo __('Back'); ?></a>
     </div>
 
@@ -65,9 +65,9 @@ echo $this->Form->create('Product', array(
         </div>
 
         <div class="form-actions text-right">
-            <input type="submit" value="Add Product" class="btn btn-primary">
+            <input type="submit" value="<?php echo __("Add Product"); ?>" class="btn btn-primary">
         </div>
 
     </div>
 </div>
-<?php echo $this->form->end(); ?>
+<?php echo $this->Form->end(); ?>

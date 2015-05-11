@@ -7,13 +7,13 @@ class ProductsController extends AppController {
 
     //This function will run before every action
     public function beforeFilter() {
+        parent::beforeFilter();
         $admin_auth_actions = array('admin_index', 'admin_add', 'admin_view', 'admin_edit');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
         $this->set('admin_menu', 'products');
-        parent::beforeFilter();
     }
 
     //Admin Products Manage
@@ -22,21 +22,20 @@ class ProductsController extends AppController {
             'order' => array('Product.created DESC'),
             'recursive' => 0
         ));
-        $this->set('title_for_layout', 'Products');
+        $this->set('title_for_layout', __('Products'));
         $this->set(compact('products'));
     }
 
     //Admin View Single Product
     public function admin_view($product_id) {
+        if (!$this->Product->exists($product_id)) {
+            throw new NotFoundException(__('Invalid Product'));
+        }
+
         $this->Product->recursive = 0;
         $product = $this->Product->findByProductId($product_id);
 
-        if (empty($product)) {
-            $this->Session->setFlash('This Product Not Exists', 'flash_error');
-            return $this->redirect('index');
-        }
-
-        $this->set('title_for_layout', 'Products');
+        $this->set('title_for_layout', __('Products'));
         $this->set(compact('product'));
     }
 
@@ -63,7 +62,7 @@ class ProductsController extends AppController {
 
             if ($this->Product->save($this->request->data)) {
                 $product_id = $this->Product->getLastInsertID();
-                $this->Session->setFlash('Product has been successfully added', 'flash_success');
+                $this->Session->setFlash(__('Product has been successfully added'), 'flash_success');
                 $this->redirect(array('controller' => 'products', 'action' => 'edit', $product_id, 'admin' => true));
             }
         }
@@ -71,6 +70,10 @@ class ProductsController extends AppController {
 
     //Admin edit product
     public function admin_edit($product_id) {
+        if (!$this->Product->exists($product_id)) {
+            throw new NotFoundException(__('Invalid Product'));
+        }
+
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['Product']['product_id'] = $product_id;
 
@@ -102,18 +105,19 @@ class ProductsController extends AppController {
             }
 
             if ($this->Product->save($this->request->data)) {
-                $this->Session->setFlash('Product updated successfully', 'flash_success');
+                $this->Session->setFlash(__('Product updated successfully'), 'flash_success');
             } else {
-                $this->Session->setFlash('Failed to update product', 'flash_error');
+                $this->Session->setFlash(__('Failed to update product'), 'flash_error');
             }
         } else {
             $this->data = $this->Product->findByProductId($product_id);
-
-            if (empty($this->data)) {
-                $this->Session->setFlash('This Product Not Exists', 'flash_error');
-                return $this->redirect('index');
-            }
         }
+    }
+
+    public function productImageResize($file_name) {
+        $this->Image->prepare(WWW_ROOT . DS . PRODUCT_IMAGE_FOLDER . $file_name);
+        $this->Image->resize(555, 555); //width,height,Red,Green,Blue
+        $this->Image->save(WWW_ROOT . DS . PRODUCT_IMAGE_RESIZE_FOLDER . $file_name);
     }
 
     //Front End Product Details View Page.
@@ -133,17 +137,11 @@ class ProductsController extends AppController {
         $this->set('title_for_layout', $product['Product']['product_name']);
     }
 
-    public function productImageResize($file_name) {
-        $this->Image->prepare(WWW_ROOT . DS . PRODUCT_IMAGE_FOLDER . $file_name);
-        $this->Image->resize(555, 555); //width,height,Red,Green,Blue
-        $this->Image->save(WWW_ROOT . DS . PRODUCT_IMAGE_RESIZE_FOLDER . $file_name);
-    }
-    
-    public function getProduct($product_id){
+    public function getProduct($product_id) {
         $product = $this->Product->find('first', array(
             'recursive' => 0,
             'conditions' => array(
-               'Product.product_id' => $product_id
+                'Product.product_id' => $product_id
             )
         ));
 

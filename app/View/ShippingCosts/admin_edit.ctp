@@ -1,6 +1,6 @@
 <?php
-$this->Html->addCrumb('Shipping Costs', array('controller' => 'shipping_costs', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb('Edit Shipping Cost');
+$this->Html->addCrumb(__('Shipping Costs'), array('controller' => 'shipping_costs', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(__('Edit Shipping Cost'));
 
 echo $this->Form->create('ShippingCost', array(
     "class" => "form-horizontal form-bordered admin_shipping_cost",
@@ -9,7 +9,7 @@ echo $this->Form->create('ShippingCost', array(
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-checkmark-circle"></i> <?php echo __('Edit Shipping Cost'); ?></h6>
+        <h6 class="panel-title"><i class="icon-coin"></i> <?php echo __('Edit Shipping Cost'); ?></h6>
         <a href="<?php echo SITE_BASE_URL ?>admin/shipping_costs" class="btn btn-primary pull-right"><?php echo __('Back'); ?></a>
     </div>
 
@@ -43,8 +43,8 @@ echo $this->Form->create('ShippingCost', array(
         </div>
 
         <div class="form-actions text-right">
-            <input type="submit" value="Edit Shipping Cost" class="btn btn-primary">
+            <input type="submit" value="<?php echo __("Edit Shipping Cost"); ?>" class="btn btn-primary">
         </div>
     </div>
 </div>
-<?php echo $this->form->end(); ?>
+<?php echo $this->Form->end(); ?>

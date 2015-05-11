@@ -1,7 +1,7 @@
-<?php $this->Html->addCrumb('Shipping Costs'); ?>
+<?php $this->Html->addCrumb(__('Shipping Costs')); ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-table2"></i> <?php echo __('Manage Shipping Costs'); ?></h6>
+        <h6 class="panel-title"><i class="icon-coin"></i> <?php echo __('Manage Shipping Costs'); ?></h6>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered">
@@ -27,7 +27,7 @@
                             <td><?php echo $shipping_cost['ShippingCost']['sh_cost_additional_weight_price'] ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/shipping_costs/edit/<?php echo $shipping_cost['ShippingCost']['sh_cost_id']; ?>" data-original-title="Edit">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/shipping_costs/edit/<?php echo $shipping_cost['ShippingCost']['sh_cost_id']; ?>" data-original-title="<?php echo __("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

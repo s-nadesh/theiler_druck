@@ -1,8 +1,8 @@
-<?php $this->Html->addCrumb('Products'); ?>
+<?php $this->Html->addCrumb(__('Products')); ?>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-file"></i> <?php echo __("Manage Products"); ?></h6>
+        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Manage Products"); ?></h6>
         <a href="<?php echo SITE_BASE_URL ?>admin/products/add" class="btn btn-primary pull-right"><?php echo __("Add Product"); ?></a>
     </div>
     <div class="datatable">
@@ -31,14 +31,11 @@
                             <td><?php echo $product['Product']['created']; ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/products/view/<?php echo $product['Product']['product_id']; ?>" data-original-title="View">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/products/view/<?php echo $product['Product']['product_id']; ?>" data-original-title="<?php echo __("View"); ?>">
                                         <i class="icon-zoom-in"></i>
                                     </a>
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/products/edit/<?php echo $product['Product']['product_id']; ?>" data-original-title="Edit">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/products/edit/<?php echo $product['Product']['product_id']; ?>" data-original-title="<?php echo __('Edit'); ?>">
                                         <i class="icon-pencil"></i>
-                                    </a>
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="#" data-original-title="Delete">
-                                        <i class="icon-remove"></i>
                                     </a>
                                 </div>
                             </td>

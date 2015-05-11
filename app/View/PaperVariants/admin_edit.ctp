@@ -1,6 +1,6 @@
 <?php
-$this->Html->addCrumb('Paper Variants', array('controller' => 'paper_variants', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb('Edit Paper Variant');
+$this->Html->addCrumb(__('Paper Variants'), array('controller' => 'paper_variants', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(__('Edit Paper Variant'));
 
 echo $this->Form->create('PaperVariant', array(
     "class" => "form-horizontal form-bordered admin_paper_variants",
@@ -9,7 +9,7 @@ echo $this->Form->create('PaperVariant', array(
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-checkmark-circle"></i> <?php echo __('Edit Paper Variant'); ?></h6>
+        <h6 class="panel-title"><i class="icon-file6"></i> <?php echo __('Edit Paper Variant'); ?></h6>
         <a href="<?php echo SITE_BASE_URL ?>admin/paper_variants" class="btn btn-primary pull-right"><?php echo __('Back'); ?></a>
     </div>
 
@@ -29,8 +29,8 @@ echo $this->Form->create('PaperVariant', array(
         </div>
 
         <div class="form-actions text-right">
-            <input type="submit" value="Edit Paper Variant" class="btn btn-primary">
+            <input type="submit" value="<?php echo __("Edit Paper Variant"); ?>" class="btn btn-primary">
         </div>
     </div>
 </div>
-<?php echo $this->form->end(); ?>
+<?php echo $this->Form->end(); ?>
