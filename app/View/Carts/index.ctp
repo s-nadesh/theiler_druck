@@ -52,11 +52,21 @@ $this->Html->addCrumb(__('Cart'));
 
                                                     <td class="product-name">
                                                         <?php
-                                                        echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['product_slug'])) . '<br>';
-                                                        echo __("No.of Pages") . ": " . $value['item_product_no_of_pages'] . '<br>';
-                                                        echo __("No.of Copies") . ": " . $value['item_product_no_of_copies'] . '<br>';
-                                                        echo __("Paper") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
+                                                        echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['product_slug']));
                                                         ?>
+                                                        <div class="hidden-xs hidden-sm hidden-md">
+                                                            <?php
+                                                            echo '<br>';
+                                                            echo __("No.of Pages") . ": " . $value['item_product_no_of_pages'] . '<br>';
+                                                            echo __("No.of Copies") . ": " . $value['item_product_no_of_copies'] . '<br>';
+                                                            echo __("Paper") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
+
+                                                            if ($shop['Additional']['good_for_print_on_paper'] > 0)
+                                                                echo __("Good For Print On Paper") . ": " . $shop['Additional']['good_for_print_on_paper'] . 'CHF' . '<br>';
+                                                            if ($shop['Additional']['express_within_4_days'] > 0)
+                                                                echo __("Express Within 4 Days") . ": " . $shop['Additional']['express_within_4_days'] . 'CHF' . '<br>';
+                                                            ?>
+                                                        </div> 
                                                     </td>
 
                                                     <td class="product-price">

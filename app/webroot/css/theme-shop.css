@@ -512,10 +512,10 @@ div.shop .summary .price {
 }
 
 div.shop .quantity {
-	margin: 0 15px 25px 0;
+	margin: 0 14px 25px 0;
 	overflow: hidden;
 	position: relative;
-	width: 141px;
+	width: 108px;
 	height: 35px;
 	float: left;
 }
@@ -557,7 +557,7 @@ div.shop .quantity .qty {
 	height: 34px;
 /*	padding: 0 39px;*/
 	text-align: center;
-	width: 79px;
+	width: 46px;
 	font-size: 1em;
 }
 
