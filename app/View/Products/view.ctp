@@ -44,7 +44,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id']));
                     ?>
                     <div class="form-group">
-                        <label for="inputDefault" class="col-md-3 control-label"><?php echo __('No of pages') ?></label>
+                        <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('No of pages') ?></label>
                         <div class="col-md-9">
                             <select name="data[Cart][no_of_pages]" class="form-control" id="no-of-pages" onchange="getProductPrice()">
                                 <?php foreach ($no_of_pages_array as $page_value) { ?>
@@ -55,7 +55,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     </div>
 
                     <div class="form-group">
-                        <label for="inputDefault" class="col-md-3 control-label"><?php echo __('No of copies') ?></label>
+                        <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('No of copies') ?></label>
                         <div class="col-md-9">
                             <select name="data[Cart][no_of_copies]" class="form-control" id="no-of-copies" onchange="getProductPrice()">
                                 <?php foreach ($no_of_copies_array as $copies_value) { ?>
@@ -66,7 +66,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     </div>
 
                     <div class="form-group">
-                        <label for="inputDefault" class="col-md-3 control-label"><?php echo __('Papers') ?></label>
+                        <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('Papers') ?></label>
                         <div class="col-md-9">
                             <select name="data[Cart][paper_id]" class="form-control">
                                 <?php foreach ($paper_array as $paper_key => $paper_value) { ?>
@@ -77,7 +77,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     </div>
 
                     <div class="form-group">
-                        <label for="inputDefault" class="col-md-3 control-label"><?php echo __('Zip code') ?></label>
+                        <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('Zip code') ?></label>
                         <div class="col-md-9">
                             <select name="data[Cart][sh_cost_id]" class="form-control">
                                 <?php foreach ($zip_code_list as $zip_key => $zip_value) { ?>
@@ -88,7 +88,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     </div>
 
                     <div class="form-group">
-                        <label for="inputDefault" class="col-md-5 control-label"><?php echo __("Good for print on paper"); ?></label>
+                        <label for="inputDefault" class="col-md-5 control-label"><?php echo MyClass::translate("Good for print on paper"); ?></label>
                         <div class="col-md-7">
                             <input type="radio" name="data[Cart][good_for_print_on_paper]" value="0" checked="checked" onclick="getProductPrice()"> With Out
                             <input type="radio" name="data[Cart][good_for_print_on_paper]" value="<?php echo GOOD_FOR_PRINT_ON_PAPER ?>" onclick="getProductPrice()"> With
@@ -96,7 +96,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     </div>
 
                     <div class="form-group">
-                        <label for="inputDefault" class="col-md-5 control-label"><?php echo __("Express within 4 days"); ?></label>
+                        <label for="inputDefault" class="col-md-5 control-label"><?php echo MyClass::translate("Express within 4 days"); ?></label>
                         <div class="col-md-7">
                             <input type="radio" name="data[Cart][express_within_4_days]" value="0" checked="checked" onclick="getProductPrice()"> With Out
                             <input type="radio" name="data[Cart][express_within_4_days]" value="<?php echo EXPRESS_WITHIN_4_DAYS ?>" onclick="getProductPrice()"> With
@@ -109,7 +109,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                             <div class="quantity">
                                 <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => "1", "min" => "1", "step" => "1", 'label' => false, 'onchange' => 'getProductPrice()')); ?>
                             </div>
-                            <?php echo $this->Form->submit(__("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>
+                            <?php echo $this->Form->submit(MyClass::translate("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
                             <span class="price" style="font-size: 24px">
@@ -126,8 +126,8 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
             <div class="col-md-12">
                 <div class="tabs tabs-product">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#productInfo" data-toggle="tab"><?php echo __('Aditional Information'); ?></a></li>
-                        <li><a href="#productReviews" data-toggle="tab"><?php echo __('Reviews'); ?>(2)</a></li>
+                        <li class="active"><a href="#productInfo" data-toggle="tab"><?php echo MyClass::translate('Aditional Information'); ?></a></li>
+                        <li><a href="#productReviews" data-toggle="tab"><?php echo MyClass::translate('Reviews'); ?>(2)</a></li>
                     </ul>
                     <div class="tab-content">
 
@@ -135,17 +135,17 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                             <table class="table table-striped push-top">
                                 <tbody>
                                     <tr>
-                                        <th><?php echo __('No of pages') ?></th>
+                                        <th><?php echo MyClass::translate('No of pages') ?></th>
                                         <td><?php echo $no_of_pages; ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th><?php echo __('No of copies') ?></th>
+                                        <th><?php echo MyClass::translate('No of copies') ?></th>
                                         <td><?php echo $no_of_copies; ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th><?php echo __('Papers') ?></th>
+                                        <th><?php echo MyClass::translate('Papers') ?></th>
                                         <td><?php echo $papers; ?></td>
                                     </tr>
                                 </tbody>

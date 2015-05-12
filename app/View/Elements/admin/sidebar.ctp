@@ -2,7 +2,7 @@
     <div class="sidebar-content">
 
         <!-- User dropdown -->
-        <?php $pro_img = $this->requestAction('Admins/get_profile_pic/');?>
+        <?php $pro_img = $this->requestAction('admins/get_profile_pic/');?>
         <div class="user-menu dropdown">
             <a href="<?php echo SITE_BASE_URL?>admin" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="<?php echo SITE_BASE_URL.PROFILE_IMAGE_RESIZE_FOLDER.$pro_img['Admin']['admin_profile_image']?>">
@@ -30,22 +30,22 @@
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin">
-                    <span><?php echo __("Dashboard"); ?></span> <i class="icon-dashboard"></i>
+                    <span><?php echo MyClass::translate("Dashboard"); ?></span> <i class="icon-dashboard"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[1] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/paper_variants">
-                    <span><?php echo __("Paper Variants"); ?></span><i class="icon-file6"></i>
+                    <span><?php echo MyClass::translate("Paper Variants"); ?></span><i class="icon-file6"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[2] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/products">
-                    <span><?php echo __("Products"); ?></span><i class="icon-paragraph-justify2"></i>
+                    <span><?php echo MyClass::translate("Products"); ?></span><i class="icon-paragraph-justify2"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[3] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/shipping_costs">
-                    <span><?php echo __("Shipping Costs"); ?></span><i class="icon-coin"></i>
+                    <span><?php echo MyClass::translate("Shipping Costs"); ?></span><i class="icon-coin"></i>
                 </a>
             </li>
         </ul>

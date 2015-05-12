@@ -1,17 +1,17 @@
-<?php $this->Html->addCrumb(__('Shipping Costs')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Shipping Costs')); ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-coin"></i> <?php echo __('Manage Shipping Costs'); ?></h6>
+        <h6 class="panel-title"><i class="icon-coin"></i> <?php echo MyClass::translate('Manage Shipping Costs'); ?></h6>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th><?php echo __('Taget ZIP'); ?></th>
-                    <th><?php echo __('Basic Price'); ?></th>
-                    <th><?php echo __('Additional Price'); ?></th>
-                    <th><?php echo __('Action'); ?></th>
+                    <th><?php echo MyClass::translate('Taget ZIP'); ?></th>
+                    <th><?php echo MyClass::translate('Basic Price'); ?></th>
+                    <th><?php echo MyClass::translate('Additional Price'); ?></th>
+                    <th><?php echo MyClass::translate('Action'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +27,7 @@
                             <td><?php echo $shipping_cost['ShippingCost']['sh_cost_additional_weight_price'] ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/shipping_costs/edit/<?php echo $shipping_cost['ShippingCost']['sh_cost_id']; ?>" data-original-title="<?php echo __("Edit"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/shipping_costs/edit/<?php echo $shipping_cost['ShippingCost']['sh_cost_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

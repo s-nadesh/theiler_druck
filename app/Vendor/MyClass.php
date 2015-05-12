@@ -62,7 +62,7 @@ class MyClass {
             '10000' => '10000',
             '-1' => 'Additional 1000',
         );
-        
+
         return $default_copies;
     }
 
@@ -147,6 +147,22 @@ class MyClass {
         }
 
         return $shipping_price;
+    }
+
+    public static function translate($text) {
+        App::import('Model', 'Language');
+        $language = new Language();
+        $result = $language->find('first', array(
+            'conditions' => array(
+                'Language.english' => $text
+            )
+        ));
+
+        if (!empty($result) && $result['Language']['german'] != '') {
+            return $result['Language']['german'];
+        } else {
+            return $text;
+        }
     }
 
 }

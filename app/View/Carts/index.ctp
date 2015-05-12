@@ -1,6 +1,6 @@
 <?php
 echo $this->Html->css(array('theme-shop', 'theme-blog'), array('inline' => false));
-$this->Html->addCrumb(__('Cart'));
+$this->Html->addCrumb(MyClass::translate('Cart'));
 ?>
 
 <div role="main" class="main shop">
@@ -21,10 +21,10 @@ $this->Html->addCrumb(__('Cart'));
                                             <tr>
                                                 <th class="product-remove"> &nbsp; </th>
                                                 <th class="product-thumbnail"> &nbsp; </th>
-                                                <th class="product-name"> <?php echo __("Product"); ?> </th>
-                                                <th class="product-price"> <?php echo __("Price"); ?> </th>
-                                                <th class="product-quantity"> <?php echo __("Quantity"); ?> </th>
-                                                <th class="product-subtotal"> <?php echo __("Total"); ?> </th>
+                                                <th class="product-name"> <?php echo MyClass::translate("Product"); ?> </th>
+                                                <th class="product-price"> <?php echo MyClass::translate("Price"); ?> </th>
+                                                <th class="product-quantity"> <?php echo MyClass::translate("Quantity"); ?> </th>
+                                                <th class="product-subtotal"> <?php echo MyClass::translate("Total"); ?> </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -57,14 +57,14 @@ $this->Html->addCrumb(__('Cart'));
                                                         <div class="hidden-xs hidden-sm hidden-md">
                                                             <?php
                                                             echo '<br>';
-                                                            echo __("No.of Pages") . ": " . $value['item_product_no_of_pages'] . '<br>';
-                                                            echo __("No.of Copies") . ": " . $value['item_product_no_of_copies'] . '<br>';
-                                                            echo __("Paper") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
+                                                            echo MyClass::translate("No.of Pages") . ": " . $value['item_product_no_of_pages'] . '<br>';
+                                                            echo MyClass::translate("No.of Copies") . ": " . $value['item_product_no_of_copies'] . '<br>';
+                                                            echo MyClass::translate("Paper") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
 
                                                             if ($shop['Additional']['good_for_print_on_paper'] > 0)
-                                                                echo __("Good For Print On Paper") . ": " . $shop['Additional']['good_for_print_on_paper'] . 'CHF' . '<br>';
+                                                                echo MyClass::translate("Good For Print On Paper") . ": " . $shop['Additional']['good_for_print_on_paper'] . 'CHF' . '<br>';
                                                             if ($shop['Additional']['express_within_4_days'] > 0)
-                                                                echo __("Express Within 4 Days") . ": " . $shop['Additional']['express_within_4_days'] . 'CHF' . '<br>';
+                                                                echo MyClass::translate("Express Within 4 Days") . ": " . $shop['Additional']['express_within_4_days'] . 'CHF' . '<br>';
                                                             ?>
                                                         </div> 
                                                     </td>
@@ -187,7 +187,7 @@ $this->Html->addCrumb(__('Cart'));
                         <div class="col-md-12">
                             <div class="featured-box featured-box-secundary featured-box-cart">
                                 <div class="box-content">
-                                    <?php echo __("Your cart is currently empty"); ?>
+                                    <?php echo MyClass::translate("Your cart is currently empty"); ?>
                                 </div>
                             </div>
                         </div>

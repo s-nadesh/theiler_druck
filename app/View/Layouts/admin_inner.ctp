@@ -47,7 +47,7 @@
                         'lastClass' => 'active',
                         'class' => 'breadcrumb'
                             ), array(
-                        'text' => __('Home'),
+                        'text' => MyClass::translate('Home'),
                         'url' => array('controller' => 'admins', 'action' => 'index', 'admin' => true),
                             )
                     );

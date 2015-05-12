@@ -1,12 +1,12 @@
 <?php
-$this->Html->addCrumb(__('Products'), array('controller' => 'products', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb(__('Edit Product'));
+$this->Html->addCrumb(MyClass::translate('Products'), array('controller' => 'products', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(MyClass::translate('Edit Product'));
 ?>
 
 <div class="tabbable page-tabs">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#product" data-toggle="tab"><i class="icon-paragraph-justify2"></i> <?php echo __('Product'); ?> </a></li>
-        <li><a href="#product-price" data-toggle="tab"><i class="icon-coin"></i> <?php echo __('Product Price Calculation'); ?> </a></li>
+        <li class="active"><a href="#product" data-toggle="tab"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate('Product'); ?> </a></li>
+        <li><a href="#product-price" data-toggle="tab"><i class="icon-coin"></i> <?php echo MyClass::translate('Product Price Calculation'); ?> </a></li>
     </ul>
 
     <div class="tab-content">
@@ -22,20 +22,20 @@ $this->Html->addCrumb(__('Edit Product'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __('Edit Product'); ?></h6>
-                    <a href="<?php echo SITE_BASE_URL ?>admin/products" class="btn btn-primary pull-right"><?php echo __('Back'); ?></a>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate('Edit Product'); ?></h6>
+                    <a href="<?php echo SITE_BASE_URL ?>admin/products" class="btn btn-primary pull-right"><?php echo MyClass::translate('Back'); ?></a>
                 </div>
 
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"><?php echo __('Product Name'); ?>: <span class="mandatory">*</span></label>
+                        <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product Name'); ?>: <span class="mandatory">*</span></label>
                         <div class="col-sm-10">
                             <?php echo $this->Form->input('product_name', array('class' => 'required form-control', 'label' => false)); ?>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"><?php echo __('Product Description'); ?>: <span class="mandatory">*</span></label>
+                        <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product Description'); ?>: <span class="mandatory">*</span></label>
                         <div class="col-sm-10">
                             <?php
                             echo $this->Form->input('product_description', array('type' => 'textarea', 'class' => 'required form-control', 'label' => false));
@@ -44,7 +44,7 @@ $this->Html->addCrumb(__('Edit Product'));
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"><?php echo __('Product SKU'); ?>: <span class="mandatory">*</span></label>
+                        <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product SKU'); ?>: <span class="mandatory">*</span></label>
                         <div class="col-sm-10">
                             <?php
                             echo $this->Form->input('product_sku', array('class' => 'required form-control', 'label' => false));
@@ -53,7 +53,7 @@ $this->Html->addCrumb(__('Edit Product'));
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"><?php echo __('Product Factor'); ?>: <span class="mandatory">*</span></label>
+                        <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product Factor'); ?>: <span class="mandatory">*</span></label>
                         <div class="col-sm-10">
                             <?php
                             echo $this->Form->input('product_factor', array('type' => 'text', 'class' => 'required form-control', 'label' => false));
@@ -62,7 +62,7 @@ $this->Html->addCrumb(__('Edit Product'));
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"><?php echo __('Product No.Of Pages'); ?>: <span class="mandatory">*</span></label>
+                        <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product No.Of Pages'); ?>: <span class="mandatory">*</span></label>
                         <div class="col-sm-10">
                             <?php
                             $no_of_pages_json = $this->data['Product']['product_no_of_pages'];
@@ -74,7 +74,7 @@ $this->Html->addCrumb(__('Edit Product'));
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"><?php echo __('Product No.Of Copies'); ?>: <span class="mandatory">*</span></label>
+                        <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product No.Of Copies'); ?>: <span class="mandatory">*</span></label>
                         <div class="col-sm-10">
                             <?php
                             $no_of_copies_json = $this->data['Product']['product_no_of_copies'];
@@ -86,7 +86,7 @@ $this->Html->addCrumb(__('Edit Product'));
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"><?php echo __('Product Image'); ?>:</label>
+                        <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product Image'); ?>:</label>
                         <div class="col-sm-10">
                             <?php
                             echo $this->Form->hidden('product_old_image', array('value' => $this->data['Product']['product_image']));
@@ -101,7 +101,7 @@ $this->Html->addCrumb(__('Edit Product'));
                     </div>
 
                     <div class="form-actions text-right">
-                        <input type="submit" value="<?php echo __("Edit Product"); ?>" class="btn btn-primary">
+                        <input type="submit" value="<?php echo MyClass::translate("Edit Product"); ?>" class="btn btn-primary">
                     </div>
                 </div>
             </div>
@@ -125,14 +125,14 @@ $this->Html->addCrumb(__('Edit Product'));
                 <div class="col-sm-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h6 class="panel-title"><i class="icon-coin"></i> <?php echo __('Price Calculation'); ?></h6>
-                            <input type="submit" value="<?php echo __("Update Price Calculation"); ?>" class="btn btn-danger pull-right">
+                            <h6 class="panel-title"><i class="icon-coin"></i> <?php echo MyClass::translate('Price Calculation'); ?></h6>
+                            <input type="submit" value="<?php echo MyClass::translate("Update Price Calculation"); ?>" class="btn btn-danger pull-right">
                         </div>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th><?php echo __("Pages"); ?></th>
+                                        <th><?php echo MyClass::translate("Pages"); ?></th>
                                         <?php foreach ($default_copies as $default_copy) { ?>
                                             <th><?php echo $default_copy ?></th>
                                         <?php } ?>

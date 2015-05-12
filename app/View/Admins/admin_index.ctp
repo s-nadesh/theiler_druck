@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(__('Dashboard')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Dashboard')); ?>
 
 <!-- Info blocks -->
 <ul class="info-blocks">

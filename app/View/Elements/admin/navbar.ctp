@@ -14,7 +14,7 @@
         </button>
     </div>
     
-     <?php $pro_img = $this->requestAction('Admins/get_profile_pic/');?>
+     <?php $pro_img = $this->requestAction('admins/get_profile_pic/');?>
     <ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
         <li class="user dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">
@@ -23,9 +23,9 @@
                 <i class="caret"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-right icons-right">
-                <li><a href="<?php echo SITE_BASE_URL?>admin/profile"><i class="icon-user"></i> <?php echo __("Profile"); ?></a></li>
-                <li><a href="<?php echo SITE_BASE_URL?>admin/change_password"><i class="icon-key"></i> <?php echo __("Change Password"); ?></a></li>
-                <li><a href="<?php echo SITE_BASE_URL?>admin/logout"><i class="icon-exit"></i> <?php echo __("Logout"); ?> </a></li>
+                <li><a href="<?php echo SITE_BASE_URL?>admin/profile"><i class="icon-user"></i> <?php echo MyClass::translate("Profile"); ?></a></li>
+                <li><a href="<?php echo SITE_BASE_URL?>admin/change_password"><i class="icon-key"></i> <?php echo MyClass::translate("Change Password"); ?></a></li>
+                <li><a href="<?php echo SITE_BASE_URL?>admin/logout"><i class="icon-exit"></i> <?php echo MyClass::translate("Logout"); ?> </a></li>
             </ul>
         </li>
     </ul>

@@ -1,5 +1,5 @@
 <?php
-$this->Html->addCrumb(__('Profile'));
+$this->Html->addCrumb(MyClass::translate('Profile'));
 
 echo $this->Form->create('Admin', array(
     "class" => "form-horizontal form-bordered admin_profile",
@@ -9,26 +9,26 @@ echo $this->Form->create('Admin', array(
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-user"></i> <?php echo __('Admin Profile'); ?></h6>
+        <h6 class="panel-title"><i class="icon-user"></i> <?php echo MyClass::translate('Admin Profile'); ?></h6>
     </div>
 
     <div class="panel-body">
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('Name'); ?> <span class="mandatory">*</span></label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('Name'); ?> <span class="mandatory">*</span></label>
             <div class="col-sm-10">
                 <?php echo $this->Form->input('admin_name', array('class' => 'required form-control', 'label' => false)); ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('Email'); ?> <span class="mandatory">*</span></label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('Email'); ?> <span class="mandatory">*</span></label>
             <div class="col-sm-10">
                 <?php echo $this->Form->input('admin_email', array('class' => 'required form-control', 'label' => false)); ?>
             </div>
         </div>
         
         <div class="form-group">
-                        <label class="col-sm-2 control-label"><?php echo __('Profile Image'); ?>:</label>
+                        <label class="col-sm-2 control-label"><?php echo MyClass::translate('Profile Image'); ?>:</label>
                         <div class="col-sm-10">
                             <?php
                             echo $this->Form->hidden('profile_old_image', array('value' => $this->data['Admin']['admin_profile_image']));
@@ -43,7 +43,7 @@ echo $this->Form->create('Admin', array(
                     </div>
 
         <div class="form-actions text-right">
-            <input type="submit" value="<?php echo __("Update Profile"); ?>" class="btn btn-primary">
+            <input type="submit" value="<?php echo MyClass::translate("Update Profile"); ?>" class="btn btn-primary">
         </div>
     </div>
 </div>
