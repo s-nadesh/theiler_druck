@@ -18,11 +18,16 @@
         </div>
     </div>
     <div class="container">
-        <h1 class="logo">
-            <a href="<?php echo SITE_BASE_URL; ?>">
-                <?php echo $this->Html->image("theilerdrucklogo.png", array("alt"=>SITE_NAME ,"width"=>"380", "height"=>"70", "data-sticky-width"=>"300", "data-sticky-height"=>"55")); ?>
-            </a>
-        </h1>
+        <div class="col-xs-12 col-sm-6 col-md-5">  
+            <h1 class="logo">
+                <a href="<?php echo SITE_BASE_URL; ?>">
+                    <?php echo $this->Html->image("theilerdrucklogo.png", array("alt" => SITE_NAME, "width" => "380", "height" => "70", "data-sticky-width" => "300", "data-sticky-height" => "55")); ?>
+                </a>
+            </h1> 
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 cp-logo"> 
+            <?php echo $this->Html->image("cp-logo.jpg"); ?>
+        </div>
         <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
             <i class="icon icon-bars"></i>
         </button>
@@ -32,7 +37,7 @@
             <nav class="nav-main mega-menu">
                 <ul class="nav nav-pills nav-main" id="mainMenu">
                     <li class="dropdown active">
-                        <a class="dropdown-toggle" href="<?php echo SITE_BASE_URL?>"> Start </a>
+                        <a class="dropdown-toggle" href="<?php echo SITE_BASE_URL ?>"> Start </a>
                     </li>
                     <li class="dropdown active">
                         <a class="dropdown-toggle" href="#"> Kontakt </a>
@@ -44,7 +49,7 @@
                         <a class="dropdown-toggle" href="#">  Verlag </a>
                     </li>
                     <li class="dropdown mega-menu-item mega-menu-shop">
-                        <a href="<?php echo SITE_BASE_URL?>carts" class="dropdown-toggle mobile-redirect">
+                        <a href="<?php echo SITE_BASE_URL ?>carts" class="dropdown-toggle mobile-redirect">
                             <i class="icon icon-shopping-cart"></i> 
                         </a>
                     </li>

@@ -2,11 +2,11 @@
 
 .icons-cont
 {
-	width:100%;
-	float:left;
-	text-align:center;
-	margin-top:45px;
-	font-weight:600;
+    width:100%;
+    float:left;
+    text-align:center;
+    margin-top:45px;
+    font-weight:600;
 }
 
 .col-xs-15,
@@ -24,7 +24,7 @@
     float: left;
 }
 @media (min-width: 768px) {
-.col-sm-15 {
+    .col-sm-15 {
         width: 20%;
         float: left;
     }
@@ -45,139 +45,159 @@
 
 .products-type-cont
 {
-	width:100%;
-	float:left;
-	margin-top:25px;
-	font-size:17px;
+    width:100%;
+    float:left;
+    margin-top:25px;
+    font-size:17px;
 }
 
 .deatils-btn
 {
-	font-size:14px;
+    font-size:14px;
 }
 
 .deatils-btn a
 {
-	color:#2e2e2e;
+    color:#2e2e2e;
 }
 
 .deatils-btn a:hover
 {
-	text-decoration:none;
-	color:#9f9e9c;
+    text-decoration:none;
+    color:#9f9e9c;
 }
 
 
 .content-box
 {
-	width:100%;
-	float:left;
-	padding:10px;
-	background:#f1f1f1;
-	margin-top:25px;
-	min-height:245px;
+    width:100%;
+    float:left;
+    padding:10px;
+    background:#f1f1f1;
+    margin-top:25px;
+    min-height:245px;
 }
 
 .content-box-icon-cont
 {
-	width:100%;
-	float:left;
-	margin-top:-30px;
+    width:100%;
+    float:left;
+    margin-top:-30px;
 }
 
 .icons2
 {
-	width:50px;
-	height:50px;
-	background:#333333;
-	-webkit-border-radius: 50%;
--moz-border-radius: 50%;
-border-radius: 50%;
-text-align:center;
-line-height:50px;
-margin:0px auto;
-color:#ffffff;
-font-size:25px;
+    width:50px;
+    height:50px;
+    background:#333333;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    text-align:center;
+    line-height:50px;
+    margin:0px auto;
+    color:#ffffff;
+    font-size:25px;
 }
 
 .content-box-icon-cont h2
 {
-	font-size:20px;
-	margin:0px;
+    font-size:20px;
+    margin:0px;
 }
 
 .newfooter2
 {
-	width:100%;
-	float:left;
-	padding:40px 0px 0px 0px;
+    width:100%;
+    float:left;
+    padding:40px 0px 0px 0px;
 }
 
 footer {
-  background: none repeat scroll 0 0 #ffffff;
-  border-top: 5px solid #e9eaee;
-  clear: both;
-  font-size: 0.9em;
-  margin-top: 50px;
-  padding: 0px 0 0;
-  position: relative;
+    background: none repeat scroll 0 0 #ffffff;
+    border-top: 5px solid #e9eaee;
+    clear: both;
+    font-size: 0.9em;
+    margin-top: 50px;
+    padding: 0px 0 0;
+    position: relative;
 }
 
 div.footer-copyright {
-  background: none repeat scroll 0 0 #0c0c0c;
-  border-top: 4px solid #111;
-  margin-top: 40px;
-  padding: 30px 0 10px;
-  float: left;
-  width: 100%;
+    background: none repeat scroll 0 0 #0c0c0c;
+    border-top: 4px solid #111;
+    margin-top: 40px;
+    padding: 30px 0 10px;
+    float: left;
+    width: 100%;
 }
 
 ul.social-icons  
 {
-	text-align:center;
+    text-align:center;
 }
 
 ul.social-icons li {
-  background-color: #fff;
-  background-image: url("../img/social-sprites.png");
-  background-position: 0 100px;
-  background-repeat: no-repeat;
-  border-radius: 100%;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
-  display: inline-block;
-  margin: -1px 10px 5px 0;
-  overflow: visible;
-  padding: 0;
-  transition: all 0.3s ease 0s;
+    background-color: #fff;
+    background-image: url("../img/social-sprites.png");
+    background-position: 0 100px;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    margin: -1px 10px 5px 0;
+    overflow: visible;
+    padding: 0;
+    transition: all 0.3s ease 0s;
 }
 
 
 .footer-menu
 {
-	width:100%;
-	float:left;
+    width:100%;
+    float:left;
 }
 
 .footer-menu ul
 {
-	text-align:center;
-	list-style:none;
-	margin-top:50px;
+    text-align:center;
+    list-style:none;
+    margin-top:50px;
 }
 
 .footer-menu ul li
 {
-	display:inline;
-	font-size:16px;
-	padding:20px;
+    display:inline;
+    font-size:16px;
+    padding:20px;
 }
 
 .footer-menu ul li a
 {
-	color:#333333 !important;
+    color:#333333 !important;
 }
 
 .footer-copyright
 {
-	margin-top:0px;
+    margin-top:0px;
+}
+
+/*Aditional CSS at 2015-05-12 By Mariselvam*/
+.cp-logo
+{
+    margin-top:28px;
+}
+
+header h1.logo {
+    padding-top:15px !important;
+}
+
+.sticky-menu-active h1.logo
+{
+    padding-top:29px !important;
+}
+
+.sticky-menu-active .cp-logo
+{
+    padding-top:31px !important;
 }
