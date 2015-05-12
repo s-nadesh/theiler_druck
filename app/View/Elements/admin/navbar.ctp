@@ -13,11 +13,12 @@
             <i class="icon-paragraph-justify2"></i>
         </button>
     </div>
-
+    
+     <?php $pro_img = $this->requestAction('Admins/get_profile_pic/');?>
     <ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
         <li class="user dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">
-                <img src="http://placehold.it/300">
+                <img src="<?php echo SITE_BASE_URL.PROFILE_IMAGE_RESIZE_FOLDER.$pro_img['Admin']['admin_profile_image']?>">
                 <span><?php echo $this->Session->read('Admin.name'); ?></span>
                 <i class="caret"></i>
             </a>

@@ -2,9 +2,10 @@
     <div class="sidebar-content">
 
         <!-- User dropdown -->
+        <?php $pro_img = $this->requestAction('Admins/get_profile_pic/');?>
         <div class="user-menu dropdown">
             <a href="<?php echo SITE_BASE_URL?>admin" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="http://placehold.it/300">
+                <img src="<?php echo SITE_BASE_URL.PROFILE_IMAGE_RESIZE_FOLDER.$pro_img['Admin']['admin_profile_image']?>">
                 <div class="user-info">
                     <?php echo $this->Session->read('Admin.name'); ?>
                 </div>
