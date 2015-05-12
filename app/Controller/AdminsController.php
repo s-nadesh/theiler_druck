@@ -99,7 +99,7 @@ class AdminsController extends AppController {
     
     public function profileImageResize($file_name) {
         $this->Image->prepare(WWW_ROOT . DS . PROFILE_IMAGE_FOLDER . $file_name);
-        $this->Image->resize(555, 555); //width,height,Red,Green,Blue
+        $this->Image->resize(300, 300); //width,height,Red,Green,Blue
         $this->Image->save(WWW_ROOT . DS . PROFILE_IMAGE_RESIZE_FOLDER . $file_name);
     }
     //Admin Change Password
@@ -121,7 +121,11 @@ class AdminsController extends AppController {
             }
         }
     }
-
+    
+    function get_profile_pic()
+    {
+       return  $this->Admin->findByAdminId($this->Session->read('Admin.id'));
+    }
     //Admin Forgpt Password
     public function admin_forgot_password() {
         if ($this->request->is('post')) {
