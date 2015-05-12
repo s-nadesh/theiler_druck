@@ -3,6 +3,7 @@
 class AdminsController extends AppController {
 
     public $name = 'Admins';
+    public $components = array('Image');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -65,6 +66,26 @@ class AdminsController extends AppController {
     public function admin_profile() {
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['Admin']['admin_id'] = $this->Session->read('Admin.id');
+            if (!empty($this->request->data['Admin']['admin_profile_image']['name'])) {
+                 if(!empty($this->data['Admin']['profile_old_image'])){
+                //Remove Old Image in Folder
+                unlink(PROFILE_IMAGE_FOLDER . $this->request->data['Admin']['profile_old_image']);
+                unlink(PROFILE_IMAGE_RESIZE_FOLDER . $this->request->data['Admin']['profile_old_image']);
+                unset($this->request->data['Admin']['profile_old_image']);
+                 }
+
+                //Save New Image in Folder
+                $image_name = MyClass::getRandomString(5) . "_" . $this->data['Admin']['admin_profile_image']['name'];
+                $image_path = PROFILE_IMAGE_FOLDER . $image_name;
+                $image_temp_name = $this->data['Admin']['admin_profile_image']['tmp_name'];
+                move_uploaded_file($image_temp_name, $image_path);
+                $this->request->data['Admin']['admin_profile_image'] = $image_name;
+                $this->profileImageResize($image_name);
+            } else {
+                $this->request->data['Admin']['admin_profile_image'] = $this->request->data['Admin']['profile_old_image'];
+                unset($this->request->data['Admin']['profile_old_image']);
+            }
+            
             if ($this->Admin->save($this->request->data)) {
                 $this->Session->write('Admin.name', $this->request->data['Admin']['admin_name']);
                 $this->Session->write('Admin.email', $this->request->data['Admin']['admin_email']);
@@ -75,7 +96,12 @@ class AdminsController extends AppController {
         }
         $this->data = $this->Admin->findByAdminId($this->Session->read('Admin.id'));
     }
-
+    
+    public function profileImageResize($file_name) {
+        $this->Image->prepare(WWW_ROOT . DS . PROFILE_IMAGE_FOLDER . $file_name);
+        $this->Image->resize(555, 555); //width,height,Red,Green,Blue
+        $this->Image->save(WWW_ROOT . DS . PROFILE_IMAGE_RESIZE_FOLDER . $file_name);
+    }
     //Admin Change Password
     public function admin_change_password() {
         if ($this->request->is('post')) {

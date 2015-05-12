@@ -54,6 +54,8 @@ error_reporting(E_ALL & ~E_STRICT);
 define('ERR_LOG', 'error.log');
 define('PRODUCT_IMAGE_FOLDER', 'files/products/');
 define('PRODUCT_IMAGE_RESIZE_FOLDER', 'files/products/resize/');
+define('PROFILE_IMAGE_FOLDER', 'files/profile/');
+define('PROFILE_IMAGE_RESIZE_FOLDER', 'files/profile/resize/');
 
 define('GOOD_FOR_PRINT_ON_PAPER', 6);
 define('EXPRESS_WITHIN_4_DAYS', 450);
