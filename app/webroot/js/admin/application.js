@@ -229,7 +229,7 @@ $(function() {
 
 	//===== Default select =====//
 
-	$(".select").select2({
+	$(".select2").select2({
 		minimumResultsForSearch: "-1",
 		width: 200
 	});
@@ -1125,6 +1125,6 @@ $(function() {
 		e.preventDefault();
 		$(this).toggleClass('active');
 	});
-
-
+        
+        
 });

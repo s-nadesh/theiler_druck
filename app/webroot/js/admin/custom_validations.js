@@ -186,5 +186,17 @@ $(document).ready(function() {
             label.text('Success!').addClass('valid');
         }
     });
+    
+    //Admin Static Pages
+    $(".admin_static_page_form").validate({
+        rules: {
+            'data[StaticPage][page_title]': 'required',
+            'data[StaticPage][page_lang]': 'required',
+            'data[StaticPage][page_content]': 'required',
+        },
+        success: function(label) {
+            label.text('Success!').addClass('valid');
+        }
+    });
 
 });
