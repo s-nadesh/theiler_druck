@@ -25,9 +25,9 @@
                 </a>
             </h1> 
         </div>
-        <div class="col-xs-12 col-sm-2 col-md-2 cp-logo"> 
-            <?php echo $this->Html->image("cp-logo.jpg"); ?>
-        </div>
+<!--        <div class="col-xs-12 col-sm-2 col-md-2 cp-logo"> 
+            <?php // echo $this->Html->image("cp-logo.jpg"); ?>
+        </div>-->
         <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
             <i class="icon icon-bars"></i>
         </button>
