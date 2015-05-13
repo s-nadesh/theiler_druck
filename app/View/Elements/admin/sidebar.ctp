@@ -2,10 +2,10 @@
     <div class="sidebar-content">
 
         <!-- User dropdown -->
-        <?php $pro_img = $this->requestAction('admins/get_profile_pic/');?>
+        <?php $pro_img = $this->requestAction('admins/get_profile_pic/'); ?>
         <div class="user-menu dropdown">
-            <a href="<?php echo SITE_BASE_URL?>admin" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="<?php echo SITE_BASE_URL.PROFILE_IMAGE_RESIZE_FOLDER.$pro_img['Admin']['admin_profile_image']?>">
+            <a href="<?php echo SITE_BASE_URL ?>admin" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="<?php echo SITE_BASE_URL . PROFILE_IMAGE_RESIZE_FOLDER . $pro_img['Admin']['admin_profile_image'] ?>">
                 <div class="user-info">
                     <?php echo $this->Session->read('Admin.name'); ?>
                 </div>
@@ -28,6 +28,8 @@
             $marray[4] = 'active';
         elseif (@$admin_menu == 'static_pages')
             $marray[5] = 'active';
+        elseif (@$admin_menu == 'languages')
+            $marray[6] = 'active';
         ?>
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
@@ -50,9 +52,14 @@
                     <span><?php echo MyClass::translate("Shipping Costs"); ?></span><i class="icon-coin"></i>
                 </a>
             </li>
-            <li class="<?php echo $marray[5] ?>">
+<!--            <li class="<?php echo $marray[5] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/static_pages">
                     <span><?php echo __("Static Pages"); ?></span><i class="icon-file"></i>
+                </a>
+            </li>-->
+            <li class="<?php echo $marray[6] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/languages">
+                    <span><?php echo MyClass::translate("Languages"); ?></span><i class="icon-file"></i>
                 </a>
             </li>
         </ul>
