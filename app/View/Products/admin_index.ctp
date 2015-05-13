@@ -34,7 +34,7 @@
                                     <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/products/view/<?php echo $product['Product']['product_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
                                         <i class="icon-zoom-in"></i>
                                     </a>
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/products/edit/<?php echo $product['Product']['product_id']; ?>" data-original-title="<?php echo MyClass::translate('Edit'); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/products/edit/<?php echo $product['Product']['product_id']; ?>" data-original-title="<?php echo MyClass::translate("Save"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

@@ -18,7 +18,7 @@ class PaperVariantsController extends AppController {
     //Admin Manage Paper Variants.
     public function admin_index() {
         $papers = $this->PaperVariant->find('all');
-        $this->set('title_for_layout', __('Paper Variants'));
+        $this->set('title_for_layout', 'Paper Variants');
         $this->set(compact('papers'));
     }
 
@@ -41,7 +41,7 @@ class PaperVariantsController extends AppController {
         } else {
             $this->data = $this->PaperVariant->findByPaperId($paper_id);
         }
-        $this->set('title_for_layout', __('Paper Variants'));
+        $this->set('title_for_layout', 'Paper Variants');
     }
 
     public function getPaperVariants() {

@@ -1,6 +1,6 @@
 <?php
 $this->Html->addCrumb(MyClass::translate('Paper Variants'), array('controller' => 'paper_variants', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb(MyClass::translate('Edit Paper Variant'));
+$this->Html->addCrumb(MyClass::translate('Save Paper Variant'));
 
 echo $this->Form->create('PaperVariant', array(
     "class" => "form-horizontal form-bordered admin_paper_variants",
@@ -9,7 +9,7 @@ echo $this->Form->create('PaperVariant', array(
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-file6"></i> <?php echo MyClass::translate('Edit Paper Variant'); ?></h6>
+        <h6 class="panel-title"><i class="icon-file6"></i> <?php echo MyClass::translate('Save Paper Variant'); ?></h6>
         <a href="<?php echo SITE_BASE_URL ?>admin/paper_variants" class="btn btn-primary pull-right"><?php echo MyClass::translate('Back'); ?></a>
     </div>
 
@@ -29,7 +29,7 @@ echo $this->Form->create('PaperVariant', array(
         </div>
 
         <div class="form-actions text-right">
-            <input type="submit" value="<?php echo MyClass::translate("Edit Paper Variant"); ?>" class="btn btn-primary">
+            <input type="submit" value="<?php echo MyClass::translate("Save Paper Variant"); ?>" class="btn btn-primary">
         </div>
     </div>
 </div>

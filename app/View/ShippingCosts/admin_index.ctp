@@ -27,7 +27,7 @@
                             <td><?php echo $shipping_cost['ShippingCost']['sh_cost_additional_weight_price'] ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/shipping_costs/edit/<?php echo $shipping_cost['ShippingCost']['sh_cost_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/shipping_costs/edit/<?php echo $shipping_cost['ShippingCost']['sh_cost_id']; ?>" data-original-title="<?php echo MyClass::translate("Save"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

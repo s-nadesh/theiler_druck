@@ -59,7 +59,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                             echo '<br>';
                                                             echo MyClass::translate("No.of Pages") . ": " . $value['item_product_no_of_pages'] . '<br>';
                                                             echo MyClass::translate("No.of Copies") . ": " . $value['item_product_no_of_copies'] . '<br>';
-                                                            echo MyClass::translate("Paper") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
+                                                            echo MyClass::translate("Paper Weight") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
 
                                                             if ($shop['Additional']['good_for_print_on_paper'] > 0)
                                                                 echo MyClass::translate("Good For Print On Paper") . ": " . $shop['Additional']['good_for_print_on_paper'] . 'CHF' . '<br>';

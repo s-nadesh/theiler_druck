@@ -19,7 +19,7 @@ class ShippingCostsController extends AppController {
     public function admin_index() {
         $this->ShippingCost->getVirtualField('target_zip_code');
         $shipping_costs = $this->ShippingCost->find('all');
-        $this->set('title_for_layout', __('Shipping Costs'));
+        $this->set('title_for_layout', 'Shipping Costs');
         $this->set(compact('shipping_costs'));
     }
 
@@ -40,7 +40,7 @@ class ShippingCostsController extends AppController {
         } else {
             $this->data = $this->ShippingCost->findByShCostId($sh_cost_id);
         }
-        $this->set('title_for_layout', __('Shipping Costs'));
+        $this->set('title_for_layout', 'Shipping Costs');
     }
 
     public function getZipCodeList() {

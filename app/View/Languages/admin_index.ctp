@@ -26,7 +26,7 @@
                                 <input type="text" value="<?php echo $language['Language']['german']; ?>" id="<?php echo $language['Language']['language_id'] . '_german_word' ?>" class="form-control" name="german">
                             </td>
                             <td>
-                                <input class="btn btn-warning" type="submit" value="<?php echo MyClass::translate('Edit'); ?>" onclick="updateLanguage(<?php echo $language['Language']['language_id'] ?>)">
+                                <input class="btn btn-warning" type="submit" value="<?php echo MyClass::translate('Save'); ?>" onclick="updateLanguage(<?php echo $language['Language']['language_id'] ?>)">
                             </td>
                         </tr>
                     <?php } ?>

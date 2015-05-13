@@ -1,6 +1,6 @@
 <?php
 $this->Html->addCrumb(MyClass::translate('Shipping Costs'), array('controller' => 'shipping_costs', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb(MyClass::translate('Edit Shipping Cost'));
+$this->Html->addCrumb(MyClass::translate('Save Shipping Cost'));
 
 echo $this->Form->create('ShippingCost', array(
     "class" => "form-horizontal form-bordered admin_shipping_cost",
@@ -9,7 +9,7 @@ echo $this->Form->create('ShippingCost', array(
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-coin"></i> <?php echo MyClass::translate('Edit Shipping Cost'); ?></h6>
+        <h6 class="panel-title"><i class="icon-coin"></i> <?php echo MyClass::translate('Save Shipping Cost'); ?></h6>
         <a href="<?php echo SITE_BASE_URL ?>admin/shipping_costs" class="btn btn-primary pull-right"><?php echo MyClass::translate('Back'); ?></a>
     </div>
 
@@ -43,7 +43,7 @@ echo $this->Form->create('ShippingCost', array(
         </div>
 
         <div class="form-actions text-right">
-            <input type="submit" value="<?php echo MyClass::translate("Edit Shipping Cost"); ?>" class="btn btn-primary">
+            <input type="submit" value="<?php echo MyClass::translate("Save Shipping Cost"); ?>" class="btn btn-primary">
         </div>
     </div>
 </div>

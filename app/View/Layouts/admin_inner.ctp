@@ -58,7 +58,7 @@
                 <!-- Page header -->
                 <div class="page-header">
                     <div class="page-title">
-                        <h3><?php echo $title_for_layout; ?></h3>
+                        <h3><?php echo MyClass::translate($title_for_layout); ?></h3>
                     </div>
                 </div>
                 <!-- /page header -->

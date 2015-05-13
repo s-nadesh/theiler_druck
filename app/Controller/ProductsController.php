@@ -22,7 +22,7 @@ class ProductsController extends AppController {
             'order' => array('Product.created DESC'),
             'recursive' => 0
         ));
-        $this->set('title_for_layout', __('Products'));
+        $this->set('title_for_layout', 'Products');
         $this->set(compact('products'));
     }
 
@@ -35,7 +35,7 @@ class ProductsController extends AppController {
         $this->Product->recursive = 0;
         $product = $this->Product->findByProductId($product_id);
 
-        $this->set('title_for_layout', __('Products'));
+        $this->set('title_for_layout', 'Products');
         $this->set(compact('product'));
     }
 

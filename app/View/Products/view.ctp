@@ -66,7 +66,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     </div>
 
                     <div class="form-group">
-                        <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('Papers') ?></label>
+                        <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('Paper Weight') ?></label>
                         <div class="col-md-9">
                             <select name="data[Cart][paper_id]" class="form-control">
                                 <?php foreach ($paper_array as $paper_key => $paper_value) { ?>
@@ -145,7 +145,7 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th><?php echo MyClass::translate('Papers') ?></th>
+                                        <th><?php echo MyClass::translate('Paper Weight') ?></th>
                                         <td><?php echo $papers; ?></td>
                                     </tr>
                                 </tbody>

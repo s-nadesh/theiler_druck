@@ -1,6 +1,6 @@
 <?php
 $this->Html->addCrumb(MyClass::translate('Products'), array('controller' => 'products', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb(MyClass::translate('Edit Product'));
+$this->Html->addCrumb(MyClass::translate('Save Product'));
 ?>
 
 <div class="tabbable page-tabs">
@@ -22,7 +22,7 @@ $this->Html->addCrumb(MyClass::translate('Edit Product'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate('Edit Product'); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate('Save Product'); ?></h6>
                     <a href="<?php echo SITE_BASE_URL ?>admin/products" class="btn btn-primary pull-right"><?php echo MyClass::translate('Back'); ?></a>
                 </div>
 
@@ -101,7 +101,7 @@ $this->Html->addCrumb(MyClass::translate('Edit Product'));
                     </div>
 
                     <div class="form-actions text-right">
-                        <input type="submit" value="<?php echo MyClass::translate("Edit Product"); ?>" class="btn btn-primary">
+                        <input type="submit" value="<?php echo MyClass::translate("Save Product"); ?>" class="btn btn-primary">
                     </div>
                 </div>
             </div>

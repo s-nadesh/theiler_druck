@@ -59,7 +59,7 @@ class AdminsController extends AppController {
 
     //Admin Dashboard function
     public function admin_index() {
-        $this->set('title_for_layout', __('Dashboard'));
+        $this->set('title_for_layout', 'Dashboard');
     }
 
     //Admin Profile Update
