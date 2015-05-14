@@ -42,7 +42,6 @@ echo $this->Form->create('Admin', array(
                 </div>
             </div>
         </div>
-        <?php echo $this->Form->textarea('content',array('class'=>'ckeditor'))?>
 
         <div class="form-actions text-right">
             <input type="submit" value="<?php echo MyClass::translate("Update Profile"); ?>" class="btn btn-primary">
