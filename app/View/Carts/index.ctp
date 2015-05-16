@@ -103,7 +103,10 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                             <div class="col-md-12">
                                                 <label>Country</label>
                                                 <select class="form-control">
-                                                    <option value="">Switzerland</option>
+                                                    <?php $countries = MyClass::getCountries(); ?>
+                                                    <?php foreach($countries as $country) { ?>
+                                                    <option value="<?php echo $country ?>"><?php echo $country ?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -182,6 +185,16 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                     </div>
                     <?php echo $this->Form->end(); ?>
 
+                    <div class="row featured-boxes">
+                        <div class="col-md-12">
+                            <div class="actions-continue">
+                                <a href="<?php echo SITE_BASE_URL ?>checkouts" class="btn btn-lg btn-primary">
+                                    <?php echo __("Proceed to Checkout"); ?>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 <?php } else { ?>
                     <div class="row featured-boxes">
                         <div class="col-md-12">
@@ -193,6 +206,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                         </div>
                     </div>
                 <?php } ?>
+
             </div>
         </div>
     </div>

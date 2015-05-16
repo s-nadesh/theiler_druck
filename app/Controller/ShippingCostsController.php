@@ -51,5 +51,11 @@ class ShippingCostsController extends AppController {
 
         return $result;
     }
+    
+    public function getZipCode($sh_cost_id){
+        $this->ShippingCost->getVirtualField('target_zip_code');
+        $result = $this->ShippingCost->findByShCostId($sh_cost_id);
+        return $result;
+    }
 
 }

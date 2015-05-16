@@ -164,5 +164,25 @@ class MyClass {
             return $text;
         }
     }
+    
+    public static function getCountries(){
+        $country = array(
+            'Switzerland' => 'Switzerland'
+        );
+        
+        return $country;
+    } 
+    
+    public static function weightFormat($number){
+        $result = number_format($number, 2);
+        return $result . 'KG';
+    }
+    
+    public static function currencyFormat($number){
+        $result = number_format($number, 2);
+        return $result . 'CHF';
+    } 
+    
+    
 
 }
