@@ -18,6 +18,22 @@ class CheckoutsController extends AppController {
         }
     }
 
+    public function index() {
+        if ($this->Auth->loggedIn()) {
+            $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
+            $this->redirect("billing_address");
+        }
+
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
+                return $this->redirect($this->Auth->redirect());
+            } else {
+                $this->Session->setFlash(__('Login is incorrect'), 'flash_error');
+            }
+        }
+    }
+
     public function register() {
         if ($this->Auth->loggedIn()) {
             $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
@@ -35,27 +51,11 @@ class CheckoutsController extends AppController {
         }
     }
 
-    public function index() {
-        if ($this->Auth->loggedIn()) {
-            $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
-            $this->redirect("billing_address");
-        }
-
-        if ($this->request->is('post')) {
-            if ($this->Auth->login()) {
-                $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
-                return $this->redirect($this->Auth->redirect());
-            } else {
-                $this->Session->setFlash(__('Login is incorrect'), 'flash_error');
-            }
-        }
-    }
-
     public function billing_address() {
         if (!$this->Session->check('Shop.Order.user_id')) {
             $this->redirect("index");
         }
-        
+
         if ($this->request->is('post')) {
             $this->Session->write('Shop.Order.BillingAddress', $this->data['BillingAddress']);
             $this->redirect('shipping_address');
@@ -93,9 +93,9 @@ class CheckoutsController extends AppController {
         } elseif (!$this->Session->check('Shop.Order.ShippingAddress')) {
             $this->redirect("shipping_address");
         }
-        
-        if($this->request->is('post')){
-             $this->Session->write('Shop.Order.ModeOfShipment', 'Completed');
+
+        if ($this->request->is('post')) {
+            $this->Session->write('Shop.Order.ModeOfShipment', 'Completed');
         }
     }
 
