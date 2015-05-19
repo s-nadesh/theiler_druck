@@ -30,6 +30,8 @@
             $marray[5] = 'active';
         elseif (@$admin_menu == 'languages')
             $marray[6] = 'active';
+        elseif (@$admin_menu == 'pages')
+            $marray[7] = 'active';
         ?>
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
@@ -60,6 +62,11 @@
             <li class="<?php echo $marray[6] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/languages">
                     <span><?php echo MyClass::translate("Languages"); ?></span><i class="icon-file"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[7] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/pages">
+                    <span><?php echo __("Cms"); ?></span><i class="icon-book"></i>
                 </a>
             </li>
         </ul>
