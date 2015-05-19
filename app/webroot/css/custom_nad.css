@@ -1,0 +1,53 @@
+/* Add here all your CSS customizations */
+.chekout-step h4{
+    font-weight: 300;
+    font-size: 30px;
+    color: #000000;
+    margin: 14px 0;
+}
+
+.chekout-step p{
+    margin: 14px 0;
+}
+
+.chekout-step legend{
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.chekout-step legend span{
+    font-weight: 300;
+    font-size: 16px;
+    color: #ff0033;
+}
+
+.chekout-step label {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+div.featured-boxes div.featured-box {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+.checkout-login h4{
+    font-weight: 300 !important;
+    font-size: 28px !important;
+    color: #000000;
+}
+
+.checkout-login p.welcome{
+    font-weight: 300 !important;
+    font-size: 26px !important;
+}
+
+.checkout-login p{
+    font-weight: 300 !important;
+    font-size: 20px !important;
+}
+
+.checkout-login label {
+    font-weight: 300;
+    font-size: 18px;
+}

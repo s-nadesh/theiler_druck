@@ -55,17 +55,6 @@ class MyClass {
         return $result;
     }
 
-    public static function getDefaultCoipes() {
-        $default_copies = array(
-            '1000' => '1000',
-            '5000' => '5000',
-            '10000' => '10000',
-            '-1' => 'Additional 1000',
-        );
-
-        return $default_copies;
-    }
-
     public static function priceCalculationPerProduct($product_id, $no_of_pages, $no_of_copies, $qunatity = 1) {
         $model = ClassRegistry::init('ProductPrice');
 
@@ -148,7 +137,17 @@ class MyClass {
 
         return $shipping_price;
     }
-
+    
+    public static function weightFormat($number){
+        $result = number_format($number, 2);
+        return $result . 'KG';
+    }
+    
+    public static function currencyFormat($number){
+        $result = number_format($number, 2);
+        return $result . 'CHF';
+    } 
+    
     public static function translate($text) {
         App::import('Model', 'Language');
         $language = new Language();
@@ -165,24 +164,40 @@ class MyClass {
         }
     }
     
+    public static function getDefaultCoipes() {
+        $default_copies = array(
+            '1000' => '1000',
+            '5000' => '5000',
+            '10000' => '10000',
+            '-1' => 'Additional 1000',
+        );
+
+        return $default_copies;
+    }
+    
     public static function getCountries(){
         $country = array(
             'Switzerland' => 'Switzerland'
         );
         
         return $country;
-    } 
-    
-    public static function weightFormat($number){
-        $result = number_format($number, 2);
-        return $result . 'KG';
     }
     
-    public static function currencyFormat($number){
-        $result = number_format($number, 2);
-        return $result . 'CHF';
-    } 
+    public static function getUserTitles(){
+        $titles = array(
+            'Mr' => 'Mr',
+            'Ms' => 'Ms'
+        );
+        return $titles;
+    }
     
+    public static function getCompanyTypes(){
+        $types = array(
+            'Company' => 'Company',
+            'Individual' => 'Individual'
+        );
+        return $types;
+    }
     
 
 }

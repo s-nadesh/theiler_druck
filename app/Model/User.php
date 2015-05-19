@@ -10,6 +10,11 @@ class User extends AppModel {
             'message' => '"Email" already exist.'
         ),
     );
+    public $hasMany = array(
+        'UserAddress' => array(
+            'className' => 'UserAddress',
+        )
+    );
 
     public function beforeSave($options = array()) {
         if (isset($this->data[$this->name]['user_password'])) {

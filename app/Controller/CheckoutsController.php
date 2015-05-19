@@ -10,20 +10,27 @@ class CheckoutsController extends AppController {
         $this->Auth->loginRedirect = array('controller' => 'checkouts', 'action' => 'billing_address', 'admin' => false);
         $this->Auth->logoutRedirect = array('controller' => 'checkouts', 'action' => 'index', 'admin' => false);
 
-        $actions = array('register', 'index', 'billing_address', 'shipping_address', 'mode_of_shipment');
-        if (in_array($this->action, $actions)) {
-            if (!$this->Session->check('Shop')) {
-                $this->redirect(array('controller' => 'carts', 'action' => 'index', 'admin' => false));
+        if (!$this->Session->check('Shop')) {
+            $this->redirect(array('controller' => 'carts', 'action' => 'index', 'admin' => false));
+        }
+
+        $allow_action = array('index', 'register');
+        if (in_array($this->action, $allow_action)) {
+            if ($this->Auth->loggedIn()) {
+                $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
+                $this->redirect("billing_address");
+            }
+        }
+
+        $auth_actions = array('billing_address', 'shipping_address', 'mode_of_shipment');
+        if (in_array($this->action, $auth_actions)) {
+            if (!$this->Session->check('Shop.Order.user_id')) {
+                $this->redirect("index");
             }
         }
     }
 
     public function index() {
-        if ($this->Auth->loggedIn()) {
-            $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
-            $this->redirect("billing_address");
-        }
-
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
                 $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
@@ -35,15 +42,20 @@ class CheckoutsController extends AppController {
     }
 
     public function register() {
-        if ($this->Auth->loggedIn()) {
-            $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
-            $this->redirect("billing_address");
-        }
-
         if ($this->request->is('post')) {
             $this->loadModel('User');
+            $this->request->data['User']['user_name'] = $this->data['UserAddress']['address_firstname'] . ' ' . $this->data['UserAddress']['address_lastname'];
+
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__("Your registration completed successfully, Login to continue"), 'flash_success');
+                $user_id = $this->User->getLastInsertId();
+                $this->loadModel('UserAddress');
+                if ($this->request->data['UserAddress']['address_company_type'] == 'Individual') {
+                    $this->request->data['UserAddress']['address_company_name'] = '';
+                }
+                $this->request->data['UserAddress']['address_type'] = 0;
+                $this->request->data['UserAddress']['user_id'] = $user_id;
+                $this->UserAddress->save($this->request->data);
+                $this->Session->setFlash(__("Your registration completed successfully. Login to continue"), 'flash_success');
                 $this->redirect('index');
             } else {
                 $this->Session->setFlash(__("Registration failed"), 'flash_error');
@@ -52,10 +64,6 @@ class CheckoutsController extends AppController {
     }
 
     public function billing_address() {
-        if (!$this->Session->check('Shop.Order.user_id')) {
-            $this->redirect("index");
-        }
-
         if ($this->request->is('post')) {
             $this->Session->write('Shop.Order.BillingAddress', $this->data['BillingAddress']);
             $this->redirect('shipping_address');
@@ -63,9 +71,7 @@ class CheckoutsController extends AppController {
     }
 
     public function shipping_address() {
-        if (!$this->Session->check('Shop.Order.user_id')) {
-            $this->redirect("index");
-        } elseif (!$this->Session->check('Shop.Order.BillingAddress')) {
+        if (!$this->Session->check('Shop.Order.BillingAddress')) {
             $this->redirect("billing_address");
         }
 

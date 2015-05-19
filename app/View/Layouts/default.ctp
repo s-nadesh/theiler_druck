@@ -22,7 +22,7 @@
         
         echo $this->Html->css(array('/vendor/nivo-slider/nivo-slider', '/vendor/nivo-slider/themes/default/default', '/vendor/rs-plugin/css/settings', '/vendor/circle-flip-slideshow/css/component'), 'stylesheet', array('media' => 'screen'));
         
-        echo $this->Html->css(array('skins/blue', 'custom', 'theme-responsive'));
+        echo $this->Html->css(array('skins/blue', 'custom', 'custom_nad', 'theme-responsive'));
         ?>
 
         <!-- Head Libs -->

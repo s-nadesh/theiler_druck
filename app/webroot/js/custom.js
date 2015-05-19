@@ -1,6 +1,6 @@
 /* Add here all your JS customizations */
 $(document).ready(function() {
-    
+
     $('.quantity_number').bootstrapNumber();
 
     //User Register form Validation
@@ -32,7 +32,7 @@ $(document).ready(function() {
                     .remove();
         }
     });
-    
+
     //User Login Form
     $(".user_login").validate({
         rules: {
@@ -59,57 +59,43 @@ $(document).ready(function() {
                     .remove();
         }
     });
-    
+
     //User Register from checkout section
     $(".checkout-register").validate({
         rules: {
-            'data[User][user_name]': {
+            'data[UserAddress][address_company_name]': {
+                required: function() {
+                    return $('#UserAddressAddressCompanyType').val() == 'Company';
+                },
+            },
+            'data[UserAddress][address_firstname]': {
+                required: true,
+            },
+            'data[UserAddress][address_lastname]': {
                 required: true,
             },
             'data[User][user_email]': {
                 required: true,
                 email: true
             },
+            'data[UserAddress][address_street]': {
+                required: true,
+            },
+            'data[UserAddress][address_city]': {
+                required: true,
+            },
+            'data[UserAddress][address_post_code]': {
+                required: true,
+            },
+            'data[UserAddress][address_phone]': {
+                required: true,
+            },
             'data[User][user_password]': {
                 required: true,
             },
-        },
-        highlight: function(element) {
-            $(element)
-                    .parent()
-                    .removeClass("has-success")
-                    .addClass("has-error");
-        },
-        success: function(element) {
-            $(element)
-                    .parent()
-                    .removeClass("has-error")
-                    .addClass("has-success")
-                    .find("label.error")
-                    .remove();
-        }
-    });
-    
-    //User Billing Address from checkout section
-    $(".checkout-billing-address").validate({
-        rules: {
-            'data[BillingAddress][title]': {
+            'data[User][repeat_password]': {
                 required: true,
-            },
-            'data[BillingAddress][first_name]': {
-                required: true,
-            },
-            'data[BillingAddress][last_name]': {
-                required: true,
-            },
-            'data[BillingAddress][street]': {
-                required: true,
-            },
-            'data[BillingAddress][street_number]': {
-                required: true,
-            },
-            'data[BillingAddress][city]': {
-                required: true,
+                equalTo: "#UserUserPassword",
             },
         },
         highlight: function(element) {
@@ -127,44 +113,5 @@ $(document).ready(function() {
                     .remove();
         }
     });
-    
-    //User Shipping Address from checkout section
-    $(".checkout-shipping-address").validate({
-        rules: {
-            'data[ShippingAddress][title]': {
-                required: true,
-            },
-            'data[ShippingAddress][first_name]': {
-                required: true,
-            },
-            'data[ShippingAddress][last_name]': {
-                required: true,
-            },
-            'data[ShippingAddress][street]': {
-                required: true,
-            },
-            'data[ShippingAddress][street_number]': {
-                required: true,
-            },
-            'data[ShippingAddress][city]': {
-                required: true,
-            },
-        },
-        highlight: function(element) {
-            $(element)
-                    .parent()
-                    .removeClass("has-success")
-                    .addClass("has-error");
-        },
-        success: function(element) {
-            $(element)
-                    .parent()
-                    .removeClass("has-error")
-                    .addClass("has-success")
-                    .find("label.error")
-                    .remove();
-        }
-    });
-    
-    
+
 }); 

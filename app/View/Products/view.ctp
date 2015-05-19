@@ -90,16 +90,20 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-5 control-label"><?php echo MyClass::translate("Good for print on paper"); ?></label>
                         <div class="col-md-7">
-                            <input type="radio" name="data[Cart][good_for_print_on_paper]" value="0" checked="checked" onclick="getProductPrice()"> With Out
-                            <input type="radio" name="data[Cart][good_for_print_on_paper]" value="<?php echo GOOD_FOR_PRINT_ON_PAPER ?>" onclick="getProductPrice()"> With
+                            <input type="radio" name="data[Cart][good_for_print_on_paper]" value="0" checked="checked" onclick="getProductPrice()">
+                            <?php echo MyClass::translate("With Out"); ?>
+                            <input type="radio" name="data[Cart][good_for_print_on_paper]" value="<?php echo GOOD_FOR_PRINT_ON_PAPER ?>" onclick="getProductPrice()">
+                            <?php echo MyClass::translate("With"); ?>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-5 control-label"><?php echo MyClass::translate("Express within 4 days"); ?></label>
                         <div class="col-md-7">
-                            <input type="radio" name="data[Cart][express_within_4_days]" value="0" checked="checked" onclick="getProductPrice()"> With Out
-                            <input type="radio" name="data[Cart][express_within_4_days]" value="<?php echo EXPRESS_WITHIN_4_DAYS ?>" onclick="getProductPrice()"> With
+                            <input type="radio" name="data[Cart][express_within_4_days]" value="0" checked="checked" onclick="getProductPrice()"> 
+                            <?php echo MyClass::translate("With Out"); ?>
+                            <input type="radio" name="data[Cart][express_within_4_days]" value="<?php echo EXPRESS_WITHIN_4_DAYS ?>" onclick="getProductPrice()">
+                            <?php echo MyClass::translate("With"); ?>
                         </div>
                     </div>
 
