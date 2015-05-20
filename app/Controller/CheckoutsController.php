@@ -92,7 +92,7 @@ class CheckoutsController extends AppController {
     }
 
     public function shipping_address() {
-        pr($this->Session->read()); exit;
+//        pr($this->Session->read()); exit;
     }
 
 }
