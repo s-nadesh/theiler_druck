@@ -1,12 +1,10 @@
 <div role="main" class="main">
-
     <div class="container">
         <hr class="short">
         <?php echo $this->Session->flash(); ?>
 
         <div class="row">
             <div class="col-md-12 chekout-step">
-
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
@@ -52,7 +50,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group" id="company_name_div">
                                     <label class="col-md-3 control-label" for="inputDefault">
                                         <?php echo __("Company Name"); ?>
                                     </label>
@@ -98,7 +96,7 @@
                                         <?php echo __("Date of Birth"); ?>
                                     </label>
                                     <div class="col-md-6">
-                                        <?php echo $this->Form->input('User.user_dob', array('type' => 'text', 'label' => false, 'class' => 'form-control')); ?>
+                                        <?php echo $this->Form->input('User.user_dob', array('type' => 'text', 'label' => false, 'class' => 'form-control datepicker')); ?>
                                     </div>
                                 </div>
 
@@ -222,3 +220,29 @@
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+        checkCompanyName();
+
+        $("#UserAddressAddressCompanyType").change(function() {
+            checkCompanyName();
+        });
+
+        $(".datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1970:' + new Date().getFullYear(),
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+
+    function checkCompanyName() {
+        var companyType = $("#UserAddressAddressCompanyType").val();
+        if (companyType == 'Individual') {
+            $("#company_name_div").hide();
+        } else {
+            $("#company_name_div").show();
+        }
+    }
+</script>

@@ -1,117 +1,210 @@
 <?php
-if ($this->Session->check('Shop.Order.BillingAddress')) {
-    $billing_address = $this->Session->read('Shop.Order.BillingAddress');
-    $billing_title = $billing_address['title'];
-    $billing_first_name = $billing_address['first_name'];
-    $billing_last_name = $billing_address['last_name'];
-    $billing_street = $billing_address['street'];
-    $billing_street_number = $billing_address['street_number'];
-    $billing_city = $billing_address['city'];
-    $billing_country = $billing_address['country'];
-    $billing_post_code = $billing_address['sh_cost_id'];
-} else {
-    $billing_title = '';
-    $billing_first_name = '';
-    $billing_last_name = '';
-    $billing_street = '';
-    $billing_street_number = '';
-    $billing_city = '';
-    $billing_country = '';
-    $billing_post_code = '';
-}
+$billing_address = $this->Session->read('Shop.Order.BillingAddress');
 
-$zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
+$billing_company_type = $billing_address['address_company_type'];
+$billing_company_name = $billing_address['address_company_name'];
+
+$billing_title = $billing_address['address_title'];
+$billing_first_name = $billing_address['address_firstname'];
+$billing_last_name = $billing_address['address_lastname'];
+
+$billing_street = $billing_address['address_street'];
+$billing_additional = $billing_address['address_additional'];
+$billing_city = $billing_address['address_city'];
+$billing_post_code = $billing_address['address_post_code'];
+$billing_country = $billing_address['address_country'];
+
+$billing_phone = $billing_address['address_phone'];
+$billing_mobile = $billing_address['address_mobile'];
 ?>
-<div role="main" class="main shop">
+<div role="main" class="main">
     <div class="container">
-        <hr class="tall">
+        <hr class="short">
+        <?php echo $this->Session->flash(); ?>
+
         <div class="row">
-            <div class="col-md-12">
-                <h2 class="shorter"><strong><?php echo __("Checkout"); ?></strong></h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 chekout-step">  
-                <ul>
-                    <li class="tab-active"> <?php echo __("Billing Address"); ?> </li>  
-                    <li> <?php echo __("Shipping Address"); ?> </li>   
-                    <li> <?php echo __("Mode of Shipment"); ?> </li>  
-                    <li> <?php echo __("Payment Method"); ?> </li>  
-                    <li> <?php echo __("Summary"); ?> </li>  
-                </ul>
-                <div class="billing-address-part1"> 
-                    <legend> <?php echo __("Billing Address"); ?> </legend>
+            <div class="col-md-12 chekout-step">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                            <li class="tab-active"> <?php echo __("Billing Address"); ?> </li>
+                            <li> <?php echo __("Shipping Address"); ?> </li>
+                            <li> <?php echo __("Payment Method"); ?> </li>
+                            <li> <?php echo __("Summary"); ?> </li>
+                        </ul>
+                    </div>
+                </div>
 
-                    <?php echo $this->Form->create('BillingAddress', array('class' => 'checkout-billing-address')); ?>
-                    <div class="row">
-                        <div class="form-group"> 
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <label> <?php echo __("Title"); ?> *</label>
-                                <?php
-                                echo $this->Form->input('title', array('type' => 'select', 'options' => array('Ms' => 'Ms', 'Mr' => 'Mr'), 'empty' => 'Please select', "class" => "form-control", 'label' => false, 'default' => $billing_title));
-                                ?>
-                            </div>
-                        </div>
+                <div class="clearfix"></div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12"> </div>
+                <div class="row featured-boxes login">
+                    <div class="col-md-12">
+                        <h4><?php echo __("Billing Address") ?></h4>
+                        <div class="featured-box featured-box-secundary default info-content">
+                            <?php echo $this->Form->create('BillingAddress', array("class" => "form-horizontal form-bordered checkout-billing")); ?>
+                            <div class="box-content">
+                                <legend> 
+                                    <?php echo __("Company"); ?>
+                                    <span class="pull-right"> * <?php echo __("required fields"); ?> </span>
+                                </legend> 
 
-                        <div class="form-group">  
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <label> <?php echo __("First Name"); ?>* </label>
-                                <?php echo $this->Form->input('first_name', array("class" => "form-control", 'label' => false, 'value' => $billing_first_name)); ?>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <label> <?php echo __("Last Name"); ?>* </label>
-                                <?php echo $this->Form->input('last_name', array("class" => "form-control", 'label' => false, 'value' => $billing_last_name)); ?>
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Company or Individual"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php
+                                        $types = MyClass::getCompanyTypes();
+                                        echo $this->Form->input('address_company_type', array('type' => 'select', 'options' => $types, 'label' => false, 'class' => 'form-control', 'default' => $billing_company_type));
+                                        ?>
+                                    </div>
+                                </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12"> </div>
+                                <div class="form-group" id="company_name_div">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        <?php echo __("Company Name"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_company_name', array('label' => false, 'class' => 'form-control', 'value' => $billing_company_name)); ?>
+                                    </div>
+                                </div>
 
-                        <div class="form-group">  
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <label> <?php echo __("Street"); ?>* </label>
-                                <?php echo $this->Form->input('street', array("class" => "form-control", 'label' => false, 'value' => $billing_street)); ?>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <label> <?php echo __("Street Number"); ?>* </label>
-                                <?php echo $this->Form->input('street_number', array("class" => "form-control", 'label' => false, 'value' => $billing_street_number)); ?>
-                            </div>
-                        </div>
+                                <legend> <?php echo __("Personal Data"); ?></legend> 
 
-                        <div class="col-xs-12 col-sm-12 col-md-12"> </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Title"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php
+                                        $titles = MyClass::getUserTitles();
+                                        echo $this->Form->input('address_title', array('type' => 'select', 'options' => $titles, 'label' => false, 'class' => 'form-control', 'default' => $billing_title));
+                                        ?>
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <label> <?php echo __("City"); ?>* </label>
-                                <?php echo $this->Form->input('city', array("class" => "form-control", 'label' => false, 'value' => $billing_city)); ?>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <label> <?php echo __("Post Code"); ?>* </label>
-                                <?php echo $this->Form->input("sh_cost_id", array("type" => "select", "class" => "form-control", "label" => false, 'options' => $zip_code_list, 'default' => $billing_post_code)); ?>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <label> <?php echo __("Country"); ?>* </label>
-                                <select class="form-control" name="data[BillingAddress][country]">
-                                    <?php $countries = MyClass::getCountries(); ?>
-                                    <?php foreach ($countries as $country) { ?>
-                                        <option value="<?php echo $country ?>"><?php echo $country ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Firstname"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_firstname', array('label' => false, 'class' => 'form-control', 'value' => $billing_first_name)); ?>
+                                    </div>
+                                </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12"> </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Lastname"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_lastname', array('label' => false, 'class' => 'form-control', 'value' => $billing_last_name)); ?>
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <div class="col-xs-12 col-sm-6 col-md-6 push-top">
-                                <input type="submit" class="btn btn-primary push-bottom " value="<?php echo __("Continue your order"); ?>">
+                                <legend> <?php echo __("Your Address Details"); ?></legend> 
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Street/No"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_street', array('label' => false, 'class' => 'form-control', 'value' => $billing_street)); ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        <?php echo __("Additional address"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_additional', array('label' => false, 'class' => 'form-control', 'value' => $billing_additional)); ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("City"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_city', array('label' => false, 'class' => 'form-control', 'value' => $billing_city)); ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Post Code"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_post_code', array('label' => false, 'class' => 'form-control', 'value' => $billing_post_code)); ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Country"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php
+                                        $countries = MyClass::getCountries();
+                                        echo $this->Form->input('address_country', array('type' => 'select', 'options' => $countries, 'label' => false, 'class' => 'form-control', 'default' => $billing_country));
+                                        ?>
+                                    </div>
+                                </div>
+
+                                <legend> <?php echo __("Your Contact Information"); ?></legend> 
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        <?php echo __("Mobile"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_mobile', array('label' => false, 'class' => 'form-control', 'value' => $billing_mobile)); ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Phone"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('address_phone', array('label' => false, 'class' => 'form-control', 'value' => $billing_phone)); ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">&nbsp;</label>
+                                    <div class="col-md-6">
+                                        <?php
+                                        echo $this->Form->submit(__("Continue your order"), array("class" => "btn btn-primary btn-lg pull-right push-bottom"));
+                                        ?>
+                                    </div>
+                                </div>
                             </div>
+                            <?php echo $this->Form->end(); ?>
                         </div>
                     </div>
-                    <?php echo $this->Form->end(); ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        checkCompanyName();
+
+        $("#BillingAddressAddressCompanyType").change(function() {
+            checkCompanyName();
+        });
+
+    });
+
+    function checkCompanyName() {
+        var companyType = $("#BillingAddressAddressCompanyType").val();
+        if (companyType == 'Individual') {
+            $("#company_name_div").hide();
+        } else {
+            $("#company_name_div").show();
+        }
+    }
+</script>

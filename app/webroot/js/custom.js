@@ -113,5 +113,48 @@ $(document).ready(function() {
                     .remove();
         }
     });
+    
+    //User Billing Address from checkout section
+    $(".checkout-billing").validate({
+        rules: {
+            'data[BillingAddress][address_company_name]': {
+                required: function() {
+                    return $('#BillingAddressAddressCompanyType').val() == 'Company';
+                },
+            },
+            'data[BillingAddress][address_firstname]': {
+                required: true,
+            },
+            'data[BillingAddress][address_lastname]': {
+                required: true,
+            },
+            'data[BillingAddress][address_street]': {
+                required: true,
+            },
+            'data[BillingAddress][address_city]': {
+                required: true,
+            },
+            'data[BillingAddress][address_post_code]': {
+                required: true,
+            },
+            'data[BillingAddress][address_phone]': {
+                required: true,
+            },
+        },
+        highlight: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-success")
+                    .addClass("has-error");
+        },
+        success: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-error")
+                    .addClass("has-success")
+                    .find("label.error")
+                    .remove();
+        }
+    });
 
 }); 

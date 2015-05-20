@@ -35,6 +35,7 @@ div.featured-boxes div.featured-box {
     font-weight: 300 !important;
     font-size: 28px !important;
     color: #000000;
+    text-transform: none !important;
 }
 
 .checkout-login p.welcome{
@@ -50,4 +51,12 @@ div.featured-boxes div.featured-box {
 .checkout-login label {
     font-weight: 300;
     font-size: 18px;
+}
+
+.ui-datepicker select{
+    border: 0 !important;
+    border-radius: 0px !important;
+    height: auto !important;
+    outline: medium none !important;
+    padding: 0 !important;
 }

@@ -193,8 +193,8 @@ class MyClass {
     
     public static function getCompanyTypes(){
         $types = array(
+            'Individual' => 'Individual',
             'Company' => 'Company',
-            'Individual' => 'Individual'
         );
         return $types;
     }

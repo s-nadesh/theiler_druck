@@ -15,13 +15,13 @@
         <!-- Libs CSS -->
         <?php
         echo $this->Html->css(array('bootstrap', 'fonts/font-awesome/css/font-awesome'));
-        
+
         echo $this->Html->css(array('/vendor/owl-carousel/owl.carousel', '/vendor/owl-carousel/owl.theme', '/vendor/magnific-popup/magnific-popup'), 'stylesheet', array('media' => 'screen'));
-        
+
         echo $this->Html->css(array('theme', 'theme-elements', 'theme-animate'));
-        
+
         echo $this->Html->css(array('/vendor/nivo-slider/nivo-slider', '/vendor/nivo-slider/themes/default/default', '/vendor/rs-plugin/css/settings', '/vendor/circle-flip-slideshow/css/component'), 'stylesheet', array('media' => 'screen'));
-        
+
         echo $this->Html->css(array('skins/blue', 'custom', 'custom_nad', 'theme-responsive'));
         ?>
 
@@ -35,6 +35,10 @@
         <!--[if lte IE 8]>
         <?php echo $this->Html->script('/vendor/respond'); ?>
         <![endif]-->
+
+        <!-- Date Picker -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
         <?php
         echo $this->fetch('meta');
@@ -55,6 +59,6 @@
         <?php
         echo $this->Html->script(array('plugins', '/vendor/jquery.easing', '/vendor/jquery.appear', '/vendor/jquery.cookie', '/vendor/bootstrap', '/vendor/bootstrap/bootstrap-number-input', '/vendor/twitterjs/twitter', '/vendor/rs-plugin/js/jquery.themepunch.plugins.min', '/vendor/rs-plugin/js/jquery.themepunch.revolution.min', '/vendor/owl-carousel/owl.carousel', '/vendor/circle-flip-slideshow/js/jquery.flipshow', '/vendor/magnific-popup/magnific-popup', '/vendor/jquery.validate', '/vendor/parallax', '/vendor/nivo-slider/jquery.nivo.slider', 'views/view.home', 'theme', 'custom'));
         ?>
-        
+
     </body>
 </html>
