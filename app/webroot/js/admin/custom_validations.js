@@ -105,6 +105,28 @@ $(document).ready(function() {
         }
     });
     
+    //Admin Pages
+    $(".admin_add_page").validate({
+        rules: { 
+            
+            'data[Page][1][page_title]': {
+                required: true,
+            },
+            'data[Page][1][page_description]': {
+                required: true,
+            },
+             'data[Page][2][page_title]': {
+                required: true,
+            },
+            'data[Page][2][page_description]': {
+                required: true,
+            }
+        },
+        success: function(label) {
+            label.text('Success!').addClass('valid');
+        }
+    });
+    
     //Admin Product Form - Edit
     $(".admin_product_form_edit").validate({
         errorPlacement: function(error, element) {

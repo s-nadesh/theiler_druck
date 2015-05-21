@@ -12,7 +12,7 @@
                     <th>#</th>
                     <th><?php echo MyClass::translate("Page Title"); ?></th>
                     <th><?php echo MyClass::translate("Page Language"); ?></th>
-                    <th><?php echo MyClass::translate("Descripition"); ?></th>
+<!--                    <th><?php echo MyClass::translate("Descripition"); ?></th>-->
                     <th><?php echo MyClass::translate("status"); ?></th>
                     <th><?php echo MyClass::translate("Slug"); ?></th>
                     <th><?php echo MyClass::translate("Created"); ?></th>
@@ -28,9 +28,13 @@
                         <tr>
                             <td><?php echo $i++; ?></td>
                             <td><?php echo $page['Page']['page_title']; ?></td>
-                            <td><?php echo $page['Page']['language_type_id']; ?></td>
-                            <td><?php echo $page['Page']['page_description']; ?></td>
-                            <td><?php echo $page['Page']['page_status']; ?></td>
+                            <td><?php $lang = $this->requestAction(array(
+    'controller' => 'pages',
+    'action' => 'get_language_name/'. $page['Page']['language_type_id']));
+                    
+                    echo $lang['LanguageType']['language_type_name']; ?></td>
+<!--                            <td><?php echo $page['Page']['page_description']; ?></td>-->
+                            <td><?php if($page['Page']['page_status']==1)echo 'Active';else {echo 'Inactive';} ?></td>
                             <td><?php echo $page['Page']['page_slug']; ?></td>
                             <td><?php echo $page['Page']['created']; ?></td>
                             <td>
@@ -38,7 +42,7 @@
                                     <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/view/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
                                         <i class="icon-zoom-in"></i>
                                     </a>
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/edit/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo MyClass::translate("Save"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/edit/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

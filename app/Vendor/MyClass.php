@@ -158,7 +158,7 @@ class MyClass {
         ));
 
         if (!empty($result) && $result['Language']['german'] != '') {
-            return $result['Language']['german'];
+            return $result['Language']['english'];
         } else {
             return $text;
         }

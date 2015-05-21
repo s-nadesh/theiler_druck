@@ -12,15 +12,16 @@
                     </ul>
                 </div>
             </div>
+            <?php App::import("Model", "Page");
+                $Page = new Page();
+                $menu_result = $Page->getAllPages();
+               // Print_r($menu_result);
+ ?>
             <div class="footer-menu"> 
-                <ul>                
-                    <li><a href="#">   Prepress </a></li>
-                    <li><a href="#">Offsetdruck</a></li>
-                    <li><a href="#"> Digitaldruck</a></li>
-                    <li><a href="#"> Postpress</a></li>
-                    <li><a href="#"> Lettershop</a></li>
-                    <li><a href="#"> Klimaneutral</a></li>
-                    <li><a href="#"> Service</a></li>
+                <ul> 
+                    <?php foreach($menu_result as $menu):?>
+                    <li><a href="<?php echo SITE_BASE_URL;?>pages/view/<?php echo $menu['Page']['page_slug'] ?>"> <?php echo $menu['Page']['page_title'] ?> </a></li>
+                    <?php endforeach;?>
                 </ul>
             </div>
         </div>

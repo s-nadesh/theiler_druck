@@ -63,6 +63,7 @@ class AppController extends Controller {
 
     //Set Language for entire site.
     public function setLanguage() {
+        $this->Session->write('Config.language','1');
         if ($this->Session->check('Config.language')) {
             Configure::write('Config.language', $this->Session->read('Config.language'));
         }
