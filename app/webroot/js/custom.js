@@ -59,7 +59,7 @@ $(document).ready(function() {
                     .remove();
         }
     });
-
+    
     //User Register from checkout section
     $(".checkout-register").validate({
         rules: {
@@ -156,5 +156,49 @@ $(document).ready(function() {
                     .remove();
         }
     });
-
+    
+    //User Shipping Address from checkout section
+    $(".checkout-shipping").validate({
+        rules: {
+            'data[ShippingAddress][address_company_name]': {
+                required: function() {
+                    return $('#ShippingAddressAddressCompanyType').val() == 'Company';
+                },
+            },
+            'data[ShippingAddress][address_firstname]': {
+                required: true,
+            },
+            'data[ShippingAddress][address_lastname]': {
+                required: true,
+            },
+            'data[ShippingAddress][address_street]': {
+                required: true,
+            },
+            'data[ShippingAddress][address_city]': {
+                required: true,
+            },
+            'data[ShippingAddress][address_post_code]': {
+                required: true,
+                min: $('#ShippingAddressAddressPostCode').data('from-zip'),
+                max: $('#ShippingAddressAddressPostCode').data('to-zip'),
+            },
+            'data[ShippingAddress][address_phone]': {
+                required: true,
+            },
+        },
+        highlight: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-success")
+                    .addClass("has-error");
+        },
+        success: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-error")
+                    .addClass("has-success")
+                    .find("label.error")
+                    .remove();
+        }
+    });
 }); 

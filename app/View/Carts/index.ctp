@@ -41,7 +41,8 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <tr class="cart_table_item">
 
                                                     <td class="product-remove">
-                                                        <a title="Remove this item" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove">
+                                                        <?php $key_encrypt = MyClass::refencryption($key);?>
+                                                        <a title="Remove this item" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
                                                             <i class="icon icon-times"></i>
                                                         </a>
                                                     </td>
@@ -60,11 +61,14 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                             echo MyClass::translate("No.of Pages") . ": " . $value['item_product_no_of_pages'] . '<br>';
                                                             echo MyClass::translate("No.of Copies") . ": " . $value['item_product_no_of_copies'] . '<br>';
                                                             echo MyClass::translate("Paper Weight") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
-
+                                                            if ($shop['Additional']['good_for_print_on_paper'] > 0 ||
+                                                                    $shop['Additional']['express_within_4_days'] > 0) {
+                                                                echo '<b>Additional Services:</b><br>';
+                                                            }
                                                             if ($shop['Additional']['good_for_print_on_paper'] > 0)
-                                                                echo MyClass::translate("Good For Print On Paper") . ": " . $shop['Additional']['good_for_print_on_paper'] . 'CHF' . '<br>';
+                                                                echo MyClass::translate("Good For Print On Paper").'<br>';
                                                             if ($shop['Additional']['express_within_4_days'] > 0)
-                                                                echo MyClass::translate("Express Within 4 Days") . ": " . $shop['Additional']['express_within_4_days'] . 'CHF' . '<br>';
+                                                                echo MyClass::translate("Express Within 4 Days");
                                                             ?>
                                                         </div> 
                                                     </td>
@@ -104,8 +108,8 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <label>Country</label>
                                                 <select class="form-control">
                                                     <?php $countries = MyClass::getCountries(); ?>
-                                                    <?php foreach($countries as $country) { ?>
-                                                    <option value="<?php echo $country ?>"><?php echo $country ?></option>
+                                                    <?php foreach ($countries as $country) { ?>
+                                                        <option value="<?php echo $country ?>"><?php echo $country ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>

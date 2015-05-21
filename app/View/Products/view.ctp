@@ -16,8 +16,6 @@ foreach ($paper_variants as $paper_variant) {
     $paper_array[$paper_variant['PaperVariant']['paper_id']] = $paper_variant['PaperVariant']['paper_rang_grm'] . '(' . $paper_variant['PaperVariant']['paper_rang_mgrm'] . 'mg ' . $paper_variant['PaperVariant']['paper_name'] . ')';
 }
 $papers = MyClass::arrayToString(",", $paper_array);
-
-$zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
 ?>
 <div role="main" class="main shop">
     <div class="container">
@@ -71,17 +69,6 @@ $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                             <select name="data[Cart][paper_id]" class="form-control">
                                 <?php foreach ($paper_array as $paper_key => $paper_value) { ?>
                                     <option value="<?php echo $paper_key ?>"><?php echo $paper_value ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('Zip code') ?></label>
-                        <div class="col-md-9">
-                            <select name="data[Cart][sh_cost_id]" class="form-control">
-                                <?php foreach ($zip_code_list as $zip_key => $zip_value) { ?>
-                                    <option value="<?php echo $zip_key ?>"><?php echo $zip_value ?></option>
                                 <?php } ?>
                             </select>
                         </div>

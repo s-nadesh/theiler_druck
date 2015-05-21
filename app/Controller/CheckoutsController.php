@@ -22,7 +22,7 @@ class CheckoutsController extends AppController {
             }
         }
 
-        $auth_actions = array('billing_address', 'shipping_address');
+        $auth_actions = array('billing_address', 'shipping_address', 'payment_method');
         if (in_array($this->action, $auth_actions)) {
             if (!$this->Session->check('Shop.Order.user_id')) {
                 $this->redirect("index");
@@ -92,7 +92,21 @@ class CheckoutsController extends AppController {
     }
 
     public function shipping_address() {
-//        pr($this->Session->read()); exit;
+        if(!$this->Session->check('Shop.Order.BillingAddress')){
+            $this->redirect('billing_address');
+        }
+        
+        if($this->request->is('post')){
+            if ($this->data['ShippingAddress']['address_company_type'] == 'Individual') {
+                $this->request->data['ShippingAddress']['address_company_name'] = '';
+            }
+            $this->Session->write('Shop.Order.ShippingAddress', $this->data['ShippingAddress']);
+            $this->redirect('payment_method');
+        }
+    }
+    
+    public function payment_method(){
+        
     }
 
 }

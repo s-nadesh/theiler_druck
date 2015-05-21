@@ -52,7 +52,7 @@
 
                                 <div class="form-group" id="company_name_div">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        <?php echo __("Company Name"); ?>
+                                       * <?php echo __("Company Name"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_company_name', array('label' => false, 'class' => 'form-control')); ?>
@@ -207,18 +207,14 @@
                                         ?>
                                     </div>
                                 </div>
-
                             </div>
                             <?php echo $this->Form->end(); ?>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-
 </div>
 
 <script>
