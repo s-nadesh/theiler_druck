@@ -59,13 +59,15 @@ $this->Html->addCrumb(MyClass::translate('Add Page'));
                 </div>
             </div>
 
-
+<?php if($i !=1){?>
             <div class="form-actions text-right">
                 <input type="submit" value="<?php echo MyClass::translate("Save Product"); ?>" class="btn btn-primary">
             </div>
-        </div>
+       
+<?php }?>
+             </div>
 
-<?php if($i ==1){echo '   </div></div>';}
+<?php if($i ==1){echo '</div></div>';}
                 else {echo '   </div></div>   </div></div>';}?>
          <?php $k++;$i++; endforeach;?>
        

@@ -106,7 +106,10 @@ $(document).ready(function() {
     });
     
     //Admin Pages
+    var $form = $(".admin_add_page");
+     $form.validate().settings.ignore = [];
     $(".admin_add_page").validate({
+        
         rules: { 
             
             'data[Page][1][page_title]': {
