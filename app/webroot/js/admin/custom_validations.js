@@ -106,8 +106,7 @@ $(document).ready(function() {
     });
     
     //Admin Pages
-    var $form = $(".admin_add_page");
-     $form.validate().settings.ignore = [];
+   
     $(".admin_add_page").validate({
         
         rules: { 
@@ -122,6 +121,22 @@ $(document).ready(function() {
                 required: true,
             },
             'data[Page][2][page_description]': {
+                required: true,
+            }
+        },
+        success: function(label) {
+            label.text('Success!').addClass('valid');
+        }
+    });
+     //Admin Page Form - Edit
+    $(".admin_edit_page").validate({
+        
+        rules: { 
+            
+            'data[Page][page_title]': {
+                required: true,
+            },
+            'data[Page][page_description]': {
                 required: true,
             }
         },
