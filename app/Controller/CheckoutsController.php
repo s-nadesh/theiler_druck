@@ -45,7 +45,11 @@ class CheckoutsController extends AppController {
         if ($this->request->is('post')) {
             $this->loadModel('User');
             $this->request->data['User']['user_name'] = $this->data['UserAddress']['address_firstname'] . ' ' . $this->data['UserAddress']['address_lastname'];
-
+            
+            if($this->data['User']['user_dob']){
+                $this->request->data['User']['user_dob'] = date(DB_DATE_FORMAT, strtotime($this->data['User']['user_dob']));
+            }
+            
             if ($this->User->save($this->request->data)) {
                 $user_id = $this->User->getLastInsertId();
                 $this->loadModel('UserAddress');
