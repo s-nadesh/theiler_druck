@@ -10,6 +10,10 @@
     margin: 14px 0;
 }
 
+.chekout-step p.address{
+    font-size: 16px;
+}
+
 .chekout-step legend{
     font-weight: 300;
     font-size: 22px;
@@ -59,4 +63,30 @@ div.featured-boxes div.featured-box {
     height: auto !important;
     outline: medium none !important;
     padding: 0 !important;
+}
+
+.payment_methods{
+    color: #000000;
+    font-size: 19px !important;
+    font-weight: 300;
+}
+
+.payment_methods span{
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 20px;
+}
+
+.payment_methods p{
+    color: #000000 !important;
+}
+
+.summary_shipping_cost{
+    font-size: 18px;
+}
+
+.summary_total_gross{
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
 }

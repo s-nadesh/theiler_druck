@@ -205,41 +205,41 @@ header h1.logo {
 /*new styles 14-05-2015*/
 .chekout-step
 {
-	margin-top:25px;
+    margin-top:25px;
 }
 
 
 .chekout-step ul
 {
-	margin:0px;
-	padding:0px;
+    margin:0px;
+    padding:0px;
 }
 
 .chekout-step ul li
 {
-	list-style:none;
-	display:inline;
-	padding:15px 80px;
-	background:#f5f3f4;
-	border-right:#FFFFFF solid 1px;
-	color:#0088CC;
-	font-size:18px;
-        font-weight: 300
+    list-style:none;
+    display:inline;
+    padding:15px 80px;
+    background:#f5f3f4;
+    border-right:#FFFFFF solid 1px;
+    color:#0088CC;
+    font-size:18px;
+    font-weight: 300
 }
 
 .chekout-step ul li a
 {
-	color:#0088cc;
+    color:#0088cc;
 }
 
 .chekout-step ul li:first-child
 {
-	-webkit-border-top-left-radius: 5px;
--webkit-border-bottom-left-radius: 5px;
--moz-border-radius-topleft: 5px;
--moz-border-radius-bottomleft: 5px;
-border-top-left-radius: 5px;
-border-bottom-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 
@@ -247,23 +247,23 @@ border-bottom-left-radius: 5px;
 
 .chekout-step ul li:last-child
 {
--webkit-border-top-right-radius: 5px;
--webkit-border-bottom-right-radius: 5px;
--moz-border-radius-topright: 5px;
--moz-border-radius-bottomright: 5px;
-border-top-right-radius: 5px;
-border-bottom-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .tab-active
 {
-	background:#0088cc !important;
-	color:#ffffff !important;
+    background:#0088cc !important;
+    color:#ffffff !important;
 }
 
 .tab-active a
 {
-	color:#ffffff !important;
+    color:#ffffff !important;
 }
 
 
@@ -339,6 +339,12 @@ legend {
         -moz-border-radius-bottomright: 0px;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
+    }
+
+    .chekout-step legend span {
+        color: #ff0033;
+        font-size: 10px !important;
+        font-weight: 300;
     }
 
 }

@@ -22,7 +22,7 @@ class CheckoutsController extends AppController {
             }
         }
 
-        $auth_actions = array('billing_address', 'shipping_address', 'payment_method');
+        $auth_actions = array('billing_address', 'shipping_address', 'payment_method', 'summary');
         if (in_array($this->action, $auth_actions)) {
             if (!$this->Session->check('Shop.Order.user_id')) {
                 $this->redirect("index");
@@ -45,11 +45,11 @@ class CheckoutsController extends AppController {
         if ($this->request->is('post')) {
             $this->loadModel('User');
             $this->request->data['User']['user_name'] = $this->data['UserAddress']['address_firstname'] . ' ' . $this->data['UserAddress']['address_lastname'];
-            
-            if($this->data['User']['user_dob']){
+
+            if ($this->data['User']['user_dob']) {
                 $this->request->data['User']['user_dob'] = date(DB_DATE_FORMAT, strtotime($this->data['User']['user_dob']));
             }
-            
+
             if ($this->User->save($this->request->data)) {
                 $user_id = $this->User->getLastInsertId();
                 $this->loadModel('UserAddress');
@@ -96,11 +96,11 @@ class CheckoutsController extends AppController {
     }
 
     public function shipping_address() {
-        if(!$this->Session->check('Shop.Order.BillingAddress')){
+        if (!$this->Session->check('Shop.Order.BillingAddress')) {
             $this->redirect('billing_address');
         }
-        
-        if($this->request->is('post')){
+
+        if ($this->request->is('post')) {
             if ($this->data['ShippingAddress']['address_company_type'] == 'Individual') {
                 $this->request->data['ShippingAddress']['address_company_name'] = '';
             }
@@ -108,8 +108,40 @@ class CheckoutsController extends AppController {
             $this->redirect('payment_method');
         }
     }
-    
-    public function payment_method(){
+
+    public function payment_method() {
+        if (!$this->Session->check('Shop.Order.BillingAddress')) {
+            $this->redirect('billing_address');
+        } elseif (!$this->Session->check('Shop.Order.ShippingAddress')) {
+            $this->redirect('shipping_address');
+        }
+
+        if ($this->request->is('post')) {
+            $payment_methods = MyClass::paymentMethods();
+            foreach ($payment_methods['PaymentMethod'] as $payment_method) {
+                if ($payment_method['id'] == $this->data['PaymentMethod']['id']) {
+                    $choosen_method['PaymentMethod'] = array(
+                        'id' => $payment_method['id'],
+                        'name' => $payment_method['name'],
+                        'fee' => $payment_method['fee'],
+                        'caption' => $payment_method['caption'],
+                    );
+                    break;
+                }
+            }
+            $this->Session->write('Shop.Order.PaymentMethod' , $choosen_method['PaymentMethod']);
+            $this->redirect('summary');
+        }
+    }
+
+    public function summary() {
+        if (!$this->Session->check('Shop.Order.BillingAddress')) {
+            $this->redirect('billing_address');
+        } elseif (!$this->Session->check('Shop.Order.ShippingAddress')) {
+            $this->redirect('shipping_address');
+        } elseif (!$this->Session->check('Shop.Order.PaymentMethod')) {
+            $this->redirect('payment_method');
+        }
         
     }
 

@@ -137,17 +137,17 @@ class MyClass {
 
         return $shipping_price;
     }
-    
-    public static function weightFormat($number){
+
+    public static function weightFormat($number) {
         $result = number_format($number, 2);
         return $result . 'KG';
     }
-    
-    public static function currencyFormat($number){
+
+    public static function currencyFormat($number) {
         $result = number_format($number, 2);
         return $result . 'CHF';
-    } 
-    
+    }
+
     public static function translate($text) {
         App::import('Model', 'Language');
         $language = new Language();
@@ -158,12 +158,12 @@ class MyClass {
         ));
 
         if (!empty($result) && $result['Language']['german'] != '') {
-            return $result['Language']['english'];
+            return $result['Language']['german'];
         } else {
             return $text;
         }
     }
-    
+
     public static function getDefaultCoipes() {
         $default_copies = array(
             '1000' => '1000',
@@ -174,30 +174,59 @@ class MyClass {
 
         return $default_copies;
     }
-    
-    public static function getCountries(){
+
+    public static function getCountries() {
         $country = array(
             'Switzerland' => 'Switzerland'
         );
-        
+
         return $country;
     }
-    
-    public static function getUserTitles(){
+
+    public static function getUserTitles() {
         $titles = array(
             'Mr' => 'Mr',
             'Ms' => 'Ms'
         );
         return $titles;
     }
-    
-    public static function getCompanyTypes(){
+
+    public static function getCompanyTypes() {
         $types = array(
             'Individual' => 'Individual',
             'Company' => 'Company',
         );
         return $types;
     }
-    
+
+    public static function paymentMethods() {
+        $methods = array();
+        $methods['PaymentMethod'] = array(
+            array(
+                'id' => 1,
+                'name' => 'Cash on delivery',
+                'fee' => '5.04CHF',
+                'caption' => 'Small information',
+            ), array(
+                'id' => 2,
+                'name' => 'Bank transfer',
+                'fee' => '2%',
+                'caption' => 'You transfer the invoice amount in advance payment',
+            ), array(
+                'id' => 3,
+                'name' => 'Invoice',
+                'fee' => '',
+                'caption' => 'Small information',
+            )
+        );
+
+        return $methods;
+    }
+
+    public static function vatCalculation($amount) {
+        $amount = number_format($amount);
+        $calculation = $amount * 0.08;
+        return $calculation;
+    }
 
 }

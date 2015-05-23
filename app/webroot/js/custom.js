@@ -59,7 +59,7 @@ $(document).ready(function() {
                     .remove();
         }
     });
-    
+
     //User Register from checkout section
     $(".checkout-register").validate({
         rules: {
@@ -113,7 +113,7 @@ $(document).ready(function() {
                     .remove();
         }
     });
-    
+
     //User Billing Address from checkout section
     $(".checkout-billing").validate({
         rules: {
@@ -156,7 +156,7 @@ $(document).ready(function() {
                     .remove();
         }
     });
-    
+
     //User Shipping Address from checkout section
     $(".checkout-shipping").validate({
         rules: {
@@ -199,6 +199,34 @@ $(document).ready(function() {
                     .addClass("has-success")
                     .find("label.error")
                     .remove();
+        }
+    });
+
+    //User Shipping Address from checkout section
+    $(".checkout-payment-method").validate({
+        rules: {
+            'data[PaymentMethod][id]': {
+                required: true,
+            },
+        },
+        highlight: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-success")
+                    .addClass("has-error");
+        },
+        success: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-error")
+                    .addClass("has-success")
+                    .find("label.error")
+                    .remove();
+        },
+        errorPlacement: function(error, element) {
+            if (element.attr("name") == "data[PaymentMethod][id]") {
+                error.appendTo($('#payment-method-error'));
+            } 
         }
     });
 }); 
