@@ -22,7 +22,7 @@ class CheckoutsController extends AppController {
             }
         }
 
-        $auth_actions = array('billing_address', 'shipping_address', 'payment_method', 'summary');
+        $auth_actions = array('billing_address', 'shipping_address', 'payment_method', 'summary', 'place_order');
         if (in_array($this->action, $auth_actions)) {
             if (!$this->Session->check('Shop.Order.user_id')) {
                 $this->redirect("index");
@@ -129,7 +129,7 @@ class CheckoutsController extends AppController {
                     break;
                 }
             }
-            $this->Session->write('Shop.Order.PaymentMethod' , $choosen_method['PaymentMethod']);
+            $this->Session->write('Shop.Order.PaymentMethod', $choosen_method['PaymentMethod']);
             $this->redirect('summary');
         }
     }
@@ -142,7 +142,64 @@ class CheckoutsController extends AppController {
         } elseif (!$this->Session->check('Shop.Order.PaymentMethod')) {
             $this->redirect('payment_method');
         }
-        
+
+        if ($this->request->is('post')) {
+            $this->Session->write('Shop.Order.Summary.comment', $this->data['Summary']['comment']);
+            $this->redirect('place_order');
+        }
+    }
+
+    public function place_order() {
+        if (!$this->Session->check('Shop.Order.BillingAddress')) {
+            $this->redirect('billing_address');
+        } elseif (!$this->Session->check('Shop.Order.ShippingAddress')) {
+            $this->redirect('shipping_address');
+        } elseif (!$this->Session->check('Shop.Order.PaymentMethod')) {
+            $this->redirect('payment_method');
+        } elseif (!$this->Session->check('Shop.Order.Summary')) {
+            $this->redirect('summary');
+        }
+
+        $this->loadModel('Order');
+        $shop = $this->Session->read('Shop');
+        $order = array(
+            'Order' => array(
+                'order_unique_id' => MyClass::generateUniqueOrderId(),
+                'user_id' => $shop['Order']['user_id'],
+                'order_billing_address' => MyClass::encodeJSON($shop['Order']['BillingAddress']),
+                'order_shipping_address' => MyClass::encodeJSON($shop['Order']['ShippingAddress']),
+                'order_payment_method' => MyClass::encodeJSON($shop['Order']['PaymentMethod']),
+                'order_summary' => MyClass::encodeJSON($shop['Order']['Summary']),
+                'order_good_for_print_on_paper' => $shop['Additional']['good_for_print_on_paper'],
+                'order_express_within_4_days' => $shop['Additional']['express_within_4_days'],
+                'order_total_weight' => $shop['Additional']['cart_total_weight'],
+                'order_shipping_cost' => $shop['Additional']['shipping_cost'],
+                'order_total_net' => $shop['Additional']['cart_sub_price_without_tax'],
+                'order_tax' => $shop['Additional']['cart_tax'],
+                'order_total_gross' => $shop['Additional']['cart_sub_price_with_tax'],
+                'order_final_amount' => $shop['Additional']['cart_total_price'],
+            )
+        );
+
+        if ($this->Order->save($order)) {
+            $order_id = $this->Order->getLastInsertId();
+            $this->loadModel('OrderItem');
+            foreach ($shop['CartItems'] as $key => $value) {
+                $order_item = array(
+                    'OrderItem' => array(
+                        'order_id' => $order_id,
+                        'order_item_product_key' => $key,
+                        'order_item_product_value' => MyClass::encodeJSON($value),
+                    )
+                );
+
+                $this->OrderItem->saveAll($order_item);
+            }
+
+            $this->Session->setFlash('Your order placed successfully.', 'flash_success');
+            $this->Session->delete('Shop');
+            $this->redirect(array('controller' => 'users', 'action' => 'profile'));
+        }
     }
 
 }

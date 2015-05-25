@@ -1,5 +1,6 @@
 <?php
 echo $this->Html->css(array('theme-shop', 'theme-blog'), array('inline' => false));
+
 $billing_address = $this->Session->read('Shop.Order.BillingAddress');
 
 $billing_company_type = $billing_address['address_company_type'];
@@ -115,7 +116,9 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right"><?php echo __("Shipping Address Change"); ?></a>
+                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right">
+                                            <?php echo __("Shipping Address Change"); ?>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -159,12 +162,12 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                     </div>
                 </div>
 
+                <?php echo $this->Form->create('Summary'); ?>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content payment_methods">
                                 <legend>  <?php echo __("Comment to the order"); ?> </legend> 
-
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <textarea name="data[Summary][comment]" class="form-control" placeholder="Here you can enter a comment to your order" rows='4'></textarea>
@@ -261,41 +264,57 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                     </td>
                                                 </tr>
 
-                                                <tr class="summary_total_gross">
+                                                <?php
+                                                $additional_charge = $shop['Additional']['good_for_print_on_paper'] + $shop['Additional']['express_within_4_days'];
+                                                if ($additional_charge > 0) {
+                                                    ?>
+                                                    <tr class="summary_shipping_cost">
+                                                        <td colspan="4"> <?php echo __("Additional Services"); ?> </td>
+                                                        <td align="right"> <?php echo MyClass::currencyFormat($additional_charge) ?> </td>
+                                                    </tr>
+                                                <?php } ?>
+
+                                                <tr class="summary_shipping_cost">
                                                     <td colspan="4">
-                                                        <?php echo __("Total gross"); ?>:
+                                                        <?php echo __("Total Net"); ?><br>
+                                                        <span class="summary_vat"><?php echo __("incl. 8% VAT."); ?></span>
                                                     </td>
                                                     <td align='right'>
-                                                        <?php echo MyClass::currencyFormat($shop['Additional']['cart_sub_price']); ?>
+                                                        <?php echo MyClass::currencyFormat($shop['Additional']['cart_sub_price_without_tax']); ?><br>
+                                                        <span class="summary_vat">
+                                                            <?php echo MyClass::currencyFormat($shop['Additional']['cart_tax']); ?>
+                                                        </span>
                                                     </td>
                                                 </tr>
-
-                                                <tr class="summary_vat">
+                                                <tr class="summary_total_gross">
                                                     <td colspan="4">
-                                                        <?php echo __("incl. 8% VAT."); ?>:
+                                                        <?php echo __("Total Gross"); ?>
                                                     </td>
                                                     <td align='right'>
-                                                        <?php echo MyClass::currencyFormat(MyClass::vatCalculation($shop['Additional']['cart_sub_price'])); ?>
+                                                        <?php echo MyClass::currencyFormat($shop['Additional']['cart_sub_price_with_tax']); ?>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-4">
-                                        <a href="" class="btn btn-lg btn-default"><?php echo __("Back"); ?></a>
+                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/payment_method" class="btn btn-lg btn-default">
+                                            <?php echo __("Back"); ?>
+                                        </a>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-6">
-                                        
+                                    <div class="col-xs-12 col-sm-12 col-md-8">
+                                        <input type="submit" value="<?php echo __("Continue your order"); ?>" class="btn btn-lg btn-primary pull-right">
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <?php echo $this->Form->end(); ?>
             </div>
         </div>
     </div>

@@ -68,7 +68,7 @@ class MyClass {
 
         $no_of_thousand = $no_of_copies - $default_copy;
 
-        $no_of_thousand_count = number_format($no_of_thousand / 1000);
+        $no_of_thousand_count = $no_of_thousand / 1000;
 
         $product_default_price = $model->find('first', array(
             'conditions' => array(
@@ -224,9 +224,21 @@ class MyClass {
     }
 
     public static function vatCalculation($amount) {
-        $amount = number_format($amount);
         $calculation = $amount * 0.08;
         return $calculation;
+    }
+
+    public static function generateUniqueOrderId() {
+        $prefix = 'TD';
+        $random = time();
+        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $final_rand = '';
+        for ($i = 0; $i < 3; $i++) {
+            $final_rand .= $chars[rand(0, strlen($chars) - 1)];
+        }
+        $suffix = $final_rand;
+        $unique_id = $prefix . '-' . $random . '-' . $suffix;
+        return $unique_id;
     }
 
 }

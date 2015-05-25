@@ -29,6 +29,7 @@ class CartsController extends AppController {
         $this->redirect('index');
     }
 
+    //Remove single product from cart
     public function remove($key_encrypt) {
         $key = MyClass::refdecryption($key_encrypt);
         if ($this->Session->check('Shop')) {
@@ -55,6 +56,7 @@ class CartsController extends AppController {
         $this->redirect('index');
     }
 
+    //Clear cart.
     public function clear() {
         if ($this->Session->check('Shop')) {
             $this->Session->delete('Shop');
@@ -122,12 +124,14 @@ class CartsController extends AppController {
         }
 
         $data['cart_total_weight'] = $cart_weight;
-        $data['cart_sub_price'] = $cart_sub_price;
+        $data['cart_sub_price_with_tax'] = $cart_sub_price;
+        $data['cart_tax'] = MyClass::vatCalculation($data['cart_sub_price_with_tax']);
+        $data['cart_sub_price_without_tax'] = $data['cart_sub_price_with_tax'] - $data['cart_tax'];
 
         $shipping_cost = MyClass::shippingCostCalculation($data['sh_cost_id'], $data['cart_total_weight']);
         $data['shipping_cost'] = $shipping_cost;
 
-        $data['cart_total_price'] = $data['good_for_print_on_paper'] + $data['express_within_4_days'] + $data['cart_sub_price'] + $data['shipping_cost'];
+        $data['cart_total_price'] = $data['good_for_print_on_paper'] + $data['express_within_4_days'] + $data['cart_sub_price_with_tax'] + $data['shipping_cost'];
 
         $this->Session->write('Shop.Additional', $data);
     }
