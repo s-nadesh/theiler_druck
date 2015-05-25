@@ -145,6 +145,23 @@ $(document).ready(function() {
         }
     });
     
+    //Admin User Form - Edit
+    $(".admin_edit_user").validate({
+        
+        rules: { 
+            
+            'data[User][user_name]': {
+                required: true,
+            }
+            
+        },
+        success: function(label) {
+            label.text('Success!').addClass('valid');
+        }
+    });
+    
+    
+    
     //Admin Product Form - Edit
     $(".admin_product_form_edit").validate({
         errorPlacement: function(error, element) {

@@ -32,6 +32,8 @@
             $marray[6] = 'active';
         elseif (@$admin_menu == 'pages')
             $marray[7] = 'active';
+        elseif (@$admin_menu == 'users')
+            $marray[8] = 'active';
         ?>
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
@@ -67,6 +69,11 @@
             <li class="<?php echo $marray[7] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/pages">
                     <span><?php echo __("Cms"); ?></span><i class="icon-book"></i>
+                </a>
+            </li>
+             <li class="<?php echo $marray[8] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/users">
+                    <span><?php echo __("Users"); ?></span><i class="icon-users"></i>
                 </a>
             </li>
         </ul>
