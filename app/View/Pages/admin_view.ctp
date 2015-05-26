@@ -8,6 +8,7 @@ $this->Html->addCrumb(__('View Page'));
         <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __('View Page'); ?></h6>
         <a href="<?php echo SITE_BASE_URL ?>admin/pages" class="btn btn-primary pull-right"><?php echo __('Back'); ?></a>
     </div>
+    
     <div class="table-responsive">
         <table class="table table-bordered">
             <tbody>
@@ -45,3 +46,8 @@ $this->Html->addCrumb(__('View Page'));
         </table>
     </div>
 </div>
+
+
+
+
+

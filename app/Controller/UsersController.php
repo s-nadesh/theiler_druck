@@ -7,12 +7,36 @@ class UsersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny(array('profile', 'logout'));
+         $admin_auth_actions = array('admin_index', 'admin_view', 'admin_edit');
+        if (in_array($this->action, $admin_auth_actions)) {
+            if (!$this->Session->check('Admin.id'))
+                $this->goAdminLogin();
+        }
     }
 
     public function register() {
         if ($this->request->is('post')) {
+//            print_r($this->data);exit;
+            $this->request->data['User']['user_name'] = $this->data['UserAddress']['address_firstname'] . ' ' . $this->data['UserAddress']['address_lastname'];
+
+            if ($this->data['User']['user_dob']) {
+                $this->request->data['User']['user_dob'] = date(DB_DATE_FORMAT, strtotime($this->data['User']['user_dob']));
+            }
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__("Your registration completed successfully"), 'flash_success');
+                $user_id = $this->User->getLastInsertId();
+                $this->loadModel('UserAddress');
+                if ($this->request->data['UserAddress']['address_company_type'] == 'Individual') {
+                    $this->request->data['UserAddress']['address_company_name'] = '';
+                }
+                $this->request->data['UserAddress']['address_type'] = 0;
+                $this->request->data['UserAddress']['user_id'] = $user_id;
+                $this->UserAddress->save($this->request->data);
+
+                $this->request->data['User']['user_id'] = $user_id;
+                unset($this->request->data['User']['user_password']);
+                unset($this->request->data['User']['user_repeat_password']);
+                $this->Auth->login($this->request->data['User']);
+                return $this->redirect($this->Auth->redirect());
             } else {
                 $this->Session->setFlash(__("Registration failed"), 'flash_error');
             }
@@ -73,7 +97,7 @@ class UsersController extends AppController {
             $this->request->data['User']['user_id'] = $user_id;
            if ($this->User->save($this->request->data)) {
 //          $user_id = $this->Page->getLastInsertID();
-                $this->Session->setFlash('Page has been successfully edited', 'flash_success');
+                $this->Session->setFlash('User has been successfully edited', 'flash_success');
                 $this->redirect(array('controller' => 'users', 'action' => 'index', 'admin' => true));
             }
         } else {

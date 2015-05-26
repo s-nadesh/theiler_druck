@@ -35,8 +35,9 @@ $this->Html->addCrumb(__('View User'));
         </table>
     </div>
     </div>
+
+
     
-    <div class="tab-content">
     <div id="activity" class="tab-pane active fade in">
 
          
@@ -48,25 +49,26 @@ $this->Html->addCrumb(__('View User'));
             <div class="row">
                  <?php $i = 1; foreach($addrs as $addr): ?>
                <div class="col-md-6">
-                  
+                  <div class="panel panel-default">   
                     <!-- Contacts -->
-                    <div class="block">
-                        <h6><i class="icon-paragraph-justify2"></i> Address <?php echo $i;?></h6>
+                    <div class="panel-heading">
+                        <h6 class="panel-title" ><i class="icon-paragraph-justify2"></i> Address <?php echo $i;?></h6>
+                         </div>
                         <ul class="message-list">
 
                             <li class="message-list-header"><?php echo $addr['UserAddress']['address_title'].'.'.$addr['UserAddress']['address_firstname'].' '.$addr['UserAddress']['address_lastname'] ?></li>
 
-                                 <?php echo $addr['UserAddress']['address_street'].'<br>'
+                                 <?php echo '<li class="message-list-header">'.$addr['UserAddress']['address_street'].'<br>'
                                          .$addr['UserAddress']['address_city'].'<br>'
                                          .$addr['UserAddress']['address_post_code'] .'<br>'
                                          .$addr['UserAddress']['address_country'].'<br><span class="icon-phone2">:'
                                          .$addr['UserAddress']['address_phone'].'<br><span class="icon-mobile">:'
-                                         .$addr['UserAddress']['address_mobile']?> 
+                                         .$addr['UserAddress']['address_mobile'].'</li>'?> 
                               
                         </ul>
-                    </div>
+                   
                     <!-- contacts -->
-
+                  </div>
                 </div>
                    <?php $i++; endforeach;?>
              
@@ -75,5 +77,5 @@ $this->Html->addCrumb(__('View User'));
             <!-- /questions and contact -->
         </div>
         
-    </div>
+
     
