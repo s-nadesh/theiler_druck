@@ -4,6 +4,7 @@ class CartsController extends AppController {
 
     public $name = 'Carts';
 
+    //Cart index page.
     public function index() {
         $this->set('page_title', __('Cart'));
     }

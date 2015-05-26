@@ -94,3 +94,19 @@ div.featured-boxes div.featured-box {
 .summary_vat{
     font-size: 13px;
 }
+
+section.page-top{
+    background-color: #0088cc;
+}
+
+.breadcrumb > .active{
+    color: #000000;
+}
+
+.breadcrumb a{
+    color: #FFFFFF;
+}
+
+.breadcrumb a:hover{
+    color: #FFFFFF;
+}

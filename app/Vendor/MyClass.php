@@ -101,7 +101,7 @@ class MyClass {
         $product = ClassRegistry::init('Product');
         $paper_variant = ClassRegistry::init('PaperVariant');
 
-        $no_of_papers = $no_of_pages / 2;
+        $no_of_papers = $no_of_pages / 2; //2 page is equal to one paper.
 
         $product_detail = $product->find('first', array(
             'recursive' => 0,
