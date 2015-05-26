@@ -2,7 +2,6 @@
     <div class="container">
         <hr class="short">
         <?php echo $this->Session->flash(); ?>
-
         <div class="row">
             <div class="col-md-12 chekout-step">
                 <div class="row">
@@ -29,7 +28,6 @@
                                 </p>
                             </div>
                         </div>
-
                         <div class="featured-box featured-box-secundary default info-content">
                             <?php echo $this->Form->create('User', array("class" => "form-horizontal form-bordered checkout-register")); ?>
                             <div class="box-content">

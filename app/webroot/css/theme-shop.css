@@ -512,7 +512,7 @@ div.shop .summary .price {
 }
 
 div.shop .quantity {
-	margin: 0 14px 25px 0;
+	margin: 0 0px 25px 0;
 	overflow: hidden;
 	position: relative;
 	width: 108px;

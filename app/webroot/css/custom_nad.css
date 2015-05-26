@@ -110,3 +110,7 @@ section.page-top{
 .breadcrumb a:hover{
     color: #FFFFFF;
 }
+
+.error-message{
+    color: #ff0033;
+}

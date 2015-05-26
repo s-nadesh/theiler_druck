@@ -4,6 +4,7 @@ class CheckoutsController extends AppController {
 
     public $name = 'Checkouts';
 
+    //This function will run before every functions.
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->loginAction = array('controller' => 'checkouts', 'action' => 'index', 'admin' => false);
@@ -30,6 +31,7 @@ class CheckoutsController extends AppController {
         }
     }
 
+    //Checkout index function.
     public function index() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
@@ -41,6 +43,7 @@ class CheckoutsController extends AppController {
         }
     }
 
+    //Checkout registration function
     public function register() {
         if ($this->request->is('post')) {
             $this->loadModel('User');
@@ -62,15 +65,16 @@ class CheckoutsController extends AppController {
 
                 $this->request->data['User']['user_id'] = $user_id;
                 unset($this->request->data['User']['user_password']);
-                unset($this->request->data['User']['user_repeat_password']);
+                unset($this->request->data['User']['repeat_password']);
                 $this->Auth->login($this->request->data['User']);
                 return $this->redirect($this->Auth->redirect());
             } else {
-                $this->Session->setFlash(__("Registration failed"), 'flash_error');
+                $this->Session->setFlash(__("Registration failed, Please check the errors in the form"), 'flash_error');
             }
         }
     }
 
+    //Checkout Billing Address function.
     public function billing_address() {
         if ($this->request->is('post')) {
             if ($this->data['BillingAddress']['address_company_type'] == 'Individual') {
@@ -95,20 +99,36 @@ class CheckoutsController extends AppController {
         }
     }
 
+    //Checkout Shipping Address function.
     public function shipping_address() {
         if (!$this->Session->check('Shop.Order.BillingAddress')) {
             $this->redirect('billing_address');
         }
 
         if ($this->request->is('post')) {
-            if ($this->data['ShippingAddress']['address_company_type'] == 'Individual') {
-                $this->request->data['ShippingAddress']['address_company_name'] = '';
+            $target_zip_code = $this->Session->read('Shop.Additional.target_zip_code');
+            $zip_codes = MyClass::stringToArray('-', $target_zip_code);
+            $zip_from = $zip_codes[0];
+            $zip_to = $zip_codes[1];
+            if ($this->data['ShippingAddress']['identical'] == 1) {
+                $shipping_zip_code = $this->Session->read('Shop.Order.BillingAddress.address_post_code');
+            } else {
+                $shipping_zip_code = $this->data['ShippingAddress']['address_post_code'];
             }
-            $this->Session->write('Shop.Order.ShippingAddress', $this->data['ShippingAddress']);
-            $this->redirect('payment_method');
+
+            if ($shipping_zip_code >= $zip_from && $shipping_zip_code <= $zip_to) {
+                if ($this->data['ShippingAddress']['address_company_type'] == 'Individual') {
+                    $this->request->data['ShippingAddress']['address_company_name'] = '';
+                }
+                $this->Session->write('Shop.Order.ShippingAddress', $this->data['ShippingAddress']);
+                $this->redirect('payment_method');
+            } else {
+                $this->Session->setFlash('Zipcode must be within '. $zip_from . '-' . $zip_to . '<br> Select different Zip code range in cart page if needed', 'flash_error');
+            }
         }
     }
 
+    //Checkout Payment Method function.
     public function payment_method() {
         if (!$this->Session->check('Shop.Order.BillingAddress')) {
             $this->redirect('billing_address');

@@ -4,7 +4,6 @@
         <div class="row">
             <div class="col-md-12">
                 <?php echo $this->Session->flash(); ?>
-
                 <div class="row featured-boxes login checkout-login">
                     <div class="col-md-12">
                         <h4><?php echo __("Registration") ?></h4>
@@ -31,7 +30,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-6">
                                 <div class="featured-box featured-box-secundary default info-content">
                                     <div class="box-content">

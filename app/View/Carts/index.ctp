@@ -10,7 +10,6 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
         <div class="row">
             <div class="col-md-12">
                 <?php if ($this->Session->check('Shop')) { ?>
-
                     <?php echo $this->Form->create('Cart', array('action' => 'update')); ?>
                     <div class="row featured-boxes">
                         <div class="col-md-12">
@@ -22,9 +21,9 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <th class="product-remove"> &nbsp; </th>
                                                 <th class="product-thumbnail"> &nbsp; </th>
                                                 <th class="product-name"> <?php echo MyClass::translate("Product"); ?> </th>
-                                                <th class="product-price"> <?php echo MyClass::translate("Price"); ?> </th>
-                                                <th class="product-quantity"> <?php echo MyClass::translate("Quantity"); ?> </th>
-                                                <th class="product-subtotal"> <?php echo MyClass::translate("Total"); ?> </th>
+                                                <th class="product-price center"> <?php echo MyClass::translate("Price"); ?> </th>
+                                                <th class="product-quantity center"> <?php echo MyClass::translate("Quantity"); ?> </th>
+                                                <th class="product-subtotal center"> <?php echo MyClass::translate("Total"); ?> </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -33,6 +32,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                             foreach ($shop['CartItems'] as $key => $value) {
                                                 $product = $this->requestAction('products/getProduct/' . $value['product_id']);
                                                 $paper_variant = $this->requestAction('paper_variants/getPaperVariant/' . $value['paper_id']);
+                                                $key_encrypt = MyClass::refencryption($key);
                                                 echo $this->Form->hidden('CartItems.' . $key . '.product_id', array('value' => $value['product_id']));
                                                 echo $this->Form->hidden('CartItems.' . $key . '.no_of_pages', array('value' => $value['item_product_no_of_pages']));
                                                 echo $this->Form->hidden('CartItems.' . $key . '.no_of_copies', array('value' => $value['item_product_no_of_copies']));
@@ -41,8 +41,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <tr class="cart_table_item">
 
                                                     <td class="product-remove">
-                                                        <?php $key_encrypt = MyClass::refencryption($key); ?>
-                                                        <a title="Remove this item" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
+                                                        <a title="<?php echo __("Remove this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
                                                             <i class="icon icon-times"></i>
                                                         </a>
                                                     </td>
@@ -63,21 +62,21 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                             echo MyClass::translate("Paper Weight") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
                                                             if ($shop['Additional']['good_for_print_on_paper'] > 0 ||
                                                                     $shop['Additional']['express_within_4_days'] > 0) {
-                                                                echo '<b>Additional Services:</b><br>';
+                                                                echo '<b>' . __("Additional Services") . ':</b><br>';
+                                                                if ($shop['Additional']['good_for_print_on_paper'] > 0)
+                                                                    echo MyClass::translate("Good For Print On Paper") . '<br>';
+                                                                if ($shop['Additional']['express_within_4_days'] > 0)
+                                                                    echo MyClass::translate("Express Within 4 Days");
                                                             }
-                                                            if ($shop['Additional']['good_for_print_on_paper'] > 0)
-                                                                echo MyClass::translate("Good For Print On Paper") . '<br>';
-                                                            if ($shop['Additional']['express_within_4_days'] > 0)
-                                                                echo MyClass::translate("Express Within 4 Days");
                                                             ?>
                                                         </div> 
                                                     </td>
 
-                                                    <td class="product-price">
+                                                    <td class="product-price center">
                                                         <span class="amount"><?php echo MyClass::currencyFormat($value['item_price']) ?></span>
                                                     </td>
 
-                                                    <td class="product-quantity">
+                                                    <td class="product-quantity center">
                                                         <div class="quantity">
                                                             <?php
                                                             echo $this->Form->input('CartItems.' . $key . '.quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => $value['item_quantity'], "min" => "1", "step" => "1", "label" => false));
@@ -85,7 +84,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                         </div>
                                                     </td>
 
-                                                    <td class="product-subtotal">
+                                                    <td class="product-subtotal center">
                                                         <span class="amount"><?php echo MyClass::currencyFormat($value['item_sub_price']) ?></span>
                                                     </td>
                                                 </tr>
@@ -130,7 +129,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="submit" value="Update Totals" class="btn btn-default pull-right push-bottom" data-loading-text="Loading...">
+                                            <input type="submit" value="<?php echo __("Update Totals"); ?>" class="btn btn-default pull-right push-bottom">
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +145,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <td> <?php echo __("Shipping Cost"); ?>  </td>
                                                 <td align="right"> <?php echo MyClass::currencyFormat($shop['Additional']['shipping_cost']) ?></td>
                                             </tr>
-                                            
+
                                             <tr class="cart-subtotal">
                                                 <td>
                                                     <?php echo __("Total Net"); ?><br>
@@ -159,7 +158,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                     </span>
                                                 </td>
                                             </tr>
-                                            
+
                                             <?php
                                             $additional_charge = $shop['Additional']['good_for_print_on_paper'] + $shop['Additional']['express_within_4_days'];
                                             if ($additional_charge > 0) {
@@ -207,7 +206,6 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                             </div>
                         </div>
                     </div>
-
                 <?php } else { ?>
                     <div class="row featured-boxes">
                         <div class="col-md-12">
@@ -219,7 +217,6 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                         </div>
                     </div>
                 <?php } ?>
-
             </div>
         </div>
     </div>

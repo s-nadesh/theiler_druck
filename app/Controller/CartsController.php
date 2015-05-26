@@ -66,10 +66,19 @@ class CartsController extends AppController {
         $this->redirect('index');
     }
 
+    //Update cart items.
     protected function setCartItem($product) {
         $key = $product['product_id'] . "_" . $product['no_of_pages'] . "_" . $product['no_of_copies'] . "_" . $product['paper_id'];
+        
+        $product_detail = $this->requestAction('products/getProduct/' . $product['product_id']);
 
         $data['product_id'] = $product['product_id'];
+        $data['product_name'] = $product_detail['Product']['product_name'];
+        $data['product_description'] = $product_detail['Product']['product_description'];
+        $data['product_image'] = $product_detail['Product']['product_image'];
+        $data['product_sku'] = $product_detail['Product']['product_sku'];
+        $data['product_slug'] = $product_detail['Product']['product_slug'];
+        $data['product_factor'] = $product_detail['Product']['product_factor'];
         $data['item_product_no_of_pages'] = $product['no_of_pages'];
         $data['item_product_no_of_copies'] = $product['no_of_copies'];
         $data['paper_id'] = $product['paper_id'];
@@ -101,6 +110,7 @@ class CartsController extends AppController {
         $this->Session->write('Shop.CartItems.' . $key, $data);
     }
 
+    //Update cart additional details.
     protected function setCartAdditional($product) {
         if (isset($product['sh_cost_id']) && $product['sh_cost_id'] != '') {
             $data['sh_cost_id'] = $product['sh_cost_id'];
@@ -110,6 +120,9 @@ class CartsController extends AppController {
             $shipping_cost = $this->requestAction('shipping_costs/getFirstZipCode');
             $data['sh_cost_id'] = $shipping_cost['ShippingCost']['sh_cost_id'];
         }
+        
+        $zip_code_detail = $this->requestAction('shipping_costs/getZipCode/' . $data['sh_cost_id']);
+        $data['target_zip_code'] = $zip_code_detail['ShippingCost']['target_zip_code'];
 
         $data['good_for_print_on_paper'] = $product['good_for_print_on_paper'];
         $data['express_within_4_days'] = $product['express_within_4_days'];

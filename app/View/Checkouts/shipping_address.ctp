@@ -21,6 +21,7 @@ $new_shipping_div_class = 'none';
 
 if ($this->Session->check('Shop.Order.ShippingAddress')) {
     if ($this->Session->read('Shop.Order.ShippingAddress.identical') == 0) {
+        //Shipping and Billing are different
         $shipping_address = $this->Session->read('Shop.Order.ShippingAddress');
         $shipping_company_type = $shipping_address['address_company_type'];
         $shipping_company_name = $shipping_address['address_company_name'];
@@ -49,7 +50,6 @@ if ($this->Session->check('Shop.Order.ShippingAddress')) {
     <div class="container">
         <hr class="short">
         <?php echo $this->Session->flash(); ?>
-
         <div class="row">
             <div class="col-md-12 chekout-step">
                 <div class="row">

@@ -21,7 +21,6 @@ $billing_mobile = $billing_address['address_mobile'];
     <div class="container">
         <hr class="short">
         <?php echo $this->Session->flash(); ?>
-
         <div class="row">
             <div class="col-md-12 chekout-step">
                 <div class="row">
@@ -62,7 +61,7 @@ $billing_mobile = $billing_address['address_mobile'];
 
                                 <div class="form-group" id="company_name_div">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        <?php echo __("Company Name"); ?>
+                                       * <?php echo __("Company Name"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('address_company_name', array('label' => false, 'class' => 'form-control', 'value' => $billing_company_name)); ?>
