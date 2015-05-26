@@ -99,6 +99,11 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                         <a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address" class="btn btn-lg btn-primary pull-right"><?php echo __("Billing Address Change"); ?></a>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        &nbsp;
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -122,6 +127,11 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                         <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right"><?php echo __("Shipping Address Change"); ?></a>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        &nbsp;
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -136,7 +146,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                     <?php echo __("Payment Method"); ?>
                                     <span class="pull-right"> * <?php echo __("required fields"); ?></span>
                                 </legend> 
-                                
+
                                 <div id="payment-method-error"></div>
 
                                 <?php
@@ -163,12 +173,17 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
 
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-3 col-md-2">
-                                        <a href="<?php echo SITE_BASE_URL?>checkouts/shipping_address" class="btn btn-lg btn-default">
+                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-default">
                                             <?php echo __("Back"); ?>
                                         </a>
                                     </div>
                                     <div class="col-xs-12 col-sm-9 col-md-10">
                                         <input type="submit" value="<?php echo __("Continue your order"); ?>" class="btn btn-lg btn-primary pull-right">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        &nbsp;
                                     </div>
                                 </div>
                             </div>
