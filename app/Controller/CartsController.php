@@ -9,7 +9,7 @@ class CartsController extends AppController {
         $this->set('page_title', __('Cart'));
     }
 
-    //Add product in cart from Product detail page
+    //Add/Edit product in cart from Product detail page
     public function add() {
         if ($this->request->is('post')) {
             $product = $this->data['Cart'];
@@ -71,6 +71,12 @@ class CartsController extends AppController {
     //Update cart items.
     protected function setCartItem($product) {
         $key = $product['product_id'] . "_" . $product['no_of_pages'] . "_" . $product['no_of_copies'] . "_" . $product['paper_id'];
+        
+        if(isset($product['cart_item_old_key'])){
+            if($product['cart_item_old_key'] != $key){
+                $this->Session->delete('Shop.CartItems.' . $product['cart_item_old_key']);
+            }
+        }
 
         $product_detail = $this->requestAction('products/getProduct/' . $product['product_id']);
 

@@ -121,7 +121,7 @@ class ProductsController extends AppController {
     }
 
     //Front End Product Details View Page.
-    public function view($slug) {
+    public function view($slug, $cart_items_key = '') {
         $product = $this->Product->find('first', array(
             'conditions' => array(
                 'Product.product_slug' => $slug
@@ -132,8 +132,7 @@ class ProductsController extends AppController {
             $this->goHome();
         }
 
-        $this->set(compact('product'));
-
+        $this->set(compact('product', 'cart_items_key'));
         $this->set('title_for_layout', $product['Product']['product_name']);
     }
 

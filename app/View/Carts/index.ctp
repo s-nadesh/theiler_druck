@@ -53,7 +53,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
 
                                                     <td class="product-name">
                                                         <?php
-                                                        echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['product_slug']));
+                                                        echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', $product['Product']['product_slug'], $key_encrypt));
                                                         ?>
                                                         <div class="hidden-xs hidden-sm hidden-md">
                                                             <?php

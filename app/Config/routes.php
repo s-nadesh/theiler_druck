@@ -34,7 +34,7 @@ Router::connect('/admin/change_password', array('controller' => 'admins', 'actio
 Router::connect('/admin/logout', array('controller' => 'admins', 'action' => 'logout', 'admin' => true));
 Router::connect('/admin/forgot_password', array('controller' => 'admins', 'action' => 'forgot_password', 'admin' => true));
 
-Router::connect('/product/:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('slug')));
+Router::connect('/product/*', array('controller' => 'products', 'action' => 'view'), array('pass' => array('slug', 'cart_items_key')));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */

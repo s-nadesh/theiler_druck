@@ -246,5 +246,5 @@ class MyClass {
         $file = new File(WWW_ROOT.$file);
         return $file->delete();
     }
-
+    
 }
