@@ -54,8 +54,13 @@ error_reporting(E_ALL & ~E_STRICT);
 define('ERR_LOG', 'error.log');
 define('PRODUCT_IMAGE_FOLDER', 'files/products/');
 define('PRODUCT_IMAGE_RESIZE_FOLDER', 'files/products/resize/');
+
 define('PROFILE_IMAGE_FOLDER', 'files/profile/');
 define('PROFILE_IMAGE_RESIZE_FOLDER', 'files/profile/resize/');
+
+define('CART_FILE_FOLDER', 'files/cart/');
+define('ORDER_FILE_FOLDER', 'files/order/');
+
 define('PHP_DATE_FORMAT', 'dd.mm.yy');
 define('DB_DATE_FORMAT', 'Y-m-d');
 

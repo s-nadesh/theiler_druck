@@ -38,7 +38,13 @@ $papers = MyClass::arrayToString(",", $paper_array);
                     </p>
 
                     <?php
-                    echo $this->Form->create('Cart', array("action" => "add", "method" => "post", "class" => "cart"));
+                    echo $this->Form->create('Cart', array(
+                        "action" => "add",
+                        "method" => "post",
+                        "class" => "cart",
+                        'enctype' => 'multipart/form-data')
+                    );
+
                     echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id']));
                     ?>
                     <div class="form-group">
@@ -75,6 +81,19 @@ $papers = MyClass::arrayToString(",", $paper_array);
                     </div>
 
                     <div class="form-group">
+                        <label class="col-md-3 control-label"><?php echo __("Picture Upload") ?></label>
+                        <div class="col-md-9">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="input-append">
+                                    <span class="btn btn-primary btn-file">
+                                        <input type="file" name="data[Cart][picture_upload]" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="inputDefault" class="col-md-5 control-label"><?php echo MyClass::translate("Good for print on paper"); ?></label>
                         <div class="col-md-7">
                             <input type="radio" name="data[Cart][good_for_print_on_paper]" value="0" checked="checked" onclick="getProductPrice()">
@@ -97,10 +116,16 @@ $papers = MyClass::arrayToString(",", $paper_array);
                     <hr class="short">
                     <div class="form-group">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
-                            <div class="quantity">
-                                <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => "1", "min" => "1", "step" => "1", 'label' => false, 'onchange' => 'getProductPrice()')); ?>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="quantity">
+                                        <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => "1", "min" => "1", "step" => "1", 'label' => false, 'onchange' => 'getProductPrice()')); ?>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <?php echo $this->Form->submit(MyClass::translate("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>
+                                </div>
                             </div>
-                            <?php echo $this->Form->submit(MyClass::translate("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
                             <span class="price" style="font-size: 24px">

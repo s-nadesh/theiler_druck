@@ -37,6 +37,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 echo $this->Form->hidden('CartItems.' . $key . '.no_of_pages', array('value' => $value['item_product_no_of_pages']));
                                                 echo $this->Form->hidden('CartItems.' . $key . '.no_of_copies', array('value' => $value['item_product_no_of_copies']));
                                                 echo $this->Form->hidden('CartItems.' . $key . '.paper_id', array('value' => $value['paper_id']));
+                                                echo $this->Form->hidden('CartItems.' . $key . '.picture_upload_edit', array('value' => $value['item_picture_upload']));
                                                 ?>
                                                 <tr class="cart_table_item">
 

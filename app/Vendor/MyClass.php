@@ -241,4 +241,10 @@ class MyClass {
         return $unique_id;
     }
 
+    public static function fileDelete($file) {
+        App::uses('File', 'Utility');
+        $file = new File(WWW_ROOT.$file);
+        return $file->delete();
+    }
+
 }

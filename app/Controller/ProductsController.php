@@ -88,8 +88,8 @@ class ProductsController extends AppController {
 
             if (!empty($this->request->data['Product']['product_image']['name'])) {
                 //Remove Old Image in Folder
-                unlink(PRODUCT_IMAGE_FOLDER . $this->request->data['Product']['product_old_image']);
-                unlink(PRODUCT_IMAGE_RESIZE_FOLDER . $this->request->data['Product']['product_old_image']);
+                MyClass::fileDelete(PRODUCT_IMAGE_FOLDER . $this->request->data['Product']['product_old_image']);
+                MyClass::fileDelete(PRODUCT_IMAGE_RESIZE_FOLDER . $this->request->data['Product']['product_old_image']);
                 unset($this->request->data['Product']['product_old_image']);
 
                 //Save New Image in Folder

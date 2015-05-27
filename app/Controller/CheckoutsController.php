@@ -123,7 +123,7 @@ class CheckoutsController extends AppController {
                 $this->Session->write('Shop.Order.ShippingAddress', $this->data['ShippingAddress']);
                 $this->redirect('payment_method');
             } else {
-                $this->Session->setFlash('Zipcode must be within '. $zip_from . '-' . $zip_to . '<br> Select different Zip code range in cart page if needed', 'flash_error');
+                $this->Session->setFlash('Shipping address Zipcode must be within '. $zip_from . '-' . $zip_to, 'flash_error');
             }
         }
     }
@@ -179,7 +179,7 @@ class CheckoutsController extends AppController {
         } elseif (!$this->Session->check('Shop.Order.Summary')) {
             $this->redirect('summary');
         }
-
+        
         $this->loadModel('Order');
         $shop = $this->Session->read('Shop');
         $order = array(
@@ -205,6 +205,11 @@ class CheckoutsController extends AppController {
             $order_id = $this->Order->getLastInsertId();
             $this->loadModel('OrderItem');
             foreach ($shop['CartItems'] as $key => $value) {
+                if($value['item_picture_upload']){
+                    $oldname = CART_FILE_FOLDER.$value['item_picture_upload'];
+                    $newname = ORDER_FILE_FOLDER.$value['item_picture_upload'];
+                    rename($oldname, $newname);
+                }
                 $order_item = array(
                     'OrderItem' => array(
                         'order_id' => $order_id,

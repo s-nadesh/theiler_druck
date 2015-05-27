@@ -35,6 +35,7 @@ class CartsController extends AppController {
         $key = MyClass::refdecryption($key_encrypt);
         if ($this->Session->check('Shop')) {
             if ($this->Session->check('Shop.CartItems.' . $key)) {
+                MyClass::fileDelete(CART_FILE_FOLDER . $this->Session->read('Shop.CartItems.' . $key . '.item_picture_upload'));
                 $this->Session->delete("Shop.CartItems." . $key);
             }
 
@@ -46,6 +47,7 @@ class CartsController extends AppController {
                         'no_of_copies' => $items['item_product_no_of_copies'],
                         'paper_id' => $items['paper_id'],
                         'quantity' => $items['item_quantity'],
+                        'picture_upload_edit' => $items['item_picture_upload'],
                     );
                     $this->setCartItem($product);
                 }
@@ -69,7 +71,7 @@ class CartsController extends AppController {
     //Update cart items.
     protected function setCartItem($product) {
         $key = $product['product_id'] . "_" . $product['no_of_pages'] . "_" . $product['no_of_copies'] . "_" . $product['paper_id'];
-        
+
         $product_detail = $this->requestAction('products/getProduct/' . $product['product_id']);
 
         $data['product_id'] = $product['product_id'];
@@ -83,6 +85,19 @@ class CartsController extends AppController {
         $data['item_product_no_of_copies'] = $product['no_of_copies'];
         $data['paper_id'] = $product['paper_id'];
         $data['item_quantity'] = $product['quantity'];
+
+        //Move file.
+        if (isset($product['picture_upload']['name']) && $product['picture_upload']['name'] != '') {
+            $file_name = MyClass::getRandomString(5) . "_" . $product['picture_upload']['name'];
+            $cart_file = CART_FILE_FOLDER . $file_name;
+            $temp_name = $product['picture_upload']['tmp_name'];
+            move_uploaded_file($temp_name, $cart_file);
+            $data['item_picture_upload'] = $file_name;
+        } elseif (isset($product['picture_upload_edit'])) {
+            $data['item_picture_upload'] = $product['picture_upload_edit'];
+        } else {
+            $data['item_picture_upload'] = '';
+        }
 
         $price = MyClass::priceCalculationPerProduct($data['product_id'], $data['item_product_no_of_pages'], $data['item_product_no_of_copies']);
         $sub_price = MyClass::priceCalculationPerProduct($data['product_id'], $data['item_product_no_of_pages'], $data['item_product_no_of_copies'], $data['item_quantity']);
@@ -120,7 +135,7 @@ class CartsController extends AppController {
             $shipping_cost = $this->requestAction('shipping_costs/getFirstZipCode');
             $data['sh_cost_id'] = $shipping_cost['ShippingCost']['sh_cost_id'];
         }
-        
+
         $zip_code_detail = $this->requestAction('shipping_costs/getZipCode/' . $data['sh_cost_id']);
         $data['target_zip_code'] = $zip_code_detail['ShippingCost']['target_zip_code'];
 
