@@ -198,6 +198,7 @@ class CheckoutsController extends AppController {
                 'order_tax' => $shop['Additional']['cart_tax'],
                 'order_total_gross' => $shop['Additional']['cart_sub_price_with_tax'],
                 'order_final_amount' => $shop['Additional']['cart_total_price'],
+                'order_status' => 1,
             )
         );
 

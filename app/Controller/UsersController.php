@@ -116,4 +116,9 @@ class UsersController extends AppController {
        
         return $addrs;
     }
+    
+    public function get_user($user_id){
+        $user = $this->User->findByUserId($user_id);
+        return $user;
+    }
 }

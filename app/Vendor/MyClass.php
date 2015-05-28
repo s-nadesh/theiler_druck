@@ -247,4 +247,19 @@ class MyClass {
         return $file->delete();
     }
     
+    public static function orderStatus($status_id = ''){
+        $status = array(
+            '1' => 'Pending',
+            '2' => 'Progress',
+            '3' => 'Completed',
+            '4' => 'Cancel',
+        );
+        
+        if($status_id){
+            return $status[$status_id];
+        } else {
+            return $status;
+        }
+    }
+    
 }
