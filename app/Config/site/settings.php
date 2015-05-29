@@ -61,7 +61,8 @@ define('PROFILE_IMAGE_RESIZE_FOLDER', 'files/profile/resize/');
 define('CART_FILE_FOLDER', 'files/cart/');
 define('ORDER_FILE_FOLDER', 'files/order/');
 
-define('PHP_DATE_FORMAT', 'dd.mm.yy');
+define('PHP_DATE_FORMAT', 'd.m.Y');
+define('JS_DATE_FORMAT', 'dd.mm.yy');
 define('DB_DATE_FORMAT', 'Y-m-d');
 
 define('GOOD_FOR_PRINT_ON_PAPER', 6);

@@ -229,4 +229,56 @@ $(document).ready(function() {
             } 
         }
     });
+    
+    //My Account Change Password
+    $(".profile_change_password").validate({
+        rules: {
+            'data[User][new_password]': {
+                required: true,
+            },
+            'data[User][confirm_password]': {
+                required: true,
+                equalTo: "#UserNewPassword",
+            },
+        },
+        highlight: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-success")
+                    .addClass("has-error");
+        },
+        success: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-error")
+                    .addClass("has-success")
+                    .find("label.error")
+                    .remove();
+        },
+    });
+    
+    //My Account Profile Update
+    $(".profile_update").validate({
+        rules: {
+            'data[User][user_name]': {
+                required: true,
+            },
+            
+        },
+        highlight: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-success")
+                    .addClass("has-error");
+        },
+        success: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-error")
+                    .addClass("has-success")
+                    .find("label.error")
+                    .remove();
+        },
+    });
+    
 }); 

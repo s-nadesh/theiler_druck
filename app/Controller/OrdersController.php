@@ -7,6 +7,7 @@ class OrdersController extends AppController {
     //This function will run before every action
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Auth->deny(array('index', 'view'));
         $admin_auth_actions = array('admin_index', 'admin_view', 'admin_update_status');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
@@ -54,6 +55,30 @@ class OrdersController extends AppController {
             }
             exit;
         }
+    }
+    
+    //User orders manage page.
+    public function index(){
+        $orders = $this->Order->find('all', array(
+            'conditions' => array('Order.user_id' => $this->Auth->user('user_id')),
+            'recursive' => 0
+        ));
+        
+        $this->set(compact('orders'));
+    }
+    
+    //User view single order page.
+    public function view($order_unique_id){
+        $order = $this->Order->find('first', array(
+            'conditions' => array('Order.user_id' => $this->Auth->user('user_id'), 'Order.order_unique_id' => $order_unique_id),
+        ));
+        
+        if(empty($order)){
+            $this->Session->setFlash('Invalid Order', 'flash_error');
+            $this->redirect('index');
+        }
+        
+        $this->set(compact('order')); 
     }
 
 }

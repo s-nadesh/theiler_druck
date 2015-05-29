@@ -227,7 +227,7 @@
             changeMonth: true,
             changeYear: true,
             yearRange: '1970:' + new Date().getFullYear(),
-            dateFormat: '<?php echo PHP_DATE_FORMAT ?>'
+            dateFormat: '<?php echo JS_DATE_FORMAT ?>'
         });
     });
 

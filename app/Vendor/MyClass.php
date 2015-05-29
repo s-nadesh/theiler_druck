@@ -202,15 +202,16 @@ class MyClass {
     public static function paymentMethods() {
         $methods = array();
         $methods['PaymentMethod'] = array(
+//            array(
+//                'id' => 1,
+//                'name' => 'Cash on delivery',
+//                'fee' => '5.04CHF',
+//                'caption' => 'Small information',
+//            ), 
             array(
-                'id' => 1,
-                'name' => 'Cash on delivery',
-                'fee' => '5.04CHF',
-                'caption' => 'Small information',
-            ), array(
                 'id' => 2,
                 'name' => 'Bank transfer',
-                'fee' => '2%',
+                'fee' => '',
                 'caption' => 'You transfer the invoice amount in advance payment',
             ), array(
                 'id' => 3,

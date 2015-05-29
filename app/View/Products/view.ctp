@@ -1,4 +1,4 @@
-<?php echo $this->Html->css(array('theme-shop', 'theme-blog'), array('inline' => false)); ?>
+<?php echo $this->Html->css(array('theme-blog'), array('inline' => false)); ?>
 
 <?php
 //Product Details

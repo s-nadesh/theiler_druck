@@ -1,19 +1,13 @@
 <?php $this->Html->addCrumb(MyClass::translate('Login')); ?>
 
 <div role="main" class="main">
-
     <?php echo $this->element("breadcrumbs"); ?>
-
     <div class="container">
         <?php echo $this->Session->flash(); ?>
-
         <div class="row">
             <div class="col-md-12">
-                <?php echo $this->Session->flash(); ?>
-
                 <div class="row featured-boxes login checkout-login">
                     <div class="col-md-12">
-                        <h4><?php echo __("Registration") ?></h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="featured-box featured-box-secundary default info-content">
@@ -73,7 +67,5 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>

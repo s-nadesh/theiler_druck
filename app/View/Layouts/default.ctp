@@ -18,7 +18,7 @@
 
         echo $this->Html->css(array('/vendor/owl-carousel/owl.carousel', '/vendor/owl-carousel/owl.theme', '/vendor/magnific-popup/magnific-popup'), 'stylesheet', array('media' => 'screen'));
 
-        echo $this->Html->css(array('theme', 'theme-elements', 'theme-animate'));
+        echo $this->Html->css(array('theme', 'theme-elements', 'theme-animate', 'theme-shop'));
 
         echo $this->Html->css(array('/vendor/nivo-slider/nivo-slider', '/vendor/nivo-slider/themes/default/default', '/vendor/rs-plugin/css/settings', '/vendor/circle-flip-slideshow/css/component'), 'stylesheet', array('media' => 'screen'));
 

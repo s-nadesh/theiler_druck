@@ -1,5 +1,5 @@
 <?php
-echo $this->Html->css(array('theme-shop', 'theme-blog'), array('inline' => false));
+echo $this->Html->css(array('theme-blog'), array('inline' => false));
 
 $billing_address = $this->Session->read('Shop.Order.BillingAddress');
 
