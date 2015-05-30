@@ -73,7 +73,7 @@
                                                                     </a>
                                                                 </td>
                                                                 <td class="product-name">
-                                                                    <a href="shop-product-sidebar.html">
+                                                                    <a href="<?php echo SITE_BASE_URL ?>product/<?php echo $popup_cart_item['product_slug'] ?>">
                                                                         <?php echo $popup_cart_item['product_name']; ?><br>
 
                                                                     </a>
@@ -93,8 +93,8 @@
                                                         <tr>
                                                             <td class="actions" colspan="6">
                                                                 <div>
-                                                                    <input type="button" value="<?php echo __("View Cart")?>" class="btn btn-default popup_buttons" data-popupredirect = "<?php echo SITE_BASE_URL?>carts">
-                                                                    <input type="button" value="<?php echo __("Proceed to Checkout")?>" name="proceed" class="btn pull-right btn-primary popup_buttons text-right" data-popupredirect = "<?php echo SITE_BASE_URL?>checkouts">
+                                                                    <input type="button" value="<?php echo __("View Cart") ?>" class="btn btn-default popup_buttons" data-popupredirect = "<?php echo SITE_BASE_URL ?>carts">
+                                                                    <input type="button" value="<?php echo __("Proceed to Checkout") ?>" name="proceed" class="btn pull-right btn-primary popup_buttons text-right" data-popupredirect = "<?php echo SITE_BASE_URL ?>checkouts">
                                                                 </div>
                                                             </td>
                                                         </tr>
