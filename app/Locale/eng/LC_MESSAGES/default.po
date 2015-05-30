@@ -1,0 +1,11 @@
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Paper Variants"
+msgstr "Paper Variants"
+
+msgid "Products"
+msgstr "Products"
+
+msgid "Shipping Costs"
+msgstr "Shipping Costs"
