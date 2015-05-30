@@ -93,8 +93,8 @@
                                                         <tr>
                                                             <td class="actions" colspan="6">
                                                                 <div>
-                                                                    <input type="button" value="<?php echo __("View Cart") ?>" class="btn btn-default popup_buttons" data-popupredirect = "<?php echo SITE_BASE_URL ?>carts">
-                                                                    <input type="button" value="<?php echo __("Proceed to Checkout") ?>" name="proceed" class="btn pull-right btn-primary popup_buttons text-right" data-popupredirect = "<?php echo SITE_BASE_URL ?>checkouts">
+                                                                    <input type="button" value="<?php echo MyClass::translate("View Cart") ?>" class="btn btn-default popup_buttons" data-popupredirect = "<?php echo SITE_BASE_URL ?>carts">
+                                                                    <input type="button" value="<?php echo MyClass::translate("Proceed to Checkout") ?>" name="proceed" class="btn pull-right btn-primary popup_buttons text-right" data-popupredirect = "<?php echo SITE_BASE_URL ?>checkouts">
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -103,7 +103,7 @@
                                                         <tr>
                                                             <td class="actions" colspan="6">
                                                                 <div class="actions-continue">
-                                                                    <?php echo __("Your cart is currently empty"); ?>
+                                                                    <?php echo MyClass::translate("Your cart is currently empty"); ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -121,7 +121,7 @@
                     <?php if (!$logged_in) { ?>
                         <li class="dropdown mega-menu-item mega-menu-shop">
                             <a class="dropdown-toggle mobile-redirect" href="<?php echo SITE_BASE_URL ?>users/login">
-                                <?php echo __("Login"); ?>
+                                <?php echo MyClass::translate("Login"); ?>
                                 <i class="icon icon-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu">
@@ -157,13 +157,13 @@
                                                                     <ul>
                                                                         <li>  
                                                                             <a href="<?php echo SITE_BASE_URL ?>users/register">
-                                                                                <?php echo __("Register now"); ?>
+                                                                                <?php echo MyClass::translate("Register now"); ?>
                                                                             </a>
-                                                                            <span><?php echo __("New here ?") ?>&nbsp;</span>
+                                                                            <span><?php echo MyClass::translate("New here ?") ?>&nbsp;</span>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
-                                                                <input type="submit" value="<?php echo __("Login"); ?>" name="proceed" class="btn btn-lg pull-right btn-primary">
+                                                                <input type="submit" value="<?php echo MyClass::translate("Login"); ?>" name="proceed" class="btn btn-lg pull-right btn-primary">
                                                             </td>
                                                         </tr>
                                                     </tbody>

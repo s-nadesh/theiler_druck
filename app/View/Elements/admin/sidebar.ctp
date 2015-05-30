@@ -63,17 +63,17 @@
             </li>
             <li class="<?php echo $marray[7] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/pages">
-                    <span><?php echo __("Cms"); ?></span><i class="icon-book"></i>
+                    <span><?php echo MyClass::translate("Cms"); ?></span><i class="icon-book"></i>
                 </a>
             </li>
              <li class="<?php echo $marray[8] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/users">
-                    <span><?php echo __("Users"); ?></span><i class="icon-users"></i>
+                    <span><?php echo MyClass::translate("Users"); ?></span><i class="icon-users"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[9] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/orders">
-                    <span><?php echo __("Orders"); ?></span><i class="icon-coin"></i>
+                    <span><?php echo MyClass::translate("Orders"); ?></span><i class="icon-coin"></i>
                 </a>
             </li>
         </ul>

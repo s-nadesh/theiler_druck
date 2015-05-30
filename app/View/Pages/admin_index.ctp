@@ -1,22 +1,22 @@
-<?php $this->Html->addCrumb(__('Cms')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Cms')); ?>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Manage Pages"); ?></h6>
-        <a href="<?php echo SITE_BASE_URL ?>admin/pages/add" class="btn btn-primary pull-right"><?php echo __("Add Page"); ?></a>
+        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Manage Pages"); ?></h6>
+        <a href="<?php echo SITE_BASE_URL ?>admin/pages/add" class="btn btn-primary pull-right"><?php echo MyClass::translate("Add Page"); ?></a>
     </div>
     <div class="datatable">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th><?php echo __("Page Title"); ?></th>
-                    <th><?php echo __("Page Language"); ?></th>
-<!--                    <th><?php echo __("Descripition"); ?></th>-->
-                    <th><?php echo __("status"); ?></th>
-                    <th><?php echo __("Slug"); ?></th>
-                    <th><?php echo __("Created"); ?></th>
-                    <th><?php echo __("Action"); ?></th>
+                    <th><?php echo MyClass::translate("Page Title"); ?></th>
+                    <th><?php echo MyClass::translate("Page Language"); ?></th>
+<!--                    <th><?php echo MyClass::translate("Descripition"); ?></th>-->
+                    <th><?php echo MyClass::translate("status"); ?></th>
+                    <th><?php echo MyClass::translate("Slug"); ?></th>
+                    <th><?php echo MyClass::translate("Created"); ?></th>
+                    <th><?php echo MyClass::translate("Action"); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -39,10 +39,10 @@
                             <td><?php echo $page['Page']['created']; ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/view/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo __("View"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/view/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
                                         <i class="icon-zoom-in"></i>
                                     </a>
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/edit/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo __("Edit"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/edit/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

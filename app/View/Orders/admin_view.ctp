@@ -1,6 +1,6 @@
 <?php 
-$this->Html->addCrumb(__("Orders"), array('controller' => 'orders', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb(__("View Order"));
+$this->Html->addCrumb(MyClass::translate("Orders"), array('controller' => 'orders', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(MyClass::translate("View Order"));
 
 $user = $this->requestAction('users/get_user/' . $order['Order']['user_id']);
 $billing_address = MyClass::decodeJSON($order['Order']['order_billing_address']);
@@ -36,7 +36,7 @@ if ($shipping_address->identical == 1) {
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-coin"></i> <?php echo __("View Order"); ?></h6>
+        <h6 class="panel-title"><i class="icon-coin"></i> <?php echo MyClass::translate("View Order"); ?></h6>
         <a href="<?php echo SITE_BASE_URL ?>admin/orders" class="btn btn-primary pull-right"><?php echo MyClass::translate('Back'); ?></a>
     </div>
 
@@ -49,10 +49,10 @@ if ($shipping_address->identical == 1) {
             <?php echo $this->Form->create('Order', array('id' => 'order_status_update')); ?>
             <div class="col-sm-6">
                 <ul class="invoice-details">
-                    <li><?php echo __("Order #"); ?><strong class="text-danger"><?php echo $order['Order']['order_unique_id'] ?></strong></li>
-                    <li><?php echo __("Date of Order"); ?>: <strong><?php echo $order['Order']['created'] ?></strong></li>
+                    <li><?php echo MyClass::translate("Order #"); ?><strong class="text-danger"><?php echo $order['Order']['order_unique_id'] ?></strong></li>
+                    <li><?php echo MyClass::translate("Date of Order"); ?>: <strong><?php echo $order['Order']['created'] ?></strong></li>
                     <li>
-                        <?php echo __("Order Status"); ?>: 
+                        <?php echo MyClass::translate("Order Status"); ?>: 
                         <?php $order_status = MyClass::orderStatus(); ?>
                         <strong>
                             <select name="data[Order][order_status]" onchange="orderStatusUpdate()">
@@ -75,7 +75,7 @@ if ($shipping_address->identical == 1) {
 
         <div class="row">
             <div class="col-sm-6">
-                <h6><?php echo __("Billing Address"); ?>:</h6>
+                <h6><?php echo MyClass::translate("Billing Address"); ?>:</h6>
                 <ul>
                     <li> <?php echo $billing_address_name; ?> </li>
                     <li> <?php echo $billing_address_street; ?> </li>
@@ -93,7 +93,7 @@ if ($shipping_address->identical == 1) {
             </div>
 
             <div class="col-sm-6">
-                <h6><?php echo __("Shipping Address"); ?>:</h6>
+                <h6><?php echo MyClass::translate("Shipping Address"); ?>:</h6>
                 <ul>
                     <li> <?php echo $shipping_address_name; ?> </li>
                     <li> <?php echo $shipping_address_street; ?> </li>
@@ -116,10 +116,10 @@ if ($shipping_address->identical == 1) {
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th><?php echo __("Product"); ?></th>
-                    <th><?php echo __("Price"); ?></th>
-                    <th><?php echo __("Quantity"); ?></th>
-                    <th><?php echo __("Total"); ?></th>
+                    <th><?php echo MyClass::translate("Product"); ?></th>
+                    <th><?php echo MyClass::translate("Price"); ?></th>
+                    <th><?php echo MyClass::translate("Quantity"); ?></th>
+                    <th><?php echo MyClass::translate("Total"); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -128,10 +128,10 @@ if ($shipping_address->identical == 1) {
                     <tr>
                         <td>
                             <b><?php echo $order_item_detail->product_name; ?></b><br>
-                            <?php echo __("No of Pages"); ?> : <?php echo $order_item_detail->item_product_no_of_pages; ?><br>
-                            <?php echo __("No of Coipes"); ?> : <?php echo $order_item_detail->item_product_no_of_copies; ?><br>
+                            <?php echo MyClass::translate("No of Pages"); ?> : <?php echo $order_item_detail->item_product_no_of_pages; ?><br>
+                            <?php echo MyClass::translate("No of Coipes"); ?> : <?php echo $order_item_detail->item_product_no_of_copies; ?><br>
                             <?php
-                            echo __("Paper") . ' : ';
+                            echo MyClass::translate("Paper") . ' : ';
                             $paper_detail = $this->requestAction('paper_variants/getPaperVariant/' . $order_item_detail->paper_id);
                             echo $paper_detail['PaperVariant']['paper_rang_grm'];
 
@@ -158,13 +158,13 @@ if ($shipping_address->identical == 1) {
     <div class="panel-body">
         <div class="row invoice-payment">
             <div class="col-sm-8">
-                <h6><?php echo __("Payment Method"); ?>:</h6>
+                <h6><?php echo MyClass::translate("Payment Method"); ?>:</h6>
                 <?php echo $payment_method->name; ?>
             </div>
 
             <div class="col-sm-4">
                 <h6>
-                    <?php echo __("Total"); ?>: 
+                    <?php echo MyClass::translate("Total"); ?>: 
                     <span class="text-danger">
                         <?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?>
                     </span>
@@ -172,7 +172,7 @@ if ($shipping_address->identical == 1) {
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td><?php echo __("Shipping Cost"); ?>:</td>
+                            <td><?php echo MyClass::translate("Shipping Cost"); ?>:</td>
                             <td class="text-right"><?php echo MyClass::currencyFormat($order['Order']['order_shipping_cost']); ?></td>
                         </tr>
                         <?php
@@ -180,14 +180,14 @@ if ($shipping_address->identical == 1) {
                         if ($additional_services > 0) {
                             ?>
                             <tr>
-                                <td><?php echo __("Additional Services"); ?>:</td>
+                                <td><?php echo MyClass::translate("Additional Services"); ?>:</td>
                                 <td class="text-right"><?php echo MyClass::currencyFormat($additional_services); ?></td>
                             </tr>
                         <?php } ?>
                         <tr>
                             <td>
-                                <?php echo __("Total Net") ?>:<br>
-                                <?php echo __("incl. 8% VAT.") ?>:
+                                <?php echo MyClass::translate("Total Net") ?>:<br>
+                                <?php echo MyClass::translate("incl. 8% VAT.") ?>:
                             </td>
                             <td class="text-right">
                                 <?php echo MyClass::currencyFormat($order['Order']['order_total_net']); ?><br>
@@ -195,7 +195,7 @@ if ($shipping_address->identical == 1) {
                             </td>
                         </tr>
                         <tr>
-                            <th><?php echo __("Total Gross"); ?>:</th>
+                            <th><?php echo MyClass::translate("Total Gross"); ?>:</th>
                             <td class="text-right">
                                 <h6><?php echo MyClass::currencyFormat($order['Order']['order_total_gross']); ?></h6>
                             </td>
@@ -206,7 +206,7 @@ if ($shipping_address->identical == 1) {
         </div>
 
         <?php if ($summary->comment) { ?>
-            <h6><?php echo __("Comments"); ?>:</h6>
+            <h6><?php echo MyClass::translate("Comments"); ?>:</h6>
             <?php echo $summary->comment; ?>
         <?php } ?>
 

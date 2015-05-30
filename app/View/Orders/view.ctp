@@ -1,6 +1,6 @@
 <?php
 echo $this->Html->css(array('theme-blog'), array('inline' => false));
-$this->Html->addCrumb(__("View Order"));
+$this->Html->addCrumb(MyClass::translate("View Order"));
 
 $billing_address = MyClass::decodeJSON($order['Order']['order_billing_address']);
 $shipping_address = MyClass::decodeJSON($order['Order']['order_shipping_address']);
@@ -44,23 +44,23 @@ if ($shipping_address->identical == 1) {
             </div>
             <div class="col-md-9">
                 <?php echo $this->Session->flash(); ?>
-                <h2><?php echo __("View Order"); ?></h2>
+                <h2><?php echo MyClass::translate("View Order"); ?></h2>
                 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content">
-                                <legend> <?php echo __("Order Details"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Order Details"); ?></legend> 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="address">
-                                            <strong><?php echo __("Order #"); ?>: </strong>  
+                                            <strong><?php echo MyClass::translate("Order #"); ?>: </strong>  
                                             <?php echo $order['Order']['order_unique_id']; ?><br>
-                                            <strong><?php echo __("Order Date"); ?>: </strong> 
+                                            <strong><?php echo MyClass::translate("Order Date"); ?>: </strong> 
                                             <?php echo $order['Order']['created']; ?><br>
-                                            <strong><?php echo __("Order Status"); ?>: </strong> 
+                                            <strong><?php echo MyClass::translate("Order Status"); ?>: </strong> 
                                             <?php echo MyClass::orderStatus($order['Order']['order_status']); ?><br>
-                                            <span class="summary_total_gross"><?php echo __("Total Amount"); ?>:
+                                            <span class="summary_total_gross"><?php echo MyClass::translate("Total Amount"); ?>:
                                             <?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?> </span><br>
                                         </p>
                                     </div>
@@ -76,17 +76,17 @@ if ($shipping_address->identical == 1) {
                             <div class="col-md-6">
                                 <div class="featured-box featured-box-secundary default info-content">
                                     <div class="box-content">
-                                        <legend> <?php echo __("Billing Address"); ?></legend> 
+                                        <legend> <?php echo MyClass::translate("Billing Address"); ?></legend> 
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <p class="address">
-                                                    <strong><?php echo __("Name"); ?>: </strong>  <?php echo $billing_address_name; ?><br>
-                                                    <strong><?php echo __("Street/No"); ?>: </strong> <?php echo $billing_address_street; ?><br>
-                                                    <strong><?php echo __("City"); ?>: </strong> <?php echo $billing_address_city; ?><br>
-                                                    <strong><?php echo __("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
-                                                    <strong><?php echo __("Phone"); ?>: </strong> <?php echo $billing_address_phone; ?><br>
+                                                    <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $billing_address_name; ?><br>
+                                                    <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $billing_address_street; ?><br>
+                                                    <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $billing_address_city; ?><br>
+                                                    <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
+                                                    <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $billing_address_phone; ?><br>
                                                     <?php if ($billing_address_mobile) { ?>
-                                                        <strong><?php echo __("Mobile"); ?>: </strong> <?php echo $billing_address_mobile; ?><br>
+                                                        <strong><?php echo MyClass::translate("Mobile"); ?>: </strong> <?php echo $billing_address_mobile; ?><br>
                                                     <?php } ?>
                                                 </p>
                                             </div>
@@ -98,17 +98,17 @@ if ($shipping_address->identical == 1) {
                             <div class="col-md-6">
                                 <div class="featured-box featured-box-secundary default info-content">
                                     <div class="box-content">
-                                        <legend> <?php echo __("Shipping Address"); ?></legend> 
+                                        <legend> <?php echo MyClass::translate("Shipping Address"); ?></legend> 
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <p class="address">
-                                                    <strong><?php echo __("Name"); ?>: </strong>  <?php echo $shipping_address_name; ?><br>
-                                                    <strong><?php echo __("Street/No"); ?>: </strong> <?php echo $shipping_address_street; ?><br>
-                                                    <strong><?php echo __("City"); ?>: </strong> <?php echo $shipping_address_city; ?><br>
-                                                    <strong><?php echo __("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
-                                                    <strong><?php echo __("Phone"); ?>: </strong> <?php echo $shipping_address_phone; ?><br>
+                                                    <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $shipping_address_name; ?><br>
+                                                    <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $shipping_address_street; ?><br>
+                                                    <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $shipping_address_city; ?><br>
+                                                    <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
+                                                    <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $shipping_address_phone; ?><br>
                                                     <?php if ($shipping_address_mobile) { ?>
-                                                        <strong><?php echo __("Mobile"); ?>: </strong> <?php echo $shipping_address_mobile; ?><br>
+                                                        <strong><?php echo MyClass::translate("Mobile"); ?>: </strong> <?php echo $shipping_address_mobile; ?><br>
                                                     <?php } ?>
                                                 </p>
                                             </div>
@@ -124,7 +124,7 @@ if ($shipping_address->identical == 1) {
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content payment_methods">
-                                <legend>  <?php echo __("Payment Method"); ?> </legend> 
+                                <legend>  <?php echo MyClass::translate("Payment Method"); ?> </legend> 
 
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-8">
@@ -150,7 +150,7 @@ if ($shipping_address->identical == 1) {
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <legend>  
-                                            <?php echo __("Order Items"); ?> 
+                                            <?php echo MyClass::translate("Order Items"); ?> 
                                         </legend>
                                     </div>
                                 </div>
@@ -214,7 +214,7 @@ if ($shipping_address->identical == 1) {
                                                 <?php } ?>
                                                 <tr class="summary_shipping_cost">
                                                     <td colspan="4">
-                                                        <?php echo __("Shipping Cost"); ?>
+                                                        <?php echo MyClass::translate("Shipping Cost"); ?>
                                                     </td>
                                                     <td align='right'>
                                                         <?php echo MyClass::currencyFormat($order['Order']['order_shipping_cost']); ?>
@@ -226,15 +226,15 @@ if ($shipping_address->identical == 1) {
                                                 if ($additional_charge > 0) {
                                                     ?>
                                                     <tr class="summary_shipping_cost">
-                                                        <td colspan="4"> <?php echo __("Additional Services"); ?> </td>
+                                                        <td colspan="4"> <?php echo MyClass::translate("Additional Services"); ?> </td>
                                                         <td align="right"> <?php echo MyClass::currencyFormat($additional_charge) ?> </td>
                                                     </tr>
                                                 <?php } ?>
 
                                                 <tr class="summary_shipping_cost">
                                                     <td colspan="4">
-                                                        <?php echo __("Total Net"); ?><br>
-                                                        <span class="summary_vat"><?php echo __("incl. 8% VAT."); ?></span>
+                                                        <?php echo MyClass::translate("Total Net"); ?><br>
+                                                        <span class="summary_vat"><?php echo MyClass::translate("incl. 8% VAT."); ?></span>
                                                     </td>
                                                     <td align='right'>
                                                         <?php echo MyClass::currencyFormat($order['Order']['order_total_net']); ?><br>
@@ -245,7 +245,7 @@ if ($shipping_address->identical == 1) {
                                                 </tr>
                                                 <tr class="summary_total_gross">
                                                     <td colspan="4">
-                                                        <?php echo __("Total Gross"); ?>
+                                                        <?php echo MyClass::translate("Total Gross"); ?>
                                                     </td>
                                                     <td align='right'>
                                                         <?php echo MyClass::currencyFormat($order['Order']['order_total_gross']); ?>

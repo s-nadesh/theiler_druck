@@ -1,30 +1,30 @@
 <?php
 
-$this->Html->addCrumb(__('User'), array('controller' => 'users', 'action' => 'index', 'admin'=>true));
-$this->Html->addCrumb(__('View User'));
+$this->Html->addCrumb(MyClass::translate('User'), array('controller' => 'users', 'action' => 'index', 'admin'=>true));
+$this->Html->addCrumb(MyClass::translate('View User'));
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __('View User'); ?></h6>
-        <a href="<?php echo SITE_BASE_URL ?>admin/users" class="btn btn-primary pull-right"><?php echo __('Back'); ?></a>
+        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate('View User'); ?></h6>
+        <a href="<?php echo SITE_BASE_URL ?>admin/users" class="btn btn-primary pull-right"><?php echo MyClass::translate('Back'); ?></a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <th><?php echo __("User Name"); ?></th>
+                    <th><?php echo MyClass::translate("User Name"); ?></th>
                     <td><?php echo $user['User']['user_name'] ?></td>
                 </tr>
                 <tr>
-                    <th><?php echo __("User Email"); ?></th>
+                    <th><?php echo MyClass::translate("User Email"); ?></th>
                     <td><?php echo $user['User']['user_email']?></td>
                 </tr>
                 <tr>
-                    <th><?php echo __("User Status"); ?></th>
+                    <th><?php echo MyClass::translate("User Status"); ?></th>
                     <td><?php  if($user['User']['user_status']==1)echo 'Active';else {echo 'Inactive';} ?></td>
                 </tr>
                 <tr>
-                    <th><?php echo __("User Created"); ?></th>
+                    <th><?php echo MyClass::translate("User Created"); ?></th>
                     <td><?php echo $user['User']['created'] ?></td>
                 </tr>
                

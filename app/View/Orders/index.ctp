@@ -1,5 +1,5 @@
 <?php
-$this->Html->addCrumb(__("Orders"));
+$this->Html->addCrumb(MyClass::translate("Orders"));
 ?>
 
 <div role="main" class="main">
@@ -12,7 +12,7 @@ $this->Html->addCrumb(__("Orders"));
             </div>
             <div class="col-md-9">
                 <?php echo $this->Session->flash(); ?>
-                <h2><?php echo __("My Orders"); ?></h2>
+                <h2><?php echo MyClass::translate("My Orders"); ?></h2>
                 <div class="row">
                     <div class="col-md-12">
                         <section>
@@ -22,11 +22,11 @@ $this->Html->addCrumb(__("Orders"));
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th><?php echo __("Order #"); ?></th>
-                                                <th><?php echo __("Order Status"); ?></th>
-                                                <th class="text-right"><?php echo __("Amount"); ?></th>
-                                                <th><?php echo __("Order Date"); ?></th>
-                                                <th class="text-center"><?php echo __("Action"); ?></th>
+                                                <th><?php echo MyClass::translate("Order #"); ?></th>
+                                                <th><?php echo MyClass::translate("Order Status"); ?></th>
+                                                <th class="text-right"><?php echo MyClass::translate("Amount"); ?></th>
+                                                <th><?php echo MyClass::translate("Order Date"); ?></th>
+                                                <th class="text-center"><?php echo MyClass::translate("Action"); ?></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -56,7 +56,7 @@ $this->Html->addCrumb(__("Orders"));
                                                 <?php } ?>
                                             <?php } else { ?>
                                                     <tr>
-                                                        <td colspan="6"><?php echo __("No records found")?></td>
+                                                        <td colspan="6"><?php echo MyClass::translate("No records found")?></td>
                                                     </tr>
                                             <?php }?>
                                         </tbody>

@@ -1,19 +1,19 @@
-<?php $this->Html->addCrumb(__('Users')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Users')); ?>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Manage Users"); ?></h6>
+        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Manage Users"); ?></h6>
     </div>
     <div class="datatable">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th><?php echo __("User Name"); ?></th>
-                    <th><?php echo __("User Email"); ?></th>
-                    <th><?php echo __("Status"); ?></th>
-                    <th><?php echo __("Created"); ?></th>
-                    <th><?php echo __("Action"); ?></th>
+                    <th><?php echo MyClass::translate("User Name"); ?></th>
+                    <th><?php echo MyClass::translate("User Email"); ?></th>
+                    <th><?php echo MyClass::translate("Status"); ?></th>
+                    <th><?php echo MyClass::translate("Created"); ?></th>
+                    <th><?php echo MyClass::translate("Action"); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,10 +30,10 @@
                             <td><?php echo $user['User']['created']; ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/users/view/<?php echo $user['User']['user_id']; ?>" data-original-title="<?php echo __("View"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/users/view/<?php echo $user['User']['user_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
                                         <i class="icon-zoom-in"></i>
                                     </a>
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/users/edit/<?php echo $user['User']['user_id']; ?>" data-original-title="<?php echo __("Edit"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/users/edit/<?php echo $user['User']['user_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

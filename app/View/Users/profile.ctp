@@ -9,20 +9,20 @@
             </div>
             <div class="col-md-9 chekout-step">
                 <?php echo $this->Session->flash(); ?>
-                <h2><?php echo __("Profile"); ?></h2>
+                <h2><?php echo MyClass::translate("Profile"); ?></h2>
                 <div class="row featured-boxes login">
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
                             <?php echo $this->Form->create('User', array("class" => "form-horizontal form-bordered profile_update")); ?>
                             <div class="box-content">
                                 <legend> 
-                                    <?php echo __("Edit Profile"); ?>
-                                    <span class="pull-right"> * <?php echo __("required fields"); ?> </span>
+                                    <?php echo MyClass::translate("Edit Profile"); ?>
+                                    <span class="pull-right"> * <?php echo MyClass::translate("required fields"); ?> </span>
                                 </legend> 
                                 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Name"); ?>
+                                        * <?php echo MyClass::translate("Name"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('User.user_name', array('label' => false, 'class' => 'form-control')); ?>
@@ -31,7 +31,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        <?php echo __("Date of Birth"); ?>
+                                        <?php echo MyClass::translate("Date of Birth"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('User.user_dob', array('type' => 'text', 'label' => false, 'class' => 'form-control datepicker')); ?>
@@ -42,7 +42,7 @@
                                     <label class="col-md-3 control-label" for="inputDefault">&nbsp;</label>
                                     <div class="col-md-6">
                                         <?php
-                                        echo $this->Form->submit(__("Edit Profile"), array("class" => "btn btn-primary btn-lg pull-right push-bottom"));
+                                        echo $this->Form->submit(MyClass::translate("Edit Profile"), array("class" => "btn btn-primary btn-lg pull-right push-bottom"));
                                         ?>
                                     </div>
                                 </div>

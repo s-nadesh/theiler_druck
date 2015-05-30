@@ -69,10 +69,10 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address"><?php echo __("Billing Address"); ?></a></li>
-                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address"><?php echo __("Shipping Address"); ?></a></li>
-                            <li class="tab-active"> <?php echo __("Payment Method"); ?> </li>
-                            <li> <?php echo __("Summary"); ?> </li>
+                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address"><?php echo MyClass::translate("Billing Address"); ?></a></li>
+                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address"><?php echo MyClass::translate("Shipping Address"); ?></a></li>
+                            <li class="tab-active"> <?php echo MyClass::translate("Payment Method"); ?> </li>
+                            <li> <?php echo MyClass::translate("Summary"); ?> </li>
                         </ul>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                     <div class="col-md-6">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content">
-                                <legend> <?php echo __("Billing Address"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Billing Address"); ?></legend> 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="address">
@@ -96,7 +96,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address" class="btn btn-lg btn-primary pull-right"><?php echo __("Billing Address Change"); ?></a>
+                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address" class="btn btn-lg btn-primary pull-right"><?php echo MyClass::translate("Billing Address Change"); ?></a>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -111,7 +111,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                     <div class="col-md-6">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content">
-                                <legend> <?php echo __("Shipping Address"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Shipping Address"); ?></legend> 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="address">
@@ -124,7 +124,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right"><?php echo __("Shipping Address Change"); ?></a>
+                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right"><?php echo MyClass::translate("Shipping Address Change"); ?></a>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -143,8 +143,8 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                             <?php echo $this->Form->create('PaymentMethod', array('class' => 'checkout-payment-method')); ?>
                             <div class="box-content payment_methods">
                                 <legend> 
-                                    <?php echo __("Payment Method"); ?>
-                                    <span class="pull-right"> * <?php echo __("required fields"); ?></span>
+                                    <?php echo MyClass::translate("Payment Method"); ?>
+                                    <span class="pull-right"> * <?php echo MyClass::translate("required fields"); ?></span>
                                 </legend> 
 
                                 <div id="payment-method-error"></div>
@@ -174,11 +174,11 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-3 col-md-2">
                                         <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-default">
-                                            <?php echo __("Back"); ?>
+                                            <?php echo MyClass::translate("Back"); ?>
                                         </a>
                                     </div>
                                     <div class="col-xs-12 col-sm-9 col-md-10">
-                                        <input type="submit" value="<?php echo __("Continue your order"); ?>" class="btn btn-lg btn-primary pull-right">
+                                        <input type="submit" value="<?php echo MyClass::translate("Continue your order"); ?>" class="btn btn-lg btn-primary pull-right">
                                     </div>
                                 </div>
                                 <div class="row">

@@ -132,7 +132,7 @@ if ($cart_items_key) {
                     </div>
 
                     <div class="form-group">
-                        <label class="col-xs-12 col-sm-3 col-md-3 control-label"><?php echo __("Picture Upload") ?></label>
+                        <label class="col-xs-12 col-sm-3 col-md-3 control-label"><?php echo MyClass::translate("Picture Upload") ?></label>
                         <div class="col-xs-12 col-sm-7 col-md-7">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="input-append">
@@ -189,7 +189,7 @@ if ($cart_items_key) {
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
                             <span class="price" style="font-size: 24px">
-                                <?php echo __("Price"); ?>: <span id="product-price"></span>
+                                <?php echo MyClass::translate("Price"); ?>: <span id="product-price"></span>
                             </span>
                         </div>
                     </div>

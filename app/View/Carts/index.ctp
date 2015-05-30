@@ -42,7 +42,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <tr class="cart_table_item">
 
                                                     <td class="product-remove">
-                                                        <a title="<?php echo __("Remove this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
+                                                        <a title="<?php echo MyClass::translate("Remove this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
                                                             <i class="icon icon-times"></i>
                                                         </a>
                                                     </td>
@@ -63,7 +63,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                             echo MyClass::translate("Paper Weight") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
                                                             if ($shop['Additional']['good_for_print_on_paper'] > 0 ||
                                                                     $shop['Additional']['express_within_4_days'] > 0) {
-                                                                echo '<b>' . __("Additional Services") . ':</b><br>';
+                                                                echo '<b>' . MyClass::translate("Additional Services") . ':</b><br>';
                                                                 if ($shop['Additional']['good_for_print_on_paper'] > 0)
                                                                     echo MyClass::translate("Good For Print On Paper") . '<br>';
                                                                 if ($shop['Additional']['express_within_4_days'] > 0)
@@ -101,11 +101,11 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                         <div class="col-md-6">
                             <div class="featured-box featured-box-secundary default">
                                 <div class="box-content">
-                                    <h4><?php echo __("Calculate Shipping"); ?></h4>
+                                    <h4><?php echo MyClass::translate("Calculate Shipping"); ?></h4>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <label><?php echo __("Country"); ?></label>
+                                                <label><?php echo MyClass::translate("Country"); ?></label>
                                                 <select class="form-control">
                                                     <?php $countries = MyClass::getCountries(); ?>
                                                     <?php foreach ($countries as $country) { ?>
@@ -118,7 +118,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <label><?php echo __("Zip Code"); ?></label>
+                                                <label><?php echo MyClass::translate("Zip Code"); ?></label>
                                                 <?php
                                                 $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
                                                 echo $this->Form->input("sh_cost_id", array("type" => "select", "class" => "form-control", "label" => false, 'options' => $zip_code_list, "default" => $shop['Additional']['sh_cost_id']));
@@ -130,7 +130,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="submit" value="<?php echo __("Update Totals"); ?>" class="btn btn-default pull-right push-bottom">
+                                            <input type="submit" value="<?php echo MyClass::translate("Update Totals"); ?>" class="btn btn-default pull-right push-bottom">
                                         </div>
                                     </div>
                                 </div>
@@ -139,18 +139,18 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                         <div class="col-md-6">
                             <div class="featured-box featured-box-secundary default">
                                 <div class="box-content">
-                                    <h4><?php echo __("Cart Totals"); ?></h4>
+                                    <h4><?php echo MyClass::translate("Cart Totals"); ?></h4>
                                     <table cellspacing="0" class="cart-totals">
                                         <tbody>
                                             <tr class="shipping">
-                                                <td> <?php echo __("Shipping Cost"); ?>  </td>
+                                                <td> <?php echo MyClass::translate("Shipping Cost"); ?>  </td>
                                                 <td align="right"> <?php echo MyClass::currencyFormat($shop['Additional']['shipping_cost']) ?></td>
                                             </tr>
 
                                             <tr class="cart-subtotal">
                                                 <td>
-                                                    <?php echo __("Total Net"); ?><br>
-                                                    <?php echo __("incl. 8% VAT."); ?>
+                                                    <?php echo MyClass::translate("Total Net"); ?><br>
+                                                    <?php echo MyClass::translate("incl. 8% VAT."); ?>
                                                 </td>
                                                 <td align="right">
                                                     <span class="amount">
@@ -165,14 +165,14 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                             if ($additional_charge > 0) {
                                                 ?>
                                                 <tr class="shipping">
-                                                    <td> <?php echo __("Additional Services"); ?> </td>
+                                                    <td> <?php echo MyClass::translate("Additional Services"); ?> </td>
                                                     <td align="right"> <?php echo MyClass::currencyFormat($additional_charge) ?> </td>
                                                 </tr>
                                             <?php } ?>
 
                                             <tr class="total">
                                                 <th>
-                                                    <strong><?php echo __("Total Gross"); ?></strong>
+                                                    <strong><?php echo MyClass::translate("Total Gross"); ?></strong>
                                                 </th>
                                                 <td align="right">
                                                     <strong>
@@ -186,7 +186,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                             <tr>
                                                 <td class="actions" colspan="6">
                                                     <div class="actions-continue">
-                                                        <input type="submit" value="<?php echo __("Update Cart"); ?>" name="update_cart" class="btn btn-default">
+                                                        <input type="submit" value="<?php echo MyClass::translate("Update Cart"); ?>" name="update_cart" class="btn btn-default">
                                                     </div>
                                                 </td>
                                             </tr>
@@ -202,7 +202,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                         <div class="col-md-12">
                             <div class="actions-continue">
                                 <a href="<?php echo SITE_BASE_URL ?>checkouts" class="btn btn-lg btn-primary">
-                                    <?php echo __("Proceed to Checkout"); ?>
+                                    <?php echo MyClass::translate("Proceed to Checkout"); ?>
                                 </a>
                             </div>
                         </div>

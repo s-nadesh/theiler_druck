@@ -66,10 +66,10 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address"><?php echo __("Billing Address"); ?></a></li>
-                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address"><?php echo __("Shipping Address"); ?></a></li>
-                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/payment_method"><?php echo __("Payment Method"); ?></a></li>
-                            <li class="tab-active"> <?php echo __("Summary"); ?> </li>
+                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address"><?php echo MyClass::translate("Billing Address"); ?></a></li>
+                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address"><?php echo MyClass::translate("Shipping Address"); ?></a></li>
+                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/payment_method"><?php echo MyClass::translate("Payment Method"); ?></a></li>
+                            <li class="tab-active"> <?php echo MyClass::translate("Summary"); ?> </li>
                         </ul>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                     <div class="col-md-6">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content">
-                                <legend> <?php echo __("Billing Address"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Billing Address"); ?></legend> 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="address">
@@ -93,7 +93,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address" class="btn btn-lg btn-primary pull-right"><?php echo __("Billing Address Change"); ?></a>
+                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address" class="btn btn-lg btn-primary pull-right"><?php echo MyClass::translate("Billing Address Change"); ?></a>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -108,7 +108,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                     <div class="col-md-6">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content">
-                                <legend> <?php echo __("Shipping Address"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Shipping Address"); ?></legend> 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="address">
@@ -122,7 +122,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                 <div class="row">
                                     <div class="col-md-12">
                                         <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right">
-                                            <?php echo __("Shipping Address Change"); ?>
+                                            <?php echo MyClass::translate("Shipping Address Change"); ?>
                                         </a>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content payment_methods">
-                                <legend>  <?php echo __("Payment Method"); ?> </legend> 
+                                <legend>  <?php echo MyClass::translate("Payment Method"); ?> </legend> 
 
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-8">
@@ -162,7 +162,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                     <div class="col-xs-12 col-sm-12 col-md-4">
                                         <p class="pull-right">
                                             <a href="<?php echo SITE_BASE_URL ?>checkouts/payment_method" class="btn btn-lg btn-primary">
-                                                <?php echo __("Payment method change"); ?>
+                                                <?php echo MyClass::translate("Payment method change"); ?>
                                             </a>
                                         </p>
                                     </div>
@@ -177,7 +177,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content payment_methods">
-                                <legend>  <?php echo __("Comment to the order"); ?> </legend> 
+                                <legend>  <?php echo MyClass::translate("Comment to the order"); ?> </legend> 
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <textarea name="data[Summary][comment]" class="form-control" placeholder="Here you can enter a comment to your order" rows='4'></textarea>
@@ -200,12 +200,12 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-10">
                                         <legend>  
-                                            <?php echo __("Your shopping cart contains the following products"); ?> 
+                                            <?php echo MyClass::translate("Your shopping cart contains the following products"); ?> 
                                         </legend>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-2">
                                         <a href="<?php echo SITE_BASE_URL ?>carts" class="btn btn-lg btn-primary pull-right">
-                                            <?php echo __("Edit cart"); ?>
+                                            <?php echo MyClass::translate("Edit cart"); ?>
                                         </a>
                                     </div>
                                 </div>
@@ -272,7 +272,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                 <?php } ?>
                                                 <tr class="summary_shipping_cost">
                                                     <td colspan="4">
-                                                        <?php echo __("Shipping Cost"); ?>
+                                                        <?php echo MyClass::translate("Shipping Cost"); ?>
                                                     </td>
                                                     <td align='right'>
                                                         <?php echo MyClass::currencyFormat($shop['Additional']['shipping_cost']); ?>
@@ -284,15 +284,15 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                 if ($additional_charge > 0) {
                                                     ?>
                                                     <tr class="summary_shipping_cost">
-                                                        <td colspan="4"> <?php echo __("Additional Services"); ?> </td>
+                                                        <td colspan="4"> <?php echo MyClass::translate("Additional Services"); ?> </td>
                                                         <td align="right"> <?php echo MyClass::currencyFormat($additional_charge) ?> </td>
                                                     </tr>
                                                 <?php } ?>
 
                                                 <tr class="summary_shipping_cost">
                                                     <td colspan="4">
-                                                        <?php echo __("Total Net"); ?><br>
-                                                        <span class="summary_vat"><?php echo __("incl. 8% VAT."); ?></span>
+                                                        <?php echo MyClass::translate("Total Net"); ?><br>
+                                                        <span class="summary_vat"><?php echo MyClass::translate("incl. 8% VAT."); ?></span>
                                                     </td>
                                                     <td align='right'>
                                                         <?php echo MyClass::currencyFormat($shop['Additional']['cart_sub_price_without_tax']); ?><br>
@@ -303,7 +303,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                 </tr>
                                                 <tr class="summary_total_gross">
                                                     <td colspan="4">
-                                                        <?php echo __("Total Gross"); ?>
+                                                        <?php echo MyClass::translate("Total Gross"); ?>
                                                     </td>
                                                     <td align='right'>
                                                         <?php echo MyClass::currencyFormat($shop['Additional']['cart_sub_price_with_tax']); ?>
@@ -317,11 +317,11 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-4">
                                         <a href="<?php echo SITE_BASE_URL ?>checkouts/payment_method" class="btn btn-lg btn-default">
-                                            <?php echo __("Back"); ?>
+                                            <?php echo MyClass::translate("Back"); ?>
                                         </a>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-8">
-                                        <input type="submit" value="<?php echo __("Continue your order"); ?>" class="btn btn-lg btn-primary pull-right">
+                                        <input type="submit" value="<?php echo MyClass::translate("Continue your order"); ?>" class="btn btn-lg btn-primary pull-right">
                                     </div>
                                 </div>
                                 <div class="row">

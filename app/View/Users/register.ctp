@@ -9,11 +9,11 @@
                 <div class="row featured-boxes login">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-6"><h4><?php echo __("Create Account") ?></h4></div>
+                            <div class="col-md-6"><h4><?php echo MyClass::translate("Create Account") ?></h4></div>
                             <div class="col-md-6">
                                 <p class="pull-right">
-                                    <?php echo __("Already have an account?") ?>
-                                    <a href="<?php echo SITE_BASE_URL ?>users/login"><?php echo __("Login here"); ?></a>
+                                    <?php echo MyClass::translate("Already have an account?") ?>
+                                    <a href="<?php echo SITE_BASE_URL ?>users/login"><?php echo MyClass::translate("Login here"); ?></a>
                                 </p>
                             </div>
                         </div>
@@ -22,13 +22,13 @@
                             <?php echo $this->Form->create('User', array("class" => "form-horizontal form-bordered checkout-register")); ?>
                             <div class="box-content">
                                 <legend> 
-                                    <?php echo __("Company"); ?>
-                                    <span class="pull-right"> * <?php echo __("required fields"); ?> </span>
+                                    <?php echo MyClass::translate("Company"); ?>
+                                    <span class="pull-right"> * <?php echo MyClass::translate("required fields"); ?> </span>
                                 </legend> 
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Company or Individual"); ?>
+                                        * <?php echo MyClass::translate("Company or Individual"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php
@@ -40,18 +40,18 @@
 
                                 <div class="form-group" id="company_name_div">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Company Name"); ?>
+                                        * <?php echo MyClass::translate("Company Name"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_company_name', array('label' => false, 'class' => 'form-control')); ?>
                                     </div>
                                 </div>
 
-                                <legend> <?php echo __("Personal Data"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Personal Data"); ?></legend> 
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Title"); ?>
+                                        * <?php echo MyClass::translate("Title"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php
@@ -63,7 +63,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Firstname"); ?>
+                                        * <?php echo MyClass::translate("Firstname"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_firstname', array('label' => false, 'class' => 'form-control')); ?>
@@ -72,7 +72,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Lastname"); ?>
+                                        * <?php echo MyClass::translate("Lastname"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_lastname', array('label' => false, 'class' => 'form-control')); ?>
@@ -81,7 +81,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        <?php echo __("Date of Birth"); ?>
+                                        <?php echo MyClass::translate("Date of Birth"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('User.user_dob', array('type' => 'text', 'label' => false, 'class' => 'form-control datepicker')); ?>
@@ -90,18 +90,18 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Email"); ?>
+                                        * <?php echo MyClass::translate("Email"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('User.user_email', array('label' => false, 'class' => 'form-control')); ?>
                                     </div>
                                 </div>
 
-                                <legend> <?php echo __("Your Address Details"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Your Address Details"); ?></legend> 
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Street/No"); ?>
+                                        * <?php echo MyClass::translate("Street/No"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_street', array('label' => false, 'class' => 'form-control')); ?>
@@ -110,7 +110,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        <?php echo __("Additional address"); ?>
+                                        <?php echo MyClass::translate("Additional address"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_additional', array('label' => false, 'class' => 'form-control')); ?>
@@ -119,7 +119,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("City"); ?>
+                                        * <?php echo MyClass::translate("City"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_city', array('label' => false, 'class' => 'form-control')); ?>
@@ -128,7 +128,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Post Code"); ?>
+                                        * <?php echo MyClass::translate("Post Code"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_post_code', array('label' => false, 'class' => 'form-control')); ?>
@@ -137,7 +137,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Country"); ?>
+                                        * <?php echo MyClass::translate("Country"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php
@@ -147,11 +147,11 @@
                                     </div>
                                 </div>
 
-                                <legend> <?php echo __("Your Contact Information"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Your Contact Information"); ?></legend> 
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        <?php echo __("Mobile"); ?>
+                                        <?php echo MyClass::translate("Mobile"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_mobile', array('label' => false, 'class' => 'form-control')); ?>
@@ -160,18 +160,18 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Phone"); ?>
+                                        * <?php echo MyClass::translate("Phone"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->input('UserAddress.address_phone', array('label' => false, 'class' => 'form-control')); ?>
                                     </div>
                                 </div>
 
-                                <legend> <?php echo __("Password"); ?></legend> 
+                                <legend> <?php echo MyClass::translate("Password"); ?></legend> 
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Password"); ?>
+                                        * <?php echo MyClass::translate("Password"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->password('User.user_password', array('label' => false, 'class' => 'form-control')); ?>
@@ -180,7 +180,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
-                                        * <?php echo __("Repeat Password"); ?>
+                                        * <?php echo MyClass::translate("Repeat Password"); ?>
                                     </label>
                                     <div class="col-md-6">
                                         <?php echo $this->Form->password('User.repeat_password', array('label' => false, 'class' => 'form-control')); ?>
@@ -191,7 +191,7 @@
                                     <label class="col-md-3 control-label" for="inputDefault">&nbsp;</label>
                                     <div class="col-md-6">
                                         <?php
-                                        echo $this->Form->submit(__("Create Account"), array("class" => "btn btn-primary btn-lg pull-right push-bottom"));
+                                        echo $this->Form->submit(MyClass::translate("Create Account"), array("class" => "btn btn-primary btn-lg pull-right push-bottom"));
                                         ?>
                                     </div>
                                 </div>
