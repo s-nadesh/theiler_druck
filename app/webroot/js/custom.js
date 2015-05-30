@@ -60,6 +60,33 @@ $(document).ready(function() {
         }
     });
 
+    //User Login Popup Form
+    $(".user_login_popupform").validate({
+        rules: {
+            'data[User][user_email]': {
+                required: true,
+                email: true
+            },
+            'data[User][user_password]': {
+                required: true,
+            },
+        },
+        highlight: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-success")
+                    .addClass("has-error");
+        },
+        success: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-error")
+                    .addClass("has-success")
+                    .find("label.error")
+                    .remove();
+        }
+    });
+
     //User Register from checkout section
     $(".checkout-register").validate({
         rules: {
@@ -226,10 +253,10 @@ $(document).ready(function() {
         errorPlacement: function(error, element) {
             if (element.attr("name") == "data[PaymentMethod][id]") {
                 error.appendTo($('#payment-method-error'));
-            } 
+            }
         }
     });
-    
+
     //My Account Change Password
     $(".profile_change_password").validate({
         rules: {
@@ -256,14 +283,13 @@ $(document).ready(function() {
                     .remove();
         },
     });
-    
+
     //My Account Profile Update
     $(".profile_update").validate({
         rules: {
             'data[User][user_name]': {
                 required: true,
             },
-            
         },
         highlight: function(element) {
             $(element)
@@ -280,5 +306,10 @@ $(document).ready(function() {
                     .remove();
         },
     });
-    
+
+    $(".popup_buttons").click(function() {
+        window.location.href = $(this).data('popupredirect');
+        return false;
+    });
+
 }); 

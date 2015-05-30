@@ -61,7 +61,8 @@ class OrdersController extends AppController {
     public function index(){
         $orders = $this->Order->find('all', array(
             'conditions' => array('Order.user_id' => $this->Auth->user('user_id')),
-            'recursive' => 0
+            'recursive' => 0,
+            'order' => array('Order.created DESC')
         ));
         
         $this->set(compact('orders'));

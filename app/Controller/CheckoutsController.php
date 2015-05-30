@@ -224,7 +224,7 @@ class CheckoutsController extends AppController {
 
             $this->Session->setFlash('Your order placed successfully.', 'flash_success');
             $this->Session->delete('Shop');
-            $this->redirect(array('controller' => 'users', 'action' => 'profile'));
+            $this->redirect(array('controller' => 'orders', 'action' => 'index'));
         }
     }
 
