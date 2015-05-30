@@ -45,7 +45,7 @@ if ($shipping_address->identical == 1) {
             <div class="col-md-9">
                 <?php echo $this->Session->flash(); ?>
                 <h2><?php echo MyClass::translate("View Order"); ?></h2>
-                
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
@@ -61,7 +61,7 @@ if ($shipping_address->identical == 1) {
                                             <strong><?php echo MyClass::translate("Order Status"); ?>: </strong> 
                                             <?php echo MyClass::orderStatus($order['Order']['order_status']); ?><br>
                                             <span class="summary_total_gross"><?php echo MyClass::translate("Total Amount"); ?>:
-                                            <?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?> </span><br>
+                                                <?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?> </span><br>
                                         </p>
                                     </div>
                                 </div>
@@ -127,15 +127,11 @@ if ($shipping_address->identical == 1) {
                                 <legend>  <?php echo MyClass::translate("Payment Method"); ?> </legend> 
 
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-8">
-                                        <div class="row">
-                                            <div class="col-xs-6 col-sm-6 col-md-4">
-                                                <p>
-                                                    <?php echo $payment_method->name; ?><br>
-                                                    <span><?php echo $payment_method->caption; ?></span>
-                                                </p>
-                                            </div>
-                                        </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <p>
+                                            <b><?php echo $payment_method->name; ?></b> <br>
+                                            <span><?php echo $payment_method->caption; ?></span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

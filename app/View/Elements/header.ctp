@@ -177,7 +177,7 @@
                         </li>
                     <?php } else { ?>
                         <li class="dropdown active">
-                            <?php echo $this->Html->link(MyClass::translate("Logout"), array('controller' => 'users', 'action' => 'logout')); ?>
+                            <?php echo $this->Html->link(MyClass::translate("My Account"), array('controller' => 'users', 'action' => 'profile')); ?>
                         </li>
                     <?php } ?>
                 </ul>

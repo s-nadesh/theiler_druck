@@ -7,7 +7,7 @@
             <div class="col-md-3">
                 <?php echo $this->element('my_account_sidebar'); ?>
             </div>
-            <div class="col-md-9 chekout-step">
+            <div class="col-md-9 chekout-step my_account">
                 <?php echo $this->Session->flash(); ?>
                 <h2><?php echo MyClass::translate("Change Password"); ?></h2>
                 <div class="row featured-boxes login">
