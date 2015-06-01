@@ -39,13 +39,13 @@ class PagesController extends AppController {
 
     //This function will run before every action
     public function beforeFilter() {
-        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_view', 'admin_edit');
+        parent::beforeFilter();
+        $admin_auth_actions = array('admin_index');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
         $this->set('admin_menu', 'pages');
-        parent::beforeFilter();
     }
 
     /**
@@ -87,96 +87,20 @@ class PagesController extends AppController {
     }
 
     public function admin_index() {
-        if($this->request->is('post')){
-            pr($this->data); exit;
-        }
+        if($this->request->is('post') || $this->request->is('put')){
+            $this->Page->save($this->data);
+            $this->Session->setFlash(__("Content updated successfully"), 'flash_success');
+        } 
         
+        $page_content = $this->Page->findByPageId(1);
+        $this->set(compact('page_content'));
     }
 
-    public function admin_add() {
-
-        $this->loadModel('LanguageType');
-        $languagetype = $this->LanguageType->find(
-                'all'
-        );
-        $max = $this->Page->find('first', array(
-            'fields' => array('MAX(page_type_id) as Maxnumber')));
-        $max_page = $max[0]['Maxnumber'] + 1;
-
-        if (!empty($this->data)) {
-            foreach ($this->data['Page'] as $key => $data) {
-//                echo $key;
-//                print_r($data);
-                $this->request->data['Page']['page_type_id'] = $max_page;
-                $this->request->data['Page']['language_type_id'] = $data['language_type_id'];
-                $this->request->data['Page']['page_title'] = $data['page_title'];
-                $this->request->data['Page']['page_description'] = $data['page_description'];
-                $this->request->data['Page']['page_status'] = '1';
-                $this->request->data['Page']['page_slug'] = Inflector::slug($data['page_title']);
-                $this->Page->saveMany($this->request->data);
-            }
-            $this->Session->setFlash('Page has been successfully added', 'flash_success');
-            $this->redirect(array('controller' => 'pages', 'action' => 'index', 'admin' => true));
-
-            //   print_r($this->data);
-//            exit;
-        }
-
-        $this->set(compact('languagetype'));
-        $this->set('title_for_layouts', 'Add Page');
-        $this->set('admin_menu', 'pages');
-    }
-
-    public function admin_view($page_id) {
-        if (!$this->Page->exists($page_id)) {
-            throw new NotFoundException(__('Invalid Page'));
-        }
-
-        $this->Page->recursive = 0;
-        $page = $this->Page->findByPageId($page_id);
-
-        $this->set('title_for_layout', 'Page');
-        $this->set(compact('page'));
-    }
-
-    public function admin_edit($page_id) {
-        if (!$this->Page->exists($page_id)) {
-            throw new NotFoundException(__('Invalid Page'));
-        }
-
-
-
-        if ($this->request->is('post') || $this->request->is('put')) {
-            $this->request->data['Page']['page_id'] = $page_id;
-            if ($this->Page->save($this->request->data)) {
-//                $page_id = $this->Page->getLastInsertID();
-                $this->Session->setFlash('Page has been successfully edited', 'flash_success');
-                $this->redirect(array('controller' => 'pages', 'action' => 'index', 'admin' => true));
-            }
-        } else {
-
-            $this->data = $this->Page->findByPageId($page_id);
-//            print_r($this->data);exit;
-        }
-        $this->set('title_for_layouts', 'Add Page');
-        $this->set('admin_menu', 'pages');
-    }
-
-    public function view($slug) {
-
-        $lang_type_id = $this->Session->read('Config.language');
-        $page_data = $this->Page->find('first', array('conditions' => array('Page.language_type_id' => $lang_type_id, 'Page.page_slug' => $slug)));
-        $this->set(compact('page_data'));
-    }
-
-    public function admin_get_language_name($id) {
-        $this->loadModel('LanguageType');
-        $languagetype = $this->LanguageType->findByLanguageTypeId($id);
-        return $languagetype;
-    }
-    
     public function one_page(){
         $this->set('cms_page_menu', true);
+        $this->set('body_attr', 'class="one-page" data-target=".single-menu" data-spy="scroll" data-offset="200"');
+        $page_content = $this->Page->find('first', array('conditions' => array('Page.page_id' => 1)));
+        $this->set(compact('page_content'));
     }
 
 }

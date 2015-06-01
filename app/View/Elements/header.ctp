@@ -202,22 +202,25 @@
                                 <nav class="nav-main">
                                     <ul class="nav nav-pills nav-main nav-main2" id="mainMenu2">
                                         <li class="dropdown active">
-                                            <a data-hash class="dropdown-toggle" href="#1"> Prepress </a>
+                                            <a data-hash class="dropdown-toggle" href="#prepress"> Prepress </a>
                                         </li>
                                         <li>
-                                            <a data-hash href="#2">OffsetdruckDigital</a>
+                                            <a data-hash href="#offsetdruck"> Offsetdruck </a>
                                         </li>
                                         <li>
-                                            <a data-hash href="#3">Postpress</a>
+                                            <a data-hash href="#digitaldruck"> Digitaldruck </a>
                                         </li>
                                         <li>
-                                            <a data-hash href="#4">Lettershop</a>
+                                            <a data-hash href="#postpress">Postpress</a>
                                         </li>
                                         <li>
-                                            <a data-hash href="#5">Klimaneutral</a>
+                                            <a data-hash href="#lettershop">Lettershop</a>
                                         </li>
                                         <li>
-                                            <a data-hash href="#6">Service</a>
+                                            <a data-hash href="#klimaneutrales">Klimaneutral</a>
+                                        </li>
+                                        <li>
+                                            <a data-hash href="#service">Service</a>
                                         </li>
                                     </ul>
                                 </nav>

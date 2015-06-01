@@ -118,3 +118,8 @@ section.page-top{
 .my_account {
     margin-top:0px;
 }
+
+header .secondry-menu nav ul.nav-main2 li.active a, header .secondry-menu nav ul.nav-main2 li > a:hover {
+    background-color: #0088cc !important;
+    color: #fff !important;
+}

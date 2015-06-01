@@ -47,7 +47,7 @@
         ?>
     </head>
 
-    <body>
+    <body <?php if(isset($body_attr)) echo $body_attr; ?>>
         <div class="body">
             <?php echo $this->element('header'); ?>
 
@@ -57,7 +57,7 @@
         </div>
 
         <?php
-        echo $this->Html->script(array('plugins', '/vendor/jquery.easing', '/vendor/jquery.appear', '/vendor/jquery.cookie', '/vendor/bootstrap', '/vendor/bootstrap/bootstrap-number-input', '/vendor/twitterjs/twitter', '/vendor/rs-plugin/js/jquery.themepunch.plugins.min', '/vendor/rs-plugin/js/jquery.themepunch.revolution.min', '/vendor/owl-carousel/owl.carousel', '/vendor/circle-flip-slideshow/js/jquery.flipshow', '/vendor/magnific-popup/magnific-popup', '/vendor/jquery.validate', '/vendor/parallax', '/vendor/nivo-slider/jquery.nivo.slider', 'views/view.home', 'theme', 'custom'));
+        echo $this->Html->script(array('plugins', '/vendor/jquery.easing', '/vendor/jquery.appear', '/vendor/jquery.cookie', '/vendor/bootstrap', '/vendor/bootstrap/bootstrap-number-input', '/vendor/twitterjs/twitter', '/vendor/rs-plugin/js/jquery.themepunch.plugins.min', '/vendor/rs-plugin/js/jquery.themepunch.revolution.min', '/vendor/owl-carousel/owl.carousel', '/vendor/circle-flip-slideshow/js/jquery.flipshow', '/vendor/magnific-popup/magnific-popup', '/vendor/jquery.stellar', '/vendor/jquery.validate', '/vendor/parallax', '/vendor/nivo-slider/jquery.nivo.slider', 'views/view.home', 'theme', 'custom'));
         ?>
 
     </body>
