@@ -401,6 +401,149 @@ legend {
     color:#000000;
 }
 
+/*27-5-2015*/
+
+.sections-heading
+{
+    width:100%;
+    float:left;
+    border-bottom:#ebebeb solid 1px;
+    padding-bottom:15px;
+    font-size:30px;
+    color:#008bc8;
+    font-weight:200;
+}
+
+.sections-sub-heading
+{
+    width:100%;
+    float:left;
+    padding-bottom:10px;
+    font-size:24px;
+    color:#008bc8;
+    font-weight:200;
+    padding:10px 0px;
+}
+
+.sections-content
+{
+    color:#2e2e2e !important;
+    width:100%;
+    float:left;
+    font-weight:200;
+    font-size:18px;
+    margin-top:22px;
+    line-height:26px;
+}
+
+.sections-content h2
+{
+    font-weight:200;
+    font-size:22px;
+    color:#545454 !important;
+    margin:0px 0px 10px 0px;
+}
+
+.sections-content img
+{
+    float:right;
+    margin-left:15px;
+}
+
+p {
+    color: #2e2e2e;
+    line-height: 24px;
+    margin: 0 0 20px;
+}
+
+
+.sections-content ul
+{
+    margin:0px;
+    padding:0px;
+}
+
+.sections-content ul li
+{
+    list-style:none;
+    background:url(../img/tick-icon.png) 0px 4px no-repeat;
+    padding:0px 0px 5px 30px;
+}
+
+.client-partnertxt img
+{
+    float:left;
+    margin-right:20px;
+    margin-bottom:20px;
+}
+
+.right-img
+{
+    float:right
+}
+
+.secondry-menu
+{
+    width:100%;
+    float:left;
+    background:#f4f3f3;
+    position:fixed;
+    z-index:999;
+}
+
+.first-txt
+{
+    margin-top:65px;
+}
+
+.secondry-menu  a
+{
+    color:#666666;
+
+}
+
+.secondry-menu ul li
+{
+    font-size:18px !important;
+    padding:0px 30px;
+}
+
+header nav ul.nav-main2 li a {
+    font-size: 18px !important;
+    font-style: normal !important;
+    font-weight: 200 !important;
+    line-height: 20px !important;
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+    padding: 10px 13px !important;
+    text-transform:none !important;
+}
+
+.secondry-menu ul li a
+{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.secondry-menu .active
+{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.secondry-btn
+{
+    background:#0088cc !important;
+    margin-top:-25px;
+    margin-right:10px;
+}
+
+header nav ul.nav-main2 {
+    margin: 0px 10px 0px 0 !important;
+}
+
 nav.mega-menu .mega-menu-shop .dropdown-menu {
     right: -2px;
     width: 40%;
@@ -458,9 +601,50 @@ nav.mega-menu .mega-menu-shop {
 }
 
 div.shop {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 div.featured-boxes.login {
-  margin-top: 0;
+    margin-top: 0;
+}
+
+.login-btn a {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 200 !important;
+    line-height: 22px !important;
+    list-style: none outside none !important;
+    padding: 4px 5px !important;
+    text-transform: none !important;
+    border: none !important;
+}
+.dropdown.btn.btn-lg.btn-primary.login-btn {
+    margin-top: 50px;
+    padding: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.sticky-menu-active .dropdown.btn.btn-lg.btn-primary.login-btn
+{
+    margin-top: 20px;
+}
+
+.cart-btn a {
+    line-height: 15px !important;
+    padding: 4px 5px !important;
+}
+
+.dropdown.cart-btn {
+    margin-top: 50px;
+    padding: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.sticky-menu-active .dropdown.cart-btn
+{
+    margin-top: 20px;
 }

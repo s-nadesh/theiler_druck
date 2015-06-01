@@ -37,6 +37,17 @@ class PagesController extends AppController {
      */
     public $uses = array();
 
+    //This function will run before every action
+    public function beforeFilter() {
+        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_view', 'admin_edit');
+        if (in_array($this->action, $admin_auth_actions)) {
+            if (!$this->Session->check('Admin.id'))
+                $this->goAdminLogin();
+        }
+        $this->set('admin_menu', 'pages');
+        parent::beforeFilter();
+    }
+
     /**
      * Displays a view
      *
@@ -75,26 +86,11 @@ class PagesController extends AppController {
         }
     }
 
-    //This function will run before every action
-    public function beforeFilter() {
-        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_view', 'admin_edit');
-        if (in_array($this->action, $admin_auth_actions)) {
-            if (!$this->Session->check('Admin.id'))
-                $this->goAdminLogin();
-        }
-        $this->set('admin_menu', 'pages');
-        parent::beforeFilter();
-    }
-
     public function admin_index() {
-
-        $pages = $this->Page->find('all', array(
-            'order' => array('Page.created DESC'),
-            'recursive' => 0
-        ));
-        $this->set('title_for_layout', 'Pages');
-        $this->set('admin_menu', 'pages');
-        $this->set(compact('pages'));
+        if($this->request->is('post')){
+            pr($this->data); exit;
+        }
+        
     }
 
     public function admin_add() {
@@ -131,7 +127,6 @@ class PagesController extends AppController {
         $this->set('admin_menu', 'pages');
     }
 
-
     public function admin_view($page_id) {
         if (!$this->Page->exists($page_id)) {
             throw new NotFoundException(__('Invalid Page'));
@@ -166,19 +161,22 @@ class PagesController extends AppController {
         $this->set('title_for_layouts', 'Add Page');
         $this->set('admin_menu', 'pages');
     }
-    
-    public function view($slug) {
-        
-        $lang_type_id = $this->Session->read('Config.language');
-        $page_data = $this->Page->find('first',array('conditions' => array('Page.language_type_id' => $lang_type_id,'Page.page_slug' => $slug )));
-        $this->set(compact('page_data'));
-	}
-    
-    public function admin_get_language_name($id) {
 
+    public function view($slug) {
+
+        $lang_type_id = $this->Session->read('Config.language');
+        $page_data = $this->Page->find('first', array('conditions' => array('Page.language_type_id' => $lang_type_id, 'Page.page_slug' => $slug)));
+        $this->set(compact('page_data'));
+    }
+
+    public function admin_get_language_name($id) {
         $this->loadModel('LanguageType');
         $languagetype = $this->LanguageType->findByLanguageTypeId($id);
         return $languagetype;
     }
-  
+    
+    public function one_page(){
+        $this->set('cms_page_menu', true);
+    }
+
 }

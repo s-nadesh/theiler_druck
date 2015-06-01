@@ -16,7 +16,9 @@
                                         <p>Ausgebildete Fachleute stehen Ihnen mit ihrem Know-how und ihrer Kreativität hilfreich zur Seite. Polygrafinnen und Polygrafen rücken Ihre Bilder ins richtige Licht, wählen die passende Schrift oder machen Vorschläge für die Gestaltung Ihrer Drucksache. </p>
                                         <p>Unser Korrektorat prüft alles nochmals auf inhaltliche, orthografische und grammatische Fehlerfreiheit, steht Ihnen aber auch für stilistische Fragen gerne zur Verfügung. </p>
                                     </div>
-                                    <div class="col-xs-12 col-sm-5 col-md-5"> <img src="img/section-img.jpg"  alt="" class="img-responsive"></div>
+                                    <div class="col-xs-12 col-sm-5 col-md-5"> 
+                                        <?php echo $this->Html->image('section-img.jpg', array('class' => 'img-responsive')); ?>
+                                    </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12"> <br/>
                                         <p> Wir arbeiten mit modernsten Apple-Macintosh-Computern und Peripheriegeräten auf Basis der gängigsten Anwenderprogramme. 
                                             Natürlich dürfen auch Kunden unsere Vorstufenleistungen geniessen, die (noch) nicht bei uns drucken.</p>
@@ -77,7 +79,9 @@
                                             (2 Werke / 32 Seiten im Zeitungsformat, durchgehend 4-farbig Skala) </p>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-5 col-md-5"> <img src="img/section-img2.jpg"  alt="" class="img-responsive"> </div>
+                                    <div class="col-xs-12 col-sm-5 col-md-5"> 
+                                        <?php echo $this->Html->image('section-img2.jpg', array('class' => 'img-responsive')); ?>
+                                    </div>
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-7 col-md-7">
                                             <h2> Bogenoffset: </h2>
@@ -128,7 +132,9 @@
                                         <p>Unser digitales Farbsystem ist auf die Anforderungen des Produktionsdrucks abgestimmt. Für Kleinauflagen ist der Digitaldruck besonders geeignet. </p>
                                         <p> Unser digitales Farbsystem ist auf die Anforderungen des Produktionsdrucks abgestimmt. Für Kleinauflagen ist der Digitaldruck besonders geeignet. </p>
                                     </div>
-                                    <div class="col-xs-12 col-sm-5 col-md-5"> <img src="img/section-img3.jpg"  alt="" class="img-responsive"> </div>
+                                    <div class="col-xs-12 col-sm-5 col-md-5"> 
+                                        <?php echo $this->Html->image('section-img3.jpg', array('class' => 'img-responsive')); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +153,9 @@
                                         <h2> Schwarz/Weiss-System</h2>
                                         <p>Unser leistungsstarkes Schwarz/Weiss-Produktionssystem ist speziell für den Volumenausdruck von A4-Office-Dokumenten geeignet und zeichnet sich durch hohe Zuverlässigkeit aus. </p>
                                     </div>
-                                    <div class="col-xs-12 col-sm-5 col-md-5"> <img src="img/section-img4.jpg"  alt="" class="img-responsive"> </div>
+                                    <div class="col-xs-12 col-sm-5 col-md-5"> 
+                                        <?php echo $this->Html->image('section-img4.jpg', array('class' => 'img-responsive')); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +196,9 @@
                                         <h2>Unser Service:</h2>
                                         <p>Wir banderolieren, bandieren, bohren, kleben Ihre CD ein, kuvertieren, nummerieren, etikettieren, heften mit Draht, falzen und individualisieren, zählen ab, klebebinden, perforieren, rillen und schneiden, stanzen und lochen, runden Ecken ab, sammelheften, stecken ein und teilen aus, tragen zusammen, verpacken, stapeln, palettieren und adressieren, liefern aus und sind bereit für Ihren nächsten Auftrag…</p>
                                     </div>
-                                    <div class="col-xs-12 col-sm-5 col-md-5"> <img src="img/section-img5.jpg"  alt="" class="img-responsive"> </div>
+                                    <div class="col-xs-12 col-sm-5 col-md-5"> 
+                                        <?php echo $this->Html->image('section-img5.jpg', array('class' => 'img-responsive')); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +242,9 @@
 
 
                                     </div>
-                                    <div class="col-xs-12 col-sm-5 col-md-5"> <img src="img/section-img6.jpg"  alt="" class="img-responsive"> </div>
+                                    <div class="col-xs-12 col-sm-5 col-md-5"> 
+                                        <?php echo $this->Html->image('section-img6.jpg', array('class' => 'img-responsive')); ?>
+                                    </div>
 
                                     <div class="col-xs-12 col-sm-7 col-md-7">
 
@@ -295,7 +307,9 @@
 
 
                                     </div>
-                                    <div class="col-xs-12 col-sm-5 col-md-5"> <img src="img/section-img7.jpg"  alt="" class="img-responsive"> </div>
+                                    <div class="col-xs-12 col-sm-5 col-md-5"> 
+                                        <?php echo $this->Html->image('section-img7.jpg', array('class' => 'img-responsive')); ?>
+                                    </div>
 
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">    

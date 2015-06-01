@@ -1,56 +1,87 @@
-<?php $this->Html->addCrumb(MyClass::translate('Cms')); ?>
+<?php $this->Html->addCrumb(__('Static Page')); ?>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Manage Pages"); ?></h6>
-        <a href="<?php echo SITE_BASE_URL ?>admin/pages/add" class="btn btn-primary pull-right"><?php echo MyClass::translate("Add Page"); ?></a>
-    </div>
-    <div class="datatable">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th><?php echo MyClass::translate("Page Title"); ?></th>
-                    <th><?php echo MyClass::translate("Page Language"); ?></th>
-<!--                    <th><?php echo MyClass::translate("Descripition"); ?></th>-->
-                    <th><?php echo MyClass::translate("status"); ?></th>
-                    <th><?php echo MyClass::translate("Slug"); ?></th>
-                    <th><?php echo MyClass::translate("Created"); ?></th>
-                    <th><?php echo MyClass::translate("Action"); ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php  if (!empty($pages)) { ?>
-                    <?php
-                    $i = 1;
-                    foreach ($pages as $page) {
-                        ?>
-                        <tr>
-                            <td><?php echo $i++; ?></td>
-                            <td><?php echo $page['Page']['page_title']; ?></td>
-                            <td><?php $lang = $this->requestAction(array(
-    'controller' => 'pages',
-    'action' => 'get_language_name/'. $page['Page']['language_type_id']));
-                    
-                    echo $lang['LanguageType']['language_type_name']; ?></td>
-<!--                            <td><?php echo $page['Page']['page_description']; ?></td>-->
-                            <td><?php if($page['Page']['page_status']==1)echo 'Active';else {echo 'Inactive';} ?></td>
-                            <td><?php echo $page['Page']['page_slug']; ?></td>
-                            <td><?php echo $page['Page']['created']; ?></td>
-                            <td>
-                                <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/view/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
-                                        <i class="icon-zoom-in"></i>
-                                    </a>
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/edit/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
-                                        <i class="icon-pencil"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                <?php } ?>
-            </tbody>
-        </table>
+<div class="tabbable page-tabs">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#english" data-toggle="tab"><i class="icon-paragraph-justify2"></i> <?php echo __("English"); ?> </a>
+        </li>
+        <li>
+            <a href="#german" data-toggle="tab"><i class="icon-paragraph-justify2"></i> <?php echo __("German"); ?> </a>
+        </li>
+    </ul>
+
+
+    <div class="tab-content">
+        <?php
+        echo $this->Form->create('Page', array(
+            "class" => "form-horizontal form-bordered",
+            "role" => "form",
+            "enctype" => "multipart/form-data"
+        ));
+        echo $this->Form->hidden('page_id', array('value' => 1, 'label' => false));
+        echo $this->Form->hidden('language_type_id', array('value' => 1, 'label' => false));
+        ?>
+        <!-- First tab -->
+        <div class="tab-pane active fade in" id="english">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit page content"); ?></h6>
+                </div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            <?php echo __('Page Content'); ?>: <span class="mandatory">*</span>
+                        </label>
+                        <div class="col-sm-10">
+                            <?php
+                            echo $this->Form->input('page_content', array('type' => 'textarea', 'class' => 'ckeditor required form-control', 'label' => false));
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="form-actions text-right">
+                        <input type="submit" value="<?php echo __("Edit"); ?>" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->Form->end(); ?>
+
+        <?php
+        echo $this->Form->create('Page', array(
+            "class" => "form-horizontal form-bordered",
+            "role" => "form",
+            "enctype" => "multipart/form-data"
+        ));
+        echo $this->Form->hidden('page_id', array('value' => 2, 'label' => false));
+        echo $this->Form->hidden('language_type_id', array('value' => 2, 'label' => false));
+        ?>
+        <!-- Second tab -->
+        <div class="tab-pane fade" id="product-price">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit page content"); ?></h6>
+                </div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            <?php echo __('Page Content'); ?>: <span class="mandatory">*</span>
+                        </label>
+                        <div class="col-sm-10">
+                            <?php
+                            echo $this->Form->input('page_content', array('type' => 'textarea', 'class' => 'ckeditor required form-control', 'label' => false));
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="form-actions text-right">
+                        <input type="submit" value="<?php echo __("Edit"); ?>" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->Form->end(); ?>
     </div>
 </div>

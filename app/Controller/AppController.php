@@ -43,6 +43,7 @@ class AppController extends Controller {
     //This function run every time before the action.
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->set('cms_page_menu', false);
         $this->setLayout();
         $this->setLanguage();
         $this->setUserIdentity();
