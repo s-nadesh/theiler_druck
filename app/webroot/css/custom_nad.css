@@ -134,3 +134,8 @@ header .secondry-menu nav ul.nav-main2 li.active a, header .secondry-menu nav ul
 label.error {
     float: left;
 }
+
+.btn.btn-responsive-nav.btn-inverse.secondry-btn{
+    top: 0px;
+    right: 10px;
+}

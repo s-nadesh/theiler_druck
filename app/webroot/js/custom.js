@@ -1,6 +1,10 @@
 /* Add here all your JS customizations */
 $(document).ready(function() {
 
+    $(".nav-main li a").click(function(event) {
+        $(".navbar-collapse").collapse('hide');
+    });
+
     $('.quantity_number').bootstrapNumber();
 
     //User Register form Validation

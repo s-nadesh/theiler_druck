@@ -15,25 +15,25 @@
             <div class="footer-menu"> 
                 <ul> 
                     <li>
-                        <a href="<?php echo SITE_BASE_URL;?>pages/one_page#prepress"> Prepress </a>
+                        <a href="<?php echo SITE_BASE_URL;?>pages/leistungen#prepress"> Prepress </a>
                     </li>
                     <li>
-                        <a href="<?php echo SITE_BASE_URL;?>pages/one_page#offsetdruck"> Offsetdruck </a>
+                        <a href="<?php echo SITE_BASE_URL;?>pages/leistungen#offsetdruck"> Offsetdruck </a>
                     </li>
                     <li>
-                        <a href="<?php echo SITE_BASE_URL;?>pages/one_page#digitaldruck"> Digitaldruck </a>
+                        <a href="<?php echo SITE_BASE_URL;?>pages/leistungen#digitaldruck"> Digitaldruck </a>
                     </li>
                     <li>
-                        <a href="<?php echo SITE_BASE_URL;?>pages/one_page#postpress"> Postpress </a>
+                        <a href="<?php echo SITE_BASE_URL;?>pages/leistungen#postpress"> Postpress </a>
                     </li>
                     <li>
-                        <a href="<?php echo SITE_BASE_URL;?>pages/one_page#lettershop"> Lettershop </a>
+                        <a href="<?php echo SITE_BASE_URL;?>pages/leistungen#lettershop"> Lettershop </a>
                     </li>
                     <li>
-                        <a href="<?php echo SITE_BASE_URL;?>pages/one_page#klimaneutrales"> Klimaneutral </a>
+                        <a href="<?php echo SITE_BASE_URL;?>pages/leistungen#klimaneutrales"> Klimaneutral </a>
                     </li>
                     <li>
-                        <a href="<?php echo SITE_BASE_URL;?>pages/one_page#service"> Service </a>
+                        <a href="<?php echo SITE_BASE_URL;?>pages/leistungen#service"> Service </a>
                     </li>
                 </ul>
             </div>

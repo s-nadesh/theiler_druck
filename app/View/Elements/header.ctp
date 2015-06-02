@@ -4,14 +4,12 @@
             <nav>
                 <ul class="nav nav-pills nav-top">
                     <li class="phone">
-                        <span><i class="icon icon-phone"></i>
-                            Tel. 044 787 03 00 </span>
+                        <span><i class="icon icon-phone"></i> Tel. 044 787 03 00 </span>
                     </li>
                     <li>
-                        <a href="#"><i class="icon icon-angle-right"></i>Fax 044 787 03 01</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon icon-angle-right"></i>info@theilerdruck.ch</a>
+                        <a href="#">
+                            <i class="icon icon-angle-right"></i>info@theilerdruck.ch
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -25,11 +23,11 @@
                 </a>
             </h1> 
         </div>
-        <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+        <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".primary-nav">
             <i class="icon icon-bars"></i>
         </button>
     </div>
-    <div class="navbar-collapse nav-main-collapse collapse">
+    <div class="navbar-collapse nav-main-collapse collapse primary-nav">
         <div class="container">
             <nav class="nav-main mega-menu">
                 <ul class="nav nav-pills nav-main" id="mainMenu">
@@ -43,13 +41,8 @@
                         <a class="dropdown-toggle" href="#"> Kontakt </a>
                     </li>
                     <li class="dropdown active">
-                        <a class="dropdown-toggle" href="#"> Anfahrt </a>
-                    </li>
-                    <li class="dropdown active">
                         <a class="dropdown-toggle" href="#">  Verlag </a>
                     </li>
-
-
 
                     <?php if (!$logged_in) { ?>
                         <li class="dropdown btn btn-lg btn-primary login-btn mega-menu-item mega-menu-shop">
@@ -123,7 +116,6 @@
                                 <div class="mega-menu-content">
                                     <div class="row">
                                         <div class="col-md-12">
-
                                             <table cellspacing="0" class="cart">
                                                 <tbody>
                                                     <?php
@@ -175,7 +167,6 @@
                                                     <?php } ?>
                                                 </tbody>
                                             </table>
-
                                         </div>
                                     </div>
                                 </div>
