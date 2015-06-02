@@ -89,10 +89,10 @@
                                                                 <div class="actions-continue">
                                                                     <ul>
                                                                         <li>  
+                                                                            <span><?php echo MyClass::translate("New here ?") ?>&nbsp;</span>
                                                                             <a href="<?php echo SITE_BASE_URL ?>users/register">
                                                                                 <?php echo MyClass::translate("Register now"); ?>
                                                                             </a>
-                                                                            <span><?php echo MyClass::translate("New here ?") ?>&nbsp;</span>
                                                                         </li>
                                                                     </ul>
                                                                 </div>

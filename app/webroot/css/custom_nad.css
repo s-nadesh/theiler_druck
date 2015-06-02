@@ -123,3 +123,14 @@ header .secondry-menu nav ul.nav-main2 li.active a, header .secondry-menu nav ul
     background-color: #0088cc !important;
     color: #fff !important;
 }
+
+.actions-continue a {
+    float: left;
+    padding-top: 0px !important;
+    margin: 0;
+    font-size: 15px !important;
+}
+
+label.error {
+    float: left;
+}

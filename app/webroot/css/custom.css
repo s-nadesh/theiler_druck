@@ -583,6 +583,7 @@ nav.mega-menu .mega-menu-shop .dropdown-menu {
     margin:0px 0px 0px 15px;
     padding: 0px;
     list-style:disc;
+    float: left;
 }
 
 nav.mega-menu .mega-menu-content {
