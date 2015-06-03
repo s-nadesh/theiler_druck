@@ -8,9 +8,9 @@
                     <div class="row first-txt" id="prepress">
                         <div class="col-md-12">
                             <div class="sections-heading"><?php echo $page['Page']['page_title'] ?></div>
-
+<?php if($page['Page']['page_subtitle']){ ?>
                             <div class="sections-sub-heading"><?php echo $page['Page']['page_subtitle'] ?></div>
-
+<?php } ?>
                             <div class="sections-content">
                                 <?php echo $page['Page']['page_content'] ?>
                             </div>
