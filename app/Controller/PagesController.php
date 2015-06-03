@@ -87,20 +87,66 @@ class PagesController extends AppController {
     }
 
     public function admin_index() {
-        if($this->request->is('post') || $this->request->is('put')){
-            $this->Page->save($this->data);
+        $pages = $this->Page->find('all', array(
+            'order' => array('Page.created DESC')
+        ));
+
+        $this->set('title_for_layout', 'pages');
+        $this->set('admin_menu', 'pages');
+        $this->set(compact('pages'));
+    }
+
+    public function admin_add() {
+        if ($this->request->is('post')) {
+
+            if (!empty($this->request->data['Page']['page_px_image']['name'])) {
+                $image_name = MyClass::getRandomString(5) . "_" . $this->data['Page']['page_px_image']['name'];
+                $image_path = PAGE_IMAGE_FOLDER . $image_name;
+                $image_temp_name = $this->data['Page']['page_px_image']['tmp_name'];
+                move_uploaded_file($image_temp_name, $image_path);
+                $this->request->data['Page']['page_px_image'] = $image_name;
+            } else {
+                unset($this->request->data['Page']['page_px_image']);
+            }
+
+            if ($this->Page->save($this->request->data)) {
+                $page_id = $this->Page->getLastInsertID();
+                $this->Session->setFlash(__('Page has been successfully added'), 'flash_success');
+                $this->redirect(array('controller' => 'pages', 'action' => 'edit', $page_id, 'admin' => true));
+            }
+        }
+    }
+
+    public function admin_edit($page_id) {
+        if ($this->request->is('post') || $this->request->is('put')) {
+
+            if (!empty($this->request->data['Page']['page_px_image']['name'])) {
+                $image_name = MyClass::getRandomString(5) . "_" . $this->data['Page']['page_px_image']['name'];
+                $image_path = PAGE_IMAGE_FOLDER . $image_name;
+                $image_temp_name = $this->data['Page']['page_px_image']['tmp_name'];
+                move_uploaded_file($image_temp_name, $image_path);
+                $this->request->data['Page']['page_px_image'] = $image_name;
+            } else {
+                unset($this->request->data['Page']['page_px_image']);
+            }
+
+            $this->Page->save($this->request->data);
             $this->Session->setFlash(__("Content updated successfully"), 'flash_success');
-        } 
-        
-        $page_content = $this->Page->findByPageId(1);
+        }
+
+        $page_content = $this->Page->findByPageId($page_id);
         $this->set(compact('page_content'));
     }
 
-    public function one_page(){
+    public function one_page() {
         $this->set('cms_page_menu', true);
         $this->set('body_attr', 'class="one-page" data-target=".single-menu" data-spy="scroll" data-offset="200"');
-        $page_content = $this->Page->find('first', array('conditions' => array('Page.page_id' => 1)));
-        $this->set(compact('page_content'));
+        $pages = $this->Page->find('all', array(
+            'conditions' => array("Page.is_one_page = '1'"),
+            'order' => array('Page.sort_value ASC')
+        ));
+
+        $this->set(compact('pages'));
     }
 
 }

@@ -67,3 +67,5 @@ define('DB_DATE_FORMAT', 'Y-m-d');
 
 define('GOOD_FOR_PRINT_ON_PAPER', 6);
 define('EXPRESS_WITHIN_4_DAYS', 450);
+
+define('PAGE_IMAGE_FOLDER', 'files/pages/');

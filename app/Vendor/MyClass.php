@@ -207,7 +207,7 @@ class MyClass {
 //                'name' => 'Cash on delivery',
 //                'fee' => '5.04CHF',
 //                'caption' => 'Small information',
-//            ), 
+//            ),
             array(
                 'id' => 2,
                 'name' => 'Bank transfer',
@@ -244,23 +244,33 @@ class MyClass {
 
     public static function fileDelete($file) {
         App::uses('File', 'Utility');
-        $file = new File(WWW_ROOT.$file);
+        $file = new File(WWW_ROOT . $file);
         return $file->delete();
     }
-    
-    public static function orderStatus($status_id = ''){
+
+    public static function orderStatus($status_id = '') {
         $status = array(
             '1' => 'Pending',
             '2' => 'Progress',
             '3' => 'Completed',
             '4' => 'Cancel',
         );
-        
-        if($status_id){
+
+        if ($status_id) {
             return $status[$status_id];
         } else {
             return $status;
         }
     }
-    
+
+    public static function getOnePageListMenu() {
+        $links = ClassRegistry::init('Page')->find('all', array(
+            'fields' => array('page_title'),
+            'conditions' => array("Page.is_one_page = '1'"),
+            'order' => array('Page.sort_value ASC')
+        ));
+
+        return $links;
+    }
+
 }

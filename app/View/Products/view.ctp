@@ -165,7 +165,7 @@ if ($cart_items_key) {
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-5 control-label"><?php echo MyClass::translate("Express within 4 days"); ?></label>
                         <div class="col-md-7">
-                            <input type="radio" name="data[Cart][express_within_4_days]" value="0" checked="checked" onclick="getProductPrice()" <?php echo $express_within_4_days_checked ?>> 
+                            <input type="radio" name="data[Cart][express_within_4_days]" value="0" checked="checked" onclick="getProductPrice()" <?php echo $express_within_4_days_checked ?>>
                             <?php echo MyClass::translate("With Out"); ?>
                             <input type="radio" name="data[Cart][express_within_4_days]" value="<?php echo EXPRESS_WITHIN_4_DAYS ?>" onclick="getProductPrice()" <?php echo $cart_express_within_4_days_checked ?>>
                             <?php echo MyClass::translate("With"); ?>
