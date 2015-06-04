@@ -41,7 +41,7 @@
                     <?php } ?>
                 <?php } else { ?>
                     <tr>
-                        <td colspan="6"><?php echo __("No record found"); ?></td>
+                        <td colspan="7"><?php echo __("No record found"); ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -91,7 +91,7 @@
                     <?php } ?>
                 <?php } else { ?>
                     <tr>
-                        <td colspan="6"><?php echo __("No record found"); ?></td>
+                        <td colspan="7"><?php echo __("No record found"); ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
