@@ -244,4 +244,16 @@ $(document).ready(function() {
         }
     });
     
+    //Admin Update Q&A
+    $(".update_question_answer").validate({
+        rules: {
+            'data[ProductAnswer][answer_content]': {
+                required: true,
+            },
+        },
+        success: function(label) {
+            label.text('Success!').addClass('valid');
+        }
+    });
+    
 });

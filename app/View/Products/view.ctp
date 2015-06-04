@@ -203,7 +203,7 @@ if ($cart_items_key) {
                 <div class="tabs tabs-product">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#productInfo" data-toggle="tab"><?php echo MyClass::translate('Aditional Information'); ?></a></li>
-                        <li><a href="#productReviews" data-toggle="tab"><?php echo MyClass::translate('Reviews'); ?>(2)</a></li>
+                        <li><a href="#productQA" data-toggle="tab"><?php echo __("Ask a Question"); ?></a></li>
                     </ul>
                     <div class="tab-content">
 
@@ -228,69 +228,92 @@ if ($cart_items_key) {
                             </table>
                         </div>
 
-                        <div class="tab-pane" id="productReviews">
-                            <ul class="comments">
-                                <li>
-                                    <div class="comment">
-                                        <div class="img-thumbnail">
-                                            <img class="avatar" alt="" src="img/avatar-2.jpg">
-                                        </div>
-                                        <div class="comment-block">
-                                            <div class="comment-arrow"></div>
-                                            <span class="comment-by">
-                                                <strong>John Doe</strong>
-                                                <span class="pull-right">
-                                                    <div title="Rated 5.00 out of 5" class="star-rating">
-                                                        <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
-                                                    </div>
-                                                </span>
-                                            </span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <hr class="tall">
-                            <h4>Add a review</h4>
+                        <div class="tab-pane" id="productQA">
+                            <?php $answers = $this->requestAction('product_questions/getAnswersByProduct/'.$product['Product']['product_id']); ?>
+                            <?php if (!empty($answers)) { ?>
+                                <ul class="comments">
+                                    <?php foreach ($answers as $answer) { ?>
+                                        <li>
+                                            <div class="comment">
+                                                <div class="comment-block">
+                                                    <div class="comment-arrow"></div>
+                                                    <span class="comment-by">
+                                                        <strong><?php echo $answer['ProductQuestion']['question_content'] ?></strong>
+                                                    </span>
+                                                    <p><?php echo $answer['ProductAnswer']['answer_content'] ?></p>
+                                                    <span class="pull-right">
+                                                        - <?php echo $answer['ProductQuestion']['question_name'] ?> (<?php echo $answer['ProductQuestion']['question_email'] ?>)
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                                <hr class="tall">
+                            <?php } ?>
+                            <h4><?php echo __("Ask a Question"); ?></h4>
                             <div class="row">
                                 <div class="col-md-12">
-
-                                    <form action="" id="submitReview" type="post">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <div class="col-md-6">
-                                                    <label>Your name *</label>
-                                                    <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label>Your email address *</label>
-                                                    <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email">
-                                                </div>
+                                    <?php echo $this->Form->create('ProductQuestion', array('class' => 'ask_a_question', 'action' => 'add')); ?>
+                                    <?php echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id'])); ?>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label><?php echo __("Your name"); ?>*</label>
+                                                <?php echo $this->Form->input('question_name', array('class' => 'form-control', 'label' => false)); ?>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label><?php echo __("Your email address"); ?> *</label>
+                                                <?php echo $this->Form->input('question_email', array('class' => 'form-control', 'label' => false)); ?>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label><?php echo __("Your phone"); ?></label>
+                                                <?php echo $this->Form->input('question_phone', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <label>Review *</label>
-                                                    <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
                                             <div class="col-md-12">
-                                                <input type="submit" value="Submit Review" class="btn btn-primary" data-loading-text="Loading...">
+                                                <label><?php echo __("Question") ?> *</label>
+                                                <?php echo $this->Form->input('question_content', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label><?php echo __("Captcha") ?> *</label>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="<?php echo SITE_BASE_URL ?>product_questions/getCaptcha" alt="" id="captcha" />
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <?php echo $this->Form->input('captcha', array('class' => 'form-control', 'label' => false)); ?>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "id" => "refresh")); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <?php echo $this->Form->submit(__("Submit"), array('class' => 'btn btn-primary btn-lg')); ?>
+                                        </div>
+                                    </div>
+
+                                    <?php echo $this->Form->end(); ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -300,6 +323,61 @@ if ($cart_items_key) {
 
         $("body").on("click", ".quantity .input-group-btn", function() {
             getProductPrice();
+        });
+
+        // refresh captcha
+        $('img#refresh').click(function() {
+            change_captcha();
+        });
+
+        //Product ask a question section.
+        $(".ask_a_question").validate({
+            rules: {
+                'data[ProductQuestion][question_name]': {
+                    required: true,
+                },
+                'data[ProductQuestion][question_email]': {
+                    required: true,
+                    email: true,
+                },
+                'data[ProductQuestion][question_content]': {
+                    required: true,
+                },
+                'data[ProductQuestion][captcha]': {
+                    required: true,
+                },
+            },
+            highlight: function(element) {
+                $(element)
+                        .parent()
+                        .removeClass("has-success")
+                        .addClass("has-error");
+            },
+            success: function(element) {
+                $(element)
+                        .parent()
+                        .removeClass("has-error")
+                        .addClass("has-success")
+                        .find("label.error")
+                        .remove();
+            },
+            submitHandler: function(form) {
+                $.ajax({
+                    type: $(form).attr('method'),
+                    url: $(form).attr('action'),
+                    data: $(form).serialize(),
+                })
+                        .done(function(response) {
+                            if (response == 'success') {
+                                change_captcha();
+                                clear_form();
+                                alert("Your question submitted successfully");
+                            } else if (response == 'captcha_fail') {
+                                alert("Please enter correct captcha code");
+                            }
+                        });
+                return false; // required to block normal submit since you used ajax
+            }
         });
     });
 
@@ -323,4 +401,19 @@ if ($cart_items_key) {
         var total = parseFloat(good_for_print) + parseFloat(express) + parseFloat(result);
         $("#product-price").html(total + "CHF");
     }
+
+    function change_captcha()
+    {
+        document.getElementById('captcha').src = jssite_url + "product_questions/getCaptcha?rnd=" + Math.random();
+    }
+
+    function clear_form()
+    {
+        $("#ProductQuestionQuestionName").val('');
+        $("#ProductQuestionQuestionEmail").val('');
+        $("#ProductQuestionQuestionPhone").val('');
+        $("#ProductQuestionQuestionContent").val('');
+        $("#ProductQuestionCaptcha").val('');
+    }
+
 </script>

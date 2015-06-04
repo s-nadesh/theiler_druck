@@ -26,6 +26,8 @@
             $marray[3] = 'active';
         elseif (@$admin_menu == 'product_prices')
             $marray[4] = 'active';
+        elseif (@$admin_menu == 'product_questions')
+            $marray[5] = 'active';
         elseif (@$admin_menu == 'languages')
             $marray[6] = 'active';
         elseif (@$admin_menu == 'pages')
@@ -54,6 +56,11 @@
             <li class="<?php echo $marray[3] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/shipping_costs">
                     <span><?php echo MyClass::translate("Shipping Costs"); ?></span><i class="icon-coin"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[5] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/product_questions">
+                    <span><?php echo __("Product Q&A"); ?></span><i class="icon-question"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[6] ?>">
