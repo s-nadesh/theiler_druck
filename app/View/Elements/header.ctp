@@ -197,7 +197,7 @@
                                     foreach($links as $k => $link){
                                      $active_class = ($k==0) ? 'active' : '';
                                     ?>
-                                    <li class="dropdown <?php echo $active_class; ?>">
+                                    <li class=" <?php echo $active_class; ?>">
                                         <a data-hash class="dropdown-toggle" href="#<?php echo strtolower($link['Page']['page_title']) ?>"> <?php echo $link['Page']['page_title'] ?> </a>
                                     </li>
                                     <?php } ?>

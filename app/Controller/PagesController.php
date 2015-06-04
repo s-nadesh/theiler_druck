@@ -119,7 +119,6 @@ class PagesController extends AppController {
 
     public function admin_edit($page_id) {
         if ($this->request->is('post') || $this->request->is('put')) {
-
             if (!empty($this->request->data['Page']['page_px_image']['name'])) {
                 $image_name = MyClass::getRandomString(5) . "_" . $this->data['Page']['page_px_image']['name'];
                 $image_path = PAGE_IMAGE_FOLDER . $image_name;

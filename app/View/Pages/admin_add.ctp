@@ -55,7 +55,7 @@
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('page_px_image', array('type' => 'file', 'class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('page_px_image', array('type' => 'file', 'class' => 'styled', 'label' => false));
                             ?>
                         </div>
                     </div>

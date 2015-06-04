@@ -132,7 +132,7 @@ div.footer-copyright {
     width: 100%;
 }
 
-ul.social-icons  
+ul.social-icons
 {
     text-align:center;
 }
@@ -383,7 +383,7 @@ legend {
 .shipping-option span
 {
     font-weight:bold;
-    float:right !important; 
+    float:right !important;
     color:#000000;
 }
 
@@ -446,8 +446,8 @@ legend {
 
 .sections-content img
 {
-    float:right;
-    margin-left:15px;
+/*    float:right;
+    margin-left:15px;*/
 }
 
 p {
@@ -493,7 +493,7 @@ p {
 
 .first-txt
 {
-    margin-top:65px;
+    margin-top:90px;
 }
 
 .secondry-menu  a

@@ -13,11 +13,17 @@
                 </div>
             </div>
             <div class="footer-menu">
-                <?php $links = Myclass::getOnePageListMenu(); ?>
+                <?php
+                $links = Myclass::getOnePageListMenu();
+                $cms_page_attr =  ($cms_page_menu) ? 'data-hash' : '';
+                ?>
                 <ul>
-                    <?php foreach($links as $k => $link){ ?>
+                    <?php
+                    foreach($links as $k => $link){
+                        $link_url = ($cms_page_menu) ? "#".strtolower($link['Page']['page_title']) : SITE_BASE_URL."pages/leistungen#".strtolower($link['Page']['page_title']);
+                        ?>
                     <li>
-                        <a href="<?php echo SITE_BASE_URL;?>pages/leistungen#<?php echo strtolower($link['Page']['page_title']) ?>"> <?php echo $link['Page']['page_title'] ?> </a>
+                        <a <?php echo $cms_page_attr;  ?> href="<?php echo $link_url; ?>"> <?php echo $link['Page']['page_title'] ?> </a>
                     </li>
                     <?php } ?>
                 </ul>
@@ -28,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <p>© 2015 Copyright - Theiler Druck AG</p>
+                    <p>&copy; <?php echo date('Y'); ?> Copyright - Theiler Druck AG</p>
                 </div>
             </div>
         </div>
