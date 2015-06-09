@@ -649,3 +649,200 @@ div.featured-boxes.login {
 {
     margin-top: 20px;
 }
+
+/*------1-6-2015------*/
+
+
+.contact-section
+{
+	text-align:left;
+}
+
+.contact-section
+{
+	
+}
+.contact-section label
+{
+	font-weight:normal;
+}
+
+
+.contact-section
+{
+	color:#666666 !important;
+	width:100%;
+	float:left;
+    font-weight:200;
+	font-size:18px;
+	margin-top:22px;
+	line-height:26px;
+	margin-bottom:50px;
+}
+
+.contact-right  p
+{
+	margin-bottom:30px;
+}
+
+
+.contact-right img
+{
+	float:left;
+	margin-right:15px;
+}
+
+
+.contact-map
+{
+	width:100%;
+	float:left;
+	margin-top:25px;
+}
+
+.contact-right h4
+{
+	color:#666666;
+	font-weight:200;
+	font-size:24px;
+}
+
+.contact-person-cont
+{
+	margin-bottom:25px;
+	text-align:center;
+	font-size:18px;
+	line-height:16px;
+}
+
+.contact-person-cont h2
+{
+	color:#666666;
+	font-size:24px;
+	margin:0px;
+}
+
+.contact-section div.featured-box
+{
+	text-align:left;
+	color:#4e4e4e !important; 
+}
+
+.offertenanfrage-form .sections-heading
+{
+	margin-bottom:25px;
+}
+
+.offertenanfrage-form label
+{
+	margin-bottom:0px;
+}
+
+.offertenanfrage-form span
+{
+	font-size:17px;
+	color:#2e2e2e;
+}
+
+.form-product
+{
+	width:100%;
+	float:left;
+}
+
+.form-product h2
+{
+	font-size:18px;
+	color:#2e2e2e;
+	border-bottom:#eaeaea solid 1px;
+	margin-bottom:10px;
+	font-weight:normal;
+}
+
+.form-radio-option
+{
+	color:#2e2e2e;
+	margin-bottom:10px;
+	font-size:14px;
+	font-weight:normal;
+}
+
+.form-product label
+{
+	font-size:14px;
+	line-height:18px;
+}
+
+
+.border-form
+{
+	width:100%;
+	float:left;
+	border-top:#ebebeb solid 1px;
+	padding-top:10px;
+}
+
+.box-content2
+{
+	padding-left:11px !important;
+	padding-right:11px !important;
+}
+
+.publisher-cont
+{
+	font-size:18px;
+	color:#666666;
+}
+
+.publisher-cont h2
+{
+	font-size:24px;
+}
+
+.publisher-img
+{
+	margin-top:45px;
+}
+
+
+
+/*new styles 9-06-2015*/
+
+
+.newfooter2
+{
+	background:#f0f0f0;
+	padding:25px 0px 0px 0px;
+}
+
+.newfooter2 h5
+{
+	font-size:15px;
+	color:#2e2e2e !important;
+	font-weight:bold;
+}
+
+.newfooter2 ul
+{
+	margin:0px;
+	padding:0px;
+}
+
+.newfooter2 ul li
+{
+	list-style:none;
+}
+
+.newfooter2 ul li a
+{
+	color:#2e2e2e !important;
+}
+
+ul.social-icons {
+  text-align: left;
+}
+
+.footer-copyright
+{
+	margin-top:0px !important;
+}
