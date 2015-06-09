@@ -229,28 +229,6 @@ if ($cart_items_key) {
                         </div>
 
                         <div class="tab-pane" id="productQA">
-                            <?php $answers = $this->requestAction('product_questions/getAnswersByProduct/'.$product['Product']['product_id']); ?>
-                            <?php if (!empty($answers)) { ?>
-                                <ul class="comments">
-                                    <?php foreach ($answers as $answer) { ?>
-                                        <li>
-                                            <div class="comment">
-                                                <div class="comment-block">
-                                                    <div class="comment-arrow"></div>
-                                                    <span class="comment-by">
-                                                        <strong><?php echo $answer['ProductQuestion']['question_content'] ?></strong>
-                                                    </span>
-                                                    <p><?php echo $answer['ProductAnswer']['answer_content'] ?></p>
-                                                    <span class="pull-right">
-                                                        - <?php echo $answer['ProductQuestion']['question_name'] ?> (<?php echo $answer['ProductQuestion']['question_email'] ?>)
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    <?php } ?>
-                                </ul>
-                                <hr class="tall">
-                            <?php } ?>
                             <h4><?php echo __("Ask a Question"); ?></h4>
                             <div class="row">
                                 <div class="col-md-12">

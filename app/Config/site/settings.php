@@ -20,7 +20,7 @@ if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
 }
 
 define('MAILSENDBY', $mailsendby);
-define('SITEMAIL', 'admin@theilerdruck.com');
+define('SITEMAIL', 'nadesh@arkinfotec.com');
 
 if (LOCALHOST) {
     define('DEBUG', 1);

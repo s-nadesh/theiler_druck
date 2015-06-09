@@ -73,6 +73,7 @@ class ProductQuestionsController extends AppController {
         if ($this->request->is('post')) {
             if (strtolower($this->data['ProductQuestion']['captcha']) == strtolower($this->Session->read('Captcha.random_number'))) {
                 if ($this->ProductQuestion->save($this->data)) {
+                    $this->askQuestionMail($this->data);
                     echo 'success';
                 } else {
                     echo 'fail';
@@ -80,6 +81,22 @@ class ProductQuestionsController extends AppController {
             } else {
                 echo 'captcha_fail';
             }
+        }
+    }
+
+    public function askQuestionMail($data) {
+        if ($data) {
+            $product = $this->requestAction('products/getProduct/' . $data['ProductQuestion']['product_id']);
+            $Email = new CakeEmail(MAILSENDBY);
+            $Email->template('ask_a_question', 'email_layout')
+                    ->emailFormat('html')
+                    ->to(SITEMAIL)
+                    ->subject('Frage zum Produkt: ' . $product['Product']['product_name'])
+                    ->from($data['ProductQuestion']['question_email'])
+                    ->viewVars(array(
+                        'data' => $data,
+                    ))
+                    ->send();
         }
     }
 
