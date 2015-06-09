@@ -23,7 +23,7 @@ header {
     background: -o-linear-gradient(top,  #f6f6f6 0%,#ffffff 100%);
     background: -ms-linear-gradient(top,  #f6f6f6 0%,#ffffff 100%);
     background: linear-gradient(to bottom,  #f6f6f6 0%,#ffffff 100%);
-    min-height: 100px;
+    min-height: 150px;
     padding: 8px 0;
 }
 
@@ -383,7 +383,7 @@ header.flat-menu nav ul.nav-main li a {
     margin-left: 1px;
     margin-right: 3px;
     padding-bottom: 19px;
-    padding-top: 46px;
+    padding-top: 0px;
 }
 
 body.boxed header.flat-menu nav ul.nav-main > li > a {
@@ -643,8 +643,8 @@ header.colored ul.nav-main {
 }
 
 header.colored nav ul.nav-main li a {
-    padding-bottom: 24px;
-    padding-top: 50px;
+    padding-bottom: 10px !important;
+    padding-top: 5px !important;
 }
 
 header.colored nav ul.nav-main li.dropdown:hover > a {

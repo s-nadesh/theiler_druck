@@ -29,7 +29,11 @@
     </div>
     <div class="navbar-collapse nav-main-collapse collapse primary-nav">
         <div class="container">
+        <div class="new-shoppingcart"> <div class="new-carticon"><i class="icon icon-shopping-cart"></i></div> <div class="new-carttxt"> <a href="#">0 Artikel | 0,00 € </a> <i class="icon icon-exclamation-circle"></i></div> 
+        </div>
+        <div class="clearfix"></div>
             <nav class="nav-main mega-menu">
+            
                 <ul class="nav nav-pills nav-main" id="mainMenu">
                     <li class="dropdown active">
                         <a class="dropdown-toggle" href="<?php echo SITE_BASE_URL ?>"> Start </a>
@@ -107,7 +111,7 @@
                     </li>
                     <?php } ?>
 
-                    <li class="dropdown cart-btn mega-menu-item mega-menu-shop">
+                    <!--<li class="dropdown cart-btn mega-menu-item mega-menu-shop">
                         <a href="<?php echo SITE_BASE_URL ?>carts" class="dropdown-toggle mobile-redirect">
                             <i class="icon icon-shopping-cart"></i>
                         </a>
@@ -172,7 +176,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
             </nav>
         </div>

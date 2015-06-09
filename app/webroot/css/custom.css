@@ -194,7 +194,7 @@ header h1.logo {
 
 .sticky-menu-active h1.logo
 {
-    padding-top:29px !important;
+    padding-top:0px !important;
 }
 
 .sticky-menu-active .cp-logo
@@ -298,7 +298,7 @@ legend {
 .create-accbtn:hover
 {
     background:#000000 !important;
-    border:#000000 solid 1px;;
+    border:#000000 solid 1px;
 }
 
 @media (max-width:767px) {
@@ -346,12 +346,55 @@ legend {
         font-size: 10px !important;
         font-weight: 300;
     }
+	.new-shoppingcart
+	{
+		float:left !important;
+		margin-top:20px !important;
+	}
+	
+	
+		.new-shoppingcart 
+		{
+			color:#ffffff !important
+		}
+
+		.new-shoppingcart a
+		{
+			color:#ffffff !important
+		}
+		
+		header {
+  min-height: 120px !important;
+}
 
 }
 @media (min-width:768px)and (max-width:991px) {
+	.new-shoppingcart
+	{
+		float:left !important;
+		margin-top:20px !important;
+	}
+	
+	
     .chekout-step ul li {
         padding: 10px 16px;
     }
+
+			.new-shoppingcart 
+		{
+			color:#ffffff !important
+		}
+
+		.new-shoppingcart a
+		{
+			color:#ffffff !important
+		}
+		
+		header {
+  min-height: 120px !important;
+}
+	
+	
 }
 @media (min-width:992px)and (max-width:1199px) {
     .hidden-md {
@@ -620,7 +663,7 @@ div.featured-boxes.login {
     border: none !important;
 }
 .dropdown.btn.btn-lg.btn-primary.login-btn {
-    margin-top: 50px;
+    margin-top: 0px;
     padding: 0;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -629,7 +672,7 @@ div.featured-boxes.login {
 
 .sticky-menu-active .dropdown.btn.btn-lg.btn-primary.login-btn
 {
-    margin-top: 20px;
+  /*  margin-top: 20px;*/
 }
 
 .cart-btn a {
@@ -638,7 +681,7 @@ div.featured-boxes.login {
 }
 
 .dropdown.cart-btn {
-    margin-top: 50px;
+    margin-top: 5px;
     padding: 0;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -845,4 +888,45 @@ ul.social-icons {
 .footer-copyright
 {
 	margin-top:0px !important;
+}
+
+
+body.sticky-menu-active header.flat-menu div.header-top {
+  display:block;
+}
+
+body.sticky-menu-active header.flat-menu nav ul.nav-main {
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.new-shoppingcart
+{
+	width:auto;
+	float:right;
+}
+
+.new-carticon
+{
+	width:25px;
+	height:25px;
+	background:#0164a7;
+	-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+color:#ffffff;
+text-align:center;
+float:left;
+margin-right:10px;
+}
+
+.new-carttxt
+{
+	width:auto;
+	float:left;
+}
+
+.new-carttxt a
+{
+	color:#2e2e2e;
 }
