@@ -124,8 +124,7 @@ header .secondry-menu nav ul.nav-main2 li.active a, header .secondry-menu nav ul
     color: #fff !important;
 }
 
-.actions-continue a {
-    float: left;
+.mega-menu-content .actions-continue a {
     padding-top: 0px !important;
     margin: 0;
     font-size: 15px !important;
@@ -143,4 +142,9 @@ label.error {
 ul.comments li {
   clear: both;
   padding: 10px 0 0 0px !important;
+}
+
+span.input-group-btn{
+    width: auto;
+    float: left;
 }
