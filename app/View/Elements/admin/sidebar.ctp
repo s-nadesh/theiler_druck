@@ -60,7 +60,7 @@
             </li>
             <li class="<?php echo $marray[5] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/product_questions">
-                    <span><?php echo __("Product Q&A"); ?></span><i class="icon-question"></i>
+                    <span><?php echo MyClass::translate("Product Q&A"); ?></span><i class="icon-question"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[6] ?>">

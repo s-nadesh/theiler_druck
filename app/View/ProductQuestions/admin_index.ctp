@@ -1,18 +1,18 @@
-<?php $this->Html->addCrumb(__("Product Questions")); ?>
+<?php $this->Html->addCrumb(MyClass::translate("Product Questions")); ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-file6"></i> <?php echo __("Un answered Questions"); ?></h6>
+        <h6 class="panel-title"><i class="icon-file6"></i> <?php echo MyClass::translate("Un answered Questions"); ?></h6>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th><?php echo __("Name"); ?></th>
-                    <th><?php echo __("Email"); ?></th>
-                    <th><?php echo __("Product"); ?></th>
-                    <th><?php echo __("Question"); ?></th>
-                    <th><?php echo __("Created"); ?></th>
+                    <th><?php echo MyClass::translate("Name"); ?></th>
+                    <th><?php echo MyClass::translate("Email"); ?></th>
+                    <th><?php echo MyClass::translate("Product"); ?></th>
+                    <th><?php echo MyClass::translate("Question"); ?></th>
+                    <th><?php echo MyClass::translate("Created"); ?></th>
                     <th><?php echo MyClass::translate('Action'); ?></th>
                 </tr>
             </thead>
@@ -32,7 +32,7 @@
                             <td><?php echo $unanswered_question['ProductQuestion']['created'] ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/edit/<?php echo $unanswered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo __("Add your answer"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/edit/<?php echo $unanswered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo MyClass::translate("Add your answer"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>
@@ -41,7 +41,7 @@
                     <?php } ?>
                 <?php } else { ?>
                     <tr>
-                        <td colspan="7"><?php echo __("No record found"); ?></td>
+                        <td colspan="7"><?php echo MyClass::translate("No record found"); ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -51,18 +51,18 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-file6"></i> <?php echo __("Answered Questions"); ?></h6>
+        <h6 class="panel-title"><i class="icon-file6"></i> <?php echo MyClass::translate("Answered Questions"); ?></h6>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th><?php echo __("Name"); ?></th>
-                    <th><?php echo __("Email"); ?></th>
-                    <th><?php echo __("Product"); ?></th>
-                    <th><?php echo __("Question"); ?></th>
-                    <th><?php echo __("Answer"); ?></th>
+                    <th><?php echo MyClass::translate("Name"); ?></th>
+                    <th><?php echo MyClass::translate("Email"); ?></th>
+                    <th><?php echo MyClass::translate("Product"); ?></th>
+                    <th><?php echo MyClass::translate("Question"); ?></th>
+                    <th><?php echo MyClass::translate("Answer"); ?></th>
                     <th><?php echo MyClass::translate('Action'); ?></th>
                 </tr>
             </thead>
@@ -82,7 +82,7 @@
                             <td><?php echo $answered_question['ProductAnswer']['answer_content'] ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/edit/<?php echo $answered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo __("Update your answer"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/edit/<?php echo $answered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo MyClass::translate("Update your answer"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>
@@ -91,7 +91,7 @@
                     <?php } ?>
                 <?php } else { ?>
                     <tr>
-                        <td colspan="7"><?php echo __("No record found"); ?></td>
+                        <td colspan="7"><?php echo MyClass::translate("No record found"); ?></td>
                     </tr>
                 <?php } ?>
             </tbody>

@@ -203,7 +203,7 @@ if ($cart_items_key) {
                 <div class="tabs tabs-product">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#productInfo" data-toggle="tab"><?php echo MyClass::translate('Aditional Information'); ?></a></li>
-                        <li><a href="#productQA" data-toggle="tab"><?php echo __("Ask a Question"); ?></a></li>
+                        <li><a href="#productQA" data-toggle="tab"><?php echo MyClass::translate("Ask a Question"); ?></a></li>
                     </ul>
                     <div class="tab-content">
 
@@ -229,7 +229,7 @@ if ($cart_items_key) {
                         </div>
 
                         <div class="tab-pane" id="productQA">
-                            <h4><?php echo __("Ask a Question"); ?></h4>
+                            <h4><?php echo MyClass::translate("Ask a Question"); ?></h4>
                             <div class="row">
                                 <div class="col-md-12">
                                     <?php echo $this->Form->create('ProductQuestion', array('class' => 'ask_a_question', 'action' => 'add')); ?>
@@ -237,15 +237,15 @@ if ($cart_items_key) {
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-4">
-                                                <label><?php echo __("Your name"); ?>*</label>
+                                                <label><?php echo MyClass::translate("Your name"); ?>*</label>
                                                 <?php echo $this->Form->input('question_name', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                             <div class="col-md-4">
-                                                <label><?php echo __("Your email address"); ?> *</label>
+                                                <label><?php echo MyClass::translate("Your email address"); ?> *</label>
                                                 <?php echo $this->Form->input('question_email', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                             <div class="col-md-4">
-                                                <label><?php echo __("Your phone"); ?></label>
+                                                <label><?php echo MyClass::translate("Your phone"); ?></label>
                                                 <?php echo $this->Form->input('question_phone', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                         </div>
@@ -253,7 +253,7 @@ if ($cart_items_key) {
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <label><?php echo __("Question") ?> *</label>
+                                                <label><?php echo MyClass::translate("Question") ?> *</label>
                                                 <?php echo $this->Form->input('question_content', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                         </div>
@@ -262,7 +262,7 @@ if ($cart_items_key) {
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <label><?php echo __("Captcha") ?> *</label>
+                                                <label><?php echo MyClass::translate("Captcha") ?> *</label>
                                                 <div class="row">
                                                     <div class="col-md-2">
                                                         <img src="<?php echo SITE_BASE_URL ?>product_questions/getCaptcha" alt="" id="captcha" />
@@ -280,7 +280,7 @@ if ($cart_items_key) {
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <?php echo $this->Form->submit(__("Submit"), array('class' => 'btn btn-primary btn-lg')); ?>
+                                            <?php echo $this->Form->submit(MyClass::translate("Submit"), array('class' => 'btn btn-primary btn-lg')); ?>
                                         </div>
                                     </div>
 
