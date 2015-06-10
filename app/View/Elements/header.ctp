@@ -42,7 +42,7 @@
                         $cart_price = 0.00;
                     }
                     ?>
-                    <a href="<?php echo SITE_BASE_URL?>carts"><?php echo $item_count;?> Artikel | <?php echo MyClass::currencyFormat($cart_price)?></a> <i class="icon icon-exclamation-circle"></i>
+                    <a href="<?php echo SITE_BASE_URL ?>carts"><?php echo $item_count; ?> Artikel | <?php echo MyClass::currencyFormat($cart_price) ?></a> <i class="icon icon-exclamation-circle"></i>
                 </div> 
             </div>
             <div class="clearfix"></div>
@@ -160,5 +160,41 @@
                 </div>
             </div>
         </div>
+    <?php } ?>
+
+    <?php if($contact_page_menu){ ?>
+    <div class="secondry-menu">
+        <div class="container"> 
+            <div class="row">
+                <div class="single-menu flat-menu secondry-mainnav">
+                    <div class="container">
+                        <button class="btn btn-responsive-nav btn-inverse secondry-btn" data-toggle="collapse" data-target=".secondary-nav">
+                            <i class="icon icon-bars"></i>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse nav-main-collapse secondary-nav collapse">
+                        <div class="container">
+                            <nav class="nav-main">
+                                <ul class="nav nav-pills nav-main nav-main2" id="mainMenu2">
+                                    <li class="dropdown active">
+                                        <a data-hash class="dropdown-toggle" href="#1"> Kontakt </a>
+                                    </li>
+                                    <li>
+                                        <a data-hash href="#2">Ansprechpersonen</a>
+                                    </li>
+                                    <li>
+                                        <a data-hash href="#3">Offertenanfrage</a>
+                                    </li>
+                                    <li>
+                                        <a data-hash href="#4">Verlag</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php } ?>
 </header>

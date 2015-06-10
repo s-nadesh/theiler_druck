@@ -147,5 +147,10 @@ class PagesController extends AppController {
 
         $this->set(compact('pages'));
     }
+    
+    public function contact(){
+        $this->set('contact_page_menu', true);
+        $this->set('body_attr', 'class="one-page" data-target=".single-menu" data-spy="scroll" data-offset="200"');
+    }
 
 }
