@@ -144,8 +144,10 @@ class MyClass {
     }
 
     public static function currencyFormat($number) {
-        $result = number_format($number, 2);
-        return $result . 'CHF';
+        $fmt = numfmt_create('de_DE', NumberFormatter::CURRENCY);
+        return numfmt_format_currency($fmt, $number, "CHF");
+//        $result = number_format($number, 2);
+//        return $result . 'CHF';
     }
 
     public static function translate($text) {
