@@ -376,6 +376,12 @@ legend {
 	}
 	
 	
+	.newfooter2 ul li
+{
+	font-size:13px !important;
+	font-weight:600 !important;
+}
+	
     .chekout-step ul li {
         padding: 10px 16px;
     }
@@ -854,14 +860,14 @@ div.featured-boxes.login {
 
 .newfooter2
 {
-	background:#f0f0f0;
+	background:#fcfcfc;
 	padding:25px 0px 0px 0px;
 }
 
 .newfooter2 h5
 {
 	font-size:15px;
-	color:#2e2e2e !important;
+	color:#666666 !important;
 	font-weight:bold;
 }
 
@@ -874,11 +880,17 @@ div.featured-boxes.login {
 .newfooter2 ul li
 {
 	list-style:none;
+	font-size:16px;
 }
 
 .newfooter2 ul li a
 {
-	color:#2e2e2e !important;
+	color:#666666 !important;
+}
+
+.newfooter2 ul li a:hover
+{
+	color:#0164a7 !important;
 }
 
 ul.social-icons {
