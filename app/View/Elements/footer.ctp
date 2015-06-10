@@ -42,7 +42,7 @@
                         <li> &nbsp; &nbsp; &nbsp;  &nbsp;8832 Wollerau</li>
                         <li><img src="<?php echo SITE_BASE_URL ?>img/phone2.png"  alt="" /> &nbsp; Tel. 044 787 03 00</li>
                         <li> <img src="<?php echo SITE_BASE_URL ?>img/fax.png"  alt="" /> &nbsp; Fax 044 787 03 01</li>
-                        <li><img src="<?php echo SITE_BASE_URL ?>img/mail.png"  alt="" /> &nbsp;info@theilerdruck.ch   </li>
+                        <li><img src="<?php echo SITE_BASE_URL ?>img/mail.png"  alt="" /> &nbsp;<a href="mailto:info@theilerdruck.ch   ">info@theilerdruck.ch </a></li>
                     </ul>
                 </div>   
                 <div class="col-xs-12 col-sm-3 col-md-3">   

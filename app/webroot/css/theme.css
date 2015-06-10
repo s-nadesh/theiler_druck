@@ -73,7 +73,7 @@ header div.header-top i {
 
 /* Top Navigation */
 header div.header-top nav {
-    float: right;
+    float: left;
     width: auto;
 }
 
@@ -463,7 +463,7 @@ header nav ul.nav-top li span {
     line-height: 14px;
     margin-bottom: 2px;
     margin-right: 0;
-    margin-top: 5px;
+   /* margin-top: 5px;*/
     padding: 8px 2px 8px 12px;
 }
 
@@ -478,6 +478,7 @@ header nav ul.nav-top li i {
     margin-right: 6px;
     position: relative;
     top: 1px;
+	font-size:22px;
 }
 
 body.sticky-menu-active header.flat-menu h1.logo {
@@ -1595,7 +1596,7 @@ footer div.footer-ribon span {
 }
 
 footer div.container div.row > div {
-    margin-bottom: 25px;
+    margin-bottom: 0px;
 }
 
 footer div.container input:focus {
@@ -1720,10 +1721,9 @@ footer h4 {
 
 /* Copyright */
 div.footer-copyright {
-    background: #0C0C0C;
-    border-top: 4px solid #111;
+    background: #f3f3f3;
     margin-top: 40px;
-    padding: 30px 0 10px;
+    padding: 15px 0 10px;
 }
 
 div.footer-copyright nav {
@@ -1917,3 +1917,6 @@ a.scroll-to-top.visible {
     filter: alpha(opacity=75);
     opacity: 0.75;
 }
+
+
+
