@@ -523,7 +523,7 @@ body.sticky-menu-active header {
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.10);
     border-bottom: 1px solid #E9E9E9;
     position: fixed;
-    top: -57px;
+    top: -72px;
     width: 100%;
     z-index: 1001;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.10);
@@ -644,7 +644,7 @@ header.colored ul.nav-main {
 }
 
 header.colored nav ul.nav-main li a {
-    padding-bottom: 10px !important;
+    padding-bottom: 11px !important;
     padding-top: 5px !important;
 }
 
@@ -885,6 +885,7 @@ nav.mega-menu .mega-menu-signin.logged .list-account-options a:hover {
         -moz-box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
         -webkit-box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+		margin-top:7px;
     }
 
     header nav.mega-menu ul.nav-main li.mega-menu-fullwidth ul.dropdown-menu {
@@ -1917,6 +1918,8 @@ a.scroll-to-top.visible {
     filter: alpha(opacity=75);
     opacity: 0.75;
 }
+
+
 
 
 
