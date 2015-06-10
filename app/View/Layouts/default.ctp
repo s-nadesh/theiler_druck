@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <title><?php echo SITE_NAME ?></title>
         <meta name="keywords" content="" />
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo SITE_BASE_URL; ?>img/theilerlogo16x16.png">
 
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
