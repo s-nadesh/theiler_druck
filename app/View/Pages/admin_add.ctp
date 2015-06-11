@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(MyClass::translate('Static Page')); ?>
+<?php $this->Html->addCrumb(__('Static Page')); ?>
 
 <div class="tabbable page-tabs">
     <div class="tab-content">
@@ -13,13 +13,13 @@
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit page content"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit page content"); ?></h6>
                 </div>
 
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Page Title'); ?>: <span class="mandatory">*</span>
+                            <?php echo __('Page Title'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Page SubTitle'); ?>:
+                            <?php echo __('Page SubTitle'); ?>:
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Page Content'); ?>: <span class="mandatory">*</span>
+                            <?php echo __('Page Content'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -51,7 +51,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Parrallax Image'); ?>:
+                            <?php echo __('Parrallax Image'); ?>:
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -62,7 +62,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Parrallax Caption'); ?>:
+                            <?php echo __('Parrallax Caption'); ?>:
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -72,7 +72,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Sort'); ?>:
+                            <?php echo __('Sort'); ?>:
                         </label>
                         <div class="col-sm-1">
                             <?php
@@ -83,7 +83,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Is one page'); ?>:
+                            <?php echo __('Is one page'); ?>:
                         </label>
                         <div class="col-sm-1">
                             <?php
@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="form-actions text-right">
-                        <input type="submit" value="<?php echo MyClass::translate("Save"); ?>" class="btn btn-primary">
+                        <input type="submit" value="<?php echo __("Save"); ?>" class="btn btn-primary">
                     </div>
                 </div>
             </div>

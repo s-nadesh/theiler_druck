@@ -36,6 +36,8 @@
             $marray[8] = 'active';
         elseif (@$admin_menu == 'orders')
             $marray[9] = 'active';
+        elseif (@$admin_menu == 'services')
+            $marray[10] = 'active';
         ?>
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
@@ -81,6 +83,11 @@
             <li class="<?php echo $marray[9] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/orders">
                     <span><?php echo MyClass::translate("Orders"); ?></span><i class="icon-coin"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[10] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/services">
+                    <span><?php echo MyClass::translate("Services"); ?></span><i class="icon-coin"></i>
                 </a>
             </li>
         </ul>

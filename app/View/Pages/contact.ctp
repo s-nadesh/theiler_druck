@@ -34,7 +34,7 @@
                                             <?php echo $this->Form->input('contact_message', array("type" => "textarea", "class" => "form-control", "label" => false)); ?>
                                         </div>
                                         <div class="form-group">
-                                            <label><?php echo MyClass::translate("Captcha") ?> *</label>
+                                            <label><?php echo __("Captcha") ?> *</label>
                                             <?php echo $this->Form->input('contact_captcha', array('class' => 'form-control', 'label' => false)); ?>
                                             <img src="<?php echo SITE_BASE_URL ?>pages/getCaptcha" alt="" class="captcha" />
                                             <?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "class" => "refresh")); ?>
