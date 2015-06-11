@@ -256,4 +256,36 @@ $(document).ready(function() {
         }
     });
     
+    //Admin services
+    $(".services").validate({
+        rules: {
+            'data[Service][service_title]': 'required',
+            'data[Service][service_image]': 'required',
+            'data[Service][service_caption]': 'required',
+            'data[Service][sort_value]': 'required',
+        },
+        success: function(label) {
+            label.text('Success!').addClass('valid');
+        }
+    });
+    
+    //Admin Contact Persons
+    $(".contact-person").validate({
+        rules: {
+            'data[ContactPerson][cont_pers_name]': 'required',
+            'data[ContactPerson][cont_pers_position]': 'required',
+            'data[ContactPerson][cont_pers_level]': 'required',
+            'data[ContactPerson][cont_pers_phone]': 'required',
+            'data[ContactPerson][cont_pers_email]': {
+                required: true,
+                email: true,
+            },
+            
+        },
+        success: function(label) {
+            label.text('Success!').addClass('valid');
+        }
+    });
+    $("input[id*=add_cont_pers_image]").rules("add", "required");
+    
 });
