@@ -33,28 +33,34 @@ class CartsController extends AppController {
     //Remove single product from cart
     public function remove($key_encrypt) {
         $key = MyClass::refdecryption($key_encrypt);
-        if ($this->Session->check('Shop')) {
-            if ($this->Session->check('Shop.CartItems.' . $key)) {
-                MyClass::fileDelete(CART_FILE_FOLDER . $this->Session->read('Shop.CartItems.' . $key . '.item_picture_upload'));
-                $this->Session->delete("Shop.CartItems." . $key);
-            }
-
-            if (count($this->Session->read('Shop.CartItems'))) {
-                foreach ($this->Session->read('Shop.CartItems') as $key => $items) {
-                    $product = array(
-                        'product_id' => $items['product_id'],
-                        'no_of_pages' => $items['item_product_no_of_pages'],
-                        'no_of_copies' => $items['item_product_no_of_copies'],
-                        'paper_id' => $items['paper_id'],
-                        'quantity' => $items['item_quantity'],
-                        'picture_upload_edit' => $items['item_picture_upload'],
-                    );
-                    $this->setCartItem($product);
+        if ($this->Session->check('Shop.CartItems.' . $key)) {
+            $deleteItem = $this->Session->read('Shop.CartItems.' . $key);
+            $this->Session->delete("Shop.CartItems." . $key);
+            $files = $deleteItem['item_picture_upload'];
+            if (!empty($files)) {
+                foreach ($files as $key => $value) {
+                    $filePath = CART_FILE_FOLDER . $value;
+                    if (file_exists($filePath)) {
+                        MyClass::fileDelete($filePath);
+                    }
                 }
-                $this->setCartAdditional($this->Session->read('Shop.Additional'));
-            } else {
-                $this->redirect('clear');
             }
+        }
+
+        if (count($this->Session->read('Shop.CartItems'))) {
+            foreach ($this->Session->read('Shop.CartItems') as $key => $items) {
+                $product = array(
+                    'product_id' => $items['product_id'],
+                    'no_of_pages' => $items['item_product_no_of_pages'],
+                    'no_of_copies' => $items['item_product_no_of_copies'],
+                    'paper_id' => $items['paper_id'],
+                    'quantity' => $items['item_quantity'],
+                );
+                $this->setCartItem($product);
+            }
+            $this->setCartAdditional($this->Session->read('Shop.Additional'));
+        } else {
+            $this->redirect('clear');
         }
         $this->redirect('index');
     }
@@ -62,21 +68,115 @@ class CartsController extends AppController {
     //Clear cart.
     public function clear() {
         if ($this->Session->check('Shop')) {
+            if ($this->Session->check('Shop.CartItems')) {
+                $cartItems = $this->Session->read('Shop.CartItems');
+                if (!empty($cartItems)) {
+                    foreach ($cartItems as $item_key => $item_value) {
+                        $files = $item_value['item_picture_upload'];
+                        if (!empty($files)) {
+                            foreach ($files as $key => $value) {
+                                $filePath = CART_FILE_FOLDER . $value;
+                                if (file_exists($filePath)) {
+                                    MyClass::fileDelete($filePath);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             $this->Session->delete('Shop');
             $this->Session->setFlash('Your cart is cleared', 'flash_error');
         }
         $this->redirect('index');
     }
 
+    public function fileUpload() {
+        $this->autoRender = false;
+        if (isset($_FILES["myfile"])) {
+            $ret = array();
+
+            $error = $_FILES["myfile"]["error"];
+            //You need to handle  both cases
+            //If Any browser does not support serializing of multiple files using FormData() 
+            if (!is_array($_FILES["myfile"]["name"])) { //single file
+                $fileName = MyClass::getRandomString(3) . '-' . $_FILES["myfile"]["name"];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"], CART_FILE_FOLDER . $fileName);
+                $ret[] = $fileName;
+
+                if ($this->Session->check('Cart.fileUpload')) {
+                    $this->Session->write('Cart.fileUpload', am($this->Session->read('Cart.fileUpload'), array($fileName)));
+                } else {
+                    $this->Session->write('Cart.fileUpload', array($fileName));
+                }
+            } else {  //Multiple files, file[]
+                $fileCount = count($_FILES["myfile"]["name"]);
+                for ($i = 0; $i < $fileCount; $i++) {
+                    $fileName = MyClass::getRandomString(3) . '-' . $_FILES["myfile"]["name"][$i];
+                    move_uploaded_file($_FILES["myfile"]["tmp_name"][$i], CART_FILE_FOLDER . $fileName);
+                    $ret[] = $fileName;
+                    if ($this->Session->check('Cart.fileUpload')) {
+                        $this->Session->write('Cart.fileUpload', am($this->Session->read('Cart.fileUpload'), array($fileName)));
+                    } else {
+                        $this->Session->write('Cart.fileUpload', array($fileName));
+                    }
+                }
+            }
+            echo json_encode($ret);
+        }
+    }
+
+    public function fileDelete() {
+        $this->autoRender = false;
+
+        if (isset($_POST["op"]) && $_POST["op"] == "delete" && isset($_POST['name'])) {
+            $fileName = $_POST['name'];
+            $filePath = CART_FILE_FOLDER . $fileName;
+            if (file_exists($filePath)) {
+                MyClass::fileDelete($filePath);
+            }
+
+            if ($this->Session->check('Cart.fileUpload')) {
+                $pos = array_search($fileName, $this->Session->read('Cart.fileUpload'));
+                $this->Session->delete('Cart.fileUpload.' . $pos);
+            }
+            echo "Deleted File " . $fileName . "<br>";
+        }
+    }
+
+    public function clearCartFileUpload() {
+        $this->autoRender = false;
+        if ($this->Session->check('Cart.fileUpload')) {
+            $files = $this->Session->read('Cart.fileUpload');
+            foreach ($files as $key => $value) {
+                $filePath = CART_FILE_FOLDER . $value;
+                if (file_exists($filePath)) {
+                    MyClass::fileDelete($filePath);
+                }
+            }
+            $this->Session->delete('Cart');
+        }
+        return true;
+    }
+
+    public function removeCartProductImage() {
+        $this->autoRender = false;
+        if ($this->request->is('delete')) {
+            $key = MyClass::refdecryption($this->data['cartItem']);
+            $filename = $this->data['fileName'];
+            $filePath = CART_FILE_FOLDER . $filename;
+            
+            $pos = array_search($filename, $this->Session->read('Shop.CartItems.' . $key . '.item_picture_upload'));
+            $this->Session->delete('Shop.CartItems.' . $key . '.item_picture_upload.' . $pos);
+            if (file_exists($filePath)) {
+                MyClass::fileDelete($filePath);
+            }
+            echo 'File deleted successfully';
+        }
+    }
+
     //Update cart items.
     protected function setCartItem($product) {
         $key = $product['product_id'] . "_" . $product['no_of_pages'] . "_" . $product['no_of_copies'] . "_" . $product['paper_id'];
-        
-        if(isset($product['cart_item_old_key'])){
-            if($product['cart_item_old_key'] != $key){
-                $this->Session->delete('Shop.CartItems.' . $product['cart_item_old_key']);
-            }
-        }
 
         $product_detail = $this->requestAction('products/getProduct/' . $product['product_id']);
 
@@ -91,19 +191,6 @@ class CartsController extends AppController {
         $data['item_product_no_of_copies'] = $product['no_of_copies'];
         $data['paper_id'] = $product['paper_id'];
         $data['item_quantity'] = $product['quantity'];
-
-        //Move file.
-        if (isset($product['picture_upload']['name']) && $product['picture_upload']['name'] != '') {
-            $file_name = MyClass::getRandomString(5) . "_" . $product['picture_upload']['name'];
-            $cart_file = CART_FILE_FOLDER . $file_name;
-            $temp_name = $product['picture_upload']['tmp_name'];
-            move_uploaded_file($temp_name, $cart_file);
-            $data['item_picture_upload'] = $file_name;
-        } elseif (isset($product['picture_upload_edit'])) {
-            $data['item_picture_upload'] = $product['picture_upload_edit'];
-        } else {
-            $data['item_picture_upload'] = '';
-        }
 
         $price = MyClass::priceCalculationPerProduct($data['product_id'], $data['item_product_no_of_pages'], $data['item_product_no_of_copies']);
         $sub_price = MyClass::priceCalculationPerProduct($data['product_id'], $data['item_product_no_of_pages'], $data['item_product_no_of_copies'], $data['item_quantity']);
@@ -126,6 +213,37 @@ class CartsController extends AppController {
             $data['user_id'] = $this->Auth->user('user_id');
         } else {
             $data['cart_sessionid'] = $this->Session->id();
+        }
+
+        $data['item_picture_upload'] = array();
+        if (isset($product['cart_item_old_key'])) {
+            if ($this->Session->check('Cart.fileUpload')) {
+                if ($this->Session->check('Shop.CartItems.' . $product['cart_item_old_key'])) {
+                    $data['item_picture_upload'] = am($this->Session->read('Shop.CartItems.' . $product['cart_item_old_key'] . '.item_picture_upload'), $this->Session->read('Cart.fileUpload'));
+                }
+                $this->Session->delete('Cart');
+            } else {
+                if ($this->Session->check('Shop.CartItems.' . $product['cart_item_old_key'])) {
+                    $data['item_picture_upload'] = $this->Session->read('Shop.CartItems.' . $product['cart_item_old_key'] . '.item_picture_upload');
+                }
+            }
+
+            if ($product['cart_item_old_key'] != $key) {
+                $this->Session->delete('Shop.CartItems.' . $product['cart_item_old_key']);
+            }
+        } else {
+            if ($this->Session->check('Cart.fileUpload')) {
+                if ($this->Session->check('Shop.CartItems.' . $key)) {
+                    $data['item_picture_upload'] = am($this->Session->read('Shop.CartItems.' . $key . '.item_picture_upload'), $this->Session->read('Cart.fileUpload'));
+                } else {
+                    $data['item_picture_upload'] = $this->Session->read('Cart.fileUpload');
+                }
+                $this->Session->delete('Cart');
+            } else {
+                if ($this->Session->check('Shop.CartItems.' . $key)) {
+                    $data['item_picture_upload'] = $this->Session->read('Shop.CartItems.' . $key . '.item_picture_upload');
+                }
+            }
         }
 
         $this->Session->write('Shop.CartItems.' . $key, $data);

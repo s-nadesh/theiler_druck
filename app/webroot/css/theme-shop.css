@@ -629,7 +629,11 @@ div.shop table.cart .product-thumbnail {
 }
 
 div.shop table.cart .product-name {
-	width: 60%;
+	width: 25%;
+}
+
+div.shop table.cart .product-picture {
+	width: 25%;
 }
 
 div.shop table.cart .quantity {

@@ -122,6 +122,7 @@ class ProductsController extends AppController {
 
     //Front End Product Details View Page.
     public function view($slug, $cart_items_key = '') {
+        $this->requestAction('carts/clearCartFileUpload'); 
         $product = $this->Product->find('first', array(
             'conditions' => array(
                 'Product.product_slug' => $slug

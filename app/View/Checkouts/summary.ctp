@@ -196,7 +196,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                 <div class="row">
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
-                            <div class="box-content">
+                            <div class="box-content table-responsive">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-10">
                                         <legend>  
@@ -211,12 +211,13 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-xs-12">
-                                        <table cellspacing="0" class="shop_table cart">
+                                    <div class="col-xs-12 ">
+                                        <table cellspacing="0" class="table shop_table cart">
                                             <thead>
                                                 <tr>
                                                     <th class="product-thumbnail"> &nbsp; </th>
                                                     <th class="product-name "> <?php echo MyClass::translate("Product"); ?> </th>
+                                                    <th class="product-picture"> <?php echo __("Pictures"); ?> </th>
                                                     <th class="product-price center"> <?php echo MyClass::translate("Price"); ?> </th>
                                                     <th class="product-quantity center"> <?php echo MyClass::translate("Quantity"); ?> </th>
                                                     <th class="product-subtotal center" align='right'> <?php echo MyClass::translate("Total"); ?> </th>
@@ -253,6 +254,26 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                                     echo MyClass::translate("Express Within 4 Days");
                                                                 ?>
                                                             </div> 
+                                                        </td>
+
+                                                        <td class="product-picture">
+                                                            <div class="row">
+                                                                <?php if (!empty($value['item_picture_upload'])) { ?>
+                                                                    <?php
+                                                                    $i = 1;
+                                                                    foreach ($value['item_picture_upload'] as $cartfile) {
+                                                                        ?>
+                                                                        <div class="col-xs-3 col-sm-3 col-md-3">
+                                                                            <?php echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive')); ?>
+                                                                        </div>
+                                                                        <?php
+                                                                        if ($i / 4 == 1)
+                                                                            echo '</div><div class="clearfix"></div><div class="row">';
+                                                                        $i++;
+                                                                    }
+                                                                    ?>
+                                                                <?php } ?>
+                                                            </div>
                                                         </td>
 
                                                         <td class="product-price center">

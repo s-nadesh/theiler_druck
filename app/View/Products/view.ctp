@@ -1,4 +1,5 @@
-<?php echo $this->Html->css(array('theme-blog'), array('inline' => false)); ?>
+<?php echo $this->Html->css(array('theme-blog', '/vendor/jQuery-File-Upload/uploadfile'), array('inline' => false)); ?>
+<?php echo $this->Html->script(array('/vendor/jQuery-File-Upload/jquery.uploadfile.min'), array('inline' => false)); ?>
 
 <?php
 //Product Details
@@ -131,26 +132,7 @@ if ($cart_items_key) {
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-xs-12 col-sm-3 col-md-3 control-label"><?php echo MyClass::translate("Picture Upload") ?></label>
-                        <div class="col-xs-12 col-sm-7 col-md-7">
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="input-append">
-                                    <span class="btn btn-primary btn-file">
-                                        <input type="file" name="data[Cart][picture_upload]" />
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php if ($cart_product_picture_upload) { ?>
-                        <div class="form-group">
-                            <div class="col-xs-2 col-sm-2 col-md-2">
-                                <?php echo $this->Html->image('/' . CART_FILE_FOLDER . $cart_product_picture_upload, array('class' => 'img-responsive')); ?>
-                                <?php echo $this->Form->hidden('picture_upload_edit', array('value' => $cart_product_picture_upload)); ?>
-                            </div>
-                        </div>
-                    <?php } ?>
+
 
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-5 control-label"><?php echo MyClass::translate("Good for print on paper"); ?></label>
@@ -194,6 +176,35 @@ if ($cart_items_key) {
                         </div>
                     </div>
                     <?php echo $this->Form->end(); ?>
+
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div id="mulitplefileuploader"><?php echo MyClass::translate('Picture upload') ?></div>
+                            <?php if ($cart_product_picture_upload) { ?>
+                                <div class='clearfix'></div>
+                                <div class="row">
+                                    <?php
+                                    $i = 1;
+                                    foreach ($cart_product_picture_upload as $cartfile) {
+                                        $image_id = 'image_' . $i;
+                                        ?>
+                                        <div class="col-xs-3 col-sm-3 col-md-3" id="<?php echo $image_id; ?>">
+                                            <?php echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive')); ?>
+                                            <a href="javascript:void(0)" onclick="removeCartProductImage('<?php echo $cartfile ?>', '<?php echo $image_id; ?>')">
+                                                <i class="icon icon-times"></i>
+                                            </a>
+                                        </div>
+                                        <?php
+                                        if ($i / 4 == 1)
+                                            echo '</div><div class="clearfix"></div><div class="row">';
+                                        $i++;
+                                    }
+                                    ?>
+                                </div>
+                            <?php } ?>
+                            <div id="status"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -394,4 +405,53 @@ if ($cart_items_key) {
         $("#ProductQuestionCaptcha").val('');
     }
 
+    function removeCartProductImage(file, imageId) {
+        $.ajax({
+            url: jssite_url + "carts/removeCartProductImage",
+            type: 'DELETE',
+            data: {
+                cartItem: '<?php echo $cart_items_key ?>',
+                fileName: file
+            },
+            success: function(result) {
+                $("#" + imageId).remove();
+                // Do something with the result
+            }
+        });
+    }
+
+</script>
+
+<script>
+    $(document).ready(function()
+    {
+        var settings = {
+            url: jssite_url + "carts/fileUpload",
+            dragDrop: true,
+            showDone: false,
+            fileName: "myfile",
+            allowedTypes: "jpg,png,gif",
+            returnType: "json",
+            onSuccess: function(files, data, xhr)
+            {
+//                alert((data));
+            },
+            showDelete: true,
+            deleteCallback: function(data, pd)
+            {
+                for (var i = 0; i < data.length; i++)
+                {
+                    $.post(jssite_url + "carts/fileDelete", {op: "delete", name: data[i]},
+                    function(resp, textStatus, jqXHR)
+                    {
+                        //Show Message  
+                        $("#status").append("<div>File Deleted</div>");
+                    });
+                }
+                pd.statusbar.hide(); //You choice to hide/not.
+            }
+        }
+
+        var uploadObj = $("#mulitplefileuploader").uploadFile(settings);
+    });
 </script>

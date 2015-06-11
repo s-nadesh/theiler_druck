@@ -414,7 +414,9 @@
     div.shop table.cart th.product-price,
     div.shop table.cart td.product-price,
     div.shop table.cart th.product-quantity,
-    div.shop table.cart td.product-quantity {
+    div.shop table.cart td.product-quantity,
+    div.shop table.cart th.product-picture,
+    div.shop table.cart td.product-picture {
         display: none;
     }
 
