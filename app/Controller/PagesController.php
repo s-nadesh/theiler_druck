@@ -147,10 +147,84 @@ class PagesController extends AppController {
 
         $this->set(compact('pages'));
     }
-    
-    public function contact(){
+
+    public function contact() {
+        $this->loadModel('ContactPerson');
+        $contactPersons = $this->ContactPerson->find('all', array(
+            'order' => array('ContactPerson.cont_pers_level ASC, ContactPerson.cont_pers_name ASC')
+        ));
+        $this->set(compact('contactPersons'));
         $this->set('contact_page_menu', true);
         $this->set('body_attr', 'class="one-page" data-target=".single-menu" data-spy="scroll" data-offset="200"');
+    }
+    
+    public function contact_form() {
+        if ($this->request->is('post')) {
+            if (strtolower($this->data['Page']['contact_captcha']) == strtolower($this->Session->read('Captcha.random_number'))) {
+                $Email = new CakeEmail(MAILSENDBY);
+                $Email->from(array($this->data['Page']['contact_email'] => $this->data['Page']['contact_email']))
+                        ->template('contact_email', 'email_layout')
+                        ->emailFormat('html')
+                        ->to(SITEMAIL)
+                        ->subject('Contact: ' . $this->data['Page']['contact_regard'])
+                        ->viewVars(array(
+                            'data' => $this->data,
+                        ))
+                        ->send();
+                $ret = array(
+                    'sts' => 'success',
+                    'class' => 'alert fade in block-inner alert-success',
+                    'message' => __('Your Message sent successfully')
+                );
+            } else {
+                $ret = array(
+                    'sts' => 'danger',
+                    'class' => 'alert fade in block-inner alert-danger',
+                    'message' => __('Captcha is not matched')
+                );
+            }
+            echo json_encode($ret);
+            exit;
+        }else{
+            $this->redirect(array('action' => 'contact'));
+        }
+    }
+
+    public function inquiry_form() {
+        if ($this->request->is('post')) {
+            if (strtolower($this->data['Page']['inquiry_captcha']) == strtolower($this->Session->read('Captcha.random_number'))) {
+                echo '<pre>';
+                print_r($this->data);
+                exit;
+
+
+                $Email = new CakeEmail(MAILSENDBY);
+                $Email->from(array($this->data['Page']['inquiry_email'] => $this->data['Page']['inquiry_email']))
+                        ->template('inquiry_email', 'email_layout')
+                        ->emailFormat('html')
+                        ->to(SITEMAIL)
+                        ->subject('Inquiry')
+                        ->viewVars(array(
+                            'data' => $this->data,
+                        ))
+                        ->send();
+                $ret = array(
+                    'sts' => 'success',
+                    'class' => 'alert fade in block-inner alert-success',
+                    'message' => __('Your Inquiry sent successfully')
+                );
+            } else {
+                $ret = array(
+                    'sts' => 'danger',
+                    'class' => 'alert fade in block-inner alert-danger',
+                    'message' => __('Captcha is not matched')
+                );
+            }
+            echo json_encode($ret);
+            exit;
+        }else{
+            $this->redirect(array('action' => 'contact'));
+        }
     }
 
 }

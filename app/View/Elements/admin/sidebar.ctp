@@ -38,6 +38,8 @@
             $marray[9] = 'active';
         elseif (@$admin_menu == 'services')
             $marray[10] = 'active';
+        elseif (@$admin_menu == 'contactpersons')
+            $marray[11] = 'active';
         ?>
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
@@ -67,7 +69,7 @@
             </li>
             <li class="<?php echo $marray[6] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/languages">
-                    <span><?php echo MyClass::translate("Languages"); ?></span><i class="icon-file"></i>
+                    <span><?php echo MyClass::translate("Languages"); ?></span><i class="icon-bookmarks"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[7] ?>">
@@ -82,12 +84,17 @@
             </li>
             <li class="<?php echo $marray[9] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/orders">
-                    <span><?php echo MyClass::translate("Orders"); ?></span><i class="icon-coin"></i>
+                    <span><?php echo MyClass::translate("Orders"); ?></span><i class="icon-cart"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[10] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/services">
-                    <span><?php echo MyClass::translate("Services"); ?></span><i class="icon-coin"></i>
+                    <span><?php echo MyClass::translate("Services"); ?></span><i class="icon-podium"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[11] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/contact_persons">
+                    <span><?php echo MyClass::translate("Contact Persons"); ?></span><i class="icon-phone3"></i>
                 </a>
             </li>
         </ul>

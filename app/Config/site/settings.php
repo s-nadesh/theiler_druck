@@ -20,7 +20,7 @@ if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
 }
 
 define('MAILSENDBY', $mailsendby);
-define('SITEMAIL', 'nadesh@arkinfotec.com');
+define('SITEMAIL', 'prakash.paramanandam@arkinfotec.com');
 
 if (LOCALHOST) {
     define('DEBUG', 1);
@@ -69,3 +69,4 @@ define('GOOD_FOR_PRINT_ON_PAPER', 6);
 define('EXPRESS_WITHIN_4_DAYS', 450);
 
 define('PAGE_IMAGE_FOLDER', 'files/pages/');
+define('CONTACT_PERSON_IMAGE_FOLDER', 'files/contact_persons/');

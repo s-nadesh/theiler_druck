@@ -1,4 +1,7 @@
-<?php $this->Html->addCrumb(__('Static Service')); ?>
+<?php 
+$this->Html->addCrumb(__('Service'), array('controller' => 'services', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(__('Edit'));
+?>
 
 <div class="tabbable service-tabs">
     <div class="tab-content">
@@ -6,7 +9,7 @@
         <div class="tab-pane active fade in" id="english">
             <?php
             echo $this->Form->create('Service', array(
-                "class" => "form-horizontal form-bordered",
+                "class" => "form-horizontal form-bordered services",
                 "role" => "form",
                 "enctype" => "multipart/form-data"
             ));
@@ -14,7 +17,7 @@
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit service content"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit service"); ?></h6>
                 </div>
 
                 <div class="panel-body">
@@ -32,7 +35,7 @@
                     
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Icon'); ?>:
+                            <?php echo __('Icon'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -44,7 +47,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Description'); ?>:
+                            <?php echo __('Description'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -54,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Sort'); ?>:
+                            <?php echo __('Sort'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-1">
                             <?php
