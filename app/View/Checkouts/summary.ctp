@@ -66,9 +66,9 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address"><?php echo MyClass::translate("Billing Address"); ?></a></li>
-                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address"><?php echo MyClass::translate("Shipping Address"); ?></a></li>
-                            <li><a href="<?php echo SITE_BASE_URL ?>checkouts/payment_method"><?php echo MyClass::translate("Payment Method"); ?></a></li>
+                            <li> <a href="<?php echo SITE_BASE_URL ?>checkouts/billing_address"> <?php echo MyClass::translate("Billing Address"); ?> </a> </li>
+                            <li> <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address"> <?php echo MyClass::translate("Shipping Address"); ?> </a> </li>
+                            <li> <a href="<?php echo SITE_BASE_URL ?>checkouts/payment_method"> <?php echo MyClass::translate("Payment Method"); ?> </a> </li>
                             <li class="tab-active"> <?php echo MyClass::translate("Summary"); ?> </li>
                         </ul>
                     </div>
