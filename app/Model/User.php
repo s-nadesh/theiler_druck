@@ -9,6 +9,10 @@ class User extends AppModel {
             'rule' => 'isUnique',
             'message' => '"Email" already exist.'
         ),
+        'current_password' => array(
+            'rule' => 'checkCurrentPassword',
+            'message' => 'Old password not matched'
+        ),
     );
     public $hasMany = array(
         'UserAddress' => array(
@@ -21,6 +25,12 @@ class User extends AppModel {
             $this->data[$this->name]['user_password'] = AuthComponent::password($this->data[$this->name]['user_password']);
         }
         return true;
+    }
+
+    public function checkCurrentPassword($data) {
+        $this->id = AuthComponent::user('user_id');
+        $password = $this->field('user_password');
+        return(AuthComponent::password($data['current_password']) == $password);
     }
 
 }

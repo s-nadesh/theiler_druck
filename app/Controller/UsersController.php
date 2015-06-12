@@ -54,7 +54,7 @@ class UsersController extends AppController {
 
     //User update profile information
     public function profile() {
-        if($this->request->is('post') || $this->request->is('put')){
+        if ($this->request->is('post') || $this->request->is('put')) {
             $user_update = array(
                 'User' => array(
                     'user_id' => $this->Auth->user('user_id'),
@@ -62,7 +62,7 @@ class UsersController extends AppController {
                     'user_dob' => $this->data['User']['user_dob'],
                 )
             );
-            if($this->User->save($user_update)){
+            if ($this->User->save($user_update)) {
                 $this->Session->setFlash('Profile updated successfully', 'flash_success');
             } else {
                 $this->Session->setFlash('Profile can not be updated', 'flash_error');
@@ -70,26 +70,31 @@ class UsersController extends AppController {
         }
         $this->data = $this->User->find('first', array('conditions' => array('User.user_id' => $this->Auth->user('user_id'))));
     }
-    
+
     //User change password
-    public function change_password(){
-        if($this->request->is('post')){
-            if($this->data['User']['new_password'] == $this->data['User']['confirm_password']){
+    public function change_password() {
+        if ($this->request->is('post')) {
+            if ($this->data['User']['new_password'] == $this->data['User']['confirm_password']) {
                 $change_password = array(
                     'User' => array(
                         'user_id' => $this->Auth->user('user_id'),
-                        'user_password' => $this->data['User']['new_password']
+                        'user_password' => $this->data['User']['new_password'],
+                        'current_password' => $this->data['User']['current_password']
                     )
                 );
-                $this->User->save($change_password);
-                $this->Session->setFlash('Password changed successfully', 'flash_success');
-                $this->redirect('change_password');
+
+                if($this->User->save($change_password)){
+                    $this->Session->setFlash(__('Password changed successfully'), 'flash_success');
+                    $this->redirect('change_password');
+                }else{
+                    $this->Session->setFlash(__('Old password not matched'), 'flash_error');
+                }
             } else {
                 $this->Session->setFlash('Password does not match', 'flash_error');
             }
         }
     }
-    
+
     //User Logout function.
     public function logout() {
         $this->Session->destroy();
