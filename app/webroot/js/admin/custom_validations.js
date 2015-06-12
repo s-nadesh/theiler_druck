@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     //Admin Login form Validation
     $(".admin_login_form").validate({
@@ -12,7 +12,7 @@ $(document).ready(function() {
             },
         },
     });
-    
+
     //Admin Login form Validation
     $(".admin_forgot_password_form").validate({
         rules: {
@@ -34,11 +34,11 @@ $(document).ready(function() {
                 email: true
             },
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-    
+
     //Admin Change Password
     $(".admin_change_password").validate({
         rules: {
@@ -50,23 +50,23 @@ $(document).ready(function() {
                 equalTo: "#AdminAdminNewPassword"
             },
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
 
     //Admin Product Form
-    $.validator.addMethod("pages_regx", function(value, element, regexpr) {
+    $.validator.addMethod("pages_regx", function (value, element, regexpr) {
         return regexpr.test(value);
     }, "Please enter a No.of Pages Like(4|8|12).");
 
-    $.validator.addMethod("copies_regx", function(value, element, regexpr) {
+    $.validator.addMethod("copies_regx", function (value, element, regexpr) {
         return regexpr.test(value);
     }, "Please enter a No.of Copies Like(5000|6000|7000).");
 
     //Admin Product Form - Add
     $(".admin_product_form_add").validate({
-        errorPlacement: function(error, element) {
+        errorPlacement: function (error, element) {
             if (element.parent().parent().attr("class") == "input file") {
                 error.appendTo(element.parent().parent().parent());
             }
@@ -100,39 +100,35 @@ $(document).ready(function() {
                 copies_regx: /^[0-9|]+$/
             }
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-    
+
     //Admin Pages
-   
+
     $(".admin_add_page").validate({
-        
-        rules: { 
-            
+        rules: {
             'data[Page][1][page_title]': {
                 required: true,
             },
             'data[Page][1][page_description]': {
                 required: true,
             },
-             'data[Page][2][page_title]': {
+            'data[Page][2][page_title]': {
                 required: true,
             },
             'data[Page][2][page_description]': {
                 required: true,
             }
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-     //Admin Page Form - Edit
+    //Admin Page Form - Edit
     $(".admin_edit_page").validate({
-        
-        rules: { 
-            
+        rules: {
             'data[Page][page_title]': {
                 required: true,
             },
@@ -140,31 +136,29 @@ $(document).ready(function() {
                 required: true,
             }
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-    
+
     //Admin User Form - Edit
     $(".admin_edit_user").validate({
-        
-        rules: { 
-            
+        rules: {
             'data[User][user_name]': {
                 required: true,
             }
-            
+
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-    
-    
-    
+
+
+
     //Admin Product Form - Edit
     $(".admin_product_form_edit").validate({
-        errorPlacement: function(error, element) {
+        errorPlacement: function (error, element) {
             if (element.parent().parent().attr("class") == "input file") {
                 error.appendTo(element.parent().parent().parent());
             }
@@ -198,11 +192,11 @@ $(document).ready(function() {
                 copies_regx: /^[0-9|]+$/
             }
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-    
+
     //Admin Paper Variants
     $(".admin_paper_variants").validate({
         rules: {
@@ -214,11 +208,11 @@ $(document).ready(function() {
                 number: true
             }
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-    
+
     //Admin Shipping Costs
     $(".admin_shipping_cost").validate({
         rules: {
@@ -239,11 +233,11 @@ $(document).ready(function() {
                 number: true
             }
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-    
+
     //Admin Update Q&A
     $(".update_question_answer").validate({
         rules: {
@@ -251,41 +245,32 @@ $(document).ready(function() {
                 required: true,
             },
         },
-        success: function(label) {
+        success: function (label) {
             label.text('Success!').addClass('valid');
         }
     });
-    
-    //Admin services
-    $(".services").validate({
-        rules: {
-            'data[Service][service_title]': 'required',
-            'data[Service][service_image]': 'required',
-            'data[Service][service_caption]': 'required',
-            'data[Service][sort_value]': 'required',
-        },
-        success: function(label) {
-            label.text('Success!').addClass('valid');
-        }
-    });
-    
+
     //Admin Contact Persons
-    $(".contact-person").validate({
-        rules: {
-            'data[ContactPerson][cont_pers_name]': 'required',
-            'data[ContactPerson][cont_pers_position]': 'required',
-            'data[ContactPerson][cont_pers_level]': 'required',
-            'data[ContactPerson][cont_pers_phone]': 'required',
-            'data[ContactPerson][cont_pers_email]': {
-                required: true,
-                email: true,
-            },
-            
-        },
-        success: function(label) {
-            label.text('Success!').addClass('valid');
-        }
-    });
-    $("input[id*=add_cont_pers_image]").rules("add", "required");
-    
+    if ($('.contact-person').length > 0) {
+        $('.contact-person #ContactPersonContPersEmail').rules("add", {
+            email: true,
+        });
+    }
+
+    //Admin Contact Address
+    if ($('.contact-address').length > 0) {
+        $('.contact-address #ContactAddressContAddrEmail').rules("add", {
+            email: true,
+        });
+        $('.contact-address #ContactAddressContAddrEmail2').rules("add", {
+            email: true,
+        });
+        $('.contact-address #ContactAddressContAddrEmail3').rules("add", {
+            email: true,
+        });
+        $('.contact-address #ContactAddressContAddrWebsite').rules("add", {
+            url: true,
+        });
+    }
+
 });

@@ -29,20 +29,15 @@
                     </ul>
                 </div>  
                 <div class="col-xs-12 col-sm-3 col-md-3">   
-                    <h5>Kontakt </h5>  
-                   
-
-
-
-
-
+                    <h5><?php echo __('Contact') ?> </h5>  
+                    <?php $contact_address = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'DF'));;?>
                     <ul> 
-                        <li>   <img src="<?php echo SITE_BASE_URL ?>img/theilerlogo16x16.png"  alt="" /> &nbsp;Theiler Druck AG </li>
-                        <li> <img src="<?php echo SITE_BASE_URL ?>img/map.png"  alt="" /> &nbsp;Verenastrasse 2</li>
-                        <li> &nbsp; &nbsp; &nbsp;  &nbsp;8832 Wollerau</li>
-                        <li><img src="<?php echo SITE_BASE_URL ?>img/phone2.png"  alt="" /> &nbsp; Tel. 044 787 03 00</li>
-                        <li> <img src="<?php echo SITE_BASE_URL ?>img/fax.png"  alt="" /> &nbsp; Fax 044 787 03 01</li>
-                        <li><img src="<?php echo SITE_BASE_URL ?>img/mail.png"  alt="" /> &nbsp;<a href="mailto:info@theilerdruck.ch   ">info@theilerdruck.ch </a></li>
+                        <li> <img src="<?php echo SITE_BASE_URL ?>img/theilerlogo16x16.png"  alt="" /> &nbsp;<?php echo $contact_address['ContactAddress']['cont_addr_company'];?> </li>
+                        <li> <img src="<?php echo SITE_BASE_URL ?>img/map.png"  alt="" /> &nbsp;<?php echo $contact_address['ContactAddress']['cont_addr_address_1'];?></li>
+                        <li> &nbsp; &nbsp; &nbsp;  &nbsp;<?php echo $contact_address['ContactAddress']['cont_addr_address_2'];?></li>
+                        <li><img src="<?php echo SITE_BASE_URL ?>img/phone2.png"  alt="" /> &nbsp; Tel. <?php echo $contact_address['ContactAddress']['cont_addr_phone'];?></li>
+                        <li> <img src="<?php echo SITE_BASE_URL ?>img/fax.png"  alt="" /> &nbsp; Fax <?php echo $contact_address['ContactAddress']['cont_addr_fax'];?></li>
+                        <li><img src="<?php echo SITE_BASE_URL ?>img/mail.png"  alt="" /> &nbsp;<a href="mailto:<?php echo $contact_address['ContactAddress']['cont_addr_email'];?>"><?php echo $contact_address['ContactAddress']['cont_addr_email'];?></a></li>
                     </ul>
                 </div>   
                 <div class="col-xs-12 col-sm-3 col-md-3">   

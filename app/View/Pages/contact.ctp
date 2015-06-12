@@ -50,29 +50,30 @@
                                         </div>
                                     </div>
                                     <?php echo $this->Form->end(); ?>
+                                    <?php $contact_address = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'DF'));;?>
                                     <div class="col-xs-12 col-sm-5 col-md-5 col-md-offset-1 contact-right"> 
                                         <p> <?php echo $this->Html->image("theilerdrucklogo2.png", array("alt" => "")); ?> </p>
                                         <div class="clearfix"></div>
                                         <p> 
                                             <?php echo $this->Html->image("contact-icon1.png", array("width" => "57", 'height' => '58', "alt" => "")); ?>
                                             <?php echo MyClass::translate('Address') ?>:<br/>
-                                            Verenastrasse 2<br/>
-                                            8832  Wollerau<br/>
+                                            <?php echo $contact_address['ContactAddress']['cont_addr_address_1'] ?><br/>
+                                            <?php echo $contact_address['ContactAddress']['cont_addr_address_2'] ?><br/>
                                         </p>
                                         <p> 
                                             <?php echo $this->Html->image("contact-icon2.png", array("width" => "57", 'height' => '57', "alt" => "")); ?>
                                             Tel.:<br/>
-                                            044 787 03 00
+                                            <?php echo $contact_address['ContactAddress']['cont_addr_phone'] ?>
                                         </p>
                                         <p> 
                                             <?php echo $this->Html->image("contact-icon3.png", array("width" => "57", 'height' => '57', "alt" => "")); ?>
                                             <?php echo MyClass::translate('Fax') ?>:<br/>
-                                            044 787 03 01
+                                            <?php echo $contact_address['ContactAddress']['cont_addr_fax'] ?>
                                         </p>
                                         <p> 
                                             <?php echo $this->Html->image("contact-icon4.png", array("width" => "57", 'height' => '57', "alt" => "")); ?>
                                             <?php echo MyClass::translate('Email') ?>:<br/>
-                                            <a href="mailto:info@theilerdruck.ch">info@theilerdruck.ch</a>
+                                            <a href="mailto:<?php echo $contact_address['ContactAddress']['cont_addr_email'] ?>"><?php echo $contact_address['ContactAddress']['cont_addr_email'] ?></a>
                                         </p>
                                         <div class="contact-map"> 
                                             <h4><?php echo MyClass::translate('Approach') ?></h4>
@@ -509,14 +510,15 @@
                                                 <div class="col-xs-12 col-sm-6 col-md-6 publisher-cont">
                                                     <div class="row"> 
                                                         <div class="col-xs-12 col-sm-6 col-md-5"> 
-                                                            <h2> Hofner Volksblatt </h2>
-                                                            Verenastrasse 2 <br/> 
-                                                            8832 Wollerau <br/>
-                                                            Tel. 044 787 03 03 <br/>
-                                                            Fax 044 787 03 10 <br/>
-                                                            <a href="http://www.hoefner.ch">www.hoefner.ch</a><br/>
-                                                            <a href="mailto:redaktion@hoefner.ch">redaktion@hoefner.ch</a> <br/>
-                                                            <a href="mailto:redaktion@hoefner.ch">redaktion@hoefner.ch</a><br/>
+                                                            <?php $contact_address_1 = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'A1'));;?>
+                                                            <h2> <?php echo $contact_address_1['ContactAddress']['cont_addr_company'];?> </h2>
+                                                            <?php echo $contact_address_1['ContactAddress']['cont_addr_address_1'];?> <br/> 
+                                                            <?php echo $contact_address_1['ContactAddress']['cont_addr_address_2'];?> <br/>
+                                                            Tel. <?php echo $contact_address_1['ContactAddress']['cont_addr_phone'];?> <br/>
+                                                            Fax <?php echo $contact_address_1['ContactAddress']['cont_addr_fax'];?> <br/>
+                                                            <a href="<?php echo $contact_address_1['ContactAddress']['cont_addr_website'];?>" target="_blank"><?php echo preg_replace('#^https?://#', '', $contact_address_1['ContactAddress']['cont_addr_website']);?></a><br/>
+                                                            <a href="mailto:<?php echo $contact_address_1['ContactAddress']['cont_addr_email'];?>"><?php echo $contact_address_1['ContactAddress']['cont_addr_email'];?></a> <br/>
+                                                            <a href="mailto:<?php echo $contact_address_1['ContactAddress']['cont_addr_email_2'];?>"><?php echo $contact_address_1['ContactAddress']['cont_addr_email_2'];?></a><br/>
                                                         </div>
                                                         <div class="col-xs-12 col-sm-6 col-md-6 publisher-img">
                                                             <?php echo $this->Html->image('publisher-img1.jpg', array('class' => 'img-responsive')); ?>
@@ -526,14 +528,15 @@
                                                 <div class="col-xs-12 col-sm-6 col-md-6 publisher-cont">
                                                     <div class="row"> 
                                                         <div class="col-xs-12 col-sm-6 col-md-5"> 
-                                                            <h2> March-Anzeiger </h2>
-                                                            Alpenblickstrasse 26 <br/>
-                                                            8853 Lachen<br/>
-                                                            Tel. 055 451 08 88<br/>
-                                                            Fax 055 451 08 89<br/>
-                                                            <a href="http://www.marchenzeiger.ch">www.marchenzeiger.ch</a><br/>
-                                                            <a href="mailto:redaktion@hoefner.ch">redaktion@marchanzeiger.ch</a><br/>
-                                                            <a href="mailto:redaktion@hoefner.ch">inserate@theilermediaservice.ch</a><br/>
+                                                            <?php $contact_address_2 = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'A2'));;?>
+                                                            <h2> <?php echo $contact_address_2['ContactAddress']['cont_addr_company'];?> </h2>
+                                                            <?php echo $contact_address_2['ContactAddress']['cont_addr_address_1'];?> <br/> 
+                                                            <?php echo $contact_address_2['ContactAddress']['cont_addr_address_2'];?> <br/>
+                                                            Tel. <?php echo $contact_address_2['ContactAddress']['cont_addr_phone'];?> <br/>
+                                                            Fax <?php echo $contact_address_2['ContactAddress']['cont_addr_fax'];?> <br/>
+                                                            <a href="<?php echo $contact_address_2['ContactAddress']['cont_addr_website'];?>" target="_blank"><?php echo preg_replace('#^https?://#', '', $contact_address_2['ContactAddress']['cont_addr_website']);?></a><br/>
+                                                            <a href="mailto:<?php echo $contact_address_2['ContactAddress']['cont_addr_email'];?>"><?php echo $contact_address_2['ContactAddress']['cont_addr_email'];?></a> <br/>
+                                                            <a href="mailto:<?php echo $contact_address_2['ContactAddress']['cont_addr_email_2'];?>"><?php echo $contact_address_2['ContactAddress']['cont_addr_email_2'];?></a><br/>
                                                         </div>
                                                         <div class="col-xs-12 col-sm-6 col-md-6 publisher-img"> 
                                                             <?php echo $this->Html->image('publisher-img2.jpg', array('class' => 'img-responsive')); ?>

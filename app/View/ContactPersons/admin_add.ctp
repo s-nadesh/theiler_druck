@@ -9,7 +9,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
         <div class="tab-pane active fade in" id="english">
             <?php
             echo $this->Form->create('ContactPerson', array(
-                "class" => "form-horizontal form-bordered contact-person",
+                "class" => "form-horizontal form-bordered contact-person validate",
                 "role" => "form",
                 "enctype" => "multipart/form-data"
             ));
@@ -26,7 +26,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_pers_name', array('class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('cont_pers_name', array('class' => 'required form-control', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -36,7 +36,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_pers_position', array('class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('cont_pers_position', array('class' => 'required form-control', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -46,7 +46,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_pers_phone', array('class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('cont_pers_phone', array('class' => 'required form-control', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_pers_email', array('class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('cont_pers_email', array('class' => 'required form-control', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_pers_image', array('type' => 'file', 'class' => 'styled', 'label' => false, 'id' => 'add_cont_pers_image'));
+                            echo $this->Form->input('cont_pers_image', array('type' => 'file', 'class' => 'styled required', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
                         </label>
                         <div class="col-sm-1">
                             <?php
-                            echo $this->Form->input('cont_pers_level', array('type' => 'text', 'class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('cont_pers_level', array('type' => 'text', 'class' => 'required form-control', 'label' => false));
                             ?>
                         </div>
                     </div>

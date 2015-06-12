@@ -15,7 +15,7 @@
 
         <!-- Main navigation -->
         <?php
-        $marray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11); //define number of main menus
+        $marray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); //define number of main menus
         if (@$admin_menu == 'admins')
             $marray[0] = 'active';
         elseif (@$admin_menu == 'paper_variants')
@@ -40,6 +40,8 @@
             $marray[10] = 'active';
         elseif (@$admin_menu == 'contactpersons')
             $marray[11] = 'active';
+        elseif (@$admin_menu == 'contact_addresses')
+            $marray[12] = 'active';
         ?>
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
@@ -95,6 +97,11 @@
             <li class="<?php echo $marray[11] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/contact_persons">
                     <span><?php echo MyClass::translate("Contact Persons"); ?></span><i class="icon-phone3"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[12] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/contact_addresses">
+                    <span><?php echo MyClass::translate("Contact Address"); ?></span><i class="icon-address-book"></i>
                 </a>
             </li>
         </ul>

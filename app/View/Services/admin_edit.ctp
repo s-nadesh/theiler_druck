@@ -9,7 +9,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
         <div class="tab-pane active fade in" id="english">
             <?php
             echo $this->Form->create('Service', array(
-                "class" => "form-horizontal form-bordered services",
+                "class" => "form-horizontal form-bordered validate",
                 "role" => "form",
                 "enctype" => "multipart/form-data"
             ));
@@ -39,7 +39,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('service_image', array('type' => 'text', 'class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('service_image', array('type' => 'text', 'class' => 'required form-control', 'label' => false));
                             ?>
                             <span class="help-block">You may find icons name on <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome</a></span>
                         </div>
@@ -51,7 +51,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('service_caption', array('type' => 'textarea', 'class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('service_caption', array('type' => 'textarea', 'class' => 'required form-control', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                         </label>
                         <div class="col-sm-1">
                             <?php
-                            echo $this->Form->input('sort_value', array('type' => 'text', 'class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('sort_value', array('type' => 'text', 'class' => 'required form-control', 'label' => false));
                             ?>
                         </div>
                     </div>

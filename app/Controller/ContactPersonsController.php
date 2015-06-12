@@ -40,50 +40,12 @@ class ContactPersonsController extends AppController {
     //This function will run before every action
     public function beforeFilter() {
         parent::beforeFilter();
-        $admin_auth_actions = array('admin_index');
+        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_edit');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
         $this->set('admin_menu', 'contactPersons');
-    }
-
-    /**
-     * Displays a view
-     *
-     * @param mixed What contactPerson to display
-     * @return void
-     * @throws NotFoundException When the view file could not be found
-     * 	or MissingViewException in debug mode.
-     */
-    public function display() {
-        $path = func_get_args();
-
-        $count = count($path);
-        if (!$count) {
-            return $this->redirect('/');
-        }
-        $contactPerson = $subcontactPerson = $title_for_layout = null;
-
-        if (!empty($path[0])) {
-            $contactPerson = $path[0];
-        }
-        if (!empty($path[1])) {
-            $subcontactPerson = $path[1];
-        }
-        if (!empty($path[$count - 1])) {
-            $title_for_layout = Inflector::humanize($path[$count - 1]);
-        }
-        $this->set(compact('contactPerson', 'subcontactPerson', 'title_for_layout'));
-
-        try {
-            $this->render(implode('/', $path));
-        } catch (MissingViewException $e) {
-            if (Configure::read('debug')) {
-                throw $e;
-            }
-            throw new NotFoundException();
-        }
     }
 
     public function admin_index() {
