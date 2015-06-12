@@ -216,7 +216,7 @@ header h1.logo {
 {
     list-style:none;
     display:inline;
-    padding:15px 67px;
+    padding:15px 66px;
     background:#f5f3f4;
     border-right:#FFFFFF solid 1px;
     color:#0088CC;
@@ -309,9 +309,7 @@ legend {
 }
 
     .chekout-step ul li {
-        background: none repeat scroll 0 0 #53c1f7;
         border-right: 1px solid #ffffff;
-        color: #ffffff;
         display: inline;
         float: left;
         font-size: 14px;
@@ -377,6 +375,22 @@ legend {
 		margin-top:20px !important;
 	}
 	
+	header nav.nav-main {
+		padding-bottom:0px !important;
+}
+	
+	
+	#mainMenu2 .dropdown.active {
+  color: #ffffff !important;
+  height: 50px;
+  line-height: 39px !important;
+}
+	
+	
+	.nav-main.mega-menu.shop-menu {
+  float: right;
+  margin-top: 5px !important;
+}
 	
 	.newfooter2 ul li
 {
@@ -385,7 +399,7 @@ legend {
 }
 	
     .chekout-step ul li {
-        padding: 10px 16px;
+        padding: 10px 14px;
     }
 
 			.new-shoppingcart 
@@ -408,11 +422,16 @@ legend {
     .hidden-md {
         display:none!important
     }
+		.chekout-step ul li {
+  padding: 15px 40px;
+}
 }
 @media (min-width:1200px) {
     .hidden-lg {
         display:none!important
     }
+	
+
 }
 
 .radio-inline span
@@ -969,7 +988,7 @@ margin-right:10px;
 
 .nav-main.mega-menu.shop-menu {
   float: right;
-  margin-top:15px !important 
+  margin-top:15px
 }
 
 .mega-menu-shop2

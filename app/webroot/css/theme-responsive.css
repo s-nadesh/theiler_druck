@@ -83,10 +83,10 @@
     }
 
     header nav.nav-main ul li {
-        clear: both;
-        float: none;
-        display: block;
-        border-bottom: 1px solid #2A2A2A;
+    /*    clear: both;*/
+        float:left;
+       /* display: block;
+        border-bottom: 1px solid #2A2A2A;*/
     }
 
     header nav ul.nav-main > li + li {
@@ -339,7 +339,7 @@
 
     /* Featured Boxes */
     div.featured-boxes div.featured-box {
-        max-width: 350px;
+      /*  max-width: 350px;*/
     }
 
     /* Timeline */

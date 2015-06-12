@@ -12,7 +12,7 @@
                     </li>
                 </ul>
             </nav>
-            <div class="col-xs-12 col-sm-4 col-md-4 pull-right"><nav class="nav-main mega-menu shop-menu">
+            <div class="col-xs-12 col-sm-5 col-md-4 pull-right"><nav class="nav-main mega-menu shop-menu">
                     <ul class="nav nav-pills nav-main" id="mainMenu2">
                         <?php if (!$logged_in) { ?>
                             <li class="dropdown btn btn-lg btn-primary login-btn mega-menu-item mega-menu-shop mega-menu-shop2">
