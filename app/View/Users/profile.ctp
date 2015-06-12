@@ -43,7 +43,7 @@
                                         <?php echo MyClass::translate("Date of Birth"); ?>
                                     </label>
                                     <div class="col-md-6">
-                                        <?php echo $this->Form->input('User.user_dob', array('type' => 'text', 'label' => false, 'class' => 'form-control datepicker')); ?>
+                                        <?php echo $this->Form->input('User.user_dob', array('type' => 'text', 'label' => false, 'class' => 'form-control datepicker', 'value' => date(PHP_DATE_FORMAT, strtotime($this->data['User']['user_dob'])))); ?>
                                     </div>
                                 </div>
 

@@ -291,9 +291,8 @@ $(document).ready(function() {
     //My Account Profile Update
     $(".profile_update").validate({
         rules: {
-            'data[User][user_name]': {
-                required: true,
-            },
+            'data[User][user_name]': 'required',
+            'data[User][user_lastname]': 'required'
         },
         highlight: function(element) {
             $(element)
