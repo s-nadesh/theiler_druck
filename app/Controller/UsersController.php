@@ -60,6 +60,7 @@ class UsersController extends AppController {
                 'User' => array(
                     'user_id' => $this->Auth->user('user_id'),
                     'user_name' => $this->data['User']['user_name'],
+                    'user_lastname' => $this->data['User']['user_lastname'],
                     'user_dob' => $this->data['User']['user_dob'],
                 )
             );
