@@ -1,6 +1,6 @@
 <?php 
-$this->Html->addCrumb(__('Service'), array('controller' => 'services', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb(__('Edit'));
+$this->Html->addCrumb(MyClass::translate('Service'), array('controller' => 'services', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(MyClass::translate('Edit'));
 ?>
 
 <div class="tabbable service-tabs">
@@ -17,13 +17,13 @@ $this->Html->addCrumb(__('Edit'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit service"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit service"); ?></h6>
                 </div>
 
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Service Title'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Service Title'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -35,7 +35,7 @@ $this->Html->addCrumb(__('Edit'));
                     
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Icon'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Icon'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -47,7 +47,7 @@ $this->Html->addCrumb(__('Edit'));
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Description'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Description'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -57,7 +57,7 @@ $this->Html->addCrumb(__('Edit'));
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Sort'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Sort'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-1">
                             <?php
@@ -67,7 +67,7 @@ $this->Html->addCrumb(__('Edit'));
                     </div>
 
                     <div class="form-actions text-right">
-                        <input type="submit" value="<?php echo __("Edit"); ?>" class="btn btn-primary">
+                        <input type="submit" value="<?php echo MyClass::translate("Edit"); ?>" class="btn btn-primary">
                     </div>
                 </div>
             </div>

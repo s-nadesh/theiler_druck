@@ -1,6 +1,6 @@
 <?php
-$this->Html->addCrumb(__('Contact Person'), array('controller' => 'contact_persons', 'action' => 'index', 'admin' => true));
-$this->Html->addCrumb(__('Edit'));
+$this->Html->addCrumb(MyClass::translate('Contact Person'), array('controller' => 'contact_persons', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(MyClass::translate('Edit'));
 ?>
 
 <div class="tabbable page-tabs">
@@ -17,13 +17,13 @@ $this->Html->addCrumb(__('Edit'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit Contact Person"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit Contact Person"); ?></h6>
                 </div>
 
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Name'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Name'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -33,7 +33,7 @@ $this->Html->addCrumb(__('Edit'));
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Position'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Position'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -43,7 +43,7 @@ $this->Html->addCrumb(__('Edit'));
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Phone'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Phone'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -53,7 +53,7 @@ $this->Html->addCrumb(__('Edit'));
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Email'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Email'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -63,7 +63,7 @@ $this->Html->addCrumb(__('Edit'));
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Image'); ?>:
+                            <?php echo MyClass::translate('Image'); ?>:
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -81,7 +81,7 @@ $this->Html->addCrumb(__('Edit'));
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Level'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Level'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-1">
                             <?php
@@ -91,7 +91,7 @@ $this->Html->addCrumb(__('Edit'));
                     </div>
 
                     <div class="form-actions text-right">
-                        <input type="submit" value="<?php echo __("Save"); ?>" class="btn btn-primary">
+                        <input type="submit" value="<?php echo MyClass::translate("Save"); ?>" class="btn btn-primary">
                     </div>
                 </div>
             </div>

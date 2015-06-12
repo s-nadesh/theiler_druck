@@ -48,7 +48,7 @@
                 <div class="col-md-12">
                     <p class="featured lead"></p>
                     <h2 class="short word-rotator-title">
-                        <?php echo __('Products'); ?>
+                        <?php echo MyClass::translate('Products'); ?>
                     </h2>
                     <?php
                     $home_products = $this->requestAction('products/getProducts');
@@ -67,7 +67,7 @@
                                     </p>
                                     <p class="deatils-btn"> 
                                         <a href="<?php echo SITE_BASE_URL ?>product/<?php echo $home_product['Product']['product_slug'] ?>">
-                                            <i class="icon icon-bars"></i> <?php echo __('Details'); ?> 
+                                            <i class="icon icon-bars"></i> <?php echo MyClass::translate('Details'); ?> 
                                         </a> 
                                     </p>
                                 </div>

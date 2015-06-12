@@ -5,36 +5,36 @@
                 <div class="container">
                     <div class="row first-txt" id="1">
                         <div class="col-md-12">
-                            <div class="sections-heading"><?php echo __("Contact"); ?></div>
+                            <div class="sections-heading"><?php echo MyClass::translate("Contact"); ?></div>
                             <div class="contact-section">
                                 <?php echo $this->Session->flash(); ?>
                                 <div class="row">
                                     <?php echo $this->Form->create('Page', array('action' => 'contact_form')); ?>
                                     <div class="col-xs-12 col-sm-6 col-md-6">
-                                        <b><?php echo __("Your questions and comments are always welcome"); ?></b>
+                                        <b><?php echo MyClass::translate("Your questions and comments are always welcome"); ?></b>
                                         <p>&nbsp;</p>
                                         <div class="form-group">
-                                            <label><?php echo __("Firstname") ?>*</label>
+                                            <label><?php echo MyClass::translate("Firstname") ?>*</label>
                                             <?php echo $this->Form->input('contact_firstname', array("class" => "form-control", "label" => false)); ?>
                                         </div>
                                         <div class="form-group">
-                                            <label><?php echo __("Lastname") ?>*</label>
+                                            <label><?php echo MyClass::translate("Lastname") ?>*</label>
                                             <?php echo $this->Form->input('contact_lastname', array("class" => "form-control", "label" => false)); ?>
                                         </div>
                                         <div class="form-group">
-                                            <label><?php echo __("Email"); ?>*</label>
+                                            <label><?php echo MyClass::translate("Email"); ?>*</label>
                                             <?php echo $this->Form->input('contact_email', array("class" => "form-control", "label" => false)); ?>
                                         </div>
                                         <div class="form-group">
-                                            <label><?php echo __("Regard"); ?>*</label>
+                                            <label><?php echo MyClass::translate("Regard"); ?>*</label>
                                             <?php echo $this->Form->input('contact_regard', array("class" => "form-control", "label" => false)); ?>
                                         </div>
                                         <div class="form-group">
-                                            <label><?php echo __("Message"); ?>*</label>
+                                            <label><?php echo MyClass::translate("Message"); ?>*</label>
                                             <?php echo $this->Form->input('contact_message', array("type" => "textarea", "class" => "form-control", "label" => false)); ?>
                                         </div>
                                         <div class="form-group">
-                                            <label><?php echo __("Spam protection") ?> *</label>
+                                            <label><?php echo MyClass::translate("Spam protection") ?> *</label>
                                             <?php echo $this->Form->input('contact_captcha', array('class' => 'form-control', 'label' => false)); ?>
                                             <img src="<?php echo SITE_BASE_URL ?>pages/getCaptcha" alt="" class="captcha" />
                                             <?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "class" => "refresh")); ?>
@@ -55,7 +55,7 @@
                                         <div class="clearfix"></div>
                                         <p> 
                                             <?php echo $this->Html->image("contact-icon1.png", array("width" => "57", 'height' => '58', "alt" => "")); ?>
-                                            <?php echo __('Address') ?>:<br/>
+                                            <?php echo MyClass::translate('Address') ?>:<br/>
                                             Verenastrasse 2<br/>
                                             8832  Wollerau<br/>
                                         </p>
@@ -66,16 +66,16 @@
                                         </p>
                                         <p> 
                                             <?php echo $this->Html->image("contact-icon3.png", array("width" => "57", 'height' => '57', "alt" => "")); ?>
-                                            <?php echo __('Fax') ?>:<br/>
+                                            <?php echo MyClass::translate('Fax') ?>:<br/>
                                             044 787 03 01
                                         </p>
                                         <p> 
                                             <?php echo $this->Html->image("contact-icon4.png", array("width" => "57", 'height' => '57', "alt" => "")); ?>
-                                            <?php echo __('Email') ?>:<br/>
+                                            <?php echo MyClass::translate('Email') ?>:<br/>
                                             <a href="mailto:info@theilerdruck.ch">info@theilerdruck.ch</a>
                                         </p>
                                         <div class="contact-map"> 
-                                            <h4><?php echo __('Approach') ?></h4>
+                                            <h4><?php echo MyClass::translate('Approach') ?></h4>
                                             <p>
                                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10844.698199828279!2d8.72116!3d47.193596!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe94d76d6c439cb2e!2sTheiler+Druck+AG!5e0!3m2!1sen!2sin!4v1433157270213" width="100%" height="310" frameborder="0" style="border:0"></iframe>
                                             </p>
@@ -91,7 +91,7 @@
                 <div class="container">
                     <div class="row" id="2">
                         <div class="col-md-12">
-                            <div class="sections-heading"> <?php echo __('Contact persons') ?></div>
+                            <div class="sections-heading"> <?php echo MyClass::translate('Contact persons') ?></div>
                             <div class="contact-section">
                                 <div class="row">
                                     <?php
@@ -129,96 +129,96 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="featured-box featured-box-secundary default info-content" >
                                             <div class="box-content box-content2 offertenanfrage-form">
-                                                <div class="sections-heading"><?php echo __('Inquiry') ?> </div>
+                                                <div class="sections-heading"><?php echo MyClass::translate('Inquiry') ?> </div>
                                                 <div class="row"> 
-                                                    <div class="col-xs-12 col-sm-9 col-md-10"> <p> <?php echo __('Do not hesitate to ask for a free quote. we will gladly make our offer .') ?>  </p>  </div>
+                                                    <div class="col-xs-12 col-sm-9 col-md-10"> <p> <?php echo MyClass::translate('Do not hesitate to ask for a free quote. we will gladly make our offer .') ?>  </p>  </div>
                                                     <div class="col-xs-12 col-sm-2 col-md-2">   
                                                         <a href="javascript:void(0)" class="btn btn-primary  dropdown-toggle inquiry-toggle">
-                                                            <?php echo __('Hide Inquiry') ?> <i class="icon icon-angle-up"></i>
+                                                            <?php echo MyClass::translate('Hide Inquiry') ?> <i class="icon icon-angle-up"></i>
                                                         </a>   
                                                     </div>
                                                     <?php echo $this->Form->create('Page', array('action' => 'inquiry_form')); ?>
                                                     <div class="col-xs-12 col-sm-6 col-md-6 inquiry-form"> 
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo __('Company') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Company') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_company', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo __('Name') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Name') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_name', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo __('Firstname') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Firstname') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_firstname', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo __('Street/No') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Street/No') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_street', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo __('PLZ/Place') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('PLZ/Place') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_plz', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo __('Phone') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Phone') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_phone', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo __('Fax') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Fax') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_fax', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo __('Email') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Email') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_email', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row"> 
                                                                 <div class="col-xs-12 col-sm-3 col-md-3"> </div>
-                                                                <div class="col-xs-12 col-sm-9 col-md-9">  <?php echo $this->Form->input('inquiry_is_phonecontact', array('label' => false, 'type' => 'checkbox', 'div' => false, 'value' => 'Y')); ?> <span> <?php echo __('Please contact us by phone') ?> </span> </div>
+                                                                <div class="col-xs-12 col-sm-9 col-md-9">  <?php echo $this->Form->input('inquiry_is_phonecontact', array('label' => false, 'type' => 'checkbox', 'div' => false, 'value' => 'Y')); ?> <span> <?php echo MyClass::translate('Please contact us by phone') ?> </span> </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3">  <label><?php echo __('Title of the product') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3">  <label><?php echo MyClass::translate('Title of the product') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_product_title', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>   
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3">  <label><?php echo __('Edition') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3">  <label><?php echo MyClass::translate('Edition') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_edition', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div> 
 
                                                         <div class="form-product">
-                                                            <h2> <?php echo __('Product') ?>:</h2>
+                                                            <h2> <?php echo MyClass::translate('Product') ?>:</h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 hidden-sm">   </div>
                                                                 <div class="col-xs-12 col-sm-12 col-md-9"> 
                                                                     <div class="row"> 
                                                                         <?php
-                                                                        $products = array(__('Sheet'), __('Leaflet'), __('Prospectus'), __('Business cards'), __('Brochure with envelope'), __('Booklet without cover'), __('Cutlery'));
-                                                                        $products_checked = __('Prospectus');
+                                                                        $products = array(MyClass::translate('Sheet'), MyClass::translate('Leaflet'), MyClass::translate('Prospectus'), MyClass::translate('Business cards'), MyClass::translate('Brochure with envelope'), MyClass::translate('Booklet without cover'), MyClass::translate('Cutlery'));
+                                                                        $products_checked = MyClass::translate('Prospectus');
                                                                         foreach ($products as $product) {
                                                                             ?>
                                                                             <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  
@@ -227,7 +227,7 @@
                                                                         <?php } ?>
 
                                                                     </div>
-                                                                    <label><?php echo __('Please filling out : adhesive strips with or without windows, ( left / right), with, rubberized') ?></label>
+                                                                    <label><?php echo MyClass::translate('Please filling out : adhesive strips with or without windows, ( left / right), with, rubberized') ?></label>
                                                                     <?php echo $this->Form->input('inquiry_productname', array('class' => 'form-control', 'label' => false)); ?>
                                                                 </div>
                                                             </div>
@@ -235,13 +235,13 @@
 
 
                                                         <div class="form-product">
-                                                            <h2> <?php echo __('Format') ?>: </h2>
+                                                            <h2> <?php echo MyClass::translate('Format') ?>: </h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-3 col-md-3">   </div>
                                                                 <div class="col-xs-12 col-sm-12 col-md-9"> 
                                                                     <div class="row"> 
                                                                         <?php
-                                                                        $formats_1 = array('10.5 x 14.8 (A6)', '14.8 x 21.0(A5)', '21 x 29.7 (A4)', '29.37 x 42.0 (A3)', '8.5 x 5.4 (' . __('Business cards') . ')', 'C4 (' . __('Cutlery') . ')', 'C5 (' . __('Cutlery') . ')', 'C 5/6 (' . __('Cutlery') . ')');
+                                                                        $formats_1 = array('10.5 x 14.8 (A6)', '14.8 x 21.0(A5)', '21 x 29.7 (A4)', '29.37 x 42.0 (A3)', '8.5 x 5.4 (' . MyClass::translate('Business cards') . ')', 'C4 (' . MyClass::translate('Cutlery') . ')', 'C5 (' . MyClass::translate('Cutlery') . ')', 'C 5/6 (' . MyClass::translate('Cutlery') . ')');
                                                                         $formats_1_checked = '21 x 29.7 (A4)';
                                                                         foreach ($formats_1 as $format) {
                                                                             ?>
@@ -250,7 +250,7 @@
                                                                             </div>
                                                                         <?php } ?>
                                                                     </div>
-                                                                    <label><?php echo __('Big individual') ?>:</label>
+                                                                    <label><?php echo MyClass::translate('Big individual') ?>:</label>
                                                                     <?php echo $this->Form->input('inquiry_big_individual', array('class' => 'form-control', 'label' => false)); ?>
 
                                                                 </div>
@@ -258,19 +258,19 @@
                                                         </div>
 
                                                         <div class="form-product">
-                                                            <h2> <?php echo __('Scope') ?>: </h2>
+                                                            <h2> <?php echo MyClass::translate('Scope') ?>: </h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 hidden-sm">   </div>
                                                                 <div class="col-xs-12 col-sm-12 col-md-9"> 
                                                                     <div class="row"> 
-                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <input name="data[Page][inquiry_printed]" type="radio" value="<?php echo __('einseiting printed') ?>"> <?php echo __('einseiting printed') ?> </div>
-                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <input name="data[Page][inquiry_printed]" type="radio" value="<?php echo __('beinseiting printed') ?>">  <?php echo __('beinseiting printed') ?></div>
+                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <input name="data[Page][inquiry_printed]" type="radio" value="<?php echo MyClass::translate('einseiting printed') ?>"> <?php echo MyClass::translate('einseiting printed') ?> </div>
+                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <input name="data[Page][inquiry_printed]" type="radio" value="<?php echo MyClass::translate('beinseiting printed') ?>">  <?php echo MyClass::translate('beinseiting printed') ?></div>
                                                                         <div class="col-xs-12 col-sm-12 col-md-6 form-radio-option"> 
                                                                             <div class="row">
                                                                                 <div class="col-xs-12 col-sm-8 col-md-7">
                                                                                     <?php echo $this->Form->input('inquiry_sides_content', array('class' => 'form-control', 'label' => false)); ?>
                                                                                 </div>
-                                                                                <div class="col-xs-12 col-sm-4 col-md-5">  <?php echo __('Sides Content') ?>  </div>
+                                                                                <div class="col-xs-12 col-sm-4 col-md-5">  <?php echo MyClass::translate('Sides Content') ?>  </div>
                                                                             </div>
 
                                                                         </div>
@@ -280,13 +280,13 @@
                                                                                 <div class="col-xs-12 col-sm-8 col-md-7">    
                                                                                     <?php echo $this->Form->input('inquiry_cover_pages', array('class' => 'form-control', 'label' => false)); ?>
                                                                                 </div>
-                                                                                <div class="col-xs-12 col-sm-4 col-md-5"> <?php echo __('Cover pages') ?>  <br/>
+                                                                                <div class="col-xs-12 col-sm-4 col-md-5"> <?php echo MyClass::translate('Cover pages') ?>  <br/>
                                                                                 </div>
 
                                                                             </div>
 
                                                                         </div>
-                                                                        <div class="col-xs-12 col-sm-3 col-md-2"> <label>  <?php echo __('Others') ?>:  </label> <br/>
+                                                                        <div class="col-xs-12 col-sm-3 col-md-2"> <label>  <?php echo MyClass::translate('Others') ?>:  </label> <br/>
                                                                         </div>
                                                                         <div class="col-xs-12 col-sm-9 col-md-10">
                                                                             <?php echo $this->Form->input('inquiry_others_1', array('class' => 'form-control', 'label' => false)); ?>
@@ -300,7 +300,7 @@
                                                         </div>
 
                                                         <div class="form-product">
-                                                            <h2> <?php echo __('Format') ?>: </h2>
+                                                            <h2> <?php echo MyClass::translate('Format') ?>: </h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 hidden-sm">   </div>
                                                                 <div class="col-xs-12 col-sm-12 col-md-9"> 
@@ -315,7 +315,7 @@
                                                                             </div>
                                                                         <?php } ?>
                                                                     </div>
-                                                                    <label><?php echo __('Special colors') ?>:</label>
+                                                                    <label><?php echo MyClass::translate('Special colors') ?>:</label>
                                                                     <?php echo $this->Form->input('inquiry_special_colors', array('class' => 'form-control', 'label' => false)); ?>
                                                                 </div>
                                                             </div>
@@ -323,7 +323,7 @@
                                                     </div>
                                                     <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1  inquiry-form">
                                                         <div class="form-product">
-                                                            <h2> <?php echo __('Paper') ?>:</h2>
+                                                            <h2> <?php echo MyClass::translate('Paper') ?>:</h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-12 col-md-12"> 
                                                                     <div class="row"> 
@@ -337,9 +337,9 @@
                                                                             </div>
                                                                         <?php } ?>
                                                                         <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">
-                                                                            <?php echo $this->Form->input('inquiry_with_window', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes', 'checked' => true)); ?> <?php echo __('with window') ?>
+                                                                            <?php echo $this->Form->input('inquiry_with_window', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes', 'checked' => true)); ?> <?php echo MyClass::translate('with window') ?>
                                                                         </div>
-                                                                        <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">   <?php echo __('Others') ?>:</div>
+                                                                        <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">   <?php echo MyClass::translate('Others') ?>:</div>
                                                                         <div class="col-xs-12 col-sm-8 col-md-10 form-radio-option">
                                                                             <?php echo $this->Form->input('inquiry_paper_others', array('class' => 'form-control', 'label' => false)); ?>
                                                                         </div>
@@ -349,7 +349,7 @@
                                                         </div>
 
                                                         <div class="form-product">
-                                                            <h2> <?php echo __('Paper weight') ?>:</h2>
+                                                            <h2> <?php echo MyClass::translate('Paper weight') ?>:</h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-12 col-md-12"> 
                                                                     <div class="row"> 
@@ -362,19 +362,19 @@
                                                                                 <input name="data[Page][inquiry_paper_weight]" type="radio" value="<?php echo $papar_weight; ?>" <?php echo $papar_weights_checked == $papar_weight ? 'checked' : ''; ?>>  <?php echo $papar_weight; ?>  
                                                                             </div>
                                                                         <?php } ?>
-                                                                        <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">   <?php echo __('Others') ?>:</div>
+                                                                        <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">   <?php echo MyClass::translate('Others') ?>:</div>
                                                                         <div class="col-xs-12 col-sm-8 col-md-10 form-radio-option"> <?php echo $this->Form->input('inquiry_paper_weight_others', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                                         <div class="border-form">
-                                                                            <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">  <?php echo __('Envelope') ?>:</div>
+                                                                            <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">  <?php echo MyClass::translate('Envelope') ?>:</div>
                                                                             <div class="col-xs-12 col-sm-8 col-md-10 form-radio-option"> <input name="data[Page][inquiry_envelope]" type="radio" value="100 gm2"> 100 gm2</div>
-                                                                            <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">   <?php echo __('Others') ?>:</div>
+                                                                            <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">   <?php echo MyClass::translate('Others') ?>:</div>
                                                                             <div class="col-xs-12 col-sm-8 col-md-10 form-radio-option"> <?php echo $this->Form->input('inquiry_envelope_others', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                                         </div>
                                                                         <div class="border-form">
-                                                                            <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">  <?php echo __('Content') ?>: </div>
+                                                                            <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">  <?php echo MyClass::translate('Content') ?>: </div>
                                                                             <div class="col-xs-6 col-sm-4 col-md-5 form-radio-option"> <input name="data[Page][inquiry_cont]" type="radio" value="80 gm2"> 80 gm2</div>
                                                                             <div class="col-xs-6 col-sm-4 col-md-5 form-radio-option"> <input name="data[Page][inquiry_cont]" type="radio" value="100 gm2"> 100 gm2</div>
-                                                                            <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">   <?php echo __('Others') ?>:</div>
+                                                                            <div class="col-xs-12 col-sm-4 col-md-2 form-radio-option">   <?php echo MyClass::translate('Others') ?>:</div>
                                                                             <div class="col-xs-12 col-sm-8 col-md-10 form-radio-option"> <?php echo $this->Form->input('inquiry_cont_others', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                                         </div>
                                                                     </div>
@@ -384,7 +384,7 @@
                                                         </div>
 
                                                         <div class="form-product">
-                                                            <h2> <?php echo __('Paper') ?>:</h2>
+                                                            <h2> <?php echo MyClass::translate('Paper') ?>:</h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-12 col-md-12"> 
                                                                     <div class="row">
@@ -400,10 +400,10 @@
                                                                         <div class="col-xs-12 col-sm-12 col-md-12 "> 
                                                                             <div class="border-form"> 
                                                                                 <div class="row"> 
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 form-radio-option">  <?php echo $this->Form->input('inquiry_numbered', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo __('numbered') ?>:</div>
-                                                                                    <div class="col-xs-2 col-sm-2 col-md-1 form-radio-option">   <?php echo __('from') ?></div>
+                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 form-radio-option">  <?php echo $this->Form->input('inquiry_numbered', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo MyClass::translate('numbered') ?>:</div>
+                                                                                    <div class="col-xs-2 col-sm-2 col-md-1 form-radio-option">   <?php echo MyClass::translate('from') ?></div>
                                                                                     <div class="col-xs-4 col-sm-3 col-md-3 form-radio-option"> <?php echo $this->Form->input('inquiry_numbered_from', array('class' => 'form-control', 'label' => false)); ?></div>
-                                                                                    <div class="col-xs-2 col-sm-2 col-md-1 form-radio-option">   <?php echo __('to') ?></div>
+                                                                                    <div class="col-xs-2 col-sm-2 col-md-1 form-radio-option">   <?php echo MyClass::translate('to') ?></div>
                                                                                     <div class="col-xs-4 col-sm-3 col-md-3 form-radio-option"> <?php echo $this->Form->input('inquiry_numbered_to', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                                                 </div>
                                                                             </div>
@@ -412,25 +412,25 @@
                                                                         <div class="col-xs-12 col-sm-12 col-md-12 "> 
                                                                             <div class="border-form"> 
                                                                                 <div class="row"> 
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 form-radio-option">  <?php echo $this->Form->input('inquiry_preforation_2er', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo __('perforation') ?> 2er</div>
-                                                                                    <div class="col-xs-5 col-sm-4 col-md-3 form-radio-option">  <?php echo __('Diameter') ?></div>
+                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 form-radio-option">  <?php echo $this->Form->input('inquiry_preforation_2er', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo MyClass::translate('perforation') ?> 2er</div>
+                                                                                    <div class="col-xs-5 col-sm-4 col-md-3 form-radio-option">  <?php echo MyClass::translate('Diameter') ?></div>
                                                                                     <div class="col-xs-3 col-sm-3 col-md-3 form-radio-option"> <?php echo $this->Form->input('inquiry_preforation_2er_mm', array('class' => 'form-control', 'label' => false)); ?> </div>
-                                                                                    <div class="col-xs-4 col-sm-2 col-md-1 form-radio-option">   <?php echo __('mm') ?></div>
+                                                                                    <div class="col-xs-4 col-sm-2 col-md-1 form-radio-option">   <?php echo MyClass::translate('mm') ?></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-xs-12 col-sm-12 col-md-12 "> 
                                                                             <div class="border-form"> 
                                                                                 <div class="row"> 
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 form-radio-option">  <?php echo $this->Form->input('inquiry_preforation_4er', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo __('perforation') ?> 4er</div>
-                                                                                    <div class="col-xs-5 col-sm-4 col-md-3 form-radio-option"><?php echo __('Diameter') ?></div>
+                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 form-radio-option">  <?php echo $this->Form->input('inquiry_preforation_4er', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo MyClass::translate('perforation') ?> 4er</div>
+                                                                                    <div class="col-xs-5 col-sm-4 col-md-3 form-radio-option"><?php echo MyClass::translate('Diameter') ?></div>
                                                                                     <div class="col-xs-3 col-sm-3 col-md-3 form-radio-option"> <?php echo $this->Form->input('inquiry_preforation_4er_mm', array('class' => 'form-control', 'label' => false)); ?></div>
-                                                                                    <div class="col-xs-2 col-sm-2 col-md-1 form-radio-option">   <?php echo __('mm') ?></div>
+                                                                                    <div class="col-xs-2 col-sm-2 col-md-1 form-radio-option">   <?php echo MyClass::translate('mm') ?></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <?php echo $this->Form->input('inquiry_gather', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?>   <?php echo __('gather') ?></div>
-                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <?php echo $this->Form->input('inquiry_sliced', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?>   <?php echo __('sliced') ?></div>
+                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <?php echo $this->Form->input('inquiry_gather', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?>   <?php echo MyClass::translate('gather') ?></div>
+                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <?php echo $this->Form->input('inquiry_sliced', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?>   <?php echo MyClass::translate('sliced') ?></div>
 
                                                                     </div>
 
@@ -439,27 +439,27 @@
                                                         </div>
 
                                                         <div class="form-product">
-                                                            <h2> <?php echo __('Prepress') ?>: </h2>
+                                                            <h2> <?php echo MyClass::translate('Prepress') ?>: </h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-12 col-md-12"> 
                                                                     <div class="row">
                                                                         <?php
-                                                                        $pre_presses = array(__('Neusatz & design by Theiler Druck AG'), __('Raw data + Image sources delivered / set breaks by Theiler Druck AG'), __('Supplied exposure -ready data with program / ​​system information and color- expressive'));
+                                                                        $pre_presses = array(MyClass::translate('Neusatz & design by Theiler Druck AG'), MyClass::translate('Raw data + Image sources delivered / set breaks by Theiler Druck AG'), MyClass::translate('Supplied exposure -ready data with program / ​​system information and color- expressive'));
                                                                         foreach ($pre_presses as $pre_press) {
                                                                             ?>
                                                                             <div class="col-xs-12 col-sm-12 col-md-12 form-radio-option">  
                                                                                 <input name="data[Page][inquiry_prepress]" type="radio" value="<?php echo $pre_press; ?>">  <?php echo $pre_press; ?>  
                                                                             </div>
                                                                         <?php } ?>
-                                                                        <div class="col-xs-12 col-sm-6 col-md-7 form-radio-option">   <?php echo __('Exposure violent data delivered on') ?>:
+                                                                        <div class="col-xs-12 col-sm-6 col-md-7 form-radio-option">   <?php echo MyClass::translate('Exposure violent data delivered on') ?>:
                                                                         </div>
-                                                                        <div class="col-xs-4 col-sm-3 col-md-2 form-radio-option">  <?php echo $this->Form->input('inquiry_cd', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes', 'checked' => true)); ?>   <?php echo __('CD') ?></div>
-                                                                        <div class="col-xs-4 col-sm-3 col-md-3 form-radio-option">  <?php echo $this->Form->input('inquiry_is_email', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo __('Email') ?></div>
+                                                                        <div class="col-xs-4 col-sm-3 col-md-2 form-radio-option">  <?php echo $this->Form->input('inquiry_cd', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes', 'checked' => true)); ?>   <?php echo MyClass::translate('CD') ?></div>
+                                                                        <div class="col-xs-4 col-sm-3 col-md-3 form-radio-option">  <?php echo $this->Form->input('inquiry_is_email', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo MyClass::translate('Email') ?></div>
                                                                     </div>
-                                                                    <label> <?php echo __('Notes to other ihler request') ?>:</label>
+                                                                    <label> <?php echo MyClass::translate('Notes to other ihler request') ?>:</label>
                                                                     <p> <?php echo $this->Form->textarea('inquiry_request_notes', array('div' => false, 'label' => false, 'rows' => '6', 'class' => 'form-control')); ?> </p>
                                                                     <div class="row"> 
-                                                                        <div class="col-xs-12 col-sm-12 col-md-12 form-radio-option">  <?php echo __('Spam protection') ?> *: </div>
+                                                                        <div class="col-xs-12 col-sm-12 col-md-12 form-radio-option">  <?php echo MyClass::translate('Spam protection') ?> *: </div>
                                                                         <div class="col-xs-12 col-sm-12 col-md-12 form-radio-option">
                                                                             <?php echo $this->Form->input('inquiry_captcha', array('class' => 'form-control', 'label' => false)); ?>
                                                                         </div>
@@ -469,9 +469,9 @@
                                                                         </div>
 
                                                                         <div class="col-xs-12 col-sm-12 col-md-12 form-radio-option">
-                                                                            <?php echo __('Please note that we can only process your request if the address details are correct') ?>
+                                                                            <?php echo MyClass::translate('Please note that we can only process your request if the address details are correct') ?>
                                                                             <div class="form-group">
-                                                                                <?php echo $this->Form->input(__('Submit Request'), array('class' => 'btn btn-primary btn-lg pull-right', 'label' => false, 'id' => 'inquiry_submit', 'type' => 'submit')); ?>
+                                                                                <?php echo $this->Form->input(MyClass::translate('Submit Request'), array('class' => 'btn btn-primary btn-lg pull-right', 'label' => false, 'id' => 'inquiry_submit', 'type' => 'submit')); ?>
                                                                                 <?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'inquiry-ajax-loader', 'style' => 'float: right;margin: 10px 15px;')); ?>
                                                                             </div>
                                                                             <div class="form-group hide" id="inquiry-message">
@@ -503,7 +503,7 @@
                             <div class="container">
                                 <div class="row" id="4">
                                     <div class="col-md-12">
-                                        <div class="sections-heading"><?php echo __('Publishing house') ?></div>
+                                        <div class="sections-heading"><?php echo MyClass::translate('Publishing house') ?></div>
                                         <div class="sections-content">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-6 col-md-6 publisher-cont">
@@ -665,7 +665,7 @@
                 $('.inquiry-toggle').on('click', function () {
                     var _inq_block = $(this).closest('.row');
                     if (_inq_block.find('.inquiry-form').is(':visible')) {
-                        $(this).html('<?php echo __('Show Inquiry') ?> <i class="icon icon-angle-down"></i>');
+                        $(this).html('<?php echo MyClass::translate('Show Inquiry') ?> <i class="icon icon-angle-down"></i>');
                         _inq_block.find('.inquiry-form').fadeOut();
                     } else {
                         $(this).html('<?php echo _('Hide Inquiry') ?> <i class="icon icon-angle-up"></i>');

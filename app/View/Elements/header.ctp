@@ -119,7 +119,7 @@
                         <a class="dropdown-toggle" href="<?php echo SITE_BASE_URL ?>"> Produkte </a>
                     </li>
                     <li class="dropdown active">
-                        <?php echo $this->Html->link(__('Contact'), array('controller' => 'pages', 'action' => 'contact')); ?>
+                        <?php echo $this->Html->link(MyClass::translate('Contact'), array('controller' => 'pages', 'action' => 'contact')); ?>
                     </li>
                    
 
@@ -196,16 +196,16 @@
                             <nav class="nav-main">
                                 <ul class="nav nav-pills nav-main nav-main2" id="mainMenu2">
                                     <li class="dropdown active">
-                                        <a data-hash class="dropdown-toggle" href="#1"> <?php echo __('Contact') ?> </a>
+                                        <a data-hash class="dropdown-toggle" href="#1"> <?php echo MyClass::translate('Contact') ?> </a>
                                     </li>
                                     <li>
-                                        <a data-hash href="#2"><?php echo __('Contact persons') ?></a>
+                                        <a data-hash href="#2"><?php echo MyClass::translate('Contact persons') ?></a>
                                     </li>
                                     <li>
-                                        <a data-hash href="#3"><?php echo __('Inquiry') ?></a>
+                                        <a data-hash href="#3"><?php echo MyClass::translate('Inquiry') ?></a>
                                     </li>
                                     <li>
-                                        <a data-hash href="#4"><?php echo __('Publishing house') ?></a>
+                                        <a data-hash href="#4"><?php echo MyClass::translate('Publishing house') ?></a>
                                     </li>
                                 </ul>
                             </nav>

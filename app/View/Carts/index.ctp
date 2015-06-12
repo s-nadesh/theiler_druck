@@ -21,7 +21,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <th class="product-remove"> &nbsp; </th>
                                                 <th class="product-thumbnail"> &nbsp; </th>
                                                 <th class="product-name"> <?php echo MyClass::translate("Product"); ?> </th>
-                                                <th class="product-picture"> <?php echo __("Pictures"); ?> </th>
+                                                <th class="product-picture"> <?php echo MyClass::translate("Pictures"); ?> </th>
                                                 <th class="product-price center"> <?php echo MyClass::translate("Price"); ?> </th>
                                                 <th class="product-quantity center"> <?php echo MyClass::translate("Quantity"); ?> </th>
                                                 <th class="product-subtotal center"> <?php echo MyClass::translate("Total"); ?> </th>
