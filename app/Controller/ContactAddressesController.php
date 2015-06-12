@@ -3,7 +3,7 @@
 /**
  * Static content controller.
  *
- * This file will render views from views/services/
+ * This file will render views from views/contactAddresses/
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -26,9 +26,9 @@ App::uses('AppController', 'Controller');
  * Override this controller by placing a copy in controllers directory of an application
  *
  * @package       app.Controller
- * @link http://book.cakephp.org/2.0/en/controllers/services-controller.html
+ * @link http://book.cakephp.org/2.0/en/controllers/contactAddresses-controller.html
  */
-class ServicesController extends AppController {
+class ContactAddressesController extends AppController {
 
     /**
      * This controller does not use a model
@@ -45,13 +45,13 @@ class ServicesController extends AppController {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
-        $this->set('admin_menu', 'services');
+        $this->set('admin_menu', 'contactAddresses');
     }
 
     /**
      * Displays a view
      *
-     * @param mixed What service to display
+     * @param mixed What contactAddresse to display
      * @return void
      * @throws NotFoundException When the view file could not be found
      * 	or MissingViewException in debug mode.
@@ -63,18 +63,18 @@ class ServicesController extends AppController {
         if (!$count) {
             return $this->redirect('/');
         }
-        $service = $subservice = $title_for_layout = null;
+        $contactAddresse = $subcontactAddresse = $title_for_layout = null;
 
         if (!empty($path[0])) {
-            $service = $path[0];
+            $contactAddresse = $path[0];
         }
         if (!empty($path[1])) {
-            $subservice = $path[1];
+            $subcontactAddresse = $path[1];
         }
         if (!empty($path[$count - 1])) {
             $title_for_layout = Inflector::humanize($path[$count - 1]);
         }
-        $this->set(compact('service', 'subservice', 'title_for_layout'));
+        $this->set(compact('contactAddresse', 'subcontactAddresse', 'title_for_layout'));
 
         try {
             $this->render(implode('/', $path));
@@ -87,31 +87,31 @@ class ServicesController extends AppController {
     }
 
     public function admin_index() {
-        $services = $this->Service->find('all', array(
-            'order' => array('Service.created DESC')
+        $contactAddresses = $this->ContactAddresse->find('all', array(
+            'order' => array('ContactAddresse.created DESC')
         ));
 
-        $this->set('title_for_layout', 'services');
-        $this->set('admin_menu', 'services');
-        $this->set(compact('services'));
+        $this->set('title_for_layout', 'contactAddresses');
+        $this->set('admin_menu', 'contactAddresses');
+        $this->set(compact('contactAddresses'));
     }
 
     public function admin_add() {
         if ($this->request->is('post')) {
-            if ($this->Service->save($this->request->data)) {
-                $service_id = $this->Service->getLastInsertID();
-                $this->Session->setFlash(__('Service has been successfully added'), 'flash_success');
-                $this->redirect(array('controller' => 'services', 'action' => 'edit', $service_id, 'admin' => true));
+            if ($this->ContactAddresse->save($this->request->data)) {
+                $contactAddresse_id = $this->ContactAddresse->getLastInsertID();
+                $this->Session->setFlash(__('ContactAddresse has been successfully added'), 'flash_success');
+                $this->redirect(array('controller' => 'contactAddresses', 'action' => 'edit', $contactAddresse_id, 'admin' => true));
             }
         }
     }
 
-    public function admin_edit($service_id) {
+    public function admin_edit($contactAddresse_id) {
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->Service->save($this->request->data);
+            $this->ContactAddresse->save($this->request->data);
             $this->Session->setFlash(__("Content updated successfully"), 'flash_success');
         }
-        $service_content = $this->data = $this->Service->findByServiceId($service_id);
-        $this->set(compact('service_content'));
+        $contactAddresse_content = $this->data = $this->ContactAddresse->findByContactAddresseId($contactAddresse_id);
+        $this->set(compact('contactAddresse_content'));
     }
 }

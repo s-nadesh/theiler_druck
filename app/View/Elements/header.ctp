@@ -119,7 +119,7 @@
                         <a class="dropdown-toggle" href="<?php echo SITE_BASE_URL ?>"> Produkte </a>
                     </li>
                     <li class="dropdown active">
-                        <a class="dropdown-toggle" href="#"> Kontakt </a>
+                        <?php echo $this->Html->link(__('Contact'), array('controller' => 'pages', 'action' => 'contact')); ?>
                     </li>
                    
 
@@ -196,16 +196,16 @@
                             <nav class="nav-main">
                                 <ul class="nav nav-pills nav-main nav-main2" id="mainMenu2">
                                     <li class="dropdown active">
-                                        <a data-hash class="dropdown-toggle" href="#1"> Kontakt </a>
+                                        <a data-hash class="dropdown-toggle" href="#1"> <?php echo __('Contact') ?> </a>
                                     </li>
                                     <li>
-                                        <a data-hash href="#2">Ansprechpersonen</a>
+                                        <a data-hash href="#2"><?php echo __('Contact persons') ?></a>
                                     </li>
                                     <li>
-                                        <a data-hash href="#3">Offertenanfrage</a>
+                                        <a data-hash href="#3"><?php echo __('Inquiry') ?></a>
                                     </li>
                                     <li>
-                                        <a data-hash href="#4">Verlag</a>
+                                        <a data-hash href="#4"><?php echo __('Publishing house') ?></a>
                                     </li>
                                 </ul>
                             </nav>

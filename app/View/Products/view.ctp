@@ -291,7 +291,18 @@ if ($cart_items_key) {
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <?php echo $this->Form->submit(MyClass::translate("Submit"), array('class' => 'btn btn-primary btn-lg')); ?>
+                                            <?php echo $this->Form->submit(MyClass::translate("Submit"), array('class' => 'btn btn-primary btn-lg', 'div' => false, 'id' => 'ask_submit')); ?>
+                                            <?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'ask-ajax-loader', 'style' => 'margin: 10px 15px;')); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12" style="margin-top:15px;">
+                                            <div class="form-group hide" id="ask-message">
+                                                <div class="alert fade in block-inner">
+                                                    <i class="icon-cancel-circle"></i><span id="ask-msg"></span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -307,15 +318,15 @@ if ($cart_items_key) {
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         getProductPrice();
 
-        $("body").on("click", ".quantity .input-group-btn", function() {
+        $("body").on("click", ".quantity .input-group-btn", function () {
             getProductPrice();
         });
 
         // refresh captcha
-        $('img#refresh').click(function() {
+        $('img#refresh').click(function () {
             change_captcha();
         });
 
@@ -336,13 +347,13 @@ if ($cart_items_key) {
                     required: true,
                 },
             },
-            highlight: function(element) {
+            highlight: function (element) {
                 $(element)
                         .parent()
                         .removeClass("has-success")
                         .addClass("has-error");
             },
-            success: function(element) {
+            success: function (element) {
                 $(element)
                         .parent()
                         .removeClass("has-error")
@@ -350,19 +361,28 @@ if ($cart_items_key) {
                         .find("label.error")
                         .remove();
             },
-            submitHandler: function(form) {
+            submitHandler: function (form) {
                 $.ajax({
                     type: $(form).attr('method'),
                     url: $(form).attr('action'),
                     data: $(form).serialize(),
+                    dataType: 'json',
+                    beforeSend: function () {
+                        $('#ask_submit').attr('disabled', true);
+                        $("#ask-ajax-loader").removeClass('hide');
+                        $("#ask-message").addClass('hide');
+                    }
                 })
-                        .done(function(response) {
-                            if (response == 'success') {
+                        .done(function (response) {
+                            $('#ask_submit').attr('disabled', false);
+                            $("#ask-ajax-loader").addClass('hide');
+                            _msg_cont = $("#ask-message");
+                            _msg_cont.find('div').attr('class', response.class);
+                            _msg_cont.find('#ask-msg').html(response.message);
+                            _msg_cont.removeClass('hide');
+                            if (response.sts == 'success') {
                                 change_captcha();
-                                clear_form();
-                                alert("Your question submitted successfully");
-                            } else if (response == 'captcha_fail') {
-                                alert("Please enter correct captcha code");
+                                $(form)[0].reset();
                             }
                         });
                 return false; // required to block normal submit since you used ajax
@@ -378,7 +398,7 @@ if ($cart_items_key) {
         $.ajax({
             url: "<?php echo SITE_BASE_URL ?>product_prices/getProductPrice/" + product_id + "/" + no_of_pages + "/" + no_of_copies + "/" + quantity,
             type: "POST",
-            success: function(result) {
+            success: function (result) {
                 placePrice(result);
             }
         });
@@ -396,15 +416,6 @@ if ($cart_items_key) {
         document.getElementById('captcha').src = jssite_url + "product_questions/getCaptcha?rnd=" + Math.random();
     }
 
-    function clear_form()
-    {
-        $("#ProductQuestionQuestionName").val('');
-        $("#ProductQuestionQuestionEmail").val('');
-        $("#ProductQuestionQuestionPhone").val('');
-        $("#ProductQuestionQuestionContent").val('');
-        $("#ProductQuestionCaptcha").val('');
-    }
-
     function removeCartProductImage(file, imageId) {
         $.ajax({
             url: jssite_url + "carts/removeCartProductImage",
@@ -413,7 +424,7 @@ if ($cart_items_key) {
                 cartItem: '<?php echo $cart_items_key ?>',
                 fileName: file
             },
-            success: function(result) {
+            success: function (result) {
                 $("#" + imageId).remove();
                 // Do something with the result
             }
@@ -423,7 +434,7 @@ if ($cart_items_key) {
 </script>
 
 <script>
-    $(document).ready(function()
+    $(document).ready(function ()
     {
         var settings = {
             url: jssite_url + "carts/fileUpload",
@@ -432,17 +443,17 @@ if ($cart_items_key) {
             fileName: "myfile",
             allowedTypes: "jpg,png,gif",
             returnType: "json",
-            onSuccess: function(files, data, xhr)
+            onSuccess: function (files, data, xhr)
             {
 //                alert((data));
             },
             showDelete: true,
-            deleteCallback: function(data, pd)
+            deleteCallback: function (data, pd)
             {
                 for (var i = 0; i < data.length; i++)
                 {
                     $.post(jssite_url + "carts/fileDelete", {op: "delete", name: data[i]},
-                    function(resp, textStatus, jqXHR)
+                    function (resp, textStatus, jqXHR)
                     {
                         //Show Message  
                         $("#status").append("<div>File Deleted</div>");

@@ -74,14 +74,28 @@ class ProductQuestionsController extends AppController {
             if (strtolower($this->data['ProductQuestion']['captcha']) == strtolower($this->Session->read('Captcha.random_number'))) {
                 if ($this->ProductQuestion->save($this->data)) {
                     $this->askQuestionMail($this->data);
-                    echo 'success';
+                    $ret = array(
+                        'sts' => 'success',
+                        'class' => 'alert fade in block-inner alert-success',
+                        'message' => __('Your question submitted successfully')
+                    );
                 } else {
-                    echo 'fail';
+                    $ret = array(
+                        'sts' => 'danger',
+                        'class' => 'alert fade in block-inner alert-danger',
+                        'message' => __('Your question not submitted. Try again later')
+                    );
                 }
             } else {
-                echo 'captcha_fail';
+                $ret = array(
+                    'sts' => 'danger',
+                    'class' => 'alert fade in block-inner alert-danger',
+                    'message' => __('Captcha is not matched')
+                );
             }
         }
+        echo json_encode($ret);
+        exit;
     }
 
     public function askQuestionMail($data) {

@@ -166,7 +166,7 @@ class PagesController extends AppController {
                         ->template('contact_email', 'email_layout')
                         ->emailFormat('html')
                         ->to(SITEMAIL)
-                        ->subject('Contact: ' . $this->data['Page']['contact_regard'])
+                        ->subject(__('Contact').': ' . $this->data['Page']['contact_regard'])
                         ->viewVars(array(
                             'data' => $this->data,
                         ))
@@ -193,17 +193,29 @@ class PagesController extends AppController {
     public function inquiry_form() {
         if ($this->request->is('post')) {
             if (strtolower($this->data['Page']['inquiry_captcha']) == strtolower($this->Session->read('Captcha.random_number'))) {
-                echo '<pre>';
-                print_r($this->data);
-                exit;
-
-
+                if(isset($this->data['Page']['inquiry_paper_2']) && !empty($this->data['Page']['inquiry_paper_2'])){
+                    $paper_2 = array_diff($this->data['Page']['inquiry_paper_2'], array('0'));
+                    $inquiry_paper_2 = implode(" , ", $paper_2);
+                }else{
+                    $inquiry_paper_2 = '';
+                }
+                $inquiry_envelope = isset($this->data['Page']['inquiry_envelope']) ? $this->data['Page']['inquiry_envelope'] : '';
+                $inquiry_cont = isset($this->data['Page']['inquiry_cont']) ? $this->data['Page']['inquiry_cont'] : '';
+                $inquiry_prepress = isset($this->data['Page']['inquiry_prepress']) ? $this->data['Page']['inquiry_prepress'] : '';
+                $inquiry_printed = isset($this->data['Page']['inquiry_printed']) ? $this->data['Page']['inquiry_printed'] : '';
+                
+                $this->request->data['Page']['inquiry_paper_2'] = $inquiry_paper_2;
+                $this->request->data['Page']['inquiry_envelope'] = $inquiry_envelope;
+                $this->request->data['Page']['inquiry_cont'] = $inquiry_cont;
+                $this->request->data['Page']['inquiry_prepress'] = $inquiry_prepress;
+                $this->request->data['Page']['inquiry_printed'] = $inquiry_printed;
+                
                 $Email = new CakeEmail(MAILSENDBY);
                 $Email->from(array($this->data['Page']['inquiry_email'] => $this->data['Page']['inquiry_email']))
                         ->template('inquiry_email', 'email_layout')
                         ->emailFormat('html')
                         ->to(SITEMAIL)
-                        ->subject('Inquiry')
+                        ->subject(__('Inquiry'))
                         ->viewVars(array(
                             'data' => $this->data,
                         ))
