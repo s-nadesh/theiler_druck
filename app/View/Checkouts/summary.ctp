@@ -292,7 +292,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                     </tr>
                                                 <?php } ?>
                                                 <tr class="summary_shipping_cost">
-                                                    <td colspan="4">
+                                                    <td colspan="5">
                                                         <?php echo MyClass::translate("Shipping Cost"); ?>
                                                     </td>
                                                     <td align='right'>
@@ -305,13 +305,13 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                 if ($additional_charge > 0) {
                                                     ?>
                                                     <tr class="summary_shipping_cost">
-                                                        <td colspan="4"> <?php echo MyClass::translate("Additional Services"); ?> </td>
+                                                        <td colspan="5"> <?php echo MyClass::translate("Additional Services"); ?> </td>
                                                         <td align="right"> <?php echo MyClass::currencyFormat($additional_charge) ?> </td>
                                                     </tr>
                                                 <?php } ?>
 
                                                 <tr class="summary_shipping_cost">
-                                                    <td colspan="4">
+                                                    <td colspan="5">
                                                         <?php echo MyClass::translate("Total Net"); ?><br>
                                                         <span class="summary_vat"><?php echo MyClass::translate("incl. 8% VAT."); ?></span>
                                                     </td>
@@ -323,7 +323,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                     </td>
                                                 </tr>
                                                 <tr class="summary_total_gross">
-                                                    <td colspan="4">
+                                                    <td colspan=5">
                                                         <?php echo MyClass::translate("Total Gross"); ?>
                                                     </td>
                                                     <td align='right'>
