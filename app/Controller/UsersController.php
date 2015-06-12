@@ -18,7 +18,8 @@ class UsersController extends AppController {
     //User Registration function.
     public function register() {
         if ($this->request->is('post')) {
-            $this->request->data['User']['user_name'] = $this->data['UserAddress']['address_firstname'] . ' ' . $this->data['UserAddress']['address_lastname'];
+            $this->request->data['User']['user_name'] = $this->data['UserAddress']['address_firstname'];
+            $this->request->data['User']['user_lastname'] = $this->data['UserAddress']['address_lastname'];
 
             if ($this->data['User']['user_dob']) {
                 $this->request->data['User']['user_dob'] = date(DB_DATE_FORMAT, strtotime($this->data['User']['user_dob']));

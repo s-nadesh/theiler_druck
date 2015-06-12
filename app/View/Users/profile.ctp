@@ -31,6 +31,15 @@
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">
+                                        * <?php echo __("Last Name"); ?>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <?php echo $this->Form->input('User.user_lastname', array('label' => false, 'class' => 'form-control')); ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">
                                         <?php echo MyClass::translate("Date of Birth"); ?>
                                     </label>
                                     <div class="col-md-6">
