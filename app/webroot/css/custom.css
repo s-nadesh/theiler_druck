@@ -1017,7 +1017,7 @@ margin-right:10px;
 #mainMenu2 .dropdown.active a
 {
 	color:#ffffff !important;
-	height:50px;
+	height:auto;
 	line-height:27px;
 }
 
@@ -1025,7 +1025,7 @@ margin-right:10px;
 #mainMenu2 .dropdown.active 
 {
 	color:#ffffff !important;
-	height:50px;
+	height:auto;
 	line-height:48px;
 }
 
