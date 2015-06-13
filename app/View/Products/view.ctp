@@ -194,7 +194,14 @@ if ($cart_items_key) {
                                         $image_id = 'image_' . $i;
                                         ?>
                                         <div class="col-xs-3 col-sm-3 col-md-3" id="<?php echo $image_id; ?>">
-                                            <?php echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive')); ?>
+                                            <?php
+                                            $is_image = MyClass::is_image(WWW_ROOT . CART_FILE_FOLDER . $cartfile);
+                                            if ($is_image) {
+                                                echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive'));
+                                            } else {
+                                                echo $this->Html->image('preview_not_available.jpg', array('class' => 'img-responsive'));
+                                            }
+                                            ?>
                                             <a href="javascript:void(0)" onclick="removeCartProductImage('<?php echo $cartfile ?>', '<?php echo $image_id; ?>')">
                                                 <i class="icon icon-times"></i>
                                             </a>
@@ -206,7 +213,7 @@ if ($cart_items_key) {
                                     }
                                     ?>
                                 </div>
-                            <?php } ?>
+<?php } ?>
                             <div id="status"></div>
                         </div>
                     </div>
@@ -249,20 +256,20 @@ if ($cart_items_key) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <?php echo $this->Form->create('ProductQuestion', array('class' => 'ask_a_question', 'action' => 'add')); ?>
-                                    <?php echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id'])); ?>
+<?php echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id'])); ?>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-4">
                                                 <label><?php echo MyClass::translate("Your name"); ?>*</label>
-                                                <?php echo $this->Form->input('question_name', array('class' => 'form-control', 'label' => false)); ?>
+<?php echo $this->Form->input('question_name', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                             <div class="col-md-4">
                                                 <label><?php echo MyClass::translate("Your email address"); ?> *</label>
-                                                <?php echo $this->Form->input('question_email', array('class' => 'form-control', 'label' => false)); ?>
+<?php echo $this->Form->input('question_email', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                             <div class="col-md-4">
                                                 <label><?php echo MyClass::translate("Your phone"); ?></label>
-                                                <?php echo $this->Form->input('question_phone', array('class' => 'form-control', 'label' => false)); ?>
+<?php echo $this->Form->input('question_phone', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -270,7 +277,7 @@ if ($cart_items_key) {
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <label><?php echo MyClass::translate("Question") ?> *</label>
-                                                <?php echo $this->Form->input('question_content', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
+<?php echo $this->Form->input('question_content', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -284,10 +291,10 @@ if ($cart_items_key) {
                                                         <img src="<?php echo SITE_BASE_URL ?>product_questions/getCaptcha" alt="" id="captcha" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <?php echo $this->Form->input('captcha', array('class' => 'form-control', 'label' => false)); ?>
+<?php echo $this->Form->input('captcha', array('class' => 'form-control', 'label' => false)); ?>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "id" => "refresh")); ?>
+<?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "id" => "refresh")); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -297,7 +304,7 @@ if ($cart_items_key) {
                                     <div class="row">
                                         <div class="col-md-12">
                                             <?php echo $this->Form->submit(MyClass::translate("Submit"), array('class' => 'btn btn-primary btn-lg', 'div' => false, 'id' => 'ask_submit')); ?>
-                                            <?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'ask-ajax-loader', 'style' => 'margin: 10px 15px;')); ?>
+<?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'ask-ajax-loader', 'style' => 'margin: 10px 15px;')); ?>
                                         </div>
                                     </div>
 
@@ -311,7 +318,7 @@ if ($cart_items_key) {
                                         </div>
                                     </div>
 
-                                    <?php echo $this->Form->end(); ?>
+<?php echo $this->Form->end(); ?>
                                 </div>
                             </div>
                         </div>
@@ -323,15 +330,15 @@ if ($cart_items_key) {
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         getProductPrice();
 
-        $("body").on("click", ".quantity .input-group-btn", function () {
+        $("body").on("click", ".quantity .input-group-btn", function() {
             getProductPrice();
         });
 
         // refresh captcha
-        $('img#refresh').click(function () {
+        $('img#refresh').click(function() {
             change_captcha();
         });
 
@@ -352,13 +359,13 @@ if ($cart_items_key) {
                     required: true,
                 },
             },
-            highlight: function (element) {
+            highlight: function(element) {
                 $(element)
                         .parent()
                         .removeClass("has-success")
                         .addClass("has-error");
             },
-            success: function (element) {
+            success: function(element) {
                 $(element)
                         .parent()
                         .removeClass("has-error")
@@ -366,19 +373,19 @@ if ($cart_items_key) {
                         .find("label.error")
                         .remove();
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 $.ajax({
                     type: $(form).attr('method'),
                     url: $(form).attr('action'),
                     data: $(form).serialize(),
                     dataType: 'json',
-                    beforeSend: function () {
+                    beforeSend: function() {
                         $('#ask_submit').attr('disabled', true);
                         $("#ask-ajax-loader").removeClass('hide');
                         $("#ask-message").addClass('hide');
                     }
                 })
-                        .done(function (response) {
+                        .done(function(response) {
                             $('#ask_submit').attr('disabled', false);
                             $("#ask-ajax-loader").addClass('hide');
                             _msg_cont = $("#ask-message");
@@ -403,7 +410,7 @@ if ($cart_items_key) {
         $.ajax({
             url: "<?php echo SITE_BASE_URL ?>product_prices/getProductPrice/" + product_id + "/" + no_of_pages + "/" + no_of_copies + "/" + quantity,
             type: "POST",
-            success: function (result) {
+            success: function(result) {
                 placePrice(result);
             }
         });
@@ -429,7 +436,7 @@ if ($cart_items_key) {
                 cartItem: '<?php echo $cart_items_key ?>',
                 fileName: file
             },
-            success: function (result) {
+            success: function(result) {
                 $("#" + imageId).remove();
                 // Do something with the result
             }
@@ -439,26 +446,26 @@ if ($cart_items_key) {
 </script>
 
 <script>
-    $(document).ready(function ()
+    $(document).ready(function()
     {
         var settings = {
             url: jssite_url + "carts/fileUpload",
             dragDrop: true,
             showDone: false,
             fileName: "myfile",
-            allowedTypes: "jpg,png,gif",
+            allowedTypes: "jpg,png,gif,pdf,eps,zip",
             returnType: "json",
-            onSuccess: function (files, data, xhr)
+            onSuccess: function(files, data, xhr)
             {
 //                alert((data));
             },
             showDelete: true,
-            deleteCallback: function (data, pd)
+            deleteCallback: function(data, pd)
             {
                 for (var i = 0; i < data.length; i++)
                 {
                     $.post(jssite_url + "carts/fileDelete", {op: "delete", name: data[i]},
-                    function (resp, textStatus, jqXHR)
+                    function(resp, textStatus, jqXHR)
                     {
                         //Show Message  
                         $("#status").append("<div>File Deleted</div>");

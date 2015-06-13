@@ -207,9 +207,9 @@ class CheckoutsController extends AppController {
             $this->loadModel('OrderItem');
             foreach ($shop['CartItems'] as $key => $value) {
                 if ($value['item_picture_upload']) {
-                    foreach ($value['item_picture_upload'] as $key => $value) {
-                        $oldname = CART_FILE_FOLDER . $value['item_picture_upload'];
-                        $newname = ORDER_FILE_FOLDER . $value['item_picture_upload'];
+                    foreach ($value['item_picture_upload'] as $key1 => $value1) {
+                        $oldname = CART_FILE_FOLDER . $value1;
+                        $newname = ORDER_FILE_FOLDER . $value1;
                         rename($oldname, $newname);
                     }
                 }
@@ -220,10 +220,8 @@ class CheckoutsController extends AppController {
                         'order_item_product_value' => MyClass::encodeJSON($value),
                     )
                 );
-
                 $this->OrderItem->saveAll($order_item);
             }
-
             $this->Session->setFlash('Your order placed successfully.', 'flash_success');
             $this->Session->delete('Shop');
             $this->redirect(array('controller' => 'orders', 'action' => 'index'));

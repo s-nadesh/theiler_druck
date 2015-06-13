@@ -45,6 +45,9 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                         <a title="<?php echo MyClass::translate("Remove this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
                                                             <i class="icon icon-times"></i>
                                                         </a>
+                                                        <a title="<?php echo __("Edit this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>product/<?php echo $product['Product']['product_slug']; ?>/<?php echo $key_encrypt ?>">
+                                                            <i class="icon icon-edit"></i>
+                                                        </a>
                                                     </td>
 
                                                     <td class="product-thumbnail">
@@ -80,8 +83,15 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                                 $i = 1;
                                                                 foreach ($value['item_picture_upload'] as $cartfile) {
                                                                     ?>
-                                                                    <div class="col-xs-3 col-sm-3 col-md-3">
-                                                                        <?php echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive')); ?>
+                                                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                                                        <?php
+                                                                        $is_image = MyClass::is_image(WWW_ROOT . CART_FILE_FOLDER . $cartfile);
+                                                                        if ($is_image) {
+                                                                            echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive'));
+                                                                        } else {
+                                                                            echo $this->Html->image('preview_not_available.jpg', array('class' => 'img-responsive'));
+                                                                        }
+                                                                        ?>
                                                                     </div>
                                                                     <?php
                                                                     if ($i / 4 == 1)

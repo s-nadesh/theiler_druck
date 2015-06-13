@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->Html->addCrumb(MyClass::translate("Orders"), array('controller' => 'orders', 'action' => 'index', 'admin' => true));
 $this->Html->addCrumb(MyClass::translate("View Order"));
 
@@ -117,6 +117,7 @@ if ($shipping_address->identical == 1) {
             <thead>
                 <tr>
                     <th><?php echo MyClass::translate("Product"); ?></th>
+                    <th><?php echo MyClass::translate("Pictures"); ?></th>
                     <th><?php echo MyClass::translate("Price"); ?></th>
                     <th><?php echo MyClass::translate("Quantity"); ?></th>
                     <th><?php echo MyClass::translate("Total"); ?></th>
@@ -145,6 +146,32 @@ if ($shipping_address->identical == 1) {
                                 echo MyClass::translate("Express Within 4 Days");
                             ?>
                             <br>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <?php if (!empty($order_item_detail->item_picture_upload)) { ?>
+                                    <?php
+                                    $i = 1;
+                                    foreach ($order_item_detail->item_picture_upload as $orderfile) {
+                                        ?>
+                                        <div class="col-xs-3 col-sm-3 col-md-3">
+                                            <?php
+                                            $is_image = MyClass::is_image(WWW_ROOT . ORDER_FILE_FOLDER . $orderfile);
+                                            if ($is_image) {
+                                                echo $this->Html->link($this->Html->image('/' . ORDER_FILE_FOLDER . $orderfile, array('class' => 'img-responsive')), array('controller' => 'orders', 'action' => 'fileDownload', $orderfile, 'admin' => false), array('escape' => false));
+                                            } else {
+                                                echo $this->Html->link($this->Html->image('preview_not_available.jpg', array('class' => 'img-responsive')), array('controller' => 'orders', 'action' => 'fileDownload', $orderfile, 'admin' => false), array('escape' => false));
+                                            }
+                                            ?>
+                                        </div>
+                                        <?php
+                                        if ($i / 4 == 1)
+                                            echo '</div><div class="clearfix"></div><div class="row">';
+                                        $i++;
+                                    }
+                                    ?>
+                                <?php } ?>
+                            </div>
                         </td>
                         <td><?php echo MyClass::currencyFormat($order_item_detail->item_price); ?></td>
                         <td><?php echo $order_item_detail->item_quantity; ?></td>

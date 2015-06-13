@@ -21,7 +21,7 @@ class OrdersController extends AppController {
             'order' => array('Order.created DESC'),
             'recursive' => 0
         ));
-        
+
         $this->set('title_for_layout', 'Orders');
         $this->set(compact('orders'));
     }
@@ -34,21 +34,21 @@ class OrdersController extends AppController {
         $order = $this->Order->find('first', array(
             'conditions' => array('Order.order_id' => $order_id)
         ));
-        
+
         $this->set('title_for_layout', 'Orders');
         $this->set(compact('order'));
     }
-    
-    public function admin_update_status(){
-        if($this->request->is('post')){
+
+    public function admin_update_status() {
+        if ($this->request->is('post')) {
             $update_order = array(
                 'Order' => array(
                     'order_id' => $this->data['Order']['order_id'],
                     'order_status' => $this->data['Order']['order_status'],
                 )
             );
-            
-            if($this->Order->save($update_order)){
+
+            if ($this->Order->save($update_order)) {
                 echo "Order status updated successfully";
             } else {
                 echo "Order status can not be updated";
@@ -56,30 +56,50 @@ class OrdersController extends AppController {
             exit;
         }
     }
-    
+
     //User orders manage page.
-    public function index(){
+    public function index() {
         $orders = $this->Order->find('all', array(
             'conditions' => array('Order.user_id' => $this->Auth->user('user_id')),
             'recursive' => 0,
             'order' => array('Order.created DESC')
         ));
-        
+
         $this->set(compact('orders'));
     }
-    
+
     //User view single order page.
-    public function view($order_unique_id){
+    public function view($order_unique_id) {
         $order = $this->Order->find('first', array(
             'conditions' => array('Order.user_id' => $this->Auth->user('user_id'), 'Order.order_unique_id' => $order_unique_id),
         ));
-        
-        if(empty($order)){
+
+        if (empty($order)) {
             $this->Session->setFlash('Invalid Order', 'flash_error');
             $this->redirect('index');
         }
-        
-        $this->set(compact('order')); 
+
+        $this->set(compact('order'));
+    }
+
+    public function fileDownload($file) {
+        $this->autoRender = false;
+        if (file_exists(WWW_ROOT . ORDER_FILE_FOLDER . $file)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . basename($file));
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize(WWW_ROOT . ORDER_FILE_FOLDER . $file));
+            ob_clean();
+            flush();
+            readfile(WWW_ROOT . ORDER_FILE_FOLDER . $file);
+            exit;
+        } else {
+            echo "File does not exists";
+        }
     }
 
 }

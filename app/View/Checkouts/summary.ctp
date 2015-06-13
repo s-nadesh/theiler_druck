@@ -198,15 +198,19 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content table-responsive">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-10">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
                                         <legend>  
-                                            <?php echo MyClass::translate("Your shopping cart contains the following products"); ?> 
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-10">
+                                                    <?php echo MyClass::translate("Your shopping cart contains the following products"); ?>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                                    <a href="<?php echo SITE_BASE_URL ?>carts" class="btn btn-lg btn-primary pull-right">
+                                                        <?php echo MyClass::translate("Edit cart"); ?>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </legend>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-2">
-                                        <a href="<?php echo SITE_BASE_URL ?>carts" class="btn btn-lg btn-primary pull-right">
-                                            <?php echo MyClass::translate("Edit cart"); ?>
-                                        </a>
                                     </div>
                                 </div>
 
@@ -227,6 +231,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                 <?php
                                                 $shop = $this->Session->read('Shop');
                                                 foreach ($shop['CartItems'] as $key => $value) {
+                                                    $key_encrypt = MyClass::refencryption($key);
                                                     $product = $this->requestAction('products/getProduct/' . $value['product_id']);
                                                     $paper_variant = $this->requestAction('paper_variants/getPaperVariant/' . $value['paper_id']);
                                                     ?>
@@ -236,7 +241,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                         </td>
                                                         <td class="product-name">
                                                             <?php
-                                                            echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', 'slug' => $product['Product']['product_slug']));
+                                                             echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', $product['Product']['product_slug'], $key_encrypt));
                                                             ?>
                                                             <div class="hidden-xs hidden-sm hidden-md">
                                                                 <?php
@@ -263,8 +268,15 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                                     $i = 1;
                                                                     foreach ($value['item_picture_upload'] as $cartfile) {
                                                                         ?>
-                                                                        <div class="col-xs-3 col-sm-3 col-md-3">
-                                                                            <?php echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive')); ?>
+                                                                        <div class="col-xs-4 col-sm-4 col-md-4">
+                                                                            <?php
+                                                                            $is_image = MyClass::is_image(WWW_ROOT . CART_FILE_FOLDER . $cartfile);
+                                                                            if ($is_image) {
+                                                                                echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive'));
+                                                                            } else {
+                                                                                echo $this->Html->image('preview_not_available.jpg', array('class' => 'img-responsive'));
+                                                                            }
+                                                                            ?>
                                                                         </div>
                                                                         <?php
                                                                         if ($i / 4 == 1)

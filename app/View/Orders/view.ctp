@@ -142,7 +142,7 @@ if ($shipping_address->identical == 1) {
                 <div class="row">
                     <div class="col-md-12">
                         <div class="featured-box featured-box-secundary default info-content">
-                            <div class="box-content">
+                            <div class="box-content table-responsive">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <legend>  
@@ -153,11 +153,12 @@ if ($shipping_address->identical == 1) {
 
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <table cellspacing="0" class="shop_table cart">
+                                        <table cellspacing="0" class="table shop_table cart">
                                             <thead>
                                                 <tr>
                                                     <th class="product-thumbnail"> &nbsp; </th>
                                                     <th class="product-name "> <?php echo MyClass::translate("Product"); ?> </th>
+                                                    <th class="product-name "> <?php echo MyClass::translate("Pictures"); ?> </th>
                                                     <th class="product-price center"> <?php echo MyClass::translate("Price"); ?> </th>
                                                     <th class="product-quantity center"> <?php echo MyClass::translate("Quantity"); ?> </th>
                                                     <th class="product-subtotal center" align='right'> <?php echo MyClass::translate("Total"); ?> </th>
@@ -173,6 +174,7 @@ if ($shipping_address->identical == 1) {
                                                         <td class="product-thumbnail">
                                                             <?php echo $this->Html->image('/' . PRODUCT_IMAGE_RESIZE_FOLDER . $order_item->product_image, array("class" => "img-responsive")); ?>
                                                         </td>
+
                                                         <td class="product-name">
                                                             <?php echo $order_item->product_name; ?>
                                                             <div class="hidden-xs hidden-sm hidden-md">
@@ -193,6 +195,33 @@ if ($shipping_address->identical == 1) {
                                                             </div> 
                                                         </td>
 
+                                                        <td class="product-picture">
+                                                            <div class="row">
+                                                                <?php if (!empty($order_item->item_picture_upload)) { ?>
+                                                                    <?php
+                                                                    $i = 1;
+                                                                    foreach ($order_item->item_picture_upload as $orderfile) {
+                                                                        ?>
+                                                                        <div class="col-xs-4 col-sm-4 col-md-4">
+                                                                            <?php
+                                                                            $is_image = MyClass::is_image(WWW_ROOT . ORDER_FILE_FOLDER . $orderfile);
+                                                                            if ($is_image) {
+                                                                                echo $this->Html->link($this->Html->image('/' . ORDER_FILE_FOLDER . $orderfile, array('class' => 'img-responsive')), array('controller' => 'orders', 'action' => 'fileDownload', $orderfile), array('escape' => false)); 
+                                                                            } else {
+                                                                                echo $this->Html->link($this->Html->image('preview_not_available.jpg', array('class' => 'img-responsive')), array('controller' => 'orders', 'action' => 'fileDownload', $orderfile), array('escape' => false)); 
+                                                                            }
+                                                                            ?>
+                                                                        </div>
+                                                                        <?php
+                                                                        if ($i / 4 == 1)
+                                                                            echo '</div><div class="clearfix"></div><div class="row">';
+                                                                        $i++;
+                                                                    }
+                                                                    ?>
+                                                                <?php } ?>
+                                                            </div>
+                                                        </td>
+
                                                         <td class="product-price center">
                                                             <span class="amount"><?php echo MyClass::currencyFormat($order_item->item_price); ?></span>
                                                         </td>
@@ -209,7 +238,7 @@ if ($shipping_address->identical == 1) {
                                                     </tr>
                                                 <?php } ?>
                                                 <tr class="summary_shipping_cost">
-                                                    <td colspan="4">
+                                                    <td colspan="5">
                                                         <?php echo MyClass::translate("Shipping Cost"); ?>
                                                     </td>
                                                     <td align='right'>
@@ -222,13 +251,13 @@ if ($shipping_address->identical == 1) {
                                                 if ($additional_charge > 0) {
                                                     ?>
                                                     <tr class="summary_shipping_cost">
-                                                        <td colspan="4"> <?php echo MyClass::translate("Additional Services"); ?> </td>
+                                                        <td colspan="5"> <?php echo MyClass::translate("Additional Services"); ?> </td>
                                                         <td align="right"> <?php echo MyClass::currencyFormat($additional_charge) ?> </td>
                                                     </tr>
                                                 <?php } ?>
 
                                                 <tr class="summary_shipping_cost">
-                                                    <td colspan="4">
+                                                    <td colspan="5">
                                                         <?php echo MyClass::translate("Total Net"); ?><br>
                                                         <span class="summary_vat"><?php echo MyClass::translate("incl. 8% VAT."); ?></span>
                                                     </td>
@@ -240,7 +269,7 @@ if ($shipping_address->identical == 1) {
                                                     </td>
                                                 </tr>
                                                 <tr class="summary_total_gross">
-                                                    <td colspan="4">
+                                                    <td colspan="5">
                                                         <?php echo MyClass::translate("Total Gross"); ?>
                                                     </td>
                                                     <td align='right'>
