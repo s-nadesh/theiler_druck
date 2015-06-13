@@ -259,16 +259,10 @@ $(document).ready(function () {
 
     //Admin Contact Address
     if ($('.contact-address').length > 0) {
-        $('.contact-address #ContactAddressContAddrEmail').rules("add", {
+        $('.contact-address  .email').rules("add", {
             email: true,
         });
-        $('.contact-address #ContactAddressContAddrEmail2').rules("add", {
-            email: true,
-        });
-        $('.contact-address #ContactAddressContAddrEmail3').rules("add", {
-            email: true,
-        });
-        $('.contact-address #ContactAddressContAddrWebsite').rules("add", {
+        $('.contact-address .url').rules("add", {
             url: true,
         });
     }

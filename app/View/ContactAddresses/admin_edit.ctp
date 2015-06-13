@@ -60,7 +60,7 @@ $this->Html->addCrumb(__('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_addr_email', array('class' => 'required form-control', 'label' => false));
+                            echo $this->Form->input('cont_addr_email', array('class' => 'required form-control email', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ $this->Html->addCrumb(__('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_addr_email_2', array('class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('cont_addr_email_2', array('class' => 'form-control email', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ $this->Html->addCrumb(__('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_addr_email_3', array('class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('cont_addr_email_3', array('class' => 'form-control email', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -126,7 +126,40 @@ $this->Html->addCrumb(__('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('cont_addr_website', array('class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('cont_addr_website', array('class' => 'form-control url', 'label' => false));
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            <?php echo __('Facebook'); ?>: 
+                        </label>
+                        <div class="col-sm-10">
+                            <?php
+                            echo $this->Form->input('cont_addr_facebook', array('class' => 'form-control url', 'label' => false));
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            <?php echo __('Twitter'); ?>: 
+                        </label>
+                        <div class="col-sm-10">
+                            <?php
+                            echo $this->Form->input('cont_addr_twitter', array('class' => 'form-control url', 'label' => false));
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            <?php echo __('Linkedin'); ?>: 
+                        </label>
+                        <div class="col-sm-10">
+                            <?php
+                            echo $this->Form->input('cont_addr_linkedin', array('class' => 'form-control url', 'label' => false));
                             ?>
                         </div>
                     </div>

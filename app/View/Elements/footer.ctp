@@ -44,9 +44,9 @@
                     <h5>Folge uns </h5>     
                     <div class="social-icons">
                         <ul class="social-icons">
-                            <li class="facebook"><a title="" rel="tooltip" data-placement="top" target="_blank" href="http://www.facebook.com/" data-original-title="Facebook">Facebook</a></li>
-                            <li class="twitter"><a title="" rel="tooltip" data-placement="top" target="_blank" href="http://www.twitter.com/" data-original-title="Twitter">Twitter</a></li>
-                            <li class="linkedin"><a title="" rel="tooltip" data-placement="top" target="_blank" href="http://www.linkedin.com/" data-original-title="Linkedin">Linkedin</a></li>
+                            <li class="facebook"><a title="" rel="tooltip" data-placement="top" target="_blank" href="<?php echo $contact_address['ContactAddress']['cont_addr_facebook'];?>" data-original-title="<?php echo __('Facebook') ?>"><?php echo __('Facebook') ?></a></li>
+                            <li class="twitter"><a title="" rel="tooltip" data-placement="top" target="_blank" href="<?php echo $contact_address['ContactAddress']['cont_addr_twitter'];?>" data-original-title="<?php echo __('Twitter') ?>"><?php echo __('Twitter') ?></a></li>
+                            <li class="linkedin"><a title="" rel="tooltip" data-placement="top" target="_blank" href="<?php echo $contact_address['ContactAddress']['cont_addr_linkedin'];?>" data-original-title="<?php echo __('Linkedin') ?>"><?php echo __('Linkedin') ?></a></li>
                         </ul>
                         
                     
