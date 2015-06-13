@@ -13,11 +13,11 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
             <small><?php echo MyClass::translate("Manage Users"); ?></small>
         </div>
         <a href="#"><i class="icon-users"></i></a>
-        <span class="bottom-info bg-danger"><?php echo count($users) ?> users</span>
+        <span class="bottom-info bg-danger"><?php echo count($users) ?> <?php echo __('users') ?></span>
     </li>
     <li class="bg-warning">
         <div class="top-info">
-            <a href="#"><?php echo __('Orders history') ?></a>
+            <?php echo $this->Html->link(__('Orders history'), array('controller' => 'orders', 'action' => 'index')); ?>
             <small><?php echo __('Purchases statistics') ?></small>
         </div>
         <a href="#"><i class="icon-cart2"></i></a>
@@ -25,7 +25,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
     </li>
     <li class="bg-success">
         <div class="top-info">
-            <a href="#"><?php echo MyClass::translate("Products"); ?></a>
+            <?php echo $this->Html->link(MyClass::translate("Products"), array('controller' => 'products', 'action' => 'index')); ?>
             <small><?php echo MyClass::translate("Manage Products"); ?></small>
         </div>
         <a href="#"><i class="icon-paragraph-justify2"></i></a>
