@@ -160,7 +160,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="submit" value="<?php echo MyClass::translate("Update Totals"); ?>" class="btn btn-default pull-right push-bottom">
+                                            <input type="submit" value="<?php echo MyClass::translate("Calculate shipping costs"); ?>" class="btn btn-default pull-right push-bottom">
                                         </div>
                                     </div>
                                 </div>
