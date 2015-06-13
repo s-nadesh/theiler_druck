@@ -30,7 +30,7 @@
                 </div>  
                 <div class="col-xs-12 col-sm-3 col-md-3">   
                     <h5><?php echo __('Contact') ?> </h5>  
-                    <?php $contact_address = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'DF'));;?>
+                    <?php $contact_address = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'DF'));?>
                     <ul> 
                         <li> <img src="<?php echo SITE_BASE_URL ?>img/theilerlogo16x16.png"  alt="" /> &nbsp;<?php echo $contact_address['ContactAddress']['cont_addr_company'];?> </li>
                         <li> <img src="<?php echo SITE_BASE_URL ?>img/map.png"  alt="" /> &nbsp;<?php echo $contact_address['ContactAddress']['cont_addr_address_1'];?></li>

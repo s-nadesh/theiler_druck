@@ -227,7 +227,7 @@ class CheckoutsController extends AppController {
             $filename = "files/invoices/{$order['Order']['order_unique_id']}.pdf";
             $Email = new CakeEmail(MAILSENDBY);
             $Email->from(
-                    array($admin['Admin']['admin_email']))
+                    array(FROM_EMAIL))
                     ->template('invoice', 'email_layout')
                     ->emailFormat('html')
                     ->to($this->Auth->user('user_email'))

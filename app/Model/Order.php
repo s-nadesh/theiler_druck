@@ -5,7 +5,7 @@ class Order extends AppModel {
     public $name = 'Order';
     public $primaryKey = 'order_id';
     public $virtualFields = array(
-        'order_filename' => "CONCAT(order_unique_id, '.pdf ')",
+        'order_filename' => "CONCAT(order_unique_id, '.pdf')",
     );
     
     public $hasMany = array(
