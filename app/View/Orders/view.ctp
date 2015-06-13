@@ -57,7 +57,7 @@ if ($shipping_address->identical == 1) {
                                             <strong><?php echo MyClass::translate("Order #"); ?>: </strong>  
                                             <?php echo $order['Order']['order_unique_id']; ?><br>
                                             <strong><?php echo MyClass::translate("Order Date"); ?>: </strong> 
-                                            <?php echo $order['Order']['created']; ?><br>
+                                            <?php echo date(PHP_DATE_FORMAT, strtotime($order['Order']['created'])); ?><br>
                                             <strong><?php echo MyClass::translate("Order Status"); ?>: </strong> 
                                             <?php echo MyClass::orderStatus($order['Order']['order_status']); ?><br>
                                             <span class="summary_total_gross"><?php echo MyClass::translate("Total Amount"); ?>:

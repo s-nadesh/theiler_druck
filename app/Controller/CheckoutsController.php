@@ -222,6 +222,21 @@ class CheckoutsController extends AppController {
                 );
                 $this->OrderItem->saveAll($order_item);
             }
+            $this->requestAction(array('controller' => 'orders', 'action' => 'orderpdf', $order_id, 'F'), array('return', 'bare' => false));
+            $admin = $this->requestAction(array('controller' => 'admins', 'action' => 'getAdmin'));
+            $filename = "files/invoices/{$order['Order']['order_unique_id']}.pdf";
+            $Email = new CakeEmail(MAILSENDBY);
+            $Email->from(
+                    array($admin['Admin']['admin_email']))
+                    ->template('invoice', 'email_layout')
+                    ->emailFormat('html')
+                    ->to($this->Auth->user('user_email'))
+                    ->attachments($filename)
+                    ->subject(__('Invoice').': ' . $order['Order']['order_unique_id'])
+                    ->viewVars(array(
+                        'order_id' => $order_id,
+                    ))
+                    ->send();
             $this->Session->setFlash('Your order placed successfully.', 'flash_success');
             $this->Session->delete('Shop');
             $this->redirect(array('controller' => 'orders', 'action' => 'index'));

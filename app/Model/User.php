@@ -14,6 +14,10 @@ class User extends AppModel {
             'message' => 'Old password not matched'
         ),
     );
+    public $virtualFields = array(
+        'fullname' => "CONCAT(user_name, ' ', user_lastname)",
+    );
+    
     public $hasMany = array(
         'UserAddress' => array(
             'className' => 'UserAddress',

@@ -1,9 +1,9 @@
 <?php $this->Html->addCrumb(MyClass::translate('Dashboard')); ?>
 <!-- Info blocks -->
 <?php
-$users = ClassRegistry::init('User')->find('all', array('order' => array('created DESC')));
-$orders = ClassRegistry::init('Order')->find('all', array('order' => array('created DESC')));
-$products = ClassRegistry::init('Product')->find('all', array('order' => array('product_name ASC')));
+$users = ClassRegistry::init('User')->find('all', array('order' => array('User.created DESC')));
+$orders = ClassRegistry::init('Order')->find('all', array('order' => array('Order.created DESC')));
+$products = ClassRegistry::init('Product')->find('all', array('order' => array('Product.product_name ASC')));
 $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' => array('ProductQuestion.created DESC'), 'limit' => '10'));
 ?>
 <ul class="info-blocks">

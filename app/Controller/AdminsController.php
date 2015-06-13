@@ -85,7 +85,7 @@ class AdminsController extends AppController {
                 $this->request->data['Admin']['admin_profile_image'] = $this->request->data['Admin']['profile_old_image'];
                 unset($this->request->data['Admin']['profile_old_image']);
             }
-
+            
             if ($this->Admin->save($this->request->data)) {
                 $this->Session->write('Admin.name', $this->request->data['Admin']['admin_name']);
                 $this->Session->write('Admin.email', $this->request->data['Admin']['admin_email']);
@@ -156,6 +156,10 @@ class AdminsController extends AppController {
                 $this->Session->setFlash(__("This email address is not exists."), 'flash_error');
             }
         }
+    }
+    
+    public function getAdmin() {
+        return $this->Admin->findByAdminId(ADMIN_ID); 
     }
 
 }

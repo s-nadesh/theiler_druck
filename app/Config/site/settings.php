@@ -70,3 +70,5 @@ define('EXPRESS_WITHIN_4_DAYS', 450);
 
 define('PAGE_IMAGE_FOLDER', 'files/pages/');
 define('CONTACT_PERSON_IMAGE_FOLDER', 'files/contact_persons/');
+
+define('ADMIN_ID', '1');
