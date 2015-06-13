@@ -2,6 +2,7 @@
 
 class OrdersController extends AppController {
 
+    public $components = array('Mpdf');
     public $name = 'Orders';
 
     //This function will run before every action
@@ -82,6 +83,23 @@ class OrdersController extends AppController {
         $this->set(compact('order'));
     }
 
+    public function orderpdf($order_id = NULL, $output = 'D') {
+        $userid = $this->Auth->user('user_id');
+        $this->layout = '';
+        $order = $this->Order->find('first', array('conditions' => array('order_id' => $order_id)));
+        if ($userid == $order['Order']['user_id']) {
+            $this->set(compact('order'));
+            $filename = $order['Order']['order_filename'];
+            $this->Mpdf->init(array('en-GB-x', 'A4', '', '', 10, 10, 10, 10, 6, 3));
+            $filepath = 'files/invoices/' . $filename;
+            $this->Mpdf->setFilename($filepath);
+            $this->Mpdf->setOutput($output);
+        } else {
+            $this->Session->setFlash("<div class='error msg'>" . __('Access denied.') . "</div>");
+            $this->redirect(array('controller' => 'orders', 'action' => 'index'));
+        }
+    }
+    
     public function fileDownload($file) {
         $this->autoRender = false;
         if (file_exists(WWW_ROOT . ORDER_FILE_FOLDER . $file)) {
