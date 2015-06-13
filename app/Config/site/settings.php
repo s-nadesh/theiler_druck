@@ -73,4 +73,5 @@ define('CONTACT_PERSON_IMAGE_FOLDER', 'files/contact_persons/');
 
 define('ADMIN_ID', '1');
 define('FROM_EMAIL', 'info@theilerdruck.ch');
+define('EMAILHEADERIMAGE', 'img/theilerdrucklogo.png');
             

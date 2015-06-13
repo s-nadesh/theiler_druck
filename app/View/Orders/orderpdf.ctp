@@ -78,6 +78,11 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                                 <td>:</td>
                                 <td><?php echo $payment_method->name; ?></td>
                             </tr>
+                            <tr>
+                                <td><?php echo MyClass::translate("Total Amount"); ?></td>
+                                <td>:</td>
+                                <td><?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?></td>
+                            </tr>
                         </tbody>
                     </table>
                 </td>

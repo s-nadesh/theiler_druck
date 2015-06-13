@@ -147,7 +147,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                     <span class="pull-right"> * <?php echo MyClass::translate("required fields"); ?></span>
                                 </legend> 
 
-                                <div id="payment-method-error"></div>
+                                <div id="payment-method-error" class="clearfix"></div>
 
                                 <?php
                                 $payment_methods = MyClass::paymentMethods();
