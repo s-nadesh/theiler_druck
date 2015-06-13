@@ -52,7 +52,6 @@ if ($cart_items_key) {
 ?>
 <div role="main" class="main shop">
     <div class="container">
-        <hr class="tall">
         <div class="row">
             <div class="col-md-6">
                 <div class="thumbnail">
@@ -172,6 +171,12 @@ if ($cart_items_key) {
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
                             <span class="price" style="font-size: 24px">
                                 <?php echo MyClass::translate("Price"); ?>: <span id="product-price"></span>
+                            </span><br>
+                            <span>
+                                <?php echo MyClass::translate("incl. 8% VAT."); ?>
+                            </span><br>
+                            <span>
+                                zzgl. <a href="#">Versandkosten</a>
                             </span>
                         </div>
                     </div>
