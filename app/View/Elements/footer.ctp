@@ -29,7 +29,7 @@
                     </ul>
                 </div>  
                 <div class="col-xs-12 col-sm-3 col-md-3">   
-                    <h5><?php echo __('Contact') ?> </h5>  
+                    <h5>Kontakt</h5>  
                     <?php $contact_address = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'DF'));?>
                     <ul> 
                         <li> <img src="<?php echo SITE_BASE_URL ?>img/theilerlogo16x16.png"  alt="" /> &nbsp;<?php echo $contact_address['ContactAddress']['cont_addr_company'];?> </li>
@@ -41,16 +41,16 @@
                     </ul>
                 </div>   
                 <div class="col-xs-12 col-sm-3 col-md-3">   
-                    <h5>Folge uns </h5>     
+                    <h5>Anfahrt </h5>     
                     <div class="social-icons">
-                        <ul class="social-icons">
+<!--                        <ul class="social-icons">
                             <li class="facebook"><a title="" rel="tooltip" data-placement="top" target="_blank" href="<?php echo $contact_address['ContactAddress']['cont_addr_facebook'];?>" data-original-title="<?php echo __('Facebook') ?>"><?php echo __('Facebook') ?></a></li>
                             <li class="twitter"><a title="" rel="tooltip" data-placement="top" target="_blank" href="<?php echo $contact_address['ContactAddress']['cont_addr_twitter'];?>" data-original-title="<?php echo __('Twitter') ?>"><?php echo __('Twitter') ?></a></li>
                             <li class="linkedin"><a title="" rel="tooltip" data-placement="top" target="_blank" href="<?php echo $contact_address['ContactAddress']['cont_addr_linkedin'];?>" data-original-title="<?php echo __('Linkedin') ?>"><?php echo __('Linkedin') ?></a></li>
-                        </ul>
+                        </ul>-->
                         
                     
-                       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10844.698199828279!2d8.72116!3d47.193596!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe94d76d6c439cb2e!2sTheiler+Druck+AG!5e0!3m2!1sen!2sin!4v1433915187228" width="100%" height="120" frameborder="0" style="border:0; margin-top:10px"></iframe>
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10844.698199828279!2d8.72116!3d47.193596!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe94d76d6c439cb2e!2sTheiler+Druck+AG!5e0!3m2!1sen!2sin!4v1433915187228" width="100%" height="152" frameborder="0" style="border:0; margin-top:10px"></iframe>
                     </div>
                 </div>
             </div>

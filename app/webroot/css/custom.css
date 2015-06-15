@@ -893,7 +893,7 @@ div.featured-boxes.login {
 .newfooter2
 {
 	background:#fcfcfc;
-	padding:25px 0px 0px 0px;
+	padding:25px 0px 20px 0px;
 }
 
 .newfooter2 h5 {
@@ -967,16 +967,13 @@ margin-right:10px;
 {
 	width:auto;
 	float:left;
-	line-height:40px;
+	line-height:43px;
 }
 
 .new-carttxt a
 {
 	color:#2e2e2e;
 }
-
-
-
 
 .phone > span {
   font-size: 16px !important;
@@ -1032,7 +1029,7 @@ margin-right:10px;
 
 .new-carttxt a
 {
-	color:#000000 !important;
+	color:#0088cc !important;
 }
 
 .new-carttxt a:hover

@@ -12,6 +12,12 @@ class AdminsController extends AppController {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
+
+        $admin_normal_actions = array('admin_login', 'admin_forgot_password');
+        if (in_array($this->action, $admin_normal_actions)) {
+            if ($this->Session->check('Admin.id'))
+                $this->goAdminHome();
+        }
         $this->set('admin_menu', 'admins');
     }
 
@@ -70,7 +76,7 @@ class AdminsController extends AppController {
                 if (!empty($this->data['Admin']['profile_old_image'])) {
                     //Remove Old Image in Folder
                     MyClass::fileDelete(PROFILE_IMAGE_FOLDER . $this->request->data['Admin']['profile_old_image']);
-                    MyClass::fileDelete(PROFILE_IMAGE_RESIZE_FOLDER. $this->request->data['Admin']['profile_old_image']);
+                    MyClass::fileDelete(PROFILE_IMAGE_RESIZE_FOLDER . $this->request->data['Admin']['profile_old_image']);
                     unset($this->request->data['Admin']['profile_old_image']);
                 }
 
@@ -85,7 +91,7 @@ class AdminsController extends AppController {
                 $this->request->data['Admin']['admin_profile_image'] = $this->request->data['Admin']['profile_old_image'];
                 unset($this->request->data['Admin']['profile_old_image']);
             }
-            
+
             if ($this->Admin->save($this->request->data)) {
                 $this->Session->write('Admin.name', $this->request->data['Admin']['admin_name']);
                 $this->Session->write('Admin.email', $this->request->data['Admin']['admin_email']);
@@ -95,12 +101,6 @@ class AdminsController extends AppController {
             }
         }
         $this->data = $this->Admin->findByAdminId($this->Session->read('Admin.id'));
-    }
-
-    public function profileImageResize($file_name) {
-        $this->Image->prepare(WWW_ROOT . DS . PROFILE_IMAGE_FOLDER . $file_name);
-        $this->Image->resize(300, 300); //width,height,Red,Green,Blue
-        $this->Image->save(WWW_ROOT . DS . PROFILE_IMAGE_RESIZE_FOLDER . $file_name);
     }
 
     //Admin Change Password
@@ -121,10 +121,6 @@ class AdminsController extends AppController {
                 }
             }
         }
-    }
-
-    function get_profile_pic() {
-        return $this->Admin->findByAdminId($this->Session->read('Admin.id'));
     }
 
     //Admin Forgpt Password
@@ -157,9 +153,19 @@ class AdminsController extends AppController {
             }
         }
     }
-    
+
     public function getAdmin() {
-        return $this->Admin->findByAdminId(ADMIN_ID); 
+        return $this->Admin->findByAdminId(ADMIN_ID);
+    }
+
+    public function get_profile_pic() {
+        return $this->Admin->findByAdminId($this->Session->read('Admin.id'));
+    }
+
+    public function profileImageResize($file_name) {
+        $this->Image->prepare(WWW_ROOT . DS . PROFILE_IMAGE_FOLDER . $file_name);
+        $this->Image->resize(300, 300); //width,height,Red,Green,Blue
+        $this->Image->save(WWW_ROOT . DS . PROFILE_IMAGE_RESIZE_FOLDER . $file_name);
     }
 
 }

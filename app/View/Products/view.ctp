@@ -213,7 +213,7 @@ if ($cart_items_key) {
                                     }
                                     ?>
                                 </div>
-<?php } ?>
+                            <?php } ?>
                             <div id="status"></div>
                         </div>
                     </div>
@@ -256,20 +256,20 @@ if ($cart_items_key) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <?php echo $this->Form->create('ProductQuestion', array('class' => 'ask_a_question', 'action' => 'add')); ?>
-<?php echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id'])); ?>
+                                    <?php echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id'])); ?>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-4">
                                                 <label><?php echo MyClass::translate("Your name"); ?>*</label>
-<?php echo $this->Form->input('question_name', array('class' => 'form-control', 'label' => false)); ?>
+                                                <?php echo $this->Form->input('question_name', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                             <div class="col-md-4">
                                                 <label><?php echo MyClass::translate("Your email address"); ?> *</label>
-<?php echo $this->Form->input('question_email', array('class' => 'form-control', 'label' => false)); ?>
+                                                <?php echo $this->Form->input('question_email', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                             <div class="col-md-4">
                                                 <label><?php echo MyClass::translate("Your phone"); ?></label>
-<?php echo $this->Form->input('question_phone', array('class' => 'form-control', 'label' => false)); ?>
+                                                <?php echo $this->Form->input('question_phone', array('class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -277,7 +277,7 @@ if ($cart_items_key) {
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <label><?php echo MyClass::translate("Question") ?> *</label>
-<?php echo $this->Form->input('question_content', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
+                                                <?php echo $this->Form->input('question_content', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -291,10 +291,10 @@ if ($cart_items_key) {
                                                         <img src="<?php echo SITE_BASE_URL ?>product_questions/getCaptcha" alt="" id="captcha" />
                                                     </div>
                                                     <div class="col-md-2">
-<?php echo $this->Form->input('captcha', array('class' => 'form-control', 'label' => false)); ?>
+                                                        <?php echo $this->Form->input('captcha', array('class' => 'form-control', 'label' => false)); ?>
                                                     </div>
                                                     <div class="col-md-8">
-<?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "id" => "refresh")); ?>
+                                                        <?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "id" => "refresh")); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,7 +304,7 @@ if ($cart_items_key) {
                                     <div class="row">
                                         <div class="col-md-12">
                                             <?php echo $this->Form->submit(MyClass::translate("Submit"), array('class' => 'btn btn-primary btn-lg', 'div' => false, 'id' => 'ask_submit')); ?>
-<?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'ask-ajax-loader', 'style' => 'margin: 10px 15px;')); ?>
+                                            <?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'ask-ajax-loader', 'style' => 'margin: 10px 15px;')); ?>
                                         </div>
                                     </div>
 
@@ -318,7 +318,7 @@ if ($cart_items_key) {
                                         </div>
                                     </div>
 
-<?php echo $this->Form->end(); ?>
+                                    <?php echo $this->Form->end(); ?>
                                 </div>
                             </div>
                         </div>
@@ -420,7 +420,36 @@ if ($cart_items_key) {
         var good_for_print = $('input:radio[name="data[Cart][good_for_print_on_paper]"]:checked').val();
         var express = $('input:radio[name="data[Cart][express_within_4_days]"]:checked').val();
         var total = parseFloat(good_for_print) + parseFloat(express) + parseFloat(result);
-        $("#product-price").html(total + "CHF");
+        var final_total = number_format(total, 2, ',' , '.');
+        $("#product-price").html(final_total + " CHF");
+    }
+
+    function number_format(number, decimals, dec_point, thousands_sep) {
+        number = (number + '')
+                .replace(/[^0-9+\-Ee.]/g, '');
+        var n = !isFinite(+number) ? 0 : +number,
+                prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+                sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+                dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+                s = '',
+                toFixedFix = function(n, prec) {
+                    var k = Math.pow(10, prec);
+                    return '' + (Math.round(n * k) / k)
+                            .toFixed(prec);
+                };
+        // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+        s = (prec ? toFixedFix(n, prec) : '' + Math.round(n))
+                .split('.');
+        if (s[0].length > 3) {
+            s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+        }
+        if ((s[1] || '')
+                .length < prec) {
+            s[1] = s[1] || '';
+            s[1] += new Array(prec - s[1].length + 1)
+                    .join('0');
+        }
+        return s.join(dec);
     }
 
     function change_captcha()

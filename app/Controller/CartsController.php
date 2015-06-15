@@ -3,6 +3,10 @@
 class CartsController extends AppController {
 
     public $name = 'Carts';
+    
+    public function beforeFiler(){
+        parent::beforeFilter();
+    }
 
     //Cart index page.
     public function index() {
