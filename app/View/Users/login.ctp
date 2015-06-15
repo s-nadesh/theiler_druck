@@ -54,7 +54,10 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-4">
+                                                <?php echo $this->Html->link(__('Forgot Password ?'), array('controller' => 'users', 'action' => 'forgot_password')); ?>
+                                            </div>
+                                            <div class="col-md-8">
                                                 <input type="submit" class="btn btn-primary btn-lg pull-right push-bottom" value="<?php echo MyClass::translate('Login'); ?>">
                                             </div>
                                         </div>

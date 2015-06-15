@@ -85,10 +85,10 @@ class UsersController extends AppController {
                     )
                 );
 
-                if($this->User->save($change_password)){
+                if ($this->User->save($change_password)) {
                     $this->Session->setFlash(__('Password changed successfully'), 'flash_success');
                     $this->redirect('change_password');
-                }else{
+                } else {
                     $this->Session->setFlash(__('Old password not matched'), 'flash_error');
                 }
             } else {
@@ -103,8 +103,87 @@ class UsersController extends AppController {
         return $this->redirect($this->Auth->logout());
     }
 
-    public function admin_index() {
+    //User Forgot Password function.
+    public function forgot_password() {
+        if ($this->request->is('post')) {
+            $user = $this->User->find('first', array('conditions' => array('User.user_email' => $this->data['User']['user_email'])));
 
+            if (!empty($user)) {
+                $reset_link = MyClass::getRandomString(25);
+                $user_update = array(
+                    'User' => array(
+                        'user_id' => $user['User']['user_id'],
+                        'password_reset_token' => $reset_link,
+                        'modified' => date('Y-m-d H:i:s')
+                    )
+                );
+                $this->User->save($user_update);
+
+                $time_valid = date('Y-m-d H:i:s');
+                $resetlink = SITE_BASE_URL . 'users/reset_password/' . $reset_link . '/' . $user['User']['user_id'];
+
+                $Email = new CakeEmail(MAILSENDBY);
+                $Email->template('user_forgot_password', 'email_layout')
+                        ->emailFormat('html')
+                        ->to($this->data['User']['user_email'])
+                        ->subject('Reset Password Mail From - ' . SITE_NAME)
+                        ->from(FROM_EMAIL)
+                        ->viewVars(array(
+                            'name' => $user['User']['user_name'],
+                            'reset_link' => $resetlink,
+                            'time_valid' => $time_valid
+                        ))
+                        ->send();
+
+                $this->Session->setFlash(__('Your Password Reset Link sent to your email address.'), 'flash_success');
+                $this->redirect('login');
+            } else {
+                $this->Session->setFlash(__('This Email Address Not Exists'), 'flash_error');
+            }
+        }
+    }
+
+    public function reset_password($str, $id) {
+        $user = $this->User->findByUserId($id);
+
+        if (empty($user) || $user['User']['password_reset_token'] != $str) {
+            $this->Session->setFlash(__('Not a valid Reset link'), 'flash_error');
+            $this->redirect('login');
+        } else {
+            $start = strtotime($user['User']['modified']);
+            $end = strtotime(date('Y-m-d H:i:s'));
+            $seconds = $end - $start;
+            $days = floor($seconds / 86400);
+            $hours = floor(($seconds - ($days * 86400)) / 3600);
+            $minutes = floor(($seconds - ($days * 86400) - ($hours * 3600)) / 60);
+            
+            if ($minutes > 5) {
+                $this->Session->setFlash(__('This Reset Link Expired. Please Try again.'), 'flash_error');
+                $this->redirect('forgot_password');
+            }
+        }
+
+        if ($this->request->is('post')) {
+            $user_update = array(
+                'User' => array(
+                    'user_id' => $id,
+                    'user_password' => $this->data['User']['user_password'],
+                    'password_reset_token' => ''
+                )
+            );
+
+            $this->User->save($user_update);
+            $this->Session->setFlash(__('Your Password Changed Successfully.'), 'flash_success');
+            $this->redirect('login');
+        }
+    }
+
+    public function get_user($user_id) {
+        $user = $this->User->findByUserId($user_id);
+        return $user;
+    }
+
+    public function admin_index() {
         $users = $this->User->find('all', array(
             'order' => array('User.created DESC'),
             'recursive' => 0
@@ -152,11 +231,6 @@ class UsersController extends AppController {
         $this->loadModel('UserAddress');
         $addrs = $this->UserAddress->find('all', array('conditions' => array('UserAddress.user_id' => $id)));
         return $addrs;
-    }
-
-    public function get_user($user_id) {
-        $user = $this->User->findByUserId($user_id);
-        return $user;
     }
 
 }

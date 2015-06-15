@@ -310,6 +310,31 @@ $(document).ready(function() {
         },
     });
 
+    //Reset Password
+    $(".user_reset_password").validate({
+        rules: {
+            'data[User][user_password]': 'required',
+            'data[User][user_confirm_password]': {
+                required: true,
+                equalTo: "#UserUserPassword",
+            }
+        },
+        highlight: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-success")
+                    .addClass("has-error");
+        },
+        success: function(element) {
+            $(element)
+                    .parent()
+                    .removeClass("has-error")
+                    .addClass("has-success")
+                    .find("label.error")
+                    .remove();
+        },
+    });
+
     $(".popup_buttons").click(function() {
         window.location.href = $(this).data('popupredirect');
         return false;
