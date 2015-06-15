@@ -180,7 +180,7 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#52616E;">
                         <tr>
                             <td align="center"  style="padding:10px;">
-                                <?php echo $this->Html->image('theilerdrucklogo2.png', array("alt"=>SITE_NAME, "width"=>"240", 'height'=>"44")); ?>
+                                <img src="<?php echo SITE_BASE_URL?>img/theilerdrucklogo2.png" alt="<?php echo SITE_NAME?>" width="240" height="44" />
                             </td>
                         </tr>
                     </table>
