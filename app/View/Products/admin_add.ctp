@@ -28,6 +28,13 @@ echo $this->Form->create('Product', array(
                 <?php echo $this->Form->input('product_description', array('type' => 'textarea', 'class' => 'required form-control', 'label' => false)); ?>
             </div>
         </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('Aditional Information'); ?>: </label>
+            <div class="col-sm-10">
+                <?php echo $this->Form->input('product_additional_info', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
+            </div>
+        </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product SKU'); ?>: <span class="mandatory">*</span></label>
@@ -39,7 +46,7 @@ echo $this->Form->create('Product', array(
         <div class="form-group">
             <label class="col-sm-2 control-label"><?php echo MyClass::translate('Product Factor'); ?>: <span class="mandatory">*</span></label>
             <div class="col-sm-10">
-                <?php echo $this->Form->input('product_factor', array('type'=>'text', 'class' => 'required form-control', 'label' => false)); ?>
+                <?php echo $this->Form->input('product_factor', array('type' => 'text', 'class' => 'required form-control', 'label' => false)); ?>
             </div>
         </div>
 

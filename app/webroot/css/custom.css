@@ -1046,3 +1046,7 @@ margin-right:10px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   z-index: 1001;
 }
+
+.user_login_popupform .form-control{
+    padding:8px;
+}

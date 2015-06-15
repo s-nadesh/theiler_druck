@@ -16,7 +16,7 @@
                 <nav class="nav-main mega-menu shop-menu">
                     <ul class="nav nav-pills nav-main" id="mainMenu2">
                         <?php if (!$logged_in) { ?>
-                            <li class="dropdown btn btn-lg btn-primary login-btn mega-menu-item mega-menu-shop mega-menu-shop2">
+                            <li class="dropdown btn btn-lg btn-primary login-btn mega-menu-item mega-menu-shop mega-menu-shop2" id="headerAccount">
                                 <a class="dropdown-toggle mobile-redirect" href="<?php echo SITE_BASE_URL ?>users/login">
                                     <img src="<?php echo SITE_BASE_URL ?>img/key.png"  alt="" /> <?php echo MyClass::translate("Login"); ?>
                                 </a>

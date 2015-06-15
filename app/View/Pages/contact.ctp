@@ -135,11 +135,11 @@
                                                     <div class="col-xs-12 col-sm-9 col-md-10"> <p> <?php echo MyClass::translate('Do not hesitate to ask for a free quote. we will gladly make our offer .') ?>  </p>  </div>
                                                     <div class="col-xs-12 col-sm-2 col-md-2">   
                                                         <a href="javascript:void(0)" class="btn btn-primary  dropdown-toggle inquiry-toggle">
-                                                            <?php echo MyClass::translate('Hide Inquiry') ?> <i class="icon icon-angle-up"></i>
+                                                            <?php echo MyClass::translate('Show Inquiry') ?> <i class="icon icon-angle-up"></i>
                                                         </a>   
                                                     </div>
                                                     <?php echo $this->Form->create('Page', array('action' => 'inquiry_form')); ?>
-                                                    <div class="col-xs-12 col-sm-6 col-md-6 inquiry-form"> 
+                                                    <div class="col-xs-12 col-sm-6 col-md-6 inquiry-form" style="display: none"> 
                                                         <div class="form-group">
                                                             <div class="row"> 
                                                                 <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Company') ?>:</label> </div>
@@ -322,7 +322,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1  inquiry-form">
+                                                    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1  inquiry-form" style="display: none">
                                                         <div class="form-product">
                                                             <h2> <?php echo MyClass::translate('Paper') ?>:</h2>
                                                             <div class="row">
@@ -671,11 +671,12 @@
                         $(this).html('<?php echo MyClass::translate('Show Inquiry') ?> <i class="icon icon-angle-down"></i>');
                         _inq_block.find('.inquiry-form').fadeOut();
                     } else {
-                        $(this).html('<?php echo _('Hide Inquiry') ?> <i class="icon icon-angle-up"></i>');
+                        $(this).html('<?php echo __('Hide Inquiry') ?> <i class="icon icon-angle-up"></i>');
                         _inq_block.find('.inquiry-form').fadeIn();
                     }
                 });
             });
+            
             function change_captcha()
             {
                 $('img.captcha').attr('src', jssite_url + "pages/getCaptcha?rnd=" + Math.random());

@@ -231,24 +231,7 @@ if ($cart_items_key) {
                     <div class="tab-content">
 
                         <div class="tab-pane active" id="productInfo">
-                            <table class="table table-striped push-top">
-                                <tbody>
-                                    <tr>
-                                        <th><?php echo MyClass::translate('No of pages') ?></th>
-                                        <td><?php echo $no_of_pages; ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th><?php echo MyClass::translate('No of copies') ?></th>
-                                        <td><?php echo $no_of_copies; ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th><?php echo MyClass::translate('Paper Weight') ?></th>
-                                        <td><?php echo $papers; ?></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <p class="taller"> <?php echo MyClass::newLineBreak($product['Product']['product_additional_info']); ?> </p>
                         </div>
 
                         <div class="tab-pane" id="productQA">

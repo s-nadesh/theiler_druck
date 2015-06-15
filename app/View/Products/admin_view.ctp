@@ -19,6 +19,10 @@ $this->Html->addCrumb(MyClass::translate('View Product'));
                     <td><?php echo MyClass::newLineBreak($product['Product']['product_description']) ?></td>
                 </tr>
                 <tr>
+                    <th><?php echo MyClass::translate("Aditional Information"); ?></th>
+                    <td><?php echo MyClass::newLineBreak($product['Product']['product_additional_info']) ?></td>
+                </tr>
+                <tr>
                     <th><?php echo MyClass::translate("Product SKU"); ?></th>
                     <td><?php echo $product['Product']['product_sku'] ?></td>
                 </tr>
