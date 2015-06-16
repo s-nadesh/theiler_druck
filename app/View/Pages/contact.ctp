@@ -311,21 +311,21 @@
                                                                     <div class="row">
                                                                         <?php
                                                                         $formats_2 = array(
-                                                                            __('1-farbig schwarz'),
-                                                                            __('1/1-farbig schwarz'),
-                                                                            __('1-farbig bunt'),
-                                                                            __('1/1-farbig bunt'),
-                                                                            __('2-farbig'),
-                                                                            __('2/2-farbig'),
-                                                                            __('3-farbig'),
-                                                                            __('3/3-farbig'),
-                                                                            __('4-farbig bunt'),
-                                                                            __('4/4-farbig bunt'),
-                                                                            __('4-farbig Skala'),
-                                                                            __('4/4-farbig Skala'),
-                                                                            __('Drucklack')
+                                                                            '1-farbig schwarz',
+                                                                            '1/1-farbig schwarz',
+                                                                            '1-farbig bunt',
+                                                                            '1/1-farbig bunt',
+                                                                            '2-farbig',
+                                                                            '2/2-farbig',
+                                                                            '3-farbig',
+                                                                            '3/3-farbig',
+                                                                            '4-farbig bunt',
+                                                                            '4/4-farbig bunt',
+                                                                            '4-farbig Skala',
+                                                                            '4/4-farbig Skala',
+                                                                            'Drucklack'
                                                                         );
-                                                                        $formats_2_checked = __("1-fabrig bunt");
+                                                                        $formats_2_checked = "1-fabrig bunt";
                                                                         foreach ($formats_2 as $format) {
                                                                             ?>
                                                                             <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  
@@ -347,15 +347,15 @@
                                                                     <div class="row"> 
                                                                         <?php
                                                                         $papars = array(
-                                                                            __('Offset white'),
-                                                                            __('Offset color'),
-                                                                            __('Laser-Inkjet'),
-                                                                            __('chem. Paper'),
-                                                                            __('matt coated'),
-                                                                            __('glossy coated'),
-                                                                            __('Business card')
+                                                                            MyClass::translate('Offset white'),
+                                                                            MyClass::translate('Offset color'),
+                                                                            MyClass::translate('Laser-Inkjet'),
+                                                                            MyClass::translate('chem. Paper'),
+                                                                            MyClass::translate('matt coated'),
+                                                                            MyClass::translate('glossy coated'),
+                                                                            MyClass::translate('Business card')
                                                                         );
-                                                                        $papers_checked = __('chem. Paper');
+                                                                        $papers_checked = MyClass::translate('chem. Paper');
                                                                         foreach ($papars as $papar) {
                                                                             ?>
                                                                             <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  
@@ -416,18 +416,18 @@
                                                                     <div class="row">
                                                                         <?php
                                                                         $papars_2 = array(
-                                                                            __('wire stiched'),
-                                                                            __('eyelet ring'),
-                                                                            __('adhesive binding'),
-                                                                            __('thread stitched'),
-                                                                            __('folded'),
-                                                                            __('fluted'),
-                                                                            __('punched'),
-                                                                            __('perforated'),
-                                                                            __('slitted'),
-                                                                            __('numbered')
+                                                                            MyClass::translate('wire stiched'),
+                                                                            MyClass::translate('eyelet ring'),
+                                                                            MyClass::translate('adhesive binding'),
+                                                                            MyClass::translate('thread stitched'),
+                                                                            MyClass::translate('folded'),
+                                                                            MyClass::translate('fluted'),
+                                                                            MyClass::translate('punched'),
+                                                                            MyClass::translate('perforated'),
+                                                                            MyClass::translate('slitted'),
+                                                                            MyClass::translate('numbered')
                                                                         );
-                                                                        $papars_2_checked = array(__('wire stiched'));
+                                                                        $papars_2_checked = array(MyClass::translate('wire stiched'));
                                                                         foreach ($papars_2 as $papar) {
                                                                             echo '<div class="col-xs-6 col-sm-6 col-md-6 form-radio-option">';
                                                                             echo $this->Form->input('inquiry_paper_2', array('type' => 'checkbox', 'name' => 'data[Page][inquiry_paper_2][]', 'div' => false, 'label' => false, 'value' => $papar, 'checked' => in_array($papar, $papars_2_checked)));

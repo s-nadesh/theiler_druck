@@ -40,8 +40,8 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     <?php echo $contact_address['ContactAddress']['cont_addr_address_1']; ?><br>
                     <?php echo $contact_address['ContactAddress']['cont_addr_address_2']; ?><br>
                     Tel. <?php echo $contact_address['ContactAddress']['cont_addr_phone']; ?><br /> 
-                    <?php echo __('Fax') ?> <?php echo $contact_address['ContactAddress']['cont_addr_fax']; ?><br /> 
-                    <?php echo __('Email') ?> <?php echo $contact_address['ContactAddress']['cont_addr_email']; ?><br /> 
+                    <?php echo MyClass::translate('Fax') ?> <?php echo $contact_address['ContactAddress']['cont_addr_fax']; ?><br /> 
+                    <?php echo MyClass::translate('Email') ?> <?php echo $contact_address['ContactAddress']['cont_addr_email']; ?><br /> 
                 </td>
             </tr>
             <tr>
@@ -49,7 +49,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
             </tr>
             <tr>
                 <td align="center" colspan="3">
-                    <span style="font-size:18px; font-weight:bold;"><?php echo __('INVOICE') ?></span>
+                    <span style="font-size:18px; font-weight:bold;"><?php echo MyClass::translate('INVOICE') ?></span>
                 </td>
             </tr>
             <tr>
@@ -251,31 +251,31 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo __('Owner Name'); ?></td>
+                        <td align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate('Owner Name'); ?></td>
                         <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo $admin['Admin']['admin_owner_name']; ?></td>
                     </tr>
                     <tr>
-                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo __('Bank Name'); ?></td>
+                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate('Bank Name'); ?></td>
                         <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo $admin['Admin']['admin_bank_name']; ?></td>
                     </tr>
                     <tr>
-                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo __('Bank Account Number'); ?></td>
+                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate('Bank Account Number'); ?></td>
                         <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo $admin['Admin']['admin_bank_account_number']; ?></td>
                     </tr>
                     <tr>
-                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo __('BLZ'); ?></td>
+                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate('BLZ'); ?></td>
                         <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo $admin['Admin']['admin_blz']; ?></td>
                     </tr>
                     <tr>
-                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo __('BIC'); ?></td>
+                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate('BIC'); ?></td>
                         <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo $admin['Admin']['admin_bic']; ?></td>
                     </tr>
                     <tr>
-                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo __('IBAN'); ?></td>
+                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate('IBAN'); ?></td>
                         <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo $admin['Admin']['admin_iban']; ?></td>
                     </tr>
                     <tr>
-                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo __('Bank Information'); ?></td>
+                        <td  align="center" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate('Bank Information'); ?></td>
                         <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo $admin['Admin']['admin_bank_information']; ?></td>
                     </tr>
                 </tbody>

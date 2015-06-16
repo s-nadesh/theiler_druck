@@ -45,49 +45,49 @@ echo $this->Form->hidden('save_bankinfo', array('value' => '1'));
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('Owner Name'); ?> </label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('Owner Name'); ?> </label>
             <div class="col-sm-10">
                 <?php echo $this->Form->input('admin_owner_name', array('class' => 'form-control', 'label' => false)); ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('Bank Name'); ?> </label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('Bank Name'); ?> </label>
             <div class="col-sm-10">
                 <?php echo $this->Form->input('admin_bank_name', array('class' => 'form-control', 'label' => false)); ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('Bank Account Number'); ?> </label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('Bank Account Number'); ?> </label>
             <div class="col-sm-10">
                 <?php echo $this->Form->input('admin_bank_account_number', array('class' => 'form-control', 'label' => false)); ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('BLZ'); ?> </label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('BLZ'); ?> </label>
             <div class="col-sm-10">
                 <?php echo $this->Form->input('admin_blz', array('class' => 'form-control', 'label' => false)); ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('BIC'); ?> </label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('BIC'); ?> </label>
             <div class="col-sm-10">
                 <?php echo $this->Form->input('admin_bic', array('class' => 'form-control', 'label' => false)); ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('IBAN'); ?> </label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('IBAN'); ?> </label>
             <div class="col-sm-10">
                 <?php echo $this->Form->input('admin_iban', array('class' => 'form-control', 'label' => false)); ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label"><?php echo __('Bank Information'); ?> </label>
+            <label class="col-sm-2 control-label"><?php echo MyClass::translate('Bank Information'); ?> </label>
             <div class="col-sm-10">
                 <?php echo $this->Form->textarea('admin_bank_information', array('class' => 'form-control', 'label' => false)); ?>
             </div>

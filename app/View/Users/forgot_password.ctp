@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(__('Forgot Password')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Forgot Password')); ?>
 
 <div role="main" class="main">
     <?php echo $this->element("breadcrumbs"); ?>
@@ -23,7 +23,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input type="submit" class="btn btn-primary btn-lg pull-right push-bottom" value="<?php echo __('Submit'); ?>">
+                                                <input type="submit" class="btn btn-primary btn-lg pull-right push-bottom" value="<?php echo MyClass::translate('Submit'); ?>">
                                             </div>
                                         </div>
                                         <?php echo $this->Form->end(); ?>

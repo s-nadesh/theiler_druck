@@ -1,20 +1,20 @@
-<?php $this->Html->addCrumb(__('Contact Address')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Contact Address')); ?>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Manage Contact Address"); ?></h6>
+        <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Manage Contact Address"); ?></h6>
     </div>
     <div class="datatable">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th><?php echo __("Company"); ?></th>
-                    <th><?php echo __("Address 1"); ?></th>
-                    <th><?php echo __("Address 2"); ?></th>
-                    <th><?php echo __("Email"); ?></th>
-                    <th><?php echo __("Phone"); ?></th>
-                    <th><?php echo __("Action"); ?></th>
+                    <th><?php echo MyClass::translate("Company"); ?></th>
+                    <th><?php echo MyClass::translate("Address 1"); ?></th>
+                    <th><?php echo MyClass::translate("Address 2"); ?></th>
+                    <th><?php echo MyClass::translate("Email"); ?></th>
+                    <th><?php echo MyClass::translate("Phone"); ?></th>
+                    <th><?php echo MyClass::translate("Action"); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,10 +32,10 @@
                             <td><?php echo $contactAddress['ContactAddress']['cont_addr_phone']; ?></td>
                             <td>
                                 <div class="table-controls">
-<!--                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/contactaddresses/view/<?php echo $contactAddress['ContactAddress']['cont_addr_id']; ?>" data-original-title="<?php echo __("View"); ?>">
+<!--                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/contactaddresses/view/<?php echo $contactAddress['ContactAddress']['cont_addr_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
                                         <i class="icon-zoom-in"></i>
                                     </a>-->
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/contact_addresses/edit/<?php echo $contactAddress['ContactAddress']['cont_addr_id']; ?>" data-original-title="<?php echo __("Edit"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/contact_addresses/edit/<?php echo $contactAddress['ContactAddress']['cont_addr_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

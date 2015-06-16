@@ -45,7 +45,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                         <a title="<?php echo MyClass::translate("Remove this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
                                                             <i class="icon icon-times"></i>
                                                         </a>
-                                                        <a title="<?php echo __("Edit this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>product/<?php echo $product['Product']['product_slug']; ?>/<?php echo $key_encrypt ?>">
+                                                        <a title="<?php echo MyClass::translate("Edit this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>product/<?php echo $product['Product']['product_slug']; ?>/<?php echo $key_encrypt ?>">
                                                             <i class="icon icon-edit"></i>
                                                         </a>
                                                     </td>

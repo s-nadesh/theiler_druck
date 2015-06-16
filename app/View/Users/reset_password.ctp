@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(__('Reset Password')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Reset Password')); ?>
 
 <div role="main" class="main">
     <?php echo $this->element("breadcrumbs"); ?>
@@ -16,7 +16,7 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <label><?php echo __("New Password"); ?>*</label>
+                                                    <label><?php echo MyClass::translate("New Password"); ?>*</label>
                                                     <?php echo $this->Form->password('user_password', array('label' => false, "class" => "form-control")); ?>
                                                 </div>
                                             </div>
@@ -24,14 +24,14 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <label><?php echo __("Confirm Password"); ?>*</label>
+                                                    <label><?php echo MyClass::translate("Confirm Password"); ?>*</label>
                                                     <?php echo $this->Form->password('user_confirm_password', array('label' => false, "class" => "form-control")); ?>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input type="submit" class="btn btn-primary btn-lg pull-right push-bottom" value="<?php echo __('Reset Password'); ?>">
+                                                <input type="submit" class="btn btn-primary btn-lg pull-right push-bottom" value="<?php echo MyClass::translate('Reset Password'); ?>">
                                             </div>
                                         </div>
                                         <?php echo $this->Form->end(); ?>

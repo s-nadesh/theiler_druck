@@ -13,15 +13,15 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
             <small><?php echo MyClass::translate("Manage Users"); ?></small>
         </div>
         <a href="#"><i class="icon-users"></i></a>
-        <span class="bottom-info bg-danger"><?php echo count($users) ?> <?php echo __('users') ?></span>
+        <span class="bottom-info bg-danger"><?php echo count($users) ?> <?php echo MyClass::translate('users') ?></span>
     </li>
     <li class="bg-warning">
         <div class="top-info">
-            <?php echo $this->Html->link(__('Orders history'), array('controller' => 'orders', 'action' => 'index')); ?>
-            <small><?php echo __('Purchases statistics') ?></small>
+            <?php echo $this->Html->link(MyClass::translate('Orders history'), array('controller' => 'orders', 'action' => 'index')); ?>
+            <small><?php echo MyClass::translate('Purchases statistics') ?></small>
         </div>
         <a href="#"><i class="icon-cart2"></i></a>
-        <span class="bottom-info bg-primary"><?php echo count($orders); ?> <?php echo __('orders') ?></span>
+        <span class="bottom-info bg-primary"><?php echo count($orders); ?> <?php echo MyClass::translate('orders') ?></span>
     </li>
     <li class="bg-success">
         <div class="top-info">
@@ -29,16 +29,16 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
             <small><?php echo MyClass::translate("Manage Products"); ?></small>
         </div>
         <a href="#"><i class="icon-paragraph-justify2"></i></a>
-        <span class="bottom-info bg-primary"><?php echo count($products) ?> <?php echo __('products') ?></span>
+        <span class="bottom-info bg-primary"><?php echo count($products) ?> <?php echo MyClass::translate('products') ?></span>
     </li>
 </ul>
 <!-- /info blocks -->
 <!-- Page tabs -->
 <div class="tabbable page-tabs">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#activity" data-toggle="tab"><i class="icon-file"></i> <?php echo __('Activity') ?></a></li>
-        <li><a href="#contacts" data-toggle="tab"><i class="icon-users"></i> <?php echo __("Latest Users"); ?> </a></li>
-        <li><a href="#tasks" data-toggle="tab"><i class="icon-cart2"></i> <?php echo __("Latest Orders"); ?></a></li>
+        <li class="active"><a href="#activity" data-toggle="tab"><i class="icon-file"></i> <?php echo MyClass::translate('Activity') ?></a></li>
+        <li><a href="#contacts" data-toggle="tab"><i class="icon-users"></i> <?php echo MyClass::translate("Latest Users"); ?> </a></li>
+        <li><a href="#tasks" data-toggle="tab"><i class="icon-cart2"></i> <?php echo MyClass::translate("Latest Orders"); ?></a></li>
     </ul>
     <div class="tab-content">
         <!-- First tab -->
@@ -47,7 +47,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
             <div class="row">
                 <div class="col-md-12">
                     <!-- Questions -->
-                    <h6><i class="icon-question5"></i> <?php echo __('Newest questions') ?></h6>
+                    <h6><i class="icon-question5"></i> <?php echo MyClass::translate('Newest questions') ?></h6>
                     <div class="panel-group block">
                         <?php
                         $i = 1;
@@ -85,7 +85,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
             <!-- Contacts -->
             <div class="block">
                 <div class="chat-member-heading clearfix">
-                    <h6 class="pull-left"><i class="icon-users"></i> <?php echo __("Latest Users"); ?></h6>
+                    <h6 class="pull-left"><i class="icon-users"></i> <?php echo MyClass::translate("Latest Users"); ?></h6>
                 </div>
 
                 <div class="datatable">
@@ -143,7 +143,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
         <div class="tab-pane fade" id="tasks">
             <!-- Tasks table -->
             <div class="block">
-                <h6 class="heading-hr"><i class="icon-cart2"></i> <?php echo __("Latest Orders"); ?></h6>
+                <h6 class="heading-hr"><i class="icon-cart2"></i> <?php echo MyClass::translate("Latest Orders"); ?></h6>
                 <div class="datatable">
                     <table class="table table-bordered dataTable">
                         <thead>
