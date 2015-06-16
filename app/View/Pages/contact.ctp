@@ -110,7 +110,7 @@
                                             <p> <?php echo $this->Html->image("../files/contact_persons/{$contactPerson['ContactPerson']['cont_pers_image']}", array('title' => $contactPerson['ContactPerson']['cont_pers_name'], 'alt' => $contactPerson['ContactPerson']['cont_pers_name'])); ?></p>
                                             <p> 
                                             <h2> <?php echo $contactPerson['ContactPerson']['cont_pers_name'] ?> </h2>
-                                            <b>G<?php echo $contactPerson['ContactPerson']['cont_pers_position'] ?></b></p>
+                                            <b><?php echo $contactPerson['ContactPerson']['cont_pers_position'] ?></b></p>
                                             <p>Tel.: <?php echo $contactPerson['ContactPerson']['cont_pers_phone'] ?> <br/>
                                                 <a href="mailto:<?php echo $contactPerson['ContactPerson']['cont_pers_email'] ?>"><?php echo $contactPerson['ContactPerson']['cont_pers_email'] ?></a>
                                             </p>
