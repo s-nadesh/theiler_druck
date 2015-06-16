@@ -35,7 +35,7 @@
 <!--                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/contactaddresses/view/<?php echo $contactAddress['ContactAddress']['cont_addr_id']; ?>" data-original-title="<?php echo __("View"); ?>">
                                         <i class="icon-zoom-in"></i>
                                     </a>-->
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/contactaddresses/edit/<?php echo $contactAddress['ContactAddress']['cont_addr_id']; ?>" data-original-title="<?php echo __("Edit"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/contact_addresses/edit/<?php echo $contactAddress['ContactAddress']['cont_addr_id']; ?>" data-original-title="<?php echo __("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

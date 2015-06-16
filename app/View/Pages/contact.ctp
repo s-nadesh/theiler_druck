@@ -26,7 +26,7 @@
                                             <?php echo $this->Form->input('contact_email', array("class" => "form-control", "label" => false)); ?>
                                         </div>
                                         <div class="form-group">
-                                            <label><?php echo MyClass::translate("Regard"); ?>*</label>
+                                            <label><?php echo MyClass::translate("Subject"); ?>*</label>
                                             <?php echo $this->Form->input('contact_regard', array("class" => "form-control", "label" => false)); ?>
                                         </div>
                                         <div class="form-group">
@@ -50,7 +50,10 @@
                                         </div>
                                     </div>
                                     <?php echo $this->Form->end(); ?>
-                                    <?php $contact_address = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'DF'));;?>
+                                    <?php
+                                    $contact_address = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'DF'));
+                                    ;
+                                    ?>
                                     <div class="col-xs-12 col-sm-5 col-md-5 col-md-offset-1 contact-right"> 
                                         <p> <?php echo $this->Html->image("theilerdrucklogo2.png", array("alt" => "")); ?> </p>
                                         <div class="clearfix"></div>
@@ -169,7 +172,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('PLZ/Place') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3"> <label><?php echo MyClass::translate('Zip / City') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_plz', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div>
@@ -206,7 +209,7 @@
                                                         </div>   
                                                         <div class="form-group">
                                                             <div class="row"> 
-                                                                <div class="col-xs-12 col-sm-3 col-md-3">  <label><?php echo MyClass::translate('Edition') ?>:</label> </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3">  <label><?php echo MyClass::translate('No. of Copies') ?>:</label> </div>
                                                                 <div class="col-xs-12 col-sm-9 col-md-9"> <?php echo $this->Form->input('inquiry_edition', array('class' => 'form-control', 'label' => false)); ?> </div>
                                                             </div>
                                                         </div> 
@@ -218,8 +221,8 @@
                                                                 <div class="col-xs-12 col-sm-12 col-md-9"> 
                                                                     <div class="row"> 
                                                                         <?php
-                                                                        $products = array(MyClass::translate('Sheet'), MyClass::translate('Leaflet'), MyClass::translate('Prospectus'), MyClass::translate('Business cards'), MyClass::translate('Brochure with envelope'), MyClass::translate('Booklet without cover'), MyClass::translate('Cutlery'));
-                                                                        $products_checked = MyClass::translate('Prospectus');
+                                                                        $products = array(MyClass::translate('Sheet'), MyClass::translate('Leaflet'), MyClass::translate('Catalogue'), MyClass::translate('Business cards'), MyClass::translate('Brochure with envelope'), MyClass::translate('Brochure without cover'), MyClass::translate('Envelopes'));
+                                                                        $products_checked = MyClass::translate('Catalogue');
                                                                         foreach ($products as $product) {
                                                                             ?>
                                                                             <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  
@@ -242,7 +245,7 @@
                                                                 <div class="col-xs-12 col-sm-12 col-md-9"> 
                                                                     <div class="row"> 
                                                                         <?php
-                                                                        $formats_1 = array('10.5 x 14.8 (A6)', '14.8 x 21.0(A5)', '21 x 29.7 (A4)', '29.37 x 42.0 (A3)', '8.5 x 5.4 (' . MyClass::translate('Business cards') . ')', 'C4 (' . MyClass::translate('Cutlery') . ')', 'C5 (' . MyClass::translate('Cutlery') . ')', 'C 5/6 (' . MyClass::translate('Cutlery') . ')');
+                                                                        $formats_1 = array('10.5 x 14.8 (A6)', '14.8 x 21.0(A5)', '21 x 29.7 (A4)', '29.37 x 42.0 (A3)', '8.5 x 5.4 (' . MyClass::translate('Business cards') . ')', 'C4 (' . MyClass::translate('Envelopes') . ')', 'C5 (' . MyClass::translate('Envelopes') . ')', 'C 5/6 (' . MyClass::translate('Envelopes') . ')');
                                                                         $formats_1_checked = '21 x 29.7 (A4)';
                                                                         foreach ($formats_1 as $format) {
                                                                             ?>
@@ -251,7 +254,7 @@
                                                                             </div>
                                                                         <?php } ?>
                                                                     </div>
-                                                                    <label><?php echo MyClass::translate('Big individual') ?>:</label>
+                                                                    <label><?php echo MyClass::translate('Customised Size') ?>:</label>
                                                                     <?php echo $this->Form->input('inquiry_big_individual', array('class' => 'form-control', 'label' => false)); ?>
 
                                                                 </div>
@@ -259,19 +262,19 @@
                                                         </div>
 
                                                         <div class="form-product">
-                                                            <h2> <?php echo MyClass::translate('Scope') ?>: </h2>
+                                                            <h2> <?php echo MyClass::translate('Pages') ?>: </h2>
                                                             <div class="row">
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 hidden-sm">   </div>
                                                                 <div class="col-xs-12 col-sm-12 col-md-9"> 
                                                                     <div class="row"> 
-                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <input name="data[Page][inquiry_printed]" type="radio" value="<?php echo MyClass::translate('einseiting printed') ?>"> <?php echo MyClass::translate('einseiting printed') ?> </div>
-                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <input name="data[Page][inquiry_printed]" type="radio" value="<?php echo MyClass::translate('beinseiting printed') ?>">  <?php echo MyClass::translate('beinseiting printed') ?></div>
+                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <input name="data[Page][inquiry_printed]" type="radio" value="<?php echo MyClass::translate('printed on one side') ?>"> <?php echo MyClass::translate('printed on one side') ?> </div>
+                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <input name="data[Page][inquiry_printed]" type="radio" value="<?php echo MyClass::translate('printed on both sides') ?>">  <?php echo MyClass::translate('printed on both sides') ?></div>
                                                                         <div class="col-xs-12 col-sm-12 col-md-6 form-radio-option"> 
                                                                             <div class="row">
                                                                                 <div class="col-xs-12 col-sm-8 col-md-7">
                                                                                     <?php echo $this->Form->input('inquiry_sides_content', array('class' => 'form-control', 'label' => false)); ?>
                                                                                 </div>
-                                                                                <div class="col-xs-12 col-sm-4 col-md-5">  <?php echo MyClass::translate('Sides Content') ?>  </div>
+                                                                                <div class="col-xs-12 col-sm-4 col-md-5">  <?php echo MyClass::translate('Page Content') ?>  </div>
                                                                             </div>
 
                                                                         </div>
@@ -281,7 +284,7 @@
                                                                                 <div class="col-xs-12 col-sm-8 col-md-7">    
                                                                                     <?php echo $this->Form->input('inquiry_cover_pages', array('class' => 'form-control', 'label' => false)); ?>
                                                                                 </div>
-                                                                                <div class="col-xs-12 col-sm-4 col-md-5"> <?php echo MyClass::translate('Cover pages') ?>  <br/>
+                                                                                <div class="col-xs-12 col-sm-4 col-md-5"> <?php echo MyClass::translate('Cover Page') ?>  <br/>
                                                                                 </div>
 
                                                                             </div>
@@ -307,8 +310,22 @@
                                                                 <div class="col-xs-12 col-sm-12 col-md-9"> 
                                                                     <div class="row">
                                                                         <?php
-                                                                        $formats_2 = array('1-fabrig shwarz', '1/1-fabrig shwarz', '1-fabrig bunt', '1/1-fabrig bunt', ' 2-fabrig', '2/2-fabrig', '3-fabrig', '3/3-fabrig', '4-fabrig bunt', '4/4-fabr bunt', '4-fabrig Skala', '4/4-fabrig Skala', 'Drucklack');
-                                                                        $formats_2_checked = "1-fabrig bunt";
+                                                                        $formats_2 = array(
+                                                                            __('1-farbig schwarz'),
+                                                                            __('1/1-farbig schwarz'),
+                                                                            __('1-farbig bunt'),
+                                                                            __('1/1-farbig bunt'),
+                                                                            __('2-farbig'),
+                                                                            __('2/2-farbig'),
+                                                                            __('3-farbig'),
+                                                                            __('3/3-farbig'),
+                                                                            __('4-farbig bunt'),
+                                                                            __('4/4-farbig bunt'),
+                                                                            __('4-farbig Skala'),
+                                                                            __('4/4-farbig Skala'),
+                                                                            __('Drucklack')
+                                                                        );
+                                                                        $formats_2_checked = __("1-fabrig bunt");
                                                                         foreach ($formats_2 as $format) {
                                                                             ?>
                                                                             <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  
@@ -329,8 +346,16 @@
                                                                 <div class="col-xs-12 col-sm-12 col-md-12"> 
                                                                     <div class="row"> 
                                                                         <?php
-                                                                        $papars = array('Offset weiss', 'Offset fabrig', 'Laser-Inkjet', 'chem. Papier', 'matt gerstrichen', 'glänzend gestrichen', 'Visitenkarten');
-                                                                        $papers_checked = 'chem. Papier';
+                                                                        $papars = array(
+                                                                            __('Offset white'),
+                                                                            __('Offset color'),
+                                                                            __('Laser-Inkjet'),
+                                                                            __('chem. Paper'),
+                                                                            __('matt coated'),
+                                                                            __('glossy coated'),
+                                                                            __('Business card')
+                                                                        );
+                                                                        $papers_checked = __('chem. Paper');
                                                                         foreach ($papars as $papar) {
                                                                             ?>
                                                                             <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  
@@ -390,8 +415,19 @@
                                                                 <div class="col-xs-12 col-sm-12 col-md-12"> 
                                                                     <div class="row">
                                                                         <?php
-                                                                        $papars_2 = array('Drahtheftung', 'Ringösen', 'Klebebindung', 'Fadenheftung', 'gefalzt', 'gerilt', 'gestanzt', 'perforiert', 'geschlitzt', 'numeriert');
-                                                                        $papars_2_checked = array('Drahtheftung');
+                                                                        $papars_2 = array(
+                                                                            __('wire stiched'),
+                                                                            __('eyelet ring'),
+                                                                            __('adhesive binding'),
+                                                                            __('thread stitched'),
+                                                                            __('folded'),
+                                                                            __('fluted'),
+                                                                            __('punched'),
+                                                                            __('perforated'),
+                                                                            __('slitted'),
+                                                                            __('numbered')
+                                                                        );
+                                                                        $papars_2_checked = array(__('wire stiched'));
                                                                         foreach ($papars_2 as $papar) {
                                                                             echo '<div class="col-xs-6 col-sm-6 col-md-6 form-radio-option">';
                                                                             echo $this->Form->input('inquiry_paper_2', array('type' => 'checkbox', 'name' => 'data[Page][inquiry_paper_2][]', 'div' => false, 'label' => false, 'value' => $papar, 'checked' => in_array($papar, $papars_2_checked)));
@@ -430,8 +466,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <?php echo $this->Form->input('inquiry_gather', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?>   <?php echo MyClass::translate('gather') ?></div>
-                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <?php echo $this->Form->input('inquiry_sliced', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?>   <?php echo MyClass::translate('sliced') ?></div>
+                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <?php echo $this->Form->input('inquiry_gather', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?>   <?php echo MyClass::translate('Merge') ?></div>
+                                                                        <div class="col-xs-12 col-sm-6 col-md-6 form-radio-option">  <?php echo $this->Form->input('inquiry_sliced', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?>   <?php echo MyClass::translate('Divide') ?></div>
 
                                                                     </div>
 
@@ -452,12 +488,12 @@
                                                                                 <input name="data[Page][inquiry_prepress]" type="radio" value="<?php echo $pre_press; ?>">  <?php echo $pre_press; ?>  
                                                                             </div>
                                                                         <?php } ?>
-                                                                        <div class="col-xs-12 col-sm-6 col-md-7 form-radio-option">   <?php echo MyClass::translate('Exposure violent data delivered on') ?>:
+                                                                        <div class="col-xs-12 col-sm-6 col-md-7 form-radio-option">   <?php echo MyClass::translate('ready-for-exposure Data deliver on') ?>:
                                                                         </div>
                                                                         <div class="col-xs-4 col-sm-3 col-md-2 form-radio-option">  <?php echo $this->Form->input('inquiry_cd', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes', 'checked' => true)); ?>   <?php echo MyClass::translate('CD') ?></div>
                                                                         <div class="col-xs-4 col-sm-3 col-md-3 form-radio-option">  <?php echo $this->Form->input('inquiry_is_email', array('type' => 'checkbox', 'div' => false, 'label' => false, 'value' => 'Yes')); ?> <?php echo MyClass::translate('Email') ?></div>
                                                                     </div>
-                                                                    <label> <?php echo MyClass::translate('Notes to other ihler request') ?>:</label>
+                                                                    <label> <?php echo MyClass::translate('Other Remarks to your request') ?>:</label>
                                                                     <p> <?php echo $this->Form->textarea('inquiry_request_notes', array('div' => false, 'label' => false, 'rows' => '6', 'class' => 'form-control')); ?> </p>
                                                                     <div class="row"> 
                                                                         <div class="col-xs-12 col-sm-12 col-md-12 form-radio-option">  <?php echo MyClass::translate('Spam protection') ?> *: </div>
@@ -490,8 +526,6 @@
                                                         </div>
                                                     </div>
                                                     <?php echo $this->Form->end(); ?>
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -510,15 +544,18 @@
                                                 <div class="col-xs-12 col-sm-6 col-md-6 publisher-cont">
                                                     <div class="row"> 
                                                         <div class="col-xs-12 col-sm-6 col-md-5"> 
-                                                            <?php $contact_address_1 = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'A1'));;?>
-                                                            <h2> <?php echo $contact_address_1['ContactAddress']['cont_addr_company'];?> </h2>
-                                                            <?php echo $contact_address_1['ContactAddress']['cont_addr_address_1'];?> <br/> 
-                                                            <?php echo $contact_address_1['ContactAddress']['cont_addr_address_2'];?> <br/>
-                                                            Tel. <?php echo $contact_address_1['ContactAddress']['cont_addr_phone'];?> <br/>
-                                                            Fax <?php echo $contact_address_1['ContactAddress']['cont_addr_fax'];?> <br/>
-                                                            <a href="<?php echo $contact_address_1['ContactAddress']['cont_addr_website'];?>" target="_blank"><?php echo preg_replace('#^https?://#', '', $contact_address_1['ContactAddress']['cont_addr_website']);?></a><br/>
-                                                            <a href="mailto:<?php echo $contact_address_1['ContactAddress']['cont_addr_email'];?>"><?php echo $contact_address_1['ContactAddress']['cont_addr_email'];?></a> <br/>
-                                                            <a href="mailto:<?php echo $contact_address_1['ContactAddress']['cont_addr_email_2'];?>"><?php echo $contact_address_1['ContactAddress']['cont_addr_email_2'];?></a><br/>
+                                                            <?php
+                                                            $contact_address_1 = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'A1'));
+                                                            ;
+                                                            ?>
+                                                            <h2> <?php echo $contact_address_1['ContactAddress']['cont_addr_company']; ?> </h2>
+                                                            <?php echo $contact_address_1['ContactAddress']['cont_addr_address_1']; ?> <br/> 
+                                                            <?php echo $contact_address_1['ContactAddress']['cont_addr_address_2']; ?> <br/>
+                                                            Tel. <?php echo $contact_address_1['ContactAddress']['cont_addr_phone']; ?> <br/>
+                                                            Fax <?php echo $contact_address_1['ContactAddress']['cont_addr_fax']; ?> <br/>
+                                                            <a href="<?php echo $contact_address_1['ContactAddress']['cont_addr_website']; ?>" target="_blank"><?php echo preg_replace('#^https?://#', '', $contact_address_1['ContactAddress']['cont_addr_website']); ?></a><br/>
+                                                            <a href="mailto:<?php echo $contact_address_1['ContactAddress']['cont_addr_email']; ?>"><?php echo $contact_address_1['ContactAddress']['cont_addr_email']; ?></a> <br/>
+                                                            <a href="mailto:<?php echo $contact_address_1['ContactAddress']['cont_addr_email_2']; ?>"><?php echo $contact_address_1['ContactAddress']['cont_addr_email_2']; ?></a><br/>
                                                         </div>
                                                         <div class="col-xs-12 col-sm-6 col-md-6 publisher-img">
                                                             <?php echo $this->Html->image('publisher-img1.jpg', array('class' => 'img-responsive')); ?>
@@ -528,15 +565,18 @@
                                                 <div class="col-xs-12 col-sm-6 col-md-6 publisher-cont">
                                                     <div class="row"> 
                                                         <div class="col-xs-12 col-sm-6 col-md-5"> 
-                                                            <?php $contact_address_2 = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'A2'));;?>
-                                                            <h2> <?php echo $contact_address_2['ContactAddress']['cont_addr_company'];?> </h2>
-                                                            <?php echo $contact_address_2['ContactAddress']['cont_addr_address_1'];?> <br/> 
-                                                            <?php echo $contact_address_2['ContactAddress']['cont_addr_address_2'];?> <br/>
-                                                            Tel. <?php echo $contact_address_2['ContactAddress']['cont_addr_phone'];?> <br/>
-                                                            Fax <?php echo $contact_address_2['ContactAddress']['cont_addr_fax'];?> <br/>
-                                                            <a href="<?php echo $contact_address_2['ContactAddress']['cont_addr_website'];?>" target="_blank"><?php echo preg_replace('#^https?://#', '', $contact_address_2['ContactAddress']['cont_addr_website']);?></a><br/>
-                                                            <a href="mailto:<?php echo $contact_address_2['ContactAddress']['cont_addr_email'];?>"><?php echo $contact_address_2['ContactAddress']['cont_addr_email'];?></a> <br/>
-                                                            <a href="mailto:<?php echo $contact_address_2['ContactAddress']['cont_addr_email_2'];?>"><?php echo $contact_address_2['ContactAddress']['cont_addr_email_2'];?></a><br/>
+                                                            <?php
+                                                            $contact_address_2 = $this->requestAction(array('controller' => 'contact_addresses', 'action' => 'getContactaddress', 'A2'));
+                                                            ;
+                                                            ?>
+                                                            <h2> <?php echo $contact_address_2['ContactAddress']['cont_addr_company']; ?> </h2>
+                                                            <?php echo $contact_address_2['ContactAddress']['cont_addr_address_1']; ?> <br/> 
+                                                            <?php echo $contact_address_2['ContactAddress']['cont_addr_address_2']; ?> <br/>
+                                                            Tel. <?php echo $contact_address_2['ContactAddress']['cont_addr_phone']; ?> <br/>
+                                                            Fax <?php echo $contact_address_2['ContactAddress']['cont_addr_fax']; ?> <br/>
+                                                            <a href="<?php echo $contact_address_2['ContactAddress']['cont_addr_website']; ?>" target="_blank"><?php echo preg_replace('#^https?://#', '', $contact_address_2['ContactAddress']['cont_addr_website']); ?></a><br/>
+                                                            <a href="mailto:<?php echo $contact_address_2['ContactAddress']['cont_addr_email']; ?>"><?php echo $contact_address_2['ContactAddress']['cont_addr_email']; ?></a> <br/>
+                                                            <a href="mailto:<?php echo $contact_address_2['ContactAddress']['cont_addr_email_2']; ?>"><?php echo $contact_address_2['ContactAddress']['cont_addr_email_2']; ?></a><br/>
                                                         </div>
                                                         <div class="col-xs-12 col-sm-6 col-md-6 publisher-img"> 
                                                             <?php echo $this->Html->image('publisher-img2.jpg', array('class' => 'img-responsive')); ?>
@@ -554,9 +594,9 @@
                 </div>
         </div>
         <script type="text/javascript">
-            $(document).ready(function () {
+            $(document).ready(function() {
                 // refresh captcha
-                $('img.refresh').click(function () {
+                $('img.refresh').click(function() {
                     change_captcha();
                 });
 
@@ -575,13 +615,13 @@
                             minlength: 10
                         },
                     },
-                    highlight: function (element) {
+                    highlight: function(element) {
                         $(element)
                                 .parent()
                                 .removeClass("has-success")
                                 .addClass("has-error");
                     },
-                    success: function (element) {
+                    success: function(element) {
                         $(element)
                                 .parent()
                                 .removeClass("has-error")
@@ -589,18 +629,18 @@
                                 .find("label.error")
                                 .remove();
                     },
-                    submitHandler: function (form) {
+                    submitHandler: function(form) {
                         $.ajax({
                             type: $(form).attr('method'),
                             url: $(form).attr('action'),
                             data: $(form).serialize(),
                             dataType: 'json',
-                            beforeSend: function () {
+                            beforeSend: function() {
                                 $('#contact_submit').attr('disabled', true);
                                 $("#contact-ajax-loader").removeClass('hide');
                                 $("#contact-message").addClass('hide');
                             }
-                        }).done(function (response) {
+                        }).done(function(response) {
                             $('#contact_submit').attr('disabled', false);
                             $("#contact-ajax-loader").addClass('hide');
                             _msg_cont = $("#contact-message");
@@ -624,13 +664,13 @@
                             email: true
                         },
                     },
-                    highlight: function (element) {
+                    highlight: function(element) {
                         $(element)
                                 .parent()
                                 .removeClass("has-success")
                                 .addClass("has-error");
                     },
-                    success: function (element) {
+                    success: function(element) {
                         $(element)
                                 .parent()
                                 .removeClass("has-error")
@@ -638,18 +678,18 @@
                                 .find("label.error")
                                 .remove();
                     },
-                    submitHandler: function (form) {
+                    submitHandler: function(form) {
                         $.ajax({
                             type: $(form).attr('method'),
                             url: $(form).attr('action'),
                             data: $(form).serialize(),
                             dataType: 'json',
-                            beforeSend: function () {
+                            beforeSend: function() {
                                 $('#inquiry_submit').attr('disabled', true);
                                 $("#inquiry-ajax-loader").removeClass('hide');
                                 $("#inquiry-message").addClass('hide');
                             }
-                        }).done(function (response) {
+                        }).done(function(response) {
                             $('#inquiry_submit').attr('disabled', false);
                             $("#inquiry-ajax-loader").addClass('hide');
                             _msg_cont = $("#inquiry-message");
@@ -665,18 +705,18 @@
                     }
                 });
 
-                $('.inquiry-toggle').on('click', function () {
+                $('.inquiry-toggle').on('click', function() {
                     var _inq_block = $(this).closest('.row');
                     if (_inq_block.find('.inquiry-form').is(':visible')) {
                         $(this).html('<?php echo MyClass::translate('Show Inquiry') ?> <i class="icon icon-angle-down"></i>');
                         _inq_block.find('.inquiry-form').fadeOut();
                     } else {
-                        $(this).html('<?php echo __('Hide Inquiry') ?> <i class="icon icon-angle-up"></i>');
+                        $(this).html('<?php echo MyClass::translate('Hide Inquiry') ?> <i class="icon icon-angle-up"></i>');
                         _inq_block.find('.inquiry-form').fadeIn();
                     }
                 });
             });
-            
+
             function change_captcha()
             {
                 $('img.captcha').attr('src', jssite_url + "pages/getCaptcha?rnd=" + Math.random());

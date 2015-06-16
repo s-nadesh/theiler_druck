@@ -31,7 +31,7 @@
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('PLZ/Place')?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Zip / City')?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_plz'] ?></td>
     </tr>
     
@@ -56,7 +56,7 @@
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Edition')?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('No. of Copies')?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_edition'] ?></td>
     </tr>
     
@@ -71,22 +71,22 @@
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Big individual')?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Customised Size')?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_big_individual'] ?></td>
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Scope')?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Pages')?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_printed'] ?></td>
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Sides Content')?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Page Content')?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_sides_content'] ?></td>
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Cover pages')?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Cover Page')?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_cover_pages'] ?></td>
     </tr>
     
@@ -190,12 +190,12 @@
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('gather') ?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Merge') ?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_gather'] == 'Yes' ? MyClass::translate('Yes') : MyClass::translate('No') ?></td>
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('sliced') ?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Divide') ?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_sliced'] == 'Yes' ? MyClass::translate('Yes') : MyClass::translate('No') ?></td>
     </tr>
     
@@ -205,7 +205,7 @@
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Exposure violent data delivered on') ?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('ready-for-exposure Data deliver on') ?>:</td>
         <td style="padding:20px 20px 0 20px">
             <?php echo MyClass::translate('CD') ?>:<?php echo $data['Page']['inquiry_cd'] == 'Yes' ? MyClass::translate('Yes') : MyClass::translate('No') ?><br />
             <?php echo MyClass::translate('Email') ?>:<?php echo $data['Page']['inquiry_is_email'] == 'Yes' ? MyClass::translate('Yes') : MyClass::translate('No') ?><br />
@@ -213,7 +213,7 @@
     </tr>
     
     <tr>
-        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Notes to other ihler request') ?>:</td>
+        <td style="padding:20px 20px 0 20px"><?php echo MyClass::translate('Other Remarks to your request') ?>:</td>
         <td style="padding:20px 20px 0 20px"><?php echo $data['Page']['inquiry_request_notes']?></td>
     </tr>
     
