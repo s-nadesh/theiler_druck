@@ -1038,7 +1038,23 @@ margin-right:10px;
 
 
 .navbar-collapse.nav-main-collapse.collapse.primary-nav {
-  margin-top: 20px;
+  margin-top: 0px; 
+}
+
+
+.sticky-menu-active .mega-menu.nav-main
+{
+	margin-top:15px;
+}
+
+.mega-menu.nav-main
+{
+	margin-top:25px;
+}
+
+.secondary-nav .nav-main
+{
+	float:left !important;
 }
 
  header {
