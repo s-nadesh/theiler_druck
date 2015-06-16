@@ -465,7 +465,7 @@ if ($cart_items_key) {
             dragDrop: true,
             showDone: false,
             fileName: "myfile",
-            allowedTypes: "jpg,png,gif,pdf,eps,zip",
+            allowedTypes: "jpg,png,pdf,eps,zip,psd",
             returnType: "json",
             onSuccess: function(files, data, xhr)
             {

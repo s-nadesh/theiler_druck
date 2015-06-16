@@ -15,7 +15,7 @@ class User extends AppModel {
         ),
     );
     public $virtualFields = array(
-        'fullname' => "CONCAT(user_name, ' ', user_lastname)",
+        'fullname' => "CONCAT(IFNULL(User.user_name, ''), ' ', IFNULL(User.user_lastname, '') )",
     );
     
     public $hasMany = array(
