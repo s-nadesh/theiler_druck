@@ -756,7 +756,7 @@ div.featured-boxes.login {
 	float:left;
     font-weight:200;
 	font-size:18px;
-	margin-top:22px;
+	margin-top:15px;
 	line-height:26px;
 	margin-bottom:50px;
 }
@@ -790,7 +790,6 @@ div.featured-boxes.login {
 
 .contact-person-cont
 {
-	margin-bottom:25px;
 	text-align:center;
 	font-size:18px;
 	line-height:16px;
