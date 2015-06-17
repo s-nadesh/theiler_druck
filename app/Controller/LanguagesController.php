@@ -6,7 +6,7 @@ class LanguagesController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $admin_auth_actions = array('admin_index', 'admin_update_languange');
+        $admin_auth_actions = array('admin_index');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
@@ -25,6 +25,11 @@ class LanguagesController extends AppController {
 
     //Save recored from ajax request
     public function admin_update_languange() {
+        if (!$this->Session->check('Admin.id')){
+            echo 'Loggedout';
+            exit;
+        }
+        
         if ($this->request->is('post')) {
             $update = array(
                 'Language' => array(
@@ -42,8 +47,8 @@ class LanguagesController extends AppController {
         }
     }
 
-    
     ######################################################################################
+
     public function admin_update_po_mysql() {
         include WWW_ROOT . 'files/PO_Mysql/PO.php';
 

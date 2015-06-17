@@ -42,9 +42,14 @@
         $.ajax({
             type: 'post',
             url: '<?php echo SITE_BASE_URL ?>admin/languages/update_languange',
-            data: { id : language_id, german: german_word },
+            data: {id: language_id, german: german_word},
             success: function(data) {
-                alert(data);
+                if (data == 'Loggedout') {
+                    alert("Your session expired, Please login to continue");
+                    window.location.href = "<?php echo SITE_BASE_URL ?>admin/login";
+                } else {
+                    alert(data);
+                }
             }
         });
     }

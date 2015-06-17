@@ -148,7 +148,7 @@ if ($shipping_address->identical == 1) {
                             <br>
                         </td>
                         <td>
-                            <div class="row">
+                            <div class="row admin_order_view">
                                 <?php if (!empty($order_item_detail->item_picture_upload)) { ?>
                                     <?php
                                     $i = 1;

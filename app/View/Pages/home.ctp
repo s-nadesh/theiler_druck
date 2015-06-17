@@ -84,10 +84,7 @@
             <div class="container">
                 <div class="row center">
                     <div class="col-md-12">
-                        <h2 class="short text-shadow big  bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-                        <!--                        <div class="get-started">
-                                                    <a class="btn btn-lg btn-primary" href="#">Get Started Now!</a>
-                                                </div>-->
+                        <h1 class="short text-shadow white bold">Klimaneutraler Druck wird bei uns grossgeschrieben</h1>
                     </div>
                 </div>
             </div>
@@ -96,11 +93,6 @@
         <div class="container center"> 
             <div class="row"> 
                 <div class="col-md-12">
-<!--                    <p class="featured lead">
-                    </p>
-                    <p class="featured lead">
-                        Versand und Bezahlung
-                    </p>-->
                     <h2 class="short word-rotator-title">
                         Ihre Vorteile bei uns
                     </h2>

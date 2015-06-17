@@ -6426,3 +6426,7 @@ li.plupload_droptext {
   }
 }
 
+.admin_order_view img{
+    width: 100px;
+}
+
