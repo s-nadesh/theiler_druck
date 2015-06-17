@@ -133,7 +133,7 @@ if ($cart_items_key) {
 
 
 
-                    <div class="form-group">
+                    <div class="form-group formgroup2">
                         <label for="inputDefault" class="col-md-5 control-label"><?php echo MyClass::translate("Good for print on paper"); ?></label>
                         <div class="col-md-7">
                             <input type="radio" name="data[Cart][good_for_print_on_paper]" value="0" onclick="getProductPrice()" <?php echo $good_for_print_on_paper_checked ?>>
@@ -157,12 +157,12 @@ if ($cart_items_key) {
                     <div class="form-group">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
                             <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-xs-5 col-sm-6 col-md-6 col-lg-6">
                                     <div class="quantity">
                                         <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => $cart_product_quantity, "min" => "1", "step" => "1", 'label' => false, 'onchange' => 'getProductPrice()')); ?>
                                     </div>
                                 </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
                                     <?php echo $this->Form->submit(MyClass::translate("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>
                                 </div>
                             </div>
@@ -183,7 +183,7 @@ if ($cart_items_key) {
                     <?php echo $this->Form->end(); ?>
 
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
                             <div id="mulitplefileuploader"><?php echo MyClass::translate('Picture upload') ?></div>
                             <?php if ($cart_product_picture_upload) { ?>
                                 <div class='clearfix'></div>
@@ -193,7 +193,7 @@ if ($cart_items_key) {
                                     foreach ($cart_product_picture_upload as $cartfile) {
                                         $image_id = 'image_' . $i;
                                         ?>
-                                        <div class="col-xs-3 col-sm-3 col-md-3" id="<?php echo $image_id; ?>">
+                                        <div class="col-xs-3 col-sm-3 col-md-3 upload-img-thumb" id="<?php echo $image_id; ?>">
                                             <?php
                                             $is_image = MyClass::is_image(WWW_ROOT . CART_FILE_FOLDER . $cartfile);
                                             if ($is_image) {

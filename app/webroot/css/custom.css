@@ -367,6 +367,15 @@ legend {
   min-height: 120px !important;
 }
 
+	.ajax-upload-dragdrop {
+  top: -375px !important;
+}
+
+.ajax-file-upload-progress {
+  width: 63% !important;
+}
+	
+
 }
 @media (min-width:768px)and (max-width:991px) {
 	.new-shoppingcart
@@ -415,6 +424,9 @@ legend {
 		header {
   min-height: 120px !important;
 }
+	.ajax-upload-dragdrop {
+  top: -365px !important;
+}
 	
 	
 }
@@ -424,6 +436,10 @@ legend {
     }
 		.chekout-step ul li {
   padding: 15px 40px;
+}
+
+.ajax-upload-dragdrop {
+  top: -365px !important;
 }
 }
 @media (min-width:1200px) {
@@ -1063,4 +1079,22 @@ margin-right:10px;
 
 .user_login_popupform .form-control{
     padding:8px;
+}
+
+.formgroup2
+{
+	margin-top:100px;
+}
+
+
+.drag-drop
+{
+	top:-260px;
+	position:relative;
+}
+
+.upload-img-thumb
+{
+	border:#f0f0f0 solid 2px;
+	padding:5px;
 }
