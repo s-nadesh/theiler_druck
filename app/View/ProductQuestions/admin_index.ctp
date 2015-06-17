@@ -21,7 +21,7 @@
                     <?php
                     $i = 1;
                     foreach ($unanswered_questions as $unanswered_question) {
-                        $product = $this->requestAction('products/getProduct/'.$unanswered_question['ProductQuestion']['product_id']); 
+                        $product = $this->requestAction('products/getProduct/' . $unanswered_question['ProductQuestion']['product_id']);
                         ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
@@ -34,6 +34,10 @@
                                 <div class="table-controls">
                                     <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/edit/<?php echo $unanswered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo MyClass::translate("Add your answer"); ?>">
                                         <i class="icon-pencil"></i>
+                                    </a>
+
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/delete/<?php echo $unanswered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo __("Delete"); ?>" onclick="return confirm('Are you sure you wish to delete?');">
+                                        <i class="icon-remove2"></i>
                                     </a>
                                 </div>
                             </td>
@@ -71,7 +75,7 @@
                     <?php
                     $j = 1;
                     foreach ($answered_questions as $answered_question) {
-                        $product1 = $this->requestAction('products/getProduct/'.$answered_question['ProductQuestion']['product_id']); 
+                        $product1 = $this->requestAction('products/getProduct/' . $answered_question['ProductQuestion']['product_id']);
                         ?>
                         <tr>
                             <td><?php echo $j++; ?></td>
@@ -84,6 +88,10 @@
                                 <div class="table-controls">
                                     <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/edit/<?php echo $answered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo MyClass::translate("Update your answer"); ?>">
                                         <i class="icon-pencil"></i>
+                                    </a>
+
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/delete/<?php echo $answered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo __("Delete"); ?>" onclick="return confirm('Are you sure you wish to delete?');">
+                                        <i class="icon-remove2"></i>
                                     </a>
                                 </div>
                             </td>

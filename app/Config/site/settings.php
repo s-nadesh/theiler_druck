@@ -20,7 +20,7 @@ if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
 }
 
 define('MAILSENDBY', $mailsendby);
-define('SITEMAIL', 'prakash.paramanandam@arkinfotec.com');
+define('SITEMAIL', 'nadesh@arkinfotec.com');
 
 if (LOCALHOST) {
     define('DEBUG', 1);

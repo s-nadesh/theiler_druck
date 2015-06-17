@@ -65,6 +65,16 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
                                         <p><?php echo MyClass::translate("Name"); ?> : <strong><?php echo $question['ProductQuestion']['question_name'] ?></strong></p>
                                         <p><?php echo MyClass::translate("Email"); ?> : <strong><?php echo $question['ProductQuestion']['question_email'] ?></strong></p>
                                         <p><?php echo MyClass::translate("Product"); ?> : <strong><?php echo $product['Product']['product_name'] ?></strong></p>
+                                        <p> 
+                                            <?php echo MyClass::translate('Action'); ?>: 
+                                            <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/edit/<?php echo $question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo MyClass::translate("Add your answer"); ?>">
+                                                <i class="icon-pencil"></i>
+                                            </a>
+
+                                            <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/delete/<?php echo $question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo __("Delete"); ?>" onclick="return confirm('Are you sure you wish to delete?');">
+                                                <i class="icon-remove2"></i>
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +172,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
                                 <?php
                                 $i = 1;
                                 foreach ($orders as $order) {
-                                    if($i == 11)
+                                    if ($i == 11)
                                         break;
                                     ?>
                                     <tr>

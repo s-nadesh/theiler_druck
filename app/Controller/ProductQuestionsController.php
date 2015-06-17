@@ -7,7 +7,7 @@ class ProductQuestionsController extends AppController {
     //This function will execute before every action.
     public function beforeFilter() {
         parent::beforeFilter();
-        $admin_auth_actions = array('admin_index', 'admin_edit');
+        $admin_auth_actions = array('admin_index', 'admin_edit', 'admin_delete', 'admin_answer_email');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
@@ -50,6 +50,7 @@ class ProductQuestionsController extends AppController {
 
                 $this->ProductQuestion->ProductAnswer->save($update_answer);
                 $this->Session->setFlash(__("Your answer saved successfully"), 'flash_success');
+                $this->admin_answer_email($answer_exists['ProductAnswer']['product_answer_id']);
             } else {
                 $insert_answer = array(
                     'ProductAnswer' => array(
@@ -60,11 +61,41 @@ class ProductQuestionsController extends AppController {
 
                 $this->ProductQuestion->ProductAnswer->save($insert_answer);
                 $this->Session->setFlash(__("Your answer saved successfully"), 'flash_success');
+                $answer_id = $this->ProductQuestion->ProductAnswer->getLastInsertId();
+                $this->admin_answer_email($answer_id);
             }
             $this->redirect('index');
         }
 
         $this->data = $this->ProductQuestion->findByProductQuestionId($question_id);
+    }
+
+    public function admin_delete($question_id) {
+        if (!$this->ProductQuestion->exists($question_id)) {
+            throw new NotFoundException(__('Invalid Question'));
+        }
+
+        if ($this->ProductQuestion->delete($question_id, true)) {
+            $this->Session->setFlash(__('Product question deleted successfully'), 'flash_success');
+            $this->redirect(array('controller' => 'product_questions', 'action' => 'index', 'admin' => true));
+        }
+    }
+
+    public function admin_answer_email($answer_id) {
+        $data = $this->ProductQuestion->ProductAnswer->findByProductAnswerId($answer_id);
+        if ($data) {
+            $product = $this->requestAction('products/getProduct/' . $data['ProductQuestion']['product_id']);
+            $Email = new CakeEmail(MAILSENDBY);
+            $Email->from(array(SITEMAIL))
+                    ->template('question_answer', 'email_layout')
+                    ->emailFormat('html')
+                    ->to($data['ProductQuestion']['question_email'])
+                    ->subject('Antwort zum Produkt: ' . $product['Product']['product_name'])
+                    ->viewVars(array(
+                        'data' => $data,
+                    ))
+                    ->send();
+        }
     }
 
     //Add question from Product detail page.
