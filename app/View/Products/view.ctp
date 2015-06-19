@@ -1,5 +1,5 @@
 <?php echo $this->Html->css(array('theme-blog', '/vendor/jQuery-File-Upload/uploadfile'), array('inline' => false)); ?>
-<?php echo $this->Html->script(array('/vendor/jQuery-File-Upload/jquery.uploadfile.min'), array('inline' => false)); ?>
+<?php echo $this->Html->script(array('/vendor/jQuery-File-Upload/jquery.uploadfile'), array('inline' => false)); ?>
 
 <?php
 //Product Details
@@ -183,8 +183,10 @@ if ($cart_items_key) {
                     <?php echo $this->Form->end(); ?>
 
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-12 col-md-12 ">
-                            <div id="mulitplefileuploader"><?php echo MyClass::translate('Picture upload') ?></div>
+                        <div class="col-xs-12 col-sm-12 col-md-12" id="uploading-div">
+                            <div class="row">
+                                <div id="mulitplefileuploader"><?php echo MyClass::translate('Picture upload') ?></div>
+                            </div>
                             <?php if ($cart_product_picture_upload) { ?>
                                 <div class='clearfix'></div>
                                 <div class="row uploaded-div">
@@ -193,13 +195,13 @@ if ($cart_items_key) {
                                     foreach ($cart_product_picture_upload as $cartfile) {
                                         $image_id = 'image_' . $i;
                                         ?>
-                                        <div class="col-xs-3 col-sm-3 col-md-3 upload-img-thumb" id="<?php echo $image_id; ?>">
+                                        <div class="col-xs-2 col-sm-2 col-md-2 upload-img-thumb" id="<?php echo $image_id; ?>">
                                             <?php
                                             $is_image = MyClass::is_image(WWW_ROOT . CART_FILE_FOLDER . $cartfile);
                                             if ($is_image) {
-                                                echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => 'img-responsive'));
+                                                echo $this->Html->image('/' . CART_FILE_FOLDER . $cartfile, array('class' => '', 'width' => '80', 'height' => '81'));
                                             } else {
-                                                echo $this->Html->image('preview_not_available.jpg', array('class' => 'img-responsive'));
+                                                echo $this->Html->image('default-doc.gif', array('class' => '', 'width' => '80', 'height' => '81'));
                                             }
                                             ?>
                                             <a href="javascript:void(0)" onclick="removeCartProductImage('<?php echo $cartfile ?>', '<?php echo $image_id; ?>')">
@@ -207,7 +209,7 @@ if ($cart_items_key) {
                                             </a>
                                         </div>
                                         <?php
-                                        if ($i / 4 == 1)
+                                        if ($i / 6 == 1)
                                             echo '</div><div class="clearfix"></div><div class="row">';
                                         $i++;
                                     }
@@ -313,15 +315,15 @@ if ($cart_items_key) {
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         getProductPrice();
 
-        $("body").on("click", ".quantity .input-group-btn", function() {
+        $("body").on("click", ".quantity .input-group-btn", function () {
             getProductPrice();
         });
 
         // refresh captcha
-        $('img#refresh').click(function() {
+        $('img#refresh').click(function () {
             change_captcha();
         });
 
@@ -342,13 +344,13 @@ if ($cart_items_key) {
                     required: true,
                 },
             },
-            highlight: function(element) {
+            highlight: function (element) {
                 $(element)
                         .parent()
                         .removeClass("has-success")
                         .addClass("has-error");
             },
-            success: function(element) {
+            success: function (element) {
                 $(element)
                         .parent()
                         .removeClass("has-error")
@@ -356,19 +358,19 @@ if ($cart_items_key) {
                         .find("label.error")
                         .remove();
             },
-            submitHandler: function(form) {
+            submitHandler: function (form) {
                 $.ajax({
                     type: $(form).attr('method'),
                     url: $(form).attr('action'),
                     data: $(form).serialize(),
                     dataType: 'json',
-                    beforeSend: function() {
+                    beforeSend: function () {
                         $('#ask_submit').attr('disabled', true);
                         $("#ask-ajax-loader").removeClass('hide');
                         $("#ask-message").addClass('hide');
                     }
                 })
-                        .done(function(response) {
+                        .done(function (response) {
                             $('#ask_submit').attr('disabled', false);
                             $("#ask-ajax-loader").addClass('hide');
                             _msg_cont = $("#ask-message");
@@ -393,7 +395,7 @@ if ($cart_items_key) {
         $.ajax({
             url: "<?php echo SITE_BASE_URL ?>product_prices/getProductPrice/" + product_id + "/" + no_of_pages + "/" + no_of_copies + "/" + quantity,
             type: "POST",
-            success: function(result) {
+            success: function (result) {
                 placePrice(result);
             }
         });
@@ -403,7 +405,7 @@ if ($cart_items_key) {
         var good_for_print = $('input:radio[name="data[Cart][good_for_print_on_paper]"]:checked').val();
         var express = $('input:radio[name="data[Cart][express_within_4_days]"]:checked').val();
         var total = parseFloat(good_for_print) + parseFloat(express) + parseFloat(result);
-        var final_total = number_format(total, 2, ',' , '.');
+        var final_total = number_format(total, 2, ',', '.');
         $("#product-price").html(final_total + " CHF");
     }
 
@@ -415,7 +417,7 @@ if ($cart_items_key) {
                 sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
                 dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
                 s = '',
-                toFixedFix = function(n, prec) {
+                toFixedFix = function (n, prec) {
                     var k = Math.pow(10, prec);
                     return '' + (Math.round(n * k) / k)
                             .toFixed(prec);
@@ -448,7 +450,7 @@ if ($cart_items_key) {
                 cartItem: '<?php echo $cart_items_key ?>',
                 fileName: file
             },
-            success: function(result) {
+            success: function (result) {
                 $("#" + imageId).remove();
                 // Do something with the result
             }
@@ -458,7 +460,7 @@ if ($cart_items_key) {
 </script>
 
 <script>
-    $(document).ready(function()
+    $(document).ready(function ()
     {
         var settings = {
             url: jssite_url + "carts/fileUpload",
@@ -467,23 +469,34 @@ if ($cart_items_key) {
             fileName: "myfile",
             allowedTypes: "jpg,png,pdf,eps,zip,psd",
             returnType: "json",
-            onSuccess: function(files, data, xhr)
+            onSuccess: function (files, data, xhr)
             {
-                console.log(files);
-                console.log(data);
-                console.log(xhr);
-//                alert((data));
+                var fileExtension = data[0].substring(data[0].lastIndexOf('.') + 1);
+                if(fileExtension == 'jpg' || fileExtension == 'png' || fileExtension == 'psd'){
+                    _img_src = "<?php echo SITE_BASE_URL . CART_FILE_FOLDER ?>" + data[0];
+                }else{
+                    _img_src = "<?php echo SITE_BASE_URL ?>img/default-doc.gif";
+                }
+                _img = "<img class='' width='80' height='81' src='"+_img_src+"' alt='img'>";
+                _upload = $("#uploading-div");
+                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-progress').html(_img);
+                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-progress').addClass('uploaded-success');
+                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-filename').addClass('hide');
             },
             showDelete: true,
-            deleteCallback: function(data, pd)
+            onError: function (files, status, message) {
+                alert("error");
+                return false;
+            },
+            deleteCallback: function (data, pd)
             {
                 for (var i = 0; i < data.length; i++)
                 {
                     $.post(jssite_url + "carts/fileDelete", {op: "delete", name: data[i]},
-                    function(resp, textStatus, jqXHR)
+                    function (resp, textStatus, jqXHR)
                     {
                         //Show Message  
-                        $("#status").append("<div>File Deleted</div>");
+//                        $("#status").append("<div>File Deleted</div>");
                     });
                 }
                 pd.statusbar.hide(); //You choice to hide/not.

@@ -67,7 +67,7 @@
         var formGroup = "ajax-file-upload-" + (new Date().getTime());
         this.formGroup = formGroup;
         this.hide();
-        this.errorLog = $("<div></div>"); //Writing errors
+        this.errorLog = $("<div class='upload-error-div'></div>"); //Writing errors
         this.after(this.errorLog);
         this.responses = [];
         if (!feature.formdata) //check drag drop enabled.
