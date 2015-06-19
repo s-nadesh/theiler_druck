@@ -48,7 +48,7 @@ class PicturesController extends AppController {
                     $this->request->data['Picture']['picture_image'] = $image_name;
                 } else {
                     $save = false;
-                    $this->Session->setFlash(__('Slider Image width & height not matched'), 'flash_error');
+                    $this->Session->setFlash(MyClass::translate('Slider Image width & height not matched'), 'flash_error');
                 }
             } else {
                 unset($this->request->data['Picture']['picture_image']);
@@ -57,7 +57,7 @@ class PicturesController extends AppController {
             if ($save) {
                 if ($this->Picture->save($this->request->data)) {
                     $picture_id = $this->Picture->getLastInsertID();
-                    $this->Session->setFlash(__('Picture has been successfully added'), 'flash_success');
+                    $this->Session->setFlash(MyClass::translate('Picture has been successfully added'), 'flash_success');
                     $this->redirect(array('controller' => 'pictures', 'action' => 'edit', $picture_id, 'admin' => true));
                 }
             }
@@ -83,7 +83,7 @@ class PicturesController extends AppController {
             }
 
             $this->Picture->save($this->request->data);
-            $this->Session->setFlash(__("Content updated successfully"), 'flash_success');
+            $this->Session->setFlash(MyClass::translate("Content updated successfully"), 'flash_success');
         }
         $this->data = $this->Picture->findByPictureId($picture_id);
         $this->set('admin_submenu', 'slider');
@@ -104,7 +104,7 @@ class PicturesController extends AppController {
             }
 
             $this->Picture->save($this->request->data);
-            $this->Session->setFlash(__("Content updated successfully"), 'flash_success');
+            $this->Session->setFlash(MyClass::translate("Content updated successfully"), 'flash_success');
         }
         $this->data = $this->Picture->findByPictureBlock('PL');
         $this->set('admin_submenu', 'parralex');
@@ -112,14 +112,14 @@ class PicturesController extends AppController {
 
     public function admin_delete($picture_id) {
         if (!$this->Picture->exists($picture_id)) {
-            throw new NotFoundException(__('Invalid Picture'));
+            throw new NotFoundException(MyClass::translate('Invalid Picture'));
         }
 
         $picture = $this->Picture->findByPictureId($picture_id);
         if ($this->Picture->delete($picture_id, true)) {
             $old_image_path = PICTURE_IMAGE_FOLDER . $picture['Picture']['picture_image'];
             MyClass::fileDelete($old_image_path);
-            $this->Session->setFlash(__('Product picture deleted successfully'), 'flash_success');
+            $this->Session->setFlash(MyClass::translate('Product picture deleted successfully'), 'flash_success');
             $this->redirect(array('controller' => 'pictures', 'action' => 'index', 'admin' => true));
         }
     }

@@ -29,7 +29,7 @@ class ProductsController extends AppController {
     //Admin View Single Product
     public function admin_view($product_id) {
         if (!$this->Product->exists($product_id)) {
-            throw new NotFoundException(__('Invalid Product'));
+            throw new NotFoundException(MyClass::translate('Invalid Product'));
         }
 
         $this->Product->recursive = 0;
@@ -62,7 +62,7 @@ class ProductsController extends AppController {
 
             if ($this->Product->save($this->request->data)) {
                 $product_id = $this->Product->getLastInsertID();
-                $this->Session->setFlash(__('Product has been successfully added'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Product has been successfully added'), 'flash_success');
                 $this->redirect(array('controller' => 'products', 'action' => 'edit', $product_id, 'admin' => true));
             }
         }
@@ -71,7 +71,7 @@ class ProductsController extends AppController {
     //Admin edit product
     public function admin_edit($product_id) {
         if (!$this->Product->exists($product_id)) {
-            throw new NotFoundException(__('Invalid Product'));
+            throw new NotFoundException(MyClass::translate('Invalid Product'));
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {
@@ -105,9 +105,9 @@ class ProductsController extends AppController {
             }
 
             if ($this->Product->save($this->request->data)) {
-                $this->Session->setFlash(__('Product updated successfully'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Product updated successfully'), 'flash_success');
             } else {
-                $this->Session->setFlash(__('Failed to update product'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Failed to update product'), 'flash_error');
             }
         } else {
             $this->data = $this->Product->findByProductId($product_id);

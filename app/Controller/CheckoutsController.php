@@ -38,7 +38,7 @@ class CheckoutsController extends AppController {
                 $this->Session->write('Shop.Order.user_id', $this->Auth->user('user_id'));
                 return $this->redirect($this->Auth->redirect());
             } else {
-                $this->Session->setFlash(__('Login is incorrect'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Login is incorrect'), 'flash_error');
             }
         }
     }
@@ -69,7 +69,7 @@ class CheckoutsController extends AppController {
                 $this->Auth->login($this->request->data['User']);
                 return $this->redirect($this->Auth->redirect());
             } else {
-                $this->Session->setFlash(__("Registration failed, Please check the errors in the form"), 'flash_error');
+                $this->Session->setFlash(MyClass::translate("Registration failed, Please check the errors in the form"), 'flash_error');
             }
         }
     }
@@ -232,7 +232,7 @@ class CheckoutsController extends AppController {
                     ->emailFormat('html')
                     ->to($this->Auth->user('user_email'))
                     ->attachments($filename)
-                    ->subject(__('Invoice').': ' . $order['Order']['order_unique_id'])
+                    ->subject(MyClass::translate('Invoice').': ' . $order['Order']['order_unique_id'])
                     ->viewVars(array(
                         'order_id' => $order_id,
                     ))

@@ -111,7 +111,7 @@ class PagesController extends AppController {
 
             if ($this->Page->save($this->request->data)) {
                 $page_id = $this->Page->getLastInsertID();
-                $this->Session->setFlash(__('Page has been successfully added'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Page has been successfully added'), 'flash_success');
                 $this->redirect(array('controller' => 'pages', 'action' => 'edit', $page_id, 'admin' => true));
             }
         }
@@ -130,7 +130,7 @@ class PagesController extends AppController {
             }
 
             $this->Page->save($this->request->data);
-            $this->Session->setFlash(__("Content updated successfully"), 'flash_success');
+            $this->Session->setFlash(MyClass::translate("Content updated successfully"), 'flash_success');
         }
 
         $page_content = $this->Page->findByPageId($page_id);
@@ -166,7 +166,7 @@ class PagesController extends AppController {
                         ->template('contact_email', 'email_layout')
                         ->emailFormat('html')
                         ->to(SITEMAIL)
-                        ->subject(__('Contact').': ' . $this->data['Page']['contact_regard'])
+                        ->subject(MyClass::translate('Contact').': ' . $this->data['Page']['contact_regard'])
                         ->viewVars(array(
                             'data' => $this->data,
                         ))
@@ -174,13 +174,13 @@ class PagesController extends AppController {
                 $ret = array(
                     'sts' => 'success',
                     'class' => 'alert fade in block-inner alert-success',
-                    'message' => __('Your Message sent successfully')
+                    'message' => MyClass::translate('Your Message sent successfully')
                 );
             } else {
                 $ret = array(
                     'sts' => 'danger',
                     'class' => 'alert fade in block-inner alert-danger',
-                    'message' => __('Captcha is not matched')
+                    'message' => MyClass::translate('Captcha is not matched')
                 );
             }
             echo json_encode($ret);
@@ -215,7 +215,7 @@ class PagesController extends AppController {
                         ->template('inquiry_email', 'email_layout')
                         ->emailFormat('html')
                         ->to(SITEMAIL)
-                        ->subject(__('Inquiry'))
+                        ->subject(MyClass::translate('Inquiry'))
                         ->viewVars(array(
                             'data' => $this->data,
                         ))
@@ -223,13 +223,13 @@ class PagesController extends AppController {
                 $ret = array(
                     'sts' => 'success',
                     'class' => 'alert fade in block-inner alert-success',
-                    'message' => __('Your Inquiry sent successfully')
+                    'message' => MyClass::translate('Your Inquiry sent successfully')
                 );
             } else {
                 $ret = array(
                     'sts' => 'danger',
                     'class' => 'alert fade in block-inner alert-danger',
-                    'message' => __('Captcha is not matched')
+                    'message' => MyClass::translate('Captcha is not matched')
                 );
             }
             echo json_encode($ret);

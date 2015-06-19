@@ -28,7 +28,7 @@ class ContactAddressesController extends AppController {
     public function admin_edit($ContactAddress_id) {
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->ContactAddress->save($this->request->data);
-            $this->Session->setFlash(__("Contact Address updated successfully"), 'flash_success');
+            $this->Session->setFlash(MyClass::translate("Contact Address updated successfully"), 'flash_success');
         }
         $ContactAddress_content = $this->data = $this->ContactAddress->findByContAddrId($ContactAddress_id);
         $this->set(compact('ContactAddress_content'));

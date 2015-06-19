@@ -49,7 +49,7 @@ class ProductQuestionsController extends AppController {
                 );
 
                 $this->ProductQuestion->ProductAnswer->save($update_answer);
-                $this->Session->setFlash(__("Your answer saved successfully"), 'flash_success');
+                $this->Session->setFlash(MyClass::translate("Your answer saved successfully"), 'flash_success');
                 $this->admin_answer_email($answer_exists['ProductAnswer']['product_answer_id']);
             } else {
                 $insert_answer = array(
@@ -60,7 +60,7 @@ class ProductQuestionsController extends AppController {
                 );
 
                 $this->ProductQuestion->ProductAnswer->save($insert_answer);
-                $this->Session->setFlash(__("Your answer saved successfully"), 'flash_success');
+                $this->Session->setFlash(MyClass::translate("Your answer saved successfully"), 'flash_success');
                 $answer_id = $this->ProductQuestion->ProductAnswer->getLastInsertId();
                 $this->admin_answer_email($answer_id);
             }
@@ -72,11 +72,11 @@ class ProductQuestionsController extends AppController {
 
     public function admin_delete($question_id) {
         if (!$this->ProductQuestion->exists($question_id)) {
-            throw new NotFoundException(__('Invalid Question'));
+            throw new NotFoundException(MyClass::translate('Invalid Question'));
         }
 
         if ($this->ProductQuestion->delete($question_id, true)) {
-            $this->Session->setFlash(__('Product question deleted successfully'), 'flash_success');
+            $this->Session->setFlash(MyClass::translate('Product question deleted successfully'), 'flash_success');
             $this->redirect(array('controller' => 'product_questions', 'action' => 'index', 'admin' => true));
         }
     }
@@ -108,20 +108,20 @@ class ProductQuestionsController extends AppController {
                     $ret = array(
                         'sts' => 'success',
                         'class' => 'alert fade in block-inner alert-success',
-                        'message' => __('Your question submitted successfully')
+                        'message' => MyClass::translate('Your question submitted successfully')
                     );
                 } else {
                     $ret = array(
                         'sts' => 'danger',
                         'class' => 'alert fade in block-inner alert-danger',
-                        'message' => __('Your question not submitted. Try again later')
+                        'message' => MyClass::translate('Your question not submitted. Try again later')
                     );
                 }
             } else {
                 $ret = array(
                     'sts' => 'danger',
                     'class' => 'alert fade in block-inner alert-danger',
-                    'message' => __('Captcha is not matched')
+                    'message' => MyClass::translate('Captcha is not matched')
                 );
             }
         }

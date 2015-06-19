@@ -51,7 +51,7 @@ class AdminsController extends AppController {
 
                 $this->goAdminHome();
             } else {
-                $this->Session->setFlash(__('Email/Password combination was wrong'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Email/Password combination was wrong'), 'flash_error');
             }
         }
     }
@@ -59,7 +59,7 @@ class AdminsController extends AppController {
     //Admin logout function
     public function admin_logout() {
         $this->Session->destroy();
-        $this->Session->setFlash(__('You have logged out successfully!!!.'), 'flash_success');
+        $this->Session->setFlash(MyClass::translate('You have logged out successfully!!!.'), 'flash_success');
         $this->goAdminLogin();
     }
 
@@ -95,9 +95,9 @@ class AdminsController extends AppController {
             if ($this->Admin->save($this->request->data)) {
                 $this->Session->write('Admin.name', $this->request->data['Admin']['admin_name']);
                 $this->Session->write('Admin.email', $this->request->data['Admin']['admin_email']);
-                $this->Session->setFlash(__('Profile has been updated successfully!!!.'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Profile has been updated successfully!!!.'), 'flash_success');
             } else {
-                $this->Session->setFlash(__('Profile can not be update.'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Profile can not be update.'), 'flash_error');
             }
         }
         $this->data = $this->Admin->findByAdminId($this->Session->read('Admin.id'));
@@ -115,9 +115,9 @@ class AdminsController extends AppController {
                     )
                 );
                 if ($this->Admin->save($update)) {
-                    $this->Session->setFlash(__('Password changed successfully.'), 'flash_success');
+                    $this->Session->setFlash(MyClass::translate('Password changed successfully.'), 'flash_success');
                 } else {
-                    $this->Session->setFlash(__('Password can not be changed .'), 'flash_error');
+                    $this->Session->setFlash(MyClass::translate('Password can not be changed .'), 'flash_error');
                 }
             }
         }
@@ -146,10 +146,10 @@ class AdminsController extends AppController {
                         ->viewVars(array('name' => $admin['Admin']['admin_name'], 'password' => $new_password))
                         ->send();
 
-                $this->Session->setFlash(__("New password has been sent to your mail."), 'flash_success');
+                $this->Session->setFlash(MyClass::translate("New password has been sent to your mail."), 'flash_success');
                 $this->goAdminLogin();
             } else {
-                $this->Session->setFlash(__("This email address is not exists."), 'flash_error');
+                $this->Session->setFlash(MyClass::translate("This email address is not exists."), 'flash_error');
             }
         }
     }

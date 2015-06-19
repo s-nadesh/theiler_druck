@@ -39,9 +39,9 @@ class LanguagesController extends AppController {
             );
 
             if ($this->Language->save($update)) {
-                echo __("Language updated successfully.");
+                echo MyClass::translate("Language updated successfully.");
             } else {
-                echo __("Language can not be updated, Please try again");
+                echo MyClass::translate("Language can not be updated, Please try again");
             }
             exit;
         }

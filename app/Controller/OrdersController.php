@@ -29,7 +29,7 @@ class OrdersController extends AppController {
 
     public function admin_view($order_id) {
         if (!$this->Order->exists($order_id)) {
-            throw new NotFoundException(__('Invalid Order'));
+            throw new NotFoundException(MyClass::translate('Invalid Order'));
         }
 
         $order = $this->Order->find('first', array(
@@ -95,7 +95,7 @@ class OrdersController extends AppController {
             $this->Mpdf->setFilename($filepath);
             $this->Mpdf->setOutput($output);
         } else {
-            $this->Session->setFlash("<div class='error msg'>" . __('Access denied.') . "</div>");
+            $this->Session->setFlash("<div class='error msg'>" . MyClass::translate('Access denied.') . "</div>");
             $this->redirect(array('controller' => 'orders', 'action' => 'index'));
         }
     }

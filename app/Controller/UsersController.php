@@ -33,10 +33,10 @@ class UsersController extends AppController {
                 $this->request->data['UserAddress']['address_type'] = 0;
                 $this->request->data['UserAddress']['user_id'] = $user_id;
                 $this->UserAddress->save($this->request->data);
-                $this->Session->setFlash(__("Registration completed successfully, You can login now"), 'flash_success');
+                $this->Session->setFlash(MyClass::translate("Registration completed successfully, You can login now"), 'flash_success');
                 return $this->redirect('login');
             } else {
-                $this->Session->setFlash(__("Registration failed, Please try again"), 'flash_error');
+                $this->Session->setFlash(MyClass::translate("Registration failed, Please try again"), 'flash_error');
             }
         }
     }
@@ -47,7 +47,7 @@ class UsersController extends AppController {
             if ($this->Auth->login()) {
                 return $this->redirect($this->goHome());
             } else {
-                $this->Session->setFlash(__('Login is incorrect'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Login is incorrect'), 'flash_error');
             }
         }
         $this->set('title_for_layout', 'Login');
@@ -86,10 +86,10 @@ class UsersController extends AppController {
                 );
 
                 if ($this->User->save($change_password)) {
-                    $this->Session->setFlash(__('Password changed successfully'), 'flash_success');
+                    $this->Session->setFlash(MyClass::translate('Password changed successfully'), 'flash_success');
                     $this->redirect('change_password');
                 } else {
-                    $this->Session->setFlash(__('Old password not matched'), 'flash_error');
+                    $this->Session->setFlash(MyClass::translate('Old password not matched'), 'flash_error');
                 }
             } else {
                 $this->Session->setFlash('Password does not match', 'flash_error');
@@ -135,10 +135,10 @@ class UsersController extends AppController {
                         ))
                         ->send();
 
-                $this->Session->setFlash(__('Your Password Reset Link sent to your email address.'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Your Password Reset Link sent to your email address.'), 'flash_success');
                 $this->redirect('login');
             } else {
-                $this->Session->setFlash(__('This Email Address Not Exists'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('This Email Address Not Exists'), 'flash_error');
             }
         }
     }
@@ -147,7 +147,7 @@ class UsersController extends AppController {
         $user = $this->User->findByUserId($id);
 
         if (empty($user) || $user['User']['password_reset_token'] != $str) {
-            $this->Session->setFlash(__('Not a valid Reset link'), 'flash_error');
+            $this->Session->setFlash(MyClass::translate('Not a valid Reset link'), 'flash_error');
             $this->redirect('login');
         } else {
             $start = strtotime($user['User']['modified']);
@@ -158,7 +158,7 @@ class UsersController extends AppController {
             $minutes = floor(($seconds - ($days * 86400) - ($hours * 3600)) / 60);
             
             if ($minutes > 5) {
-                $this->Session->setFlash(__('This Reset Link Expired. Please Try again.'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('This Reset Link Expired. Please Try again.'), 'flash_error');
                 $this->redirect('forgot_password');
             }
         }
@@ -173,7 +173,7 @@ class UsersController extends AppController {
             );
 
             $this->User->save($user_update);
-            $this->Session->setFlash(__('Your Password Changed Successfully.'), 'flash_success');
+            $this->Session->setFlash(MyClass::translate('Your Password Changed Successfully.'), 'flash_success');
             $this->redirect('login');
         }
     }
@@ -195,7 +195,7 @@ class UsersController extends AppController {
 
     public function admin_view($user_id) {
         if (!$this->User->exists($user_id)) {
-            throw new NotFoundException(__('Invalid Page'));
+            throw new NotFoundException(MyClass::translate('Invalid Page'));
         }
 
         $this->User->recursive = 0;
@@ -208,7 +208,7 @@ class UsersController extends AppController {
 
     public function admin_edit($user_id) {
         if (!$this->User->exists($user_id)) {
-            throw new NotFoundException(__('Invalid Page'));
+            throw new NotFoundException(MyClass::translate('Invalid Page'));
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {

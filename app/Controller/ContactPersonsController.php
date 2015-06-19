@@ -39,7 +39,7 @@ class ContactPersonsController extends AppController {
             
             if ($this->ContactPerson->save($this->request->data)) {
                 $contactPerson_id = $this->ContactPerson->getLastInsertID();
-                $this->Session->setFlash(__('ContactPerson has been successfully added'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('ContactPerson has been successfully added'), 'flash_success');
                 $this->redirect(array('controller' => 'contactPersons', 'action' => 'edit', $contactPerson_id, 'admin' => true));
             }
         }
@@ -60,7 +60,7 @@ class ContactPersonsController extends AppController {
             }
             
             $this->ContactPerson->save($this->request->data);
-            $this->Session->setFlash(__("Content updated successfully"), 'flash_success');
+            $this->Session->setFlash(MyClass::translate("Content updated successfully"), 'flash_success');
         }
         $this->data = $this->ContactPerson->findByContPersId($contactPerson_id);
     }

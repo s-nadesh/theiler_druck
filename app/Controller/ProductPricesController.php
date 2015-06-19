@@ -31,7 +31,7 @@ class ProductPricesController extends AppController {
                     }
                 }
             }
-            $this->Session->setFlash(__('Price Calculation Updated Successfully!!!'), 'flash_success');
+            $this->Session->setFlash(MyClass::translate('Price Calculation Updated Successfully!!!'), 'flash_success');
             $this->redirect(array('controller' => 'products', 'action' => 'edit', $product_id, 'admin' => true));
         }
     }

@@ -62,7 +62,7 @@ class ServicesController extends AppController {
         if ($this->request->is('post')) {
             if ($this->Service->save($this->request->data)) {
                 $service_id = $this->Service->getLastInsertID();
-                $this->Session->setFlash(__('Service has been successfully added'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Service has been successfully added'), 'flash_success');
                 $this->redirect(array('controller' => 'services', 'action' => 'edit', $service_id, 'admin' => true));
             }
         }
@@ -71,7 +71,7 @@ class ServicesController extends AppController {
     public function admin_edit($service_id) {
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->Service->save($this->request->data);
-            $this->Session->setFlash(__("Content updated successfully"), 'flash_success');
+            $this->Session->setFlash(MyClass::translate("Content updated successfully"), 'flash_success');
         }
         $service_content = $this->data = $this->Service->findByServiceId($service_id);
         $this->set(compact('service_content'));

@@ -26,16 +26,16 @@ class ShippingCostsController extends AppController {
     //Admin Edit Shipping Cost
     public function admin_edit($sh_cost_id) {
         if (!$this->ShippingCost->exists($sh_cost_id)) {
-            throw new NotFoundException(__('Invalid Shipping Cost'));
+            throw new NotFoundException(MyClass::translate('Invalid Shipping Cost'));
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['ShippingCost']['sh_cost_id'] = $sh_cost_id;
             if ($this->ShippingCost->save($this->request->data)) {
-                $this->Session->setFlash(__('Shipping Cost Updated Successfully!!!'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Shipping Cost Updated Successfully!!!'), 'flash_success');
                 $this->redirect('index');
             } else {
-                $this->Session->setFlash(__('Shipping Cost Not Updated'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Shipping Cost Not Updated'), 'flash_error');
             }
         } else {
             $this->data = $this->ShippingCost->findByShCostId($sh_cost_id);

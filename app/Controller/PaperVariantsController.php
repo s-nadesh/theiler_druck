@@ -25,7 +25,7 @@ class PaperVariantsController extends AppController {
     //Admin Edit Paper Variant.
     public function admin_edit($paper_id) {
         if (!$this->PaperVariant->exists($paper_id)) {
-            throw new NotFoundException(__('Invalid Paper Variant'));
+            throw new NotFoundException(MyClass::translate('Invalid Paper Variant'));
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {
@@ -33,10 +33,10 @@ class PaperVariantsController extends AppController {
             $range_gram = MyClass::mGramToGram($this->request->data['PaperVariant']['paper_rang_mgrm']);
             $this->request->data['PaperVariant']['paper_rang_grm'] = $range_gram;
             if ($this->PaperVariant->save($this->request->data)) {
-                $this->Session->setFlash(__('Paper Variant Updated Successfully!!!'), 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Paper Variant Updated Successfully!!!'), 'flash_success');
                 $this->redirect('index');
             } else {
-                $this->Session->setFlash(__('Paper Variant Not Updated'), 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Paper Variant Not Updated'), 'flash_error');
             }
         } else {
             $this->data = $this->PaperVariant->findByPaperId($paper_id);
