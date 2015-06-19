@@ -15,7 +15,8 @@
 
         <!-- Main navigation -->
         <?php
-        $marray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); //define number of main menus
+        $marray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13); //define number of main menus
+        $sarray = array(0, 1); //define number of main menus
         if (@$admin_menu == 'admins')
             $marray[0] = 'active';
         elseif (@$admin_menu == 'paper_variants')
@@ -42,6 +43,15 @@
             $marray[11] = 'active';
         elseif (@$admin_menu == 'contact_addresses')
             $marray[12] = 'active';
+        elseif (@$admin_menu == 'pictures')
+            $marray[13] = 'active';
+
+        if (@$admin_submenu == 'slider')
+            $sarray[0] = 'active';
+        elseif (@$admin_submenu == 'parralex')
+            $sarray[1] = 'active';
+
+        echo@$admin_submenu;
         ?>
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
@@ -79,7 +89,7 @@
                     <span><?php echo MyClass::translate("Cms"); ?></span><i class="icon-book"></i>
                 </a>
             </li>
-             <li class="<?php echo $marray[8] ?>">
+            <li class="<?php echo $marray[8] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/users">
                     <span><?php echo MyClass::translate("Users"); ?></span><i class="icon-users"></i>
                 </a>
@@ -103,6 +113,13 @@
                 <a href="<?php echo SITE_BASE_URL ?>admin/contact_addresses">
                     <span><?php echo MyClass::translate("Contact Address"); ?></span><i class="icon-address-book"></i>
                 </a>
+            </li>
+            <li class="<?php echo $marray[13] ?>">
+                <a href="#" class="expand" id="second-level"><span><?php echo __('Images') ?></span> <i class="icon-images"></i></a>
+                <ul>
+                    <li class="<?php echo $sarray[0] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures"><?php echo __("Slider"); ?></a></li>
+                    <li class="<?php echo $sarray[1] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures/parralex"><?php echo __("Parallax"); ?></a></li>
+                </ul>
             </li>
         </ul>
         <!-- /main navigation -->

@@ -80,11 +80,12 @@
             </div>
         </div>
 
-        <section class="parallax" data-parallax="scroll" data-image-src="<?php echo SITE_BASE_URL ?>img/parallax.jpg" >
+        <?php $parrlex_image = ClassRegistry::init('Picture')->findByPictureBlock('PL');?>
+        <section class="parallax" data-parallax="scroll" data-image-src="<?php echo SITE_BASE_URL ?>files/pictures/<?php echo $parrlex_image['Picture']['picture_image']?>" >
             <div class="container">
                 <div class="row center">
                     <div class="col-md-12">
-                        <h1 class="short text-shadow white bold">Klimaneutraler Druck wird bei uns grossgeschrieben</h1>
+                        <h1 class="short text-shadow white bold"><?php echo $parrlex_image['Picture']['picture_title']?></h1>
                     </div>
                 </div>
             </div>
@@ -102,15 +103,15 @@
             <?php
             $services = ClassRegistry::init('Service')->find('all', array('order' => array('Service.sort_value ASC')));
             $count = count($services);
-            $columns = floor(12 / $count );
+            $columns = floor(12 / $count);
             foreach ($services as $key => $service) {
                 ?>
                 <div class="col-xs-12 col-sm-<?php echo $columns; ?> col-md-<?php echo $columns; ?>"> 
                     <div class="content-box">
                         <div class="content-box-icon-cont"> 
-                            <div class="icons2"><i class="icon icon-<?php echo $service['Service']['service_image']?>"></i> </div>
-                            <h2> <?php echo $service['Service']['service_title']?> </h2>
-                            <p> <?php echo $service['Service']['service_caption']?></p>
+                            <div class="icons2"><i class="icon icon-<?php echo $service['Service']['service_image'] ?>"></i> </div>
+                            <h2> <?php echo $service['Service']['service_title'] ?> </h2>
+                            <p> <?php echo $service['Service']['service_caption'] ?></p>
                         </div>
                     </div>
                 </div>

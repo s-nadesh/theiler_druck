@@ -14,13 +14,27 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 
-        <?php echo $this->Html->script(array('admin/plugins/charts/sparkline.min', 'admin/plugins/forms/uniform.min', 'admin/plugins/forms/select2.min', 'admin/plugins/forms/inputmask', 'admin/plugins/forms/autosize', 'admin/plugins/forms/inputlimit.min', 'admin/plugins/forms/listbox', 'admin/plugins/forms/multiselect', 'admin/plugins/forms/validate.min', 'admin/plugins/forms/additional-methods.min', 'admin/plugins/forms/tags.min', 'admin/plugins/forms/switch.min', 'admin/plugins/forms/uploader/plupload.full.min', 'admin/plugins/forms/uploader/plupload.queue.min', 'admin/plugins/forms/wysihtml5/wysihtml5.min', 'admin/plugins/forms/wysihtml5/toolbar', 'admin/plugins/interface/daterangepicker', 'admin/plugins/interface/fancybox.min', 'admin/plugins/interface/moment', 'admin/plugins/interface/jgrowl.min', 'admin/plugins/interface/datatables.min', 'admin/plugins/interface/colorpicker', 'admin/plugins/interface/fullcalendar.min', 'admin/plugins/interface/timepicker.min', 'admin/plugins/interface/collapsible.min', 'admin/bootstrap.min', 'admin/application', 'admin/custom_validations', 'ckeditor/ckeditor')); ?>
-
+        <script type="text/javascript">
+            var SUCCESS_TXT = '<?php echo MyClass::translate('Success') ?>';
+        </script>
         <?php
+        echo $this->Html->script(array('admin/plugins/charts/sparkline.min', 'admin/plugins/forms/uniform.min', 'admin/plugins/forms/select2.min', 'admin/plugins/forms/inputmask', 'admin/plugins/forms/autosize', 'admin/plugins/forms/inputlimit.min', 'admin/plugins/forms/listbox', 'admin/plugins/forms/multiselect', 'admin/plugins/forms/validate.min', 'admin/plugins/forms/additional-methods.min', 'admin/plugins/forms/tags.min', 'admin/plugins/forms/switch.min', 'admin/plugins/forms/uploader/plupload.full.min', 'admin/plugins/forms/uploader/plupload.queue.min', 'admin/plugins/forms/wysihtml5/wysihtml5.min', 'admin/plugins/forms/wysihtml5/toolbar', 'admin/plugins/interface/daterangepicker', 'admin/plugins/interface/fancybox.min', 'admin/plugins/interface/moment', 'admin/plugins/interface/jgrowl.min', 'admin/plugins/interface/datatables.min', 'admin/plugins/interface/colorpicker', 'admin/plugins/interface/fullcalendar.min', 'admin/plugins/interface/timepicker.min', 'admin/plugins/interface/collapsible.min', 'admin/bootstrap.min', 'admin/application', 'admin/custom_validations', 'ckeditor/ckeditor'));
+        if ($this->Session->check('Config.language') && $this->Session->read('Config.language') != 'eng') {
+            echo $this->Html->script(array("admin/plugins/forms/languages/messages_{$this->Session->read('Config.language')}.js"));
+        }
+
         echo $this->fetch('meta');
         echo $this->fetch('css');
         echo $this->fetch('script');
         ?>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                _uploader = $(".uploader");
+                if (_uploader.length > 0) {
+                    $(_uploader).find('.filename').html('<?php echo MyClass::translate('No File Selected') ?>');
+                }
+            })
+        </script>
     </head>
 
     <body class="sidebar-wide">

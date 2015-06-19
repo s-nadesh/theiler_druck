@@ -405,7 +405,7 @@ $(function() {
 			agree: "Please accept our policy"
 		},
 	    success: function(label) {
-	    	label.text('Success!').addClass('valid');
+	    	label.text(SUCCESS_TXT+'!').addClass('valid');
 	    }
 	});
 

@@ -70,8 +70,14 @@ define('EXPRESS_WITHIN_4_DAYS', 450);
 
 define('PAGE_IMAGE_FOLDER', 'files/pages/');
 define('CONTACT_PERSON_IMAGE_FOLDER', 'files/contact_persons/');
+define('PICTURE_IMAGE_FOLDER', 'files/pictures/');
+
+define('SLIDER_WIDTH', 1920);
+define('SLIDER_HEIGHT', 450);
 
 define('ADMIN_ID', '1');
 define('FROM_EMAIL', 'info@theilerdruck.ch');
 define('EMAILHEADERIMAGE', 'img/theilerdrucklogo.png');
+
+
             

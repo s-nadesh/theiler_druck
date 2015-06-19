@@ -8,7 +8,7 @@ $shipping_address = MyClass::decodeJSON($order['Order']['order_shipping_address'
 $payment_method = MyClass::decodeJSON($order['Order']['order_payment_method']);
 $summary = MyClass::decodeJSON($order['Order']['order_summary']);
 
-$billing_address_name = $billing_address->address_title . ' ' . $billing_address->address_firstname . ' ' . $billing_address->address_lastname;
+$billing_address_name = MyClass::translate($billing_address->address_title) . ' ' . $billing_address->address_firstname . ' ' . $billing_address->address_lastname;
 $billing_address_street = $billing_address->address_street;
 $billing_address_additional = $billing_address->address_additional;
 $billing_address_city = $billing_address->address_post_code . ' ' . $billing_address->address_city;
@@ -25,7 +25,7 @@ if ($shipping_address->identical == 1) {
     $shipping_address_phone = $billing_address_phone;
     $shipping_address_mobile = $billing_address_mobile;
 } else {
-    $shipping_address_name = $shipping_address->address_title . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
+    $shipping_address_name = MyClass::translate($shipping_address->address_title) . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
     $shipping_address_street = $shipping_address->address_street;
     $shipping_address_additional = $shipping_address->address_additional;
     $shipping_address_city = $shipping_address->address_post_code . ' ' . $shipping_address->address_city;
@@ -48,9 +48,9 @@ if ($shipping_address->identical == 1) {
             </div>
             <?php echo $this->Form->create('Order', array('id' => 'order_status_update')); ?>
             <div class="col-sm-6">
-                <ul class="invoice-details">
+                <ul class="invoice-details" style="width: 280px !important">
                     <li><?php echo MyClass::translate("Order #"); ?><strong class="text-danger"><?php echo $order['Order']['order_unique_id'] ?></strong></li>
-                    <li><?php echo MyClass::translate("Date of Order"); ?>: <strong><?php echo $order['Order']['created'] ?></strong></li>
+                    <li><?php echo MyClass::translate("Date of Order"); ?>: <strong><?php echo date('d.m.Y H:i:s', strtotime($order['Order']['created'])); ?></strong></li>
                     <li>
                         <?php echo MyClass::translate("Order Status"); ?>: 
                         <?php $order_status = MyClass::orderStatus(); ?>
@@ -62,7 +62,7 @@ if ($shipping_address->identical == 1) {
                                     if ($status_key == $order['Order']['order_status'])
                                         $status_selected = 'selected = "selected"';
                                     ?>
-                                    <option value="<?php echo $status_key; ?>" <?php echo $status_selected; ?>><?php echo $status; ?></option>
+                                <option value="<?php echo $status_key; ?>" <?php echo $status_selected; ?>><?php echo MyClass::translate($status); ?></option>
                                 <?php } ?>
                             </select>
                         </strong>
@@ -186,7 +186,7 @@ if ($shipping_address->identical == 1) {
         <div class="row invoice-payment">
             <div class="col-sm-8">
                 <h6><?php echo MyClass::translate("Payment Method"); ?>:</h6>
-                <?php echo $payment_method->name; ?>
+                <?php echo MyClass::translate($payment_method->name); ?>
             </div>
 
             <div class="col-sm-4">

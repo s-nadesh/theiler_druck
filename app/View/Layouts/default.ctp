@@ -40,6 +40,7 @@
         <!-- Date Picker -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <?php echo $this->Html->script('/vendor/respond'); ?>
         <script>
         var jssite_url ='<?php echo SITE_BASE_URL ?>';
         </script>
@@ -62,6 +63,10 @@
 
         <?php
         echo $this->Html->script(array('plugins', '/vendor/jquery.easing', '/vendor/jquery.appear', '/vendor/jquery.cookie', '/vendor/bootstrap', '/vendor/bootstrap/bootstrap-number-input', '/vendor/twitterjs/twitter', '/vendor/rs-plugin/js/jquery.themepunch.plugins.min', '/vendor/rs-plugin/js/jquery.themepunch.revolution.min', '/vendor/owl-carousel/owl.carousel', '/vendor/circle-flip-slideshow/js/jquery.flipshow', '/vendor/magnific-popup/magnific-popup', '/vendor/jquery.stellar', '/vendor/jquery.validate', '/vendor/parallax', '/vendor/nivo-slider/jquery.nivo.slider', 'views/view.home', 'theme', 'custom'));
+        
+        if($this->Session->check('Config.language') && $this->Session->read('Config.language') != 'eng'){
+            echo $this->Html->script(array("/vendor/jquery.validation/languages/messages_{$this->Session->read('Config.language')}.js"));
+        }
         ?>
 
     </body>

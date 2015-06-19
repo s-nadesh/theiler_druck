@@ -10,7 +10,7 @@ class CartsController extends AppController {
 
     //Cart index page.
     public function index() {
-        $this->set('page_title', __('Cart'));
+        $this->set('page_title', MyClass::translate('Cart'));
     }
 
     //Add/Edit product in cart from Product detail page
