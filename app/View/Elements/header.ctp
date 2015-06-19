@@ -97,7 +97,7 @@
             <i class="icon icon-bars"></i>
         </button>
     </div>
-    <div class="navbar-collapse nav-main-collapse collapse">
+    <div class="navbar-collapse nav-main-collapse collapse primary-nav">
     <!--<div class="navbar-collapse nav-main-collapse collapse primary-nav">-->
         <div class="container">
             <div class="clearfix"></div>

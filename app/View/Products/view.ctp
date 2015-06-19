@@ -187,7 +187,7 @@ if ($cart_items_key) {
                             <div id="mulitplefileuploader"><?php echo MyClass::translate('Picture upload') ?></div>
                             <?php if ($cart_product_picture_upload) { ?>
                                 <div class='clearfix'></div>
-                                <div class="row">
+                                <div class="row uploaded-div">
                                     <?php
                                     $i = 1;
                                     foreach ($cart_product_picture_upload as $cartfile) {
@@ -469,6 +469,9 @@ if ($cart_items_key) {
             returnType: "json",
             onSuccess: function(files, data, xhr)
             {
+                console.log(files);
+                console.log(data);
+                console.log(xhr);
 //                alert((data));
             },
             showDelete: true,
