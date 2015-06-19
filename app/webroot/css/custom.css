@@ -303,10 +303,22 @@ legend {
         display:none!important
     }
 	
+	
+
 	.navbar-collapse.nav-main-collapse.collapse.primary-nav {
 
   margin-top: 0px !important;
 }
+
+.nav.nav-pills.nav-top > li {
+  font-size: 13px !important;
+}
+
+.phone > span {
+  font-size: 13px !important;
+}
+
+
 
     .chekout-step ul li {
         border-right: 1px solid #ffffff;
@@ -383,6 +395,91 @@ legend {
 	{
 		margin-bottom:28px;
 	}
+	 .nav-main
+	{
+		float:none !important;
+		margin:0px auto !important;
+		width:88%;
+	}
+	
+	header nav ul.nav-top li i {
+  font-size: 18px;
+}
+
+
+header div.header-top nav {
+  float: left !important;
+  width: 100% !important;
+}
+
+.nav-pills > li {
+  display: inline-block !important;
+  float: none !important;
+}
+
+header div.header-top ul.nav-top {
+  width: 104% !important;
+  text-align:center !important; 
+}
+
+
+.icon.icon-envelope {
+  font-size: 14px !important;
+}
+
+header nav ul.nav-top li a, header nav ul.nav-top li span {
+  color: #999;
+  padding: 6px 5px;
+}
+
+
+header div.header-top ul.nav-top li.phone {
+  margin-right: -14px;
+}
+
+header nav.nav-main {
+  padding: 0 0 0px !important;
+}
+
+header.colored > div.container {
+  height: 70px;
+}
+
+.navbar-collapse {
+  border-top: 1px solid transparent;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  max-height: 340px;
+  overflow-x: visible;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.nav.nav-pills.nav-main {
+  float: left !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+header div.nav-main-collapse.secondary-nav.collapse {
+  position: relative;
+/*  margin-top:40px;*/
+}
+
+.secondry-btn-cont
+{
+	width:100%;
+	float:left;
+	display:block;
+	height:35px;
+	background:none !important;
+}
+
+.secondry-menu
+{
+    background:none !important;
+
+}
+
 }
 @media (min-width:768px)and (max-width:991px) {
 	.new-shoppingcart
@@ -582,7 +679,7 @@ p {
     background:#f4f3f3;
     position:fixed;
     z-index:999;
-	margin-top:18px;
+	/*margin-top:18px;*/
 }
 
 .first-txt
@@ -634,8 +731,7 @@ header nav ul.nav-main2 li a {
 
 .secondry-btn
 {
-    background:#0088cc !important;
-    margin-top:-25px;
+    background:#bcb8b8 !important;
     margin-right:10px;
 }
 
@@ -997,11 +1093,11 @@ margin-right:10px;
 }
 
 .phone > span {
-  font-size: 16px !important;
+  font-size: 16px ;
 }
 
 .nav.nav-pills.nav-top > li {
-  font-size: 16px !important;
+  font-size: 16px;
 }
 
 .nav-main.mega-menu.shop-menu {

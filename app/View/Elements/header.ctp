@@ -134,15 +134,19 @@
             </nav>
         </div>
     </div>
+    
+    <div style="clear:both;"></div>
     <?php if ($cms_page_menu) { ?>
-        <div class="secondry-menu">
+    <div style="width:100%; float: left; padding-top:10px;">
+    <div class="secondry-menu">
             <div class="container">
                 <div class="row">
                     <div class="single-menu flat-menu secondry-mainnav">
                         <div class="container">
-                            <button class="btn btn-responsive-nav btn-inverse secondry-btn" data-toggle="collapse" data-target=".secondary-nav">
+                        <div class="secondry-btn-cont"> <button class="btn btn-responsive-nav btn-inverse secondry-btn" data-toggle="collapse" data-target=".secondary-nav">
                                 <i class="icon icon-bars"></i>
-                            </button>
+                            </button></div>
+                            
                         </div>
                         <div class="navbar-collapse nav-main-collapse secondary-nav collapse">
                             <div class="container">
@@ -165,6 +169,9 @@
                 </div>
             </div>
         </div>
+    
+    </div>
+        
     <?php } ?>
     <?php if ($contact_page_menu) { ?>
         <div class="secondry-menu">

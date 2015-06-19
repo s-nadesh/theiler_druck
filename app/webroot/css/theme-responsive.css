@@ -40,13 +40,15 @@
         width: 100%;
     }
 
-    header.flat-menu nav ul.nav-main li a {
+/*    header.flat-menu nav ul.nav-main li a {
         color: #FFF !important;
     }
-
+*/
     header div.nav-main-collapse {
-        background: #171717;
+        background: #f9f9f9;
         max-height: none;
+		border-top:#bcb8b8 solid 1px;
+		border-bottom:#bcb8b8 solid 1px;
 
     }
 
@@ -203,7 +205,7 @@
 
     /* Responsive Button Nav */
     button.btn-responsive-nav {
-        background: #171717;
+        background: #0088cc;
         top: 55px;
         display: block;
         position: absolute;
@@ -217,7 +219,7 @@
 
     header.center button.btn-responsive-nav,
     header.flat-menu button.btn-responsive-nav {
-        top: 35px;
+        top: 27px;
     }
 
     button.btn-responsive-nav:hover,
@@ -550,7 +552,7 @@
     /* Navigation */
     header nav ul.nav-top,
     header div.header-top {
-        display: none;
+        /*display: none;*/
     }
 
     /* Page Top */
@@ -661,14 +663,14 @@
 /* Nav Responsive Breakpoints */
 @media (max-width: 600px) {
 
-    header nav ul.nav-top li {
+ /*   header nav ul.nav-top li {
         display: none;
     }
 
     header nav ul.nav-top li.phone {
         display: block;
     }
-
+*/
 }
 
 /*Aditional CSS at 2015-05-12 By Mariselvam*/
