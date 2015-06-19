@@ -42,9 +42,9 @@ $this->Html->addCrumb(__('Parralex'));
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-12 col-sm-offset-2">
+                        <div class="col-sm-10 col-sm-offset-2">
                             <?php
-                            echo $this->Html->image("../files/pictures/{$this->data['Picture']['picture_image']}", array('title' => $this->data['Picture']['picture_title'], 'alt' => $this->data['Picture']['picture_title'], 'height' => '100'));
+                            echo $this->Html->image("../files/pictures/{$this->data['Picture']['picture_image']}", array('title' => $this->data['Picture']['picture_title'], 'alt' => $this->data['Picture']['picture_title'], 'height' => '100', 'width' => '300'));
                             echo $this->Form->hidden('picture_old_image', array('value' => $this->data['Picture']['picture_image']));
                             ?>
                         </div>
