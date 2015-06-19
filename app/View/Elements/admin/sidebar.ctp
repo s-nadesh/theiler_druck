@@ -51,7 +51,6 @@
         elseif (@$admin_submenu == 'parralex')
             $sarray[1] = 'active';
 
-        echo@$admin_submenu;
         ?>
         <ul class="navigation">
             <li class="<?php echo $marray[0] ?>">
