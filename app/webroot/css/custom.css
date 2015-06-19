@@ -374,8 +374,15 @@ legend {
 .ajax-file-upload-progress {
   width: 63% !important;
 }
+	.newfooter2 ul
+	{
+		margin-bottom:28px !important;
+	}
 	
-
+	.digi-img
+	{
+		margin-bottom:28px;
+	}
 }
 @media (min-width:768px)and (max-width:991px) {
 	.new-shoppingcart
@@ -1098,3 +1105,4 @@ margin-right:10px;
 	border:#f0f0f0 solid 2px;
 	padding:5px;
 }
+
