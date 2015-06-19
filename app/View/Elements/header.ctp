@@ -104,10 +104,10 @@
             <nav class="nav-main mega-menu">
                 <ul class="nav nav-pills nav-main" id="mainMenu">
                     <li class="dropdown active">
-                        <a class="dropdown-toggle" href="<?php echo SITE_BASE_URL ?>"> Start </a>
+                        <a class="" href="<?php echo SITE_BASE_URL ?>"> Start </a>
                     </li>
                     <li class="dropdown active">
-                        <a class="dropdown-toggle" href="<?php echo SITE_BASE_URL ?>"> Produkte </a>
+                        <a class="" href="<?php echo SITE_BASE_URL ?>"> Produkte </a>
                     </li>
                     <li class="dropdown active">
                         <?php echo $this->Html->link(Myclass::translate('Contact'), array('controller' => 'pages', 'action' => 'contact')); ?>

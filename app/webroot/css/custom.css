@@ -434,7 +434,7 @@ header nav ul.nav-top li a, header nav ul.nav-top li span {
 
 
 header div.header-top ul.nav-top li.phone {
-  margin-right: -14px;
+  margin-right: -5px;
 }
 
 header nav.nav-main {
@@ -478,6 +478,13 @@ header div.nav-main-collapse.secondary-nav.collapse {
 {
     background:none !important;
 
+}
+
+
+.dropdown.active:hover
+{
+	background:#0064a7;
+	color:#ffffff;
 }
 
 }
