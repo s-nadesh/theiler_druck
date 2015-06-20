@@ -37,7 +37,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('template_from', array('class' => 'required form-control', 'label' => false));
+                            echo $this->Form->input('template_from', array('class' => 'required email form-control', 'label' => false));
                             ?>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('template_reply_to', array('class' => 'required form-control', 'label' => false));
+                            echo $this->Form->input('template_reply_to', array('class' => 'required email form-control', 'label' => false));
                             ?>
                         </div>
                     </div>

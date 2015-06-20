@@ -272,6 +272,9 @@ $(document).ready(function () {
         $('.payment-method .number-only').rules("add", {
             number: true,
         });
+        $('.payment-method .email').rules("add", {
+            email: true,
+        });
     }
 
 });
