@@ -137,14 +137,14 @@ class PagesController extends AppController {
         $this->set(compact('page_content'));
     }
 
-    public function one_page() {
+    public function one_page($column) {
         $this->set('cms_page_menu', true);
+        $this->set('column', $column);
         $this->set('body_attr', 'class="one-page" data-target=".single-menu" data-spy="scroll" data-offset="230"');
         $pages = $this->Page->find('all', array(
-            'conditions' => array("Page.is_one_page = '1'"),
+            'conditions' => array("Page.is_one_page = '1'", "Page.page_column" => $column),
             'order' => array('Page.sort_value ASC')
         ));
-
         $this->set(compact('pages'));
     }
 

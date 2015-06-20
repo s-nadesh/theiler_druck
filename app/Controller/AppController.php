@@ -149,4 +149,25 @@ class AppController extends Controller {
         imagepng($image);
     }
 
+    public function sendMail($template_id, $to, $params = array()) {
+        $template = ClassRegistry::init('EmailTemplate')->findByTemplateId($template_id);
+        if (!empty($template)) {
+            $message = $template['EmailTemplate']['template_content'];
+            foreach ($params as $key => $param) {
+                $message = str_replace("##{$key}##", $param, $message);
+            }
+            $Email = new CakeEmail(MAILSENDBY);
+            $Email->template('email_template', 'email_layout')
+                    ->emailFormat('html')
+                    ->to($to)
+                    ->replyTo($to)
+                    ->subject($template['EmailTemplate']['template_subject'])
+                    ->from($template['EmailTemplate']['template_from'])
+                    ->viewVars(array(
+                        'message' => $message
+                    ))
+                    ->send();
+        }
+    }
+
 }

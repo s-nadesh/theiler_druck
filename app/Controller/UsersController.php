@@ -122,19 +122,13 @@ class UsersController extends AppController {
                 $time_valid = date('Y-m-d H:i:s');
                 $resetlink = SITE_BASE_URL . 'users/reset_password/' . $reset_link . '/' . $user['User']['user_id'];
 
-                $Email = new CakeEmail(MAILSENDBY);
-                $Email->template('user_forgot_password', 'email_layout')
-                        ->emailFormat('html')
-                        ->to($this->data['User']['user_email'])
-                        ->subject('Reset Password Mail From - ' . SITE_NAME)
-                        ->from(FROM_EMAIL)
-                        ->viewVars(array(
-                            'name' => $user['User']['user_name'],
-                            'reset_link' => $resetlink,
-                            'time_valid' => $time_valid
-                        ))
-                        ->send();
-
+                $this->sendMail(1, $this->data['User']['user_email'], 
+                        array(
+                            'NAME' => $user['User']['user_name'],
+                            'RESET_LINK' => $resetlink,
+                            'TIME_VALID' => $time_valid
+                        ));
+                
                 $this->Session->setFlash(MyClass::translate('Your Password Reset Link sent to your email address.'), 'flash_success');
                 $this->redirect('login');
             } else {

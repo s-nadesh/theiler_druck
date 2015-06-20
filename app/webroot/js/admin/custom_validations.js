@@ -267,4 +267,11 @@ $(document).ready(function () {
         });
     }
 
+    //Admin Payment method
+    if ($('.payment-method').length > 0) {
+        $('.payment-method .number-only').rules("add", {
+            number: true,
+        });
+    }
+
 });

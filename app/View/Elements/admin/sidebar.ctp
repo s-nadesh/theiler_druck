@@ -15,7 +15,7 @@
 
         <!-- Main navigation -->
         <?php
-        $marray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13); //define number of main menus
+        $marray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15); //define number of main menus
         $sarray = array(0, 1); //define number of main menus
         if (@$admin_menu == 'admins')
             $marray[0] = 'active';
@@ -45,6 +45,10 @@
             $marray[12] = 'active';
         elseif (@$admin_menu == 'pictures')
             $marray[13] = 'active';
+        elseif (@$admin_menu == 'payment_methods')
+            $marray[14] = 'active';
+        elseif (@$admin_menu == 'email_templates')
+            $marray[15] = 'active';
 
         if (@$admin_submenu == 'slider')
             $sarray[0] = 'active';
@@ -114,11 +118,21 @@
                 </a>
             </li>
             <li class="<?php echo $marray[13] ?>">
-                <a href="#" class="expand" id="second-level"><span><?php echo __('Images') ?></span> <i class="icon-images"></i></a>
+                <a href="#" class="expand" id="<?php echo $marray[13] == 'active' ? 'second-level' : '' ?>"><span><?php echo __('Images') ?></span> <i class="icon-images"></i></a>
                 <ul>
                     <li class="<?php echo $sarray[0] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures"><?php echo __("Slider"); ?></a></li>
                     <li class="<?php echo $sarray[1] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures/parralex"><?php echo __("Parallax"); ?></a></li>
                 </ul>
+            </li>
+            <li class="<?php echo $marray[14] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/payment_methods">
+                    <span><?php echo __("Payment Methods"); ?></span><i class="icon-paypal"></i>
+                </a>
+            </li>
+            <li class="<?php echo $marray[15] ?>">
+                <a href="<?php echo SITE_BASE_URL ?>admin/email_templates">
+                    <span><?php echo __("Email Templates"); ?></span><i class="icon-mail"></i>
+                </a>
             </li>
         </ul>
         <!-- /main navigation -->

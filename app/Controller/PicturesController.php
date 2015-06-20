@@ -9,7 +9,7 @@ class PicturesController extends AppController {
     //This function will run before every action
     public function beforeFilter() {
         parent::beforeFilter();
-        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete');
+        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete', 'admin_parralex');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();

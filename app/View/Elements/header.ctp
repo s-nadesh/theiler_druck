@@ -151,7 +151,7 @@
                         <div class="navbar-collapse nav-main-collapse secondary-nav collapse">
                             <div class="container">
                                 <nav class="nav-main">
-                                    <?php $links = Myclass::getOnePageListMenu(); ?>
+                                    <?php $links = Myclass::getOnePageListMenu($column); ?>
                                     <ul class="nav nav-pills nav-main nav-main2" id="mainMenu2">
                                         <?php
                                         foreach ($links as $k => $link) {

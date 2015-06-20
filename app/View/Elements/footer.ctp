@@ -4,25 +4,37 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-3 col-md-3">   
                     <h5> Informationen</h5>
+                    <?php
+                    $links = Myclass::getOnePageListMenu(1);
+                    $cms_page_attr = ($cms_page_menu && $column && $column == 1) ? 'data-hash' : '';
+                    ?>
                     <ul> 
+                        <?php
+                        foreach ($links as $k => $link) {
+                            $link_url = ($cms_page_menu && $column && $column == 1) ? "#" . strtolower($link['Page']['page_title']) : SITE_BASE_URL . "pages/informationen#" . strtolower($link['Page']['page_title']);
+                            ?>
+                            <li><a <?php echo $cms_page_attr; ?> href="<?php echo $link_url; ?>">  <?php echo $link['Page']['page_title'] ?> </a></li>
+                        <?php } ?>
+                    </ul>
+<!--                    <ul> 
                         <li><a href="#">  Zahlungsmöglichkeiten </a></li>
                         <li><a href="#"> Versandinformationen</a></li>
                         <li><a href="#"> Widerrufsbelehrung</a></li>
                         <li><a href="#"> Impressum</a></li>
                         <li><a href="#"> AGB</a></li>
                         <li><a href="#"> Datenschutz</a></li>
-                    </ul>
+                    </ul>-->
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3">   
                     <h5>Technologie </h5>
                     <?php
-                    $links = Myclass::getOnePageListMenu();
-                    $cms_page_attr = ($cms_page_menu) ? 'data-hash' : '';
+                    $links = Myclass::getOnePageListMenu(2);
+                    $cms_page_attr = ($cms_page_menu && $column && $column == 2) ? 'data-hash' : '';
                     ?>
                     <ul> 
                         <?php
                         foreach ($links as $k => $link) {
-                            $link_url = ($cms_page_menu) ? "#" . strtolower($link['Page']['page_title']) : SITE_BASE_URL . "pages/leistungen#" . strtolower($link['Page']['page_title']);
+                            $link_url = ($cms_page_menu && $column && $column == 2) ? "#" . strtolower($link['Page']['page_title']) : SITE_BASE_URL . "pages/leistungen#" . strtolower($link['Page']['page_title']);
                             ?>
                             <li><a <?php echo $cms_page_attr; ?> href="<?php echo $link_url; ?>">  <?php echo $link['Page']['page_title'] ?> </a></li>
                         <?php } ?>

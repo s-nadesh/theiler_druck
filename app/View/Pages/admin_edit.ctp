@@ -92,6 +92,17 @@
                             ?>
                         </div>
                     </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            <?php echo __('Footer Column'); ?>:
+                        </label>
+                        <div class="col-sm-3">
+                            <?php
+                            echo $this->Form->input('page_column', array('div' => false, 'class' => 'form-control', 'label' => false, 'options' => array('1' => '1st Column', '2' => '2nd Column'), 'empty' => '', 'value' => $page_content['Page']['page_column']));
+                            ?>
+                        </div>
+                    </div>
 
                     <div class="form-actions text-right">
                         <input type="submit" value="<?php echo MyClass::translate("Edit"); ?>" class="btn btn-primary">
