@@ -200,27 +200,15 @@ class MyClass {
     }
 
     public static function paymentMethods() {
-        $methods = array();
-        $methods['PaymentMethod'] = array(
-//            array(
-//                'id' => 1,
-//                'name' => 'Cash on delivery',
-//                'fee' => '5.04CHF',
-//                'caption' => 'Small information',
-//            ),
-            array(
-                'id' => 2,
-                'name' => 'Bank transfer',
-                'fee' => '',
-                'caption' => 'You transfer the invoice amount in advance payment',
-            ), array(
-                'id' => 3,
-                'name' => 'Invoice',
-                'fee' => '',
-                'caption' => 'Small information',
-            )
-        );
-
+        $p_methods = ClassRegistry::init('PaymentMethod')->find('all', array('conditions' => array('PaymentMethod.is_active = "1"')));
+        foreach ($p_methods as $key => $p_method) {
+            $methods['PaymentMethod'][$key] = array(
+                'id' => $p_method['PaymentMethod']['payment_id'],
+                'name' => $p_method['PaymentMethod']['payment_name'],
+                'fee' => $p_method['PaymentMethod']['payment_fee'] == 0 ? '' : $p_method['PaymentMethod']['payment_fee'],
+                'caption' => $p_method['PaymentMethod']['payment_caption'],
+            );
+        }
         return $methods;
     }
 
@@ -263,10 +251,10 @@ class MyClass {
         }
     }
 
-    public static function getOnePageListMenu() {
+    public static function getOnePageListMenu($column) {
         $links = ClassRegistry::init('Page')->find('all', array(
             'fields' => array('page_title'),
-            'conditions' => array("Page.is_one_page = '1'"),
+            'conditions' => array("Page.is_one_page = '1'", "Page.page_column" => $column),
             'order' => array('Page.sort_value ASC')
         ));
 
