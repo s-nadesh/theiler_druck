@@ -206,19 +206,24 @@ if ($shipping_address->identical == 1) {
                                                                             <?php
                                                                             $is_image = MyClass::is_image(WWW_ROOT . ORDER_FILE_FOLDER . $orderfile);
                                                                             if ($is_image) {
-                                                                                echo $this->Html->link($this->Html->image('/' . ORDER_FILE_FOLDER . $orderfile, array('class' => 'img-responsive')), array('controller' => 'orders', 'action' => 'fileDownload', $orderfile), array('escape' => false)); 
+                                                                                echo $this->Html->link($this->Html->image('/' . ORDER_FILE_FOLDER . $orderfile, array('class' => 'img-responsive')), array('controller' => 'orders', 'action' => 'fileDownload', $orderfile), array('escape' => false));
                                                                             } else {
-                                                                                echo $this->Html->link($this->Html->image('preview_not_available.jpg', array('class' => 'img-responsive')), array('controller' => 'orders', 'action' => 'fileDownload', $orderfile), array('escape' => false)); 
+                                                                                echo $this->Html->link($this->Html->image('preview_not_available.jpg', array('class' => 'img-responsive')), array('controller' => 'orders', 'action' => 'fileDownload', $orderfile), array('escape' => false));
                                                                             }
                                                                             ?>
                                                                         </div>
                                                                         <?php
-                                                                        if ($i / 4 == 1)
+                                                                        if ($i / 3 == 1)
                                                                             echo '</div><div class="clearfix"></div><div class="row">';
                                                                         $i++;
                                                                     }
                                                                     ?>
                                                                 <?php } ?>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <a href="<?php echo SITE_BASE_URL ?>orders/update_picture_upload/<?php echo $order['Order']['order_unique_id'] ?>/<?php echo $value['order_item_id'] ?>"> <?php echo __("Update pictures"); ?>  </a>
+                                                                </div>
                                                             </div>
                                                         </td>
 
