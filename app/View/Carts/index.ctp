@@ -207,7 +207,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <td align="right">
                                                     <strong>
                                                         <span class="amount">
-                                                            <?php echo MyClass::currencyFormat($shop['Additional']['cart_sub_price_with_tax']) ?>
+                                                            <?php echo MyClass::currencyFormat($shop['Additional']['cart_total_price']) ?>
                                                         </span>
                                                     </strong>
                                                 </td>

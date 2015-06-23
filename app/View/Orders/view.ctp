@@ -273,12 +273,20 @@ if ($shipping_address->identical == 1) {
                                                         </span>
                                                     </td>
                                                 </tr>
-                                                <tr class="summary_total_gross">
+                                                <tr class="summary_shipping_cost">
                                                     <td colspan="5">
                                                         <?php echo MyClass::translate("Total Gross"); ?>
                                                     </td>
                                                     <td align='right'>
                                                         <?php echo MyClass::currencyFormat($order['Order']['order_total_gross']); ?>
+                                                    </td>
+                                                </tr>
+                                                <tr class="summary_total_gross">
+                                                    <td colspan="5">
+                                                        <?php echo MyClass::translate("Total Amount"); ?>
+                                                    </td>
+                                                    <td align='right'>
+                                                        <?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?>
                                                     </td>
                                                 </tr>
                                             </tbody>

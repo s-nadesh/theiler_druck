@@ -224,6 +224,11 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                 <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; font-size:18px; padding:5px;"><?php echo MyClass::translate("Total Gross"); ?></td>
                 <td align="center" style="border:1px solid #000; border-top:0px; padding:5px; font-size:18px;"><?php echo MyClass::currencyFormat($order['Order']['order_total_gross']); ?></td>
             </tr>
+            
+            <tr>
+                <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; font-size:18px; padding:5px;"><?php echo MyClass::translate("Total Amount"); ?></td>
+                <td align="center" style="border:1px solid #000; border-top:0px; padding:5px; font-size:18px;"><?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?></td>
+            </tr>
 
         </tbody>
     </table>

@@ -339,7 +339,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                         <?php echo MyClass::translate("Total Gross"); ?>
                                                     </td>
                                                     <td align='right'>
-                                                        <?php echo MyClass::currencyFormat($shop['Additional']['cart_sub_price_with_tax']); ?>
+                                                        <?php echo MyClass::currencyFormat($shop['Additional']['cart_total_price']); ?>
                                                     </td>
                                                 </tr>
                                             </tbody>
