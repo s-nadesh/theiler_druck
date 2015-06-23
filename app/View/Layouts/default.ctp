@@ -58,7 +58,7 @@
     
     <div id="fl_menu">
     
-     <img src="<?php echo SITE_BASE_URL ?>img/sdv_small.png"  alt="" />
+  <a href="http://www.sdv-award.ch/" target="_blank" >   <img src="<?php echo SITE_BASE_URL ?>img/sdv_small.png"  alt="" /> </a>
 	
 	
     </div>
