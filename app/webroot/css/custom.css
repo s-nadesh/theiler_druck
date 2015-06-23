@@ -489,6 +489,8 @@ header div.nav-main-collapse.secondary-nav.collapse {
 
 }
 @media (min-width:768px)and (max-width:991px) {
+	
+	
 	.new-shoppingcart
 	{
 		float:left !important;
@@ -509,7 +511,7 @@ header div.nav-main-collapse.secondary-nav.collapse {
 	
 	.nav-main.mega-menu.shop-menu {
   float: right;
-  margin-top: 5px !important;
+  margin-top: 0px !important;
 }
 	
 	.newfooter2 ul li
@@ -540,6 +542,43 @@ header div.nav-main-collapse.secondary-nav.collapse {
 }
 	
 	
+	
+	
+	.nav.nav-pills.nav-main {
+  float: left !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+
+header nav.nav-main ul li {
+  display: inline-block !important;
+  float: none !important;
+}
+
+.nav.nav-pills.nav-main {
+  text-align: center !important;
+}
+
+header.colored > div.container {
+  height: 75px;
+  margin-bottom: -92px;
+}
+
+.mega-menu.nav-main {
+  margin-top: -25px !important;
+}
+	
+	
+	.dropdown.active:hover {
+  background: none repeat scroll 0 0 #0064a7;
+  color: #ffffff;
+}
+
+.btn.btn-responsive-nav.btn-inverse.secondry-btn {
+  right: 20px;
+  top: 0;
+}
 }
 @media (min-width:992px)and (max-width:1199px) {
     .hidden-md {
@@ -1210,7 +1249,7 @@ margin-right:10px;
 }
 
 
-#fl_menu{position:absolute; bottom:100px; right:0px; z-index:9999; width:auto; height:50px;}
+#fl_menu{position:absolute; bottom:200px; right:0px; z-index:9999; width:auto; height:50px;}
 #fl_menu .label{padding-left:20px; line-height:50px; font-family:"Arial Black", Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; background:#000; color:#fff; letter-spacing:7px;}
 #fl_menu .menu{display:none;}
 #fl_menu .menu .menu_item{display:block; background:#000; color:#bbb; border-top:1px solid #333; padding:10px 20px; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-decoration:none;}
