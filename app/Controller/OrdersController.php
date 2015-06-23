@@ -8,7 +8,7 @@ class OrdersController extends AppController {
     //This function will run before every action
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->deny(array('index', 'view', 'update_picture_upload'));
+        $this->Auth->deny(array('index', 'view', 'update_picture_upload', 'insertOrderProductImage', 'removeOrderProductImage'));
         $admin_auth_actions = array('admin_index', 'admin_view', 'admin_update_status');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))

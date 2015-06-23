@@ -113,9 +113,6 @@ $uploaded_pictures = $order_item_product_value->item_picture_upload;
             returnType: "json",
             onSuccess: function(files, data, xhr)
             {
-                console.log(files);
-                console.log(data);
-                console.log(xhr);
                 var fileExtension = data[0].substring(data[0].lastIndexOf('.') + 1);
                 if (fileExtension == 'jpg' || fileExtension == 'png' || fileExtension == 'psd') {
                     _img_src = "<?php echo SITE_BASE_URL . ORDER_FILE_FOLDER ?>" + data[0];
