@@ -227,6 +227,12 @@ if ($shipping_address->identical == 1) {
                                 <h6><?php echo MyClass::currencyFormat($order['Order']['order_total_gross']); ?></h6>
                             </td>
                         </tr>
+                        <tr>
+                            <th><?php echo MyClass::translate("Total Amount"); ?>:</th>
+                            <td class="text-right">
+                                <h6><?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?></h6>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

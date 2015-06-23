@@ -91,7 +91,7 @@ class DATABASE_CONFIG {
         'password' => DB_PASSWORD,
         'database' => DB_DATABASE,
         'prefix' => 'td_',
-            //'encoding' => 'utf8',
+        'encoding' => 'utf8',
     );
     public $test = array(
         'datasource' => 'Database/Mysql',
@@ -101,7 +101,7 @@ class DATABASE_CONFIG {
         'password' => 'password',
         'database' => 'test_database_name',
         'prefix' => '',
-            //'encoding' => 'utf8',
+        'encoding' => 'utf8',
     );
 
 }
