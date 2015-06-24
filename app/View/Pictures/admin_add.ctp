@@ -1,5 +1,5 @@
 <?php 
-$this->Html->addCrumb(__('Slider'), array('controller' => 'pictures', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(MyClass::translate('Slider'), array('controller' => 'pictures', 'action' => 'index', 'admin' => true));
 $this->Html->addCrumb(MyClass::translate('Add'));
 ?>
 
@@ -16,7 +16,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Add Slider"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Add Slider"); ?></h6>
                 </div>
 
                 <div class="panel-body">
@@ -38,7 +38,7 @@ $this->Html->addCrumb(MyClass::translate('Add'));
                             <?php
                             echo $this->Form->input('picture_image', array('type' => 'file', 'class' => 'styled required', 'label' => false));
                             ?>
-                            <span class="help-block"><?php echo __('Image width & Height must be '.SLIDER_WIDTH.' * '.SLIDER_HEIGHT.' px or larger') ?></span>
+                            <span class="help-block"><?php echo MyClass::translate('Image width & Height must be '.SLIDER_WIDTH.' * '.SLIDER_HEIGHT.' px or larger') ?></span>
                         </div>
                     </div>
                     <div class="form-group">

@@ -1,5 +1,5 @@
 <?php 
-$this->Html->addCrumb(__('Parralex'));
+$this->Html->addCrumb(MyClass::translate('Parralex'));
 ?>
 
 <div class="tabbable page-tabs">
@@ -17,13 +17,13 @@ $this->Html->addCrumb(__('Parralex'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit Parralex"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit Parralex"); ?></h6>
                 </div>
 
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Caption'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Caption'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php

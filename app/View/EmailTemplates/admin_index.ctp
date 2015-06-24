@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(__('Email Templates')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Email Templates')); ?>
 
 <div class="panel panel-default">
     <div class="panel-heading">

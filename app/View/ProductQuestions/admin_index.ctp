@@ -36,7 +36,7 @@
                                         <i class="icon-pencil"></i>
                                     </a>
 
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/delete/<?php echo $unanswered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo __("Delete"); ?>" onclick="return confirm('Are you sure you wish to delete?');">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/delete/<?php echo $unanswered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo MyClass::translate("Delete"); ?>" onclick="return confirm('Are you sure you wish to delete?');">
                                         <i class="icon-remove2"></i>
                                     </a>
                                 </div>
@@ -90,7 +90,7 @@
                                         <i class="icon-pencil"></i>
                                     </a>
 
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/delete/<?php echo $answered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo __("Delete"); ?>" onclick="return confirm('Are you sure you wish to delete?');">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/product_questions/delete/<?php echo $answered_question['ProductQuestion']['product_question_id']; ?>" data-original-title="<?php echo MyClass::translate("Delete"); ?>" onclick="return confirm('Are you sure you wish to delete?');">
                                         <i class="icon-remove2"></i>
                                     </a>
                                 </div>

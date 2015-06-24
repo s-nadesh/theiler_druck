@@ -222,7 +222,7 @@ if ($shipping_address->identical == 1) {
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-xs-12">
-                                                                    <a href="<?php echo SITE_BASE_URL ?>orders/update_picture_upload/<?php echo $order['Order']['order_unique_id'] ?>/<?php echo $value['order_item_id'] ?>"> <?php echo __("Update pictures"); ?>  </a>
+                                                                    <a href="<?php echo SITE_BASE_URL ?>orders/update_picture_upload/<?php echo $order['Order']['order_unique_id'] ?>/<?php echo $value['order_item_id'] ?>"> <?php echo MyClass::translate("Update pictures"); ?>  </a>
                                                                 </div>
                                                             </div>
                                                         </td>

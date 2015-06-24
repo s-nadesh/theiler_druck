@@ -1,7 +1,7 @@
 <?php echo $this->Html->css(array('theme-blog', '/vendor/jQuery-File-Upload/uploadfile'), array('inline' => false)); ?>
 <?php echo $this->Html->script(array('/vendor/jQuery-File-Upload/jquery.uploadfile'), array('inline' => false)); ?>
 <?php
-$this->Html->addCrumb(__('Manage uploaded pictures'));
+$this->Html->addCrumb(MyClass::translate('Manage uploaded pictures'));
 
 $order_item = $order['OrderItem'];
 $order_item_product_value = MyClass::decodeJSON($order_item['order_item_product_value']);
@@ -20,10 +20,10 @@ $uploaded_pictures = $order_item_product_value->item_picture_upload;
                 <?php echo $this->Session->flash(); ?>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-10">
-                        <h2><?php echo __("Update pictures"); ?> </h2>
+                        <h2><?php echo MyClass::translate("Update pictures"); ?> </h2>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-2">
-                        <a href="<?php echo SITE_BASE_URL?>orders/view/<?php echo $order['Order']['order_unique_id']?>"> <?php echo __("Back"); ?></a>
+                        <a href="<?php echo SITE_BASE_URL?>orders/view/<?php echo $order['Order']['order_unique_id']?>"> <?php echo MyClass::translate("Back"); ?></a>
                     </div>
                 </div>
                 <div class="row">
@@ -33,7 +33,7 @@ $uploaded_pictures = $order_item_product_value->item_picture_upload;
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <legend>  
-                                            <?php echo __("Uploaded pictures"); ?>
+                                            <?php echo MyClass::translate("Uploaded pictures"); ?>
                                         </legend>
                                     </div>
 

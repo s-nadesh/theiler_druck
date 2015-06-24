@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(__('Sliders')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Sliders')); ?>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -11,7 +11,7 @@
                 <tr>
                     <th>#</th>
                     <th><?php echo MyClass::translate("Title"); ?></th>
-                    <th><?php echo __("Image"); ?></th>
+                    <th><?php echo MyClass::translate("Image"); ?></th>
                     <th><?php echo MyClass::translate("Sort"); ?></th>
                     <th><?php echo MyClass::translate("Action"); ?></th>
                 </tr>
@@ -32,7 +32,7 @@
                                     <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pictures/edit/<?php echo $picture['Picture']['picture_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pictures/delete/<?php echo $picture['Picture']['picture_id']; ?>" data-original-title="<?php echo __("Delete"); ?>" onclick="return confirm('<?php echo __('Are you sure you wish to delete?') ?>');">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pictures/delete/<?php echo $picture['Picture']['picture_id']; ?>" data-original-title="<?php echo MyClass::translate("Delete"); ?>" onclick="return confirm('<?php echo MyClass::translate('Are you sure you wish to delete?') ?>');">
                                         <i class="icon-remove2"></i>
                                     </a>
                                 </div>

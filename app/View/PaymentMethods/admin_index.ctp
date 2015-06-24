@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(__('Payment Methods')); ?>
+<?php $this->Html->addCrumb(MyClass::translate('Payment Methods')); ?>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -11,7 +11,7 @@
                     <th>#</th>
                     <th><?php echo MyClass::translate("Name"); ?></th>
                     <th><?php echo MyClass::translate("Caption"); ?></th>
-                    <th><?php echo __("Fee"); ?></th>
+                    <th><?php echo MyClass::translate("Fee"); ?></th>
                     <th><?php echo MyClass::translate("Action"); ?></th>
                 </tr>
             </thead>

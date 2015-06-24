@@ -94,7 +94,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Footer Column'); ?>:
+                            <?php echo MyClass::translate('Footer Column'); ?>:
                         </label>
                         <div class="col-sm-3">
                             <?php

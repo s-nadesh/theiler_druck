@@ -1,5 +1,5 @@
 <?php 
-$this->Html->addCrumb(__('Payment Method'), array('controller' => 'payment_methods', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(MyClass::translate('Payment Method'), array('controller' => 'payment_methods', 'action' => 'index', 'admin' => true));
 $this->Html->addCrumb(MyClass::translate('Edit'));
 ?>
 
@@ -17,7 +17,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit Payment Method"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit Payment Method"); ?></h6>
                 </div>
 
                 <div class="panel-body">
@@ -43,7 +43,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Fee'); ?>: 
+                            <?php echo MyClass::translate('Fee'); ?>: 
                         </label>
                         <div class="col-sm-1">
                             <?php

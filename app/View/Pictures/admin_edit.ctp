@@ -1,5 +1,5 @@
 <?php 
-$this->Html->addCrumb(__('Slider'), array('controller' => 'pictures', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(MyClass::translate('Slider'), array('controller' => 'pictures', 'action' => 'index', 'admin' => true));
 $this->Html->addCrumb(MyClass::translate('Edit'));
 ?>
 
@@ -17,7 +17,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit Slider"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit Slider"); ?></h6>
                 </div>
 
                 <div class="panel-body">

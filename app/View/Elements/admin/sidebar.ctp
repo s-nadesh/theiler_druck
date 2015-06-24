@@ -118,20 +118,20 @@
                 </a>
             </li>
             <li class="<?php echo $marray[13] ?>">
-                <a href="#" class="expand" id="<?php echo $marray[13] == 'active' ? 'second-level' : '' ?>"><span><?php echo __('Images') ?></span> <i class="icon-images"></i></a>
+                <a href="#" class="expand" id="<?php echo $marray[13] == 'active' ? 'second-level' : '' ?>"><span><?php echo MyClass::translate('Images') ?></span> <i class="icon-images"></i></a>
                 <ul>
-                    <li class="<?php echo $sarray[0] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures"><?php echo __("Slider"); ?></a></li>
-                    <li class="<?php echo $sarray[1] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures/parralex"><?php echo __("Parallax"); ?></a></li>
+                    <li class="<?php echo $sarray[0] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures"><?php echo MyClass::translate("Slider"); ?></a></li>
+                    <li class="<?php echo $sarray[1] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures/parralex"><?php echo MyClass::translate("Parallax"); ?></a></li>
                 </ul>
             </li>
             <li class="<?php echo $marray[14] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/payment_methods">
-                    <span><?php echo __("Payment Methods"); ?></span><i class="icon-paypal"></i>
+                    <span><?php echo MyClass::translate("Payment Methods"); ?></span><i class="icon-paypal"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[15] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/email_templates">
-                    <span><?php echo __("Email Templates"); ?></span><i class="icon-mail"></i>
+                    <span><?php echo MyClass::translate("Email Templates"); ?></span><i class="icon-mail"></i>
                 </a>
             </li>
         </ul>

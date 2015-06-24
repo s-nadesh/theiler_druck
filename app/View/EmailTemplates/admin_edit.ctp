@@ -1,5 +1,5 @@
 <?php 
-$this->Html->addCrumb(__('Email Templates'), array('controller' => 'email_templates', 'action' => 'index', 'admin' => true));
+$this->Html->addCrumb(MyClass::translate('Email Templates'), array('controller' => 'email_templates', 'action' => 'index', 'admin' => true));
 $this->Html->addCrumb(MyClass::translate('Edit'));
 ?>
 
@@ -17,7 +17,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
             ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo __("Edit Email Template"); ?></h6>
+                    <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit Email Template"); ?></h6>
                 </div>
 
                 <div class="panel-body">
@@ -73,7 +73,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo __('Variables'); ?>: <span class="mandatory">*</span>
+                            <?php echo MyClass::translate('Variables'); ?>: <span class="mandatory">*</span>
                         </label>
                         <div class="col-sm-10">
                             <?php
