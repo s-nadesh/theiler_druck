@@ -40,7 +40,7 @@
                                             <?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "class" => "refresh")); ?>
                                         </div>
                                         <div class="form-group">
-                                            <?php echo $this->Form->submit('Send', array('class' => 'btn btn-primary btn-lg', 'div' => false, 'id' => 'contact_submit')); ?>
+                                            <?php echo $this->Form->submit(MyClass::translate('Send'), array('class' => 'btn btn-primary btn-lg', 'div' => false, 'id' => 'contact_submit')); ?>
                                             <?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'contact-ajax-loader')); ?>
                                         </div>
                                         <div class="form-group hide" id="contact-message">
@@ -81,7 +81,7 @@
                                         <div class="contact-map"> 
                                             <h4><?php echo MyClass::translate('Approach') ?></h4>
                                             <p>
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10844.698199828279!2d8.72116!3d47.193596!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe94d76d6c439cb2e!2sTheiler+Druck+AG!5e0!3m2!1sen!2sin!4v1433157270213" width="100%" height="310" frameborder="0" style="border:0"></iframe>
+                                                <iframe width="100%" height="310" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Theiler+Druck+AG,+Verenastrasse,+Wollerau,+Switzerland&key=AIzaSyDWvwxxxNCrdK0rQuOIouwVGYkRvSK2T9s&language=de"></iframe>
                                             </p>
                                         </div>
                                     </div>

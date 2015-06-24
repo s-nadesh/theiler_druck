@@ -177,7 +177,7 @@ class MyClass {
 
     public static function getCountries() {
         $country = array(
-            'Switzerland' => 'Switzerland'
+            'Switzerland' => self::translate('Switzerland')
         );
 
         return $country;
@@ -185,16 +185,16 @@ class MyClass {
 
     public static function getUserTitles() {
         $titles = array(
-            'Mr' => 'Mr',
-            'Ms' => 'Ms'
+            'Mr' => self::translate('Mr'),
+            'Ms' => self::translate('Ms')
         );
         return $titles;
     }
 
     public static function getCompanyTypes() {
         $types = array(
-            'Individual' => 'Individual',
-            'Company' => 'Company',
+            'Individual' => self::translate('Individual'),
+            'Company' => self::translate('Company'),
         );
         return $types;
     }

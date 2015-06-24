@@ -27,7 +27,7 @@
                             <td><?php echo $paper['PaperVariant']['paper_name'] ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/paper_variants/edit/<?php echo $paper['PaperVariant']['paper_id']; ?>" data-original-title="<?php echo MyClass::translate("Save"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/paper_variants/edit/<?php echo $paper['PaperVariant']['paper_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>

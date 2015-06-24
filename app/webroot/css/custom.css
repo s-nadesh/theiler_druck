@@ -1064,6 +1064,7 @@ div.featured-boxes.login {
   color: #666666 !important;
   font-size: 18px;
   text-transform: none;
+  font-weight: normal;
 }
 .newfooter2 ul
 {
@@ -1135,7 +1136,7 @@ margin-right:10px;
 
 .new-carttxt a
 {
-	color:#2e2e2e;
+	color:#2e2e2e;        
 }
 
 .phone > span {
@@ -1193,6 +1194,7 @@ margin-right:10px;
 .new-carttxt a
 {
 	color:#0088cc !important;
+        font-weight: 500 !important;
 }
 
 .new-carttxt a:hover

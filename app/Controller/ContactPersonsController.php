@@ -12,6 +12,7 @@ class ContactPersonsController extends AppController {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
+        $this->set('title_for_layout', MyClass::translate('Contact Persons'));
         $this->set('admin_menu', 'contactPersons');
     }
 
@@ -19,9 +20,6 @@ class ContactPersonsController extends AppController {
         $contactPersons = $this->ContactPerson->find('all', array(
             'order' => array('ContactPerson.created DESC')
         ));
-
-        $this->set('title_for_layout', 'contactPersons');
-        $this->set('admin_menu', 'contactPersons');
         $this->set(compact('contactPersons'));
     }
 

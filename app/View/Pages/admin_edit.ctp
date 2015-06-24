@@ -105,7 +105,7 @@
                     </div>
 
                     <div class="form-actions text-right">
-                        <input type="submit" value="<?php echo MyClass::translate("Edit"); ?>" class="btn btn-primary">
+                        <input type="submit" value="<?php echo MyClass::translate("Save"); ?>" class="btn btn-primary">
                     </div>
                 </div>
             </div>

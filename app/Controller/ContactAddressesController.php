@@ -13,15 +13,13 @@ class ContactAddressesController extends AppController {
                 $this->goAdminLogin();
         }
         $this->set('admin_menu', 'ContactAddress');
+        $this->set('title_for_layout', MyClass::translate('Contact Address'));
     }
 
     public function admin_index() {
         $ContactAddresses = $this->ContactAddress->find('all', array(
             'order' => array('ContactAddress.created DESC')
         ));
-
-        $this->set('title_for_layout', 'Contact Address');
-        $this->set('admin_menu', 'ContactAddress');
         $this->set(compact('ContactAddresses'));
     }
 

@@ -166,7 +166,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                             </p>
                                         </div>
                                         <div class="col-xs-3 col-sm-3 col-md-2">
-                                            <p class="pull-right"><?php echo $payment_method['fee'] ?></p>
+                                            <p class="pull-right"><?php echo MyClass::currencyFormat($payment_method['fee']); ?></p>
                                         </div>
                                     </div>
                                 <?php } ?>

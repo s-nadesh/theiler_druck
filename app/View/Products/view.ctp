@@ -176,7 +176,7 @@ if ($cart_items_key) {
                                 <?php echo MyClass::translate("incl. 8% VAT."); ?>
                             </span><br>
                             <span>
-                                zzgl. <a href="#">Versandkosten</a>
+                                zzgl. <a href="<?php echo SITE_BASE_URL?>pages/informationen#versandinformationen">Versandkosten</a>
                             </span>
                         </div>
                     </div>

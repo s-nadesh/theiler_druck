@@ -28,9 +28,10 @@ $(function() {
 		"sPaginationType": "full_numbers",
 		"sDom": '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 		"oLanguage": {
-			"sSearch": "<span>Filter:</span> _INPUT_",
-			"sLengthMenu": "<span>Show entries:</span> _MENU_",
-			"oPaginate": { "sFirst": "First", "sLast": "Last", "sNext": ">", "sPrevious": "<" }
+                    "sUrl": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json",
+//			"sSearch": "<span>Filter:</span> _INPUT_",
+//			"sLengthMenu": "<span>Show entries:</span> _MENU_",
+//			"oPaginate": { "sFirst": "First", "sLast": "Last", "sNext": ">", "sPrevious": "<" }
 		}
     });
 

@@ -16,14 +16,6 @@
                             <li><a <?php echo $cms_page_attr; ?> href="<?php echo $link_url; ?>">  <?php echo $link['Page']['page_title'] ?> </a></li>
                         <?php } ?>
                     </ul>
-<!--                    <ul> 
-                        <li><a href="#">  Zahlungsmöglichkeiten </a></li>
-                        <li><a href="#"> Versandinformationen</a></li>
-                        <li><a href="#"> Widerrufsbelehrung</a></li>
-                        <li><a href="#"> Impressum</a></li>
-                        <li><a href="#"> AGB</a></li>
-                        <li><a href="#"> Datenschutz</a></li>
-                    </ul>-->
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3">   
                     <h5>Technologie </h5>

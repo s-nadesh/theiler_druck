@@ -103,16 +103,16 @@
             <div class="clearfix"></div>
             <nav class="nav-main mega-menu">
                 <ul class="nav nav-pills nav-main" id="mainMenu">
-                    <li class="dropdown active">
+                    <li class="active">
                         <a class="" href="<?php echo SITE_BASE_URL ?>"> Start </a>
                     </li>
-                    <li class="dropdown active">
+                    <li class="active">
                         <a class="" href="<?php echo SITE_BASE_URL ?>"> Produkte </a>
                     </li>
-                    <li class="dropdown active">
+                    <li class="active">
                         <?php echo $this->Html->link(Myclass::translate('Contact'), array('controller' => 'pages', 'action' => 'contact')); ?>
                     </li>
-                    <li class=" login-btn mega-menu-item mega-menu-shop">
+                    <li class="login-btn mega-menu-item mega-menu-shop">
                         <div class="new-shoppingcart"> 
                             <div class="new-carticon"> <img src="<?php echo SITE_BASE_URL ?>img/cart-icon.png"  alt="" /> </div> 
                             <div class="new-carttxt"> 
