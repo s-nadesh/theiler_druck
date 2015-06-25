@@ -14,6 +14,7 @@ class EmailTemplatesController extends AppController {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
+        $this->set('title_for_layout', 'Email Templates');
         $this->set('admin_menu', 'email_templates');
     }
 
@@ -21,8 +22,6 @@ class EmailTemplatesController extends AppController {
         $email_templates = $this->EmailTemplate->find('all', array(
             'order' => array('EmailTemplate.template_id ASC')
         ));
-
-        $this->set('title_for_layout', 'email_templates');
         $this->set(compact('email_templates'));
     }
 

@@ -29,7 +29,7 @@
                             <td><?php echo $picture['Picture']['picture_sort']; ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pictures/edit/<?php echo $picture['Picture']['picture_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pictures/edit/<?php echo $picture['Picture']['picture_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                     <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pictures/delete/<?php echo $picture['Picture']['picture_id']; ?>" data-original-title="<?php echo MyClass::translate("Delete"); ?>" onclick="return confirm('<?php echo MyClass::translate('Are you sure you wish to delete?') ?>');">
