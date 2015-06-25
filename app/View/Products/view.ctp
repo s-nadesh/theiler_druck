@@ -488,10 +488,10 @@ if ($cart_items_key) {
                 _img = "<img class='' width='80' height='81' src='" + _img_src + "' alt='img'>";
                 
                 _filediv = $('#uploading-div .ajax-file-upload-filename').filter(function(index){return $(this).text() === files[0];});
-                _upload = $(_filediv).closest('.ajax-file-upload-statusbar');
-                $(_upload).find('.ajax-file-upload-progress').html(_img);
-                $(_upload).find('.ajax-file-upload-progress').addClass('uploaded-success');
-                $(_upload).find('.ajax-file-upload-filename').addClass('hide');
+                _upload = _filediv.closest('.ajax-file-upload-statusbar');
+                _upload.find('.ajax-file-upload-progress').html(_img);
+                _upload.find('.ajax-file-upload-progress').addClass('uploaded-success');
+                _upload.find('.ajax-file-upload-filename').addClass('hide');
             },
             showDelete: true,
             onError: function(files, status, message) {
