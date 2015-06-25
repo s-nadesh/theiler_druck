@@ -51,7 +51,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Parrallax Image'); ?>:
+                            <?php echo MyClass::translate('Parallax Image'); ?>:
                         </label>
                         <div class="col-sm-10">
                             <?php
@@ -62,7 +62,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">
-                            <?php echo MyClass::translate('Parrallax Caption'); ?>:
+                            <?php echo MyClass::translate('Parallax Caption'); ?>:
                         </label>
                         <div class="col-sm-10">
                             <?php

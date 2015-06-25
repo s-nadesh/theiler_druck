@@ -52,7 +52,7 @@
 
         if (@$admin_submenu == 'slider')
             $sarray[0] = 'active';
-        elseif (@$admin_submenu == 'parralex')
+        elseif (@$admin_submenu == 'parallax')
             $sarray[1] = 'active';
 
         ?>
@@ -121,7 +121,7 @@
                 <a href="#" class="expand" id="<?php echo $marray[13] == 'active' ? 'second-level' : '' ?>"><span><?php echo MyClass::translate('Images') ?></span> <i class="icon-images"></i></a>
                 <ul>
                     <li class="<?php echo $sarray[0] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures"><?php echo MyClass::translate("Slider"); ?></a></li>
-                    <li class="<?php echo $sarray[1] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures/parralex"><?php echo MyClass::translate("Parallax"); ?></a></li>
+                    <li class="<?php echo $sarray[1] ?>"><a href="<?php echo SITE_BASE_URL ?>admin/pictures/parallax"><?php echo MyClass::translate("Parallax"); ?></a></li>
                 </ul>
             </li>
             <li class="<?php echo $marray[14] ?>">

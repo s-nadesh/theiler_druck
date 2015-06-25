@@ -9,7 +9,7 @@ class PicturesController extends AppController {
     //This function will run before every action
     public function beforeFilter() {
         parent::beforeFilter();
-        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete', 'admin_parralex');
+        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete', 'admin_parallax');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
@@ -89,7 +89,7 @@ class PicturesController extends AppController {
         $this->set('admin_submenu', 'slider');
     }
 
-    public function admin_parralex() {
+    public function admin_parallax() {
         if ($this->request->is('post') || $this->request->is('put')) {
             if (!empty($this->request->data['Picture']['picture_image']['name'])) {
                 $image_name = MyClass::getRandomString(5) . "_" . $this->data['Picture']['picture_image']['name'];
@@ -107,7 +107,7 @@ class PicturesController extends AppController {
             $this->Session->setFlash(MyClass::translate("Content updated successfully"), 'flash_success');
         }
         $this->data = $this->Picture->findByPictureBlock('PL');
-        $this->set('admin_submenu', 'parralex');
+        $this->set('admin_submenu', 'parallax');
     }
 
     public function admin_delete($picture_id) {
