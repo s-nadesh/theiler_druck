@@ -162,11 +162,13 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                             <p>
                                                 <input id="pay_<?php echo $payment_method['id'] ?>" type="radio" name="data[PaymentMethod][id]" value="<?php echo $payment_method['id'] ?>" <?php echo $checked; ?>>
                                                 <label for="pay_<?php echo $payment_method['id'] ?>"><?php echo $payment_method['name'] ?></label><br>
-                                                <span><?php echo $payment_method['caption'] ?></span>
+                                                <span><?php echo MyClass::newLineBreak($payment_method['caption']) ?></span>
                                             </p>
                                         </div>
                                         <div class="col-xs-3 col-sm-3 col-md-2">
-                                            <p class="pull-right"><?php echo MyClass::currencyFormat($payment_method['fee']); ?></p>
+                                            <?php if ($payment_method['fee'] > 0): ?>
+                                                <p class="pull-right"><?php echo MyClass::currencyFormat($payment_method['fee']); ?></p>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 <?php } ?>

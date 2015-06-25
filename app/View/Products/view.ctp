@@ -61,7 +61,9 @@ if ($cart_items_key) {
 
             <div class="col-md-6">
                 <div class="summary entry-summary">
-                    <h2 class="shorter"><strong><?php echo $product['Product']['product_name']; ?></strong></h2>
+                    <h2 class="shorter product_title">
+                        <?php echo $product['Product']['product_name']; ?>
+                    </h2>
                     <hr class="short">
                     <p class="taller"> <?php echo MyClass::newLineBreak($product['Product']['product_description']); ?> </p>
                     <?php

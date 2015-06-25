@@ -148,3 +148,8 @@ span.input-group-btn{
     width: auto;
     float: left;
 }
+
+.product_title{
+    font-size: 36px;
+    font-weight: 500
+}

@@ -205,7 +205,7 @@ class MyClass {
             $methods['PaymentMethod'][$key] = array(
                 'id' => $p_method['PaymentMethod']['payment_id'],
                 'name' => $p_method['PaymentMethod']['payment_name'],
-                'fee' => $p_method['PaymentMethod']['payment_fee'] == 0 ? '' : $p_method['PaymentMethod']['payment_fee'],
+                'fee' => $p_method['PaymentMethod']['payment_fee'],
                 'caption' => $p_method['PaymentMethod']['payment_caption'],
             );
         }

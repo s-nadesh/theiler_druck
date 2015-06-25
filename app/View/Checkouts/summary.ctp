@@ -143,23 +143,25 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                 <legend>  <?php echo MyClass::translate("Payment Method"); ?> </legend> 
 
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-8">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="row">
-                                            <div class="col-xs-6 col-sm-6 col-md-4">
+                                            <div class="col-xs-9 col-sm-9 col-md-10">
                                                 <p>
                                                     <?php echo $payment_method['name']; ?><br>
-                                                    <span><?php echo $payment_method['caption'] ?></span>
+                                                    <span><?php echo MyClass::newLineBreak($payment_method['caption']) ?></span>
                                                 </p>
                                             </div>
-                                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="col-xs-3 col-sm-3 col-md-2">
+                                                <?php if ($payment_method['fee'] > 0): ?>
                                                 <p>
-                                                    <?php echo $payment_method['fee']; ?><br>
+                                                    <?php echo MyClass::currencyFormat($payment_method['fee']); ?><br>
                                                 </p>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
                                         <p class="pull-right">
                                             <a href="<?php echo SITE_BASE_URL ?>checkouts/payment_method" class="btn btn-lg btn-primary">
                                                 <?php echo MyClass::translate("Payment method change"); ?>
@@ -354,7 +356,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                         </a>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-8">
-                                        <input type="submit" value="<?php echo MyClass::translate("Continue your order"); ?>" class="btn btn-lg btn-primary pull-right">
+                                        <input type="submit" value="<?php echo MyClass::translate("Binding order"); ?>" class="btn btn-lg btn-primary pull-right">
                                     </div>
                                 </div>
                                 <div class="row">
