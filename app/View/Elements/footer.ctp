@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-3 col-md-3">   
-                    <h5> Informationen</h5>
+<!--                    <h5> Informationen</h5>-->
                     <?php
                     $links = Myclass::getOnePageListMenu(1);
                     $cms_page_attr = ($cms_page_menu && $column && $column == 1) ? 'data-hash' : '';
@@ -18,7 +18,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3">   
-                    <h5>Technologie </h5>
+<!--                    <h5>Technologie </h5>-->
                     <?php
                     $links = Myclass::getOnePageListMenu(2);
                     $cms_page_attr = ($cms_page_menu && $column && $column == 2) ? 'data-hash' : '';

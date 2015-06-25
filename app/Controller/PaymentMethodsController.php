@@ -14,6 +14,7 @@ class PaymentMethodsController extends AppController {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
         }
+        $this->set('title_for_layout', 'Payment Method');
         $this->set('admin_menu', 'payment_methods');
     }
 
@@ -22,8 +23,6 @@ class PaymentMethodsController extends AppController {
             'conditions' => array('PaymentMethod.is_active = "1"'),
             'order' => array('PaymentMethod.payment_id ASC')
         ));
-
-        $this->set('title_for_layout', 'payment methods');
         $this->set(compact('payment_methods'));
     }
 

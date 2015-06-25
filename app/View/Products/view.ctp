@@ -176,7 +176,7 @@ if ($cart_items_key) {
                                 <?php echo MyClass::translate("incl. 8% VAT."); ?>
                             </span><br>
                             <span>
-                                zzgl. <a href="<?php echo SITE_BASE_URL?>pages/informationen#versandinformationen">Versandkosten</a>
+                                zzgl. <a href="<?php echo SITE_BASE_URL ?>pages/informationen#versandinformationen">Versandkosten</a>
                             </span>
                         </div>
                     </div>
@@ -225,105 +225,107 @@ if ($cart_items_key) {
 
         <div class="row">
             <div class="col-md-12">
-                <div class="tabs tabs-product">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#productInfo" data-toggle="tab"><?php echo MyClass::translate('Aditional Information'); ?></a></li>
-                        <li><a href="#productQA" data-toggle="tab"><?php echo MyClass::translate("Ask a Question"); ?></a></li>
-                    </ul>
-                    <div class="tab-content">
-
-                        <div class="tab-pane active" id="productInfo">
-                            <p class="taller"> <?php echo MyClass::newLineBreak($product['Product']['product_additional_info']); ?> </p>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <i class="icon icon-question-circle"></i>
+                                    <?php echo MyClass::translate("Ask a Question"); ?>
+                                </a>
+                            </h4>
                         </div>
-
-                        <div class="tab-pane" id="productQA">
-                            <h4><?php echo MyClass::translate("Ask a Question"); ?></h4>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <?php echo $this->Form->create('ProductQuestion', array('class' => 'ask_a_question', 'action' => 'add')); ?>
-                                    <?php echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id'])); ?>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-4">
-                                                <label><?php echo MyClass::translate("Your name"); ?>*</label>
-                                                <?php echo $this->Form->input('question_name', array('class' => 'form-control', 'label' => false)); ?>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label><?php echo MyClass::translate("Your email address"); ?> *</label>
-                                                <?php echo $this->Form->input('question_email', array('class' => 'form-control', 'label' => false)); ?>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label><?php echo MyClass::translate("Your phone"); ?></label>
-                                                <?php echo $this->Form->input('question_phone', array('class' => 'form-control', 'label' => false)); ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label><?php echo MyClass::translate("Question") ?> *</label>
-                                                <?php echo $this->Form->input('question_content', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <?php echo $this->Form->create('ProductQuestion', array('class' => 'ask_a_question', 'action' => 'add')); ?>
+                                        <?php echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id'])); ?>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-4">
+                                                    <label><?php echo MyClass::translate("Your name"); ?>*</label>
+                                                    <?php echo $this->Form->input('question_name', array('class' => 'form-control', 'label' => false)); ?>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label><?php echo MyClass::translate("Your email address"); ?> *</label>
+                                                    <?php echo $this->Form->input('question_email', array('class' => 'form-control', 'label' => false)); ?>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label><?php echo MyClass::translate("Your phone"); ?></label>
+                                                    <?php echo $this->Form->input('question_phone', array('class' => 'form-control', 'label' => false)); ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label><?php echo MyClass::translate("Question") ?> *</label>
+                                                    <?php echo $this->Form->input('question_content', array('type' => 'textarea', 'class' => 'form-control', 'label' => false)); ?>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label><?php echo MyClass::translate("Captcha") ?> *</label>
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <img src="<?php echo SITE_BASE_URL ?>product_questions/getCaptcha" alt="" id="captcha" />
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <?php echo $this->Form->input('captcha', array('class' => 'form-control', 'label' => false)); ?>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "id" => "refresh")); ?>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label><?php echo MyClass::translate("Captcha") ?> *</label>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <img src="<?php echo SITE_BASE_URL ?>product_questions/getCaptcha" alt="" id="captcha" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <?php echo $this->Form->input('captcha', array('class' => 'form-control', 'label' => false)); ?>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <?php echo $this->Html->image("refresh.jpg", array("width" => "25", "alt" => "", "id" => "refresh")); ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <?php echo $this->Form->submit(MyClass::translate("Submit"), array('class' => 'btn btn-primary btn-lg', 'div' => false, 'id' => 'ask_submit')); ?>
-                                            <?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'ask-ajax-loader', 'style' => 'margin: 10px 15px;')); ?>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <?php echo $this->Form->submit(MyClass::translate("Submit"), array('class' => 'btn btn-primary btn-lg', 'div' => false, 'id' => 'ask_submit')); ?>
+                                                <?php echo $this->Html->image("ajax-loader.gif", array("alt" => "", 'class' => 'hide', 'id' => 'ask-ajax-loader', 'style' => 'margin: 10px 15px;')); ?>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12" style="margin-top:15px;">
-                                            <div class="form-group hide" id="ask-message">
-                                                <div class="alert fade in block-inner">
-                                                    <i class="icon-cancel-circle"></i><span id="ask-msg"></span>
+                                        <div class="row">
+                                            <div class="col-md-12" style="margin-top:15px;">
+                                                <div class="form-group hide" id="ask-message">
+                                                    <div class="alert fade in block-inner">
+                                                        <i class="icon-cancel-circle"></i><span id="ask-msg"></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <?php echo $this->Form->end(); ?>
+                                        <?php echo $this->Form->end(); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php // echo MyClass::translate("Ask a Question"); ?>
+                <?php // echo MyClass::newLineBreak($product['Product']['product_additional_info']); ?>
             </div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         getProductPrice();
 
-        $("body").on("click", ".quantity .input-group-btn", function () {
+        $("body").on("click", ".quantity .input-group-btn", function() {
             getProductPrice();
         });
 
         // refresh captcha
-        $('img#refresh').click(function () {
+        $('img#refresh').click(function() {
             change_captcha();
         });
 
@@ -344,13 +346,13 @@ if ($cart_items_key) {
                     required: true,
                 },
             },
-            highlight: function (element) {
+            highlight: function(element) {
                 $(element)
                         .parent()
                         .removeClass("has-success")
                         .addClass("has-error");
             },
-            success: function (element) {
+            success: function(element) {
                 $(element)
                         .parent()
                         .removeClass("has-error")
@@ -358,19 +360,19 @@ if ($cart_items_key) {
                         .find("label.error")
                         .remove();
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 $.ajax({
                     type: $(form).attr('method'),
                     url: $(form).attr('action'),
                     data: $(form).serialize(),
                     dataType: 'json',
-                    beforeSend: function () {
+                    beforeSend: function() {
                         $('#ask_submit').attr('disabled', true);
                         $("#ask-ajax-loader").removeClass('hide');
                         $("#ask-message").addClass('hide');
                     }
                 })
-                        .done(function (response) {
+                        .done(function(response) {
                             $('#ask_submit').attr('disabled', false);
                             $("#ask-ajax-loader").addClass('hide');
                             _msg_cont = $("#ask-message");
@@ -395,7 +397,7 @@ if ($cart_items_key) {
         $.ajax({
             url: "<?php echo SITE_BASE_URL ?>product_prices/getProductPrice/" + product_id + "/" + no_of_pages + "/" + no_of_copies + "/" + quantity,
             type: "POST",
-            success: function (result) {
+            success: function(result) {
                 placePrice(result);
             }
         });
@@ -417,7 +419,7 @@ if ($cart_items_key) {
                 sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
                 dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
                 s = '',
-                toFixedFix = function (n, prec) {
+                toFixedFix = function(n, prec) {
                     var k = Math.pow(10, prec);
                     return '' + (Math.round(n * k) / k)
                             .toFixed(prec);
@@ -450,7 +452,7 @@ if ($cart_items_key) {
                 cartItem: '<?php echo $cart_items_key ?>',
                 fileName: file
             },
-            success: function (result) {
+            success: function(result) {
                 $("#" + imageId).remove();
                 // Do something with the result
             }
@@ -460,7 +462,7 @@ if ($cart_items_key) {
 </script>
 
 <script>
-    $(document).ready(function ()
+    $(document).ready(function()
     {
         var settings = {
             url: jssite_url + "carts/fileUpload",
@@ -469,31 +471,31 @@ if ($cart_items_key) {
             fileName: "myfile",
             allowedTypes: "jpg,png,pdf,eps,zip,psd",
             returnType: "json",
-            onSuccess: function (files, data, xhr)
+            onSuccess: function(files, data, xhr)
             {
                 var fileExtension = data[0].substring(data[0].lastIndexOf('.') + 1);
-                if(fileExtension == 'jpg' || fileExtension == 'png' || fileExtension == 'psd'){
+                if (fileExtension == 'jpg' || fileExtension == 'png' || fileExtension == 'psd') {
                     _img_src = "<?php echo SITE_BASE_URL . CART_FILE_FOLDER ?>" + data[0];
-                }else{
+                } else {
                     _img_src = "<?php echo SITE_BASE_URL ?>img/default-doc.gif";
                 }
-                _img = "<img class='' width='80' height='81' src='"+_img_src+"' alt='img'>";
+                _img = "<img class='' width='80' height='81' src='" + _img_src + "' alt='img'>";
                 _upload = $("#uploading-div");
                 $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-progress').html(_img);
                 $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-progress').addClass('uploaded-success');
                 $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-filename').addClass('hide');
             },
             showDelete: true,
-            onError: function (files, status, message) {
+            onError: function(files, status, message) {
                 alert("error");
                 return false;
             },
-            deleteCallback: function (data, pd)
+            deleteCallback: function(data, pd)
             {
                 for (var i = 0; i < data.length; i++)
                 {
                     $.post(jssite_url + "carts/fileDelete", {op: "delete", name: data[i]},
-                    function (resp, textStatus, jqXHR)
+                    function(resp, textStatus, jqXHR)
                     {
                         //Show Message  
 //                        $("#status").append("<div>File Deleted</div>");

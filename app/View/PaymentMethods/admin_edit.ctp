@@ -37,7 +37,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                         </label>
                         <div class="col-sm-10">
                             <?php
-                            echo $this->Form->input('payment_caption', array('type' => 'text', 'class' => 'form-control', 'label' => false));
+                            echo $this->Form->input('payment_caption', array('type' => 'textarea', 'class' => 'form-control', 'label' => false));
                             ?>
                         </div>
                     </div>

@@ -28,7 +28,7 @@
                             <td><?php echo MyClass::currencyFormat($payment_method['PaymentMethod']['payment_fee']); ?></td>
                             <td>
                                 <div class="table-controls">
-                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/payment_methods/edit/<?php echo $payment_method['PaymentMethod']['payment_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
+                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/payment_methods/edit/<?php echo $payment_method['PaymentMethod']['payment_id']; ?>" data-original-title="<?php echo MyClass::translate("Edit"); ?>">
                                         <i class="icon-pencil"></i>
                                     </a>
                                 </div>
