@@ -7,7 +7,7 @@ $shipping_address = MyClass::decodeJSON($order['Order']['order_shipping_address'
 $payment_method = MyClass::decodeJSON($order['Order']['order_payment_method']);
 $summary = MyClass::decodeJSON($order['Order']['order_summary']);
 
-$billing_address_name = $billing_address->address_title . ' ' . $billing_address->address_firstname . ' ' . $billing_address->address_lastname;
+$billing_address_name = MyClass::translate($billing_address->address_title) . ' ' . $billing_address->address_firstname . ' ' . $billing_address->address_lastname;
 $billing_address_street = $billing_address->address_street;
 $billing_address_additional = $billing_address->address_additional;
 $billing_address_city = $billing_address->address_post_code . ' ' . $billing_address->address_city;
@@ -24,7 +24,7 @@ if ($shipping_address->identical == 1) {
     $shipping_address_phone = $billing_address_phone;
     $shipping_address_mobile = $billing_address_mobile;
 } else {
-    $shipping_address_name = $shipping_address->address_title . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
+    $shipping_address_name = MyClass::translate($shipping_address->address_title) . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
     $shipping_address_street = $shipping_address->address_street;
     $shipping_address_additional = $shipping_address->address_additional;
     $shipping_address_city = $shipping_address->address_post_code . ' ' . $shipping_address->address_city;

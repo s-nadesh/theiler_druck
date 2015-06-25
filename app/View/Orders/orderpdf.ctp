@@ -87,10 +87,11 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     </table>
                 </td>
                 <?php
-                $billing_address_name = $billing_address->address_title . ' ' . $billing_address->address_firstname . ' ' . $billing_address->address_lastname;
+                $billing_address_name = MyClass::translate($billing_address->address_title) . ' ' . $billing_address->address_firstname . ' ' . $billing_address->address_lastname;
                 $billing_address_street = $billing_address->address_street;
                 $billing_address_additional = $billing_address->address_additional;
-                $billing_address_city = $billing_address->address_post_code . ' ' . $billing_address->address_city;
+                $billing_address_city = $billing_address->address_city;
+                $billing_address_postcode = $billing_address->address_post_code;
                 $billing_address_country = $billing_address->address_country;
                 $billing_address_phone = $billing_address->address_phone;
                 $billing_address_mobile = $billing_address->address_mobile;
@@ -100,14 +101,16 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     $shipping_address_street = $billing_address_street;
                     $shipping_address_additional = $billing_address_additional;
                     $shipping_address_city = $billing_address_city;
+                    $shipping_address_postcode = $billing_address_postcode;
                     $shipping_address_country = $billing_address_country;
                     $shipping_address_phone = $billing_address_phone;
                     $shipping_address_mobile = $billing_address_mobile;
                 } else {
-                    $shipping_address_name = $shipping_address->address_title . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
+                    $shipping_address_name = MyClass::translate($shipping_address->address_title) . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
                     $shipping_address_street = $shipping_address->address_street;
                     $shipping_address_additional = $shipping_address->address_additional;
-                    $shipping_address_city = $shipping_address->address_post_code . ' ' . $shipping_address->address_city;
+                    $shipping_address_city = $shipping_address->address_city;
+                    $shipping_address_postcode = $shipping_address->address_post_code;
                     $shipping_address_country = $shipping_address->address_country;
                     $shipping_address_phone = $shipping_address->address_phone;
                     $shipping_address_mobile = $shipping_address->address_mobile;
@@ -117,6 +120,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     <strong><?php echo MyClass::translate("Billing Address"); ?></strong> <br>
                     <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $billing_address_name; ?> <br>
                     <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $billing_address_street; ?> <br>
+                    <strong><?php echo MyClass::translate("Post Code"); ?>: </strong> <?php echo $billing_address_postcode; ?> <br>
                     <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $billing_address_city; ?> <br>
                     <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?> <br>
                     <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $billing_address_phone; ?> <br>
@@ -128,6 +132,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     <strong><?php echo MyClass::translate("Shipping Address"); ?></strong> <br>
                     <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $shipping_address_name; ?><br>
                     <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $shipping_address_street; ?><br>
+                    <strong><?php echo MyClass::translate("Post Code"); ?>: </strong> <?php echo $shipping_address_postcode; ?><br>
                     <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $shipping_address_city; ?><br>
                     <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
                     <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $shipping_address_phone; ?><br>

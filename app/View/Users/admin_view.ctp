@@ -56,7 +56,7 @@ $this->Html->addCrumb(MyClass::translate('View User'));
                          </div>
                         <ul class="message-list">
 
-                            <li class="message-list-header"><?php echo $addr['UserAddress']['address_title'].'.'.$addr['UserAddress']['address_firstname'].' '.$addr['UserAddress']['address_lastname'] ?></li>
+                            <li class="message-list-header"><?php echo MyClass::translate($addr['UserAddress']['address_title']).'.'.$addr['UserAddress']['address_firstname'].' '.$addr['UserAddress']['address_lastname'] ?></li>
 
                                  <?php echo '<li class="message-list-header">'.$addr['UserAddress']['address_street'].'<br>'
                                          .$addr['UserAddress']['address_city'].'<br>'

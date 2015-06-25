@@ -87,7 +87,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="address">
-                                            <?php echo $billing_title . ' ' . $billing_first_name . ' ' . $billing_last_name; ?><br>
+                                            <?php echo MyClass::translate($billing_title) . ' ' . $billing_first_name . ' ' . $billing_last_name; ?><br>
                                             <?php echo $billing_street; ?><br>
                                             <?php echo $billing_post_code . ' ' . $billing_city; ?><br>
                                             <?php echo $billing_country; ?><br>
@@ -115,7 +115,7 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="address">
-                                            <?php echo $shipping_title . ' ' . $shipping_first_name . ' ' . $shipping_last_name; ?><br>
+                                            <?php echo MyClass::translate($shipping_title) . ' ' . $shipping_first_name . ' ' . $shipping_last_name; ?><br>
                                             <?php echo $shipping_street; ?><br>
                                             <?php echo $shipping_post_code . ' ' . $shipping_city; ?><br>
                                             <?php echo $shipping_country; ?><br>
