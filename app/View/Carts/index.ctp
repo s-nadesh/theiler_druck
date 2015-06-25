@@ -81,7 +81,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                                 $i = 1;
                                                                 foreach ($value['item_picture_upload'] as $cartfile) {
                                                                     ?>
-                                                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                                                    <div class="col-xs-3 col-sm-3 col-md-3">
                                                                         <?php
                                                                         $is_image = MyClass::is_image(WWW_ROOT . CART_FILE_FOLDER . $cartfile);
                                                                         if ($is_image) {
@@ -92,12 +92,14 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                                         ?>
                                                                     </div>
                                                                     <?php
-                                                                    if ($i / 4 == 1)
+                                                                    if ($i % 4 == 0)
                                                                         echo '</div><div class="clearfix"></div><div class="row">';
                                                                     $i++;
                                                                 }
                                                                 ?>
                                                             <?php } ?>
+                                                        </div>
+                                                        <br />
                                                             <div class="cart-img-edit">
                                                             
                                                             <a title="<?php echo MyClass::translate("Edit this item"); ?>" class="btn btn-primary " href="<?php echo SITE_BASE_URL ?>product/<?php echo $product['Product']['product_slug']; ?>/<?php echo $key_encrypt ?>">

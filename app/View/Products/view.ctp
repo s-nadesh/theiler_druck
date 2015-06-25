@@ -212,7 +212,7 @@ if ($cart_items_key) {
                                         </div>
                                         <?php
                                         if ($i / 6 == 1)
-                                            echo '</div><div class="clearfix"></div><div class="row">';
+                                            echo '</div><div class="clearfix"></div><div class="row uploaded-div">';
                                         $i++;
                                     }
                                     ?>
