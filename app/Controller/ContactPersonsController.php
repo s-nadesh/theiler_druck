@@ -7,7 +7,7 @@ class ContactPersonsController extends AppController {
     //This function will run before every action
     public function beforeFilter() {
         parent::beforeFilter();
-        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_edit');
+        $admin_auth_actions = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
@@ -63,4 +63,16 @@ class ContactPersonsController extends AppController {
         $this->data = $this->ContactPerson->findByContPersId($contactPerson_id);
     }
 
+    public function admin_delete($id) {
+        if (!$this->ContactPerson->exists($id)) {
+            throw new NotFoundException(__('Invalid Contact Person'));
+        }
+
+        $contact = $this->ContactPerson->findByContPersId($id);
+        if ($this->ContactPerson->delete($id, true)) {
+            MyClass::fileDelete(CONTACT_PERSON_IMAGE_FOLDER . $contact['ContactPerson']['cont_pers_image']);
+            $this->Session->setFlash(__('Contact Person deleted successfully'), 'flash_success');
+            $this->redirect(array('controller' => 'contactPersons', 'action' => 'index', 'admin' => true));
+        }
+    }
 }

@@ -237,7 +237,7 @@ if ($cart_items_key) {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="accordion-body collapse in">
+                        <div id="collapseOne" class="accordion-body collapse">
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -489,8 +489,7 @@ if ($cart_items_key) {
                 
                 _filediv = $('#uploading-div .ajax-file-upload-filename').filter(function(index){return $(this).text() === files[0];});
                 _upload = _filediv.closest('.ajax-file-upload-statusbar');
-                _upload.find('.ajax-file-upload-progress').html(_img);
-                _upload.find('.ajax-file-upload-progress').addClass('uploaded-success');
+                _upload.find('.ajax-file-upload-progress').html(_img).addClass('uploaded-success');
                 _upload.find('.ajax-file-upload-filename').addClass('hide');
             },
             showDelete: true,
