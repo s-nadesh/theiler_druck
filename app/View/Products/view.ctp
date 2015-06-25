@@ -473,6 +473,10 @@ if ($cart_items_key) {
             fileName: "myfile",
             allowedTypes: "jpg,png,pdf,eps,zip,psd",
             returnType: "json",
+            showFileCounter: false,
+            onSelect:function(files){ 
+                return true;
+            },            
             onSuccess: function(files, data, xhr)
             {
                 var fileExtension = data[0].substring(data[0].lastIndexOf('.') + 1);
@@ -482,10 +486,12 @@ if ($cart_items_key) {
                     _img_src = "<?php echo SITE_BASE_URL ?>img/default-doc.gif";
                 }
                 _img = "<img class='' width='80' height='81' src='" + _img_src + "' alt='img'>";
-                _upload = $("#uploading-div");
-                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-progress').html(_img);
-                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-progress').addClass('uploaded-success');
-                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-filename').addClass('hide');
+                
+                _filediv = $('#uploading-div .ajax-file-upload-filename').filter(function(index){return $(this).text() === files[0];});
+                _upload = $(_filediv).closest('.ajax-file-upload-statusbar');
+                $(_upload).find('.ajax-file-upload-progress').html(_img);
+                $(_upload).find('.ajax-file-upload-progress').addClass('uploaded-success');
+                $(_upload).find('.ajax-file-upload-filename').addClass('hide');
             },
             showDelete: true,
             onError: function(files, status, message) {
