@@ -520,6 +520,14 @@ div.shop .quantity {
 	float: left;
 }
 
+.product-quantity.center .quantity
+{
+	width:98px !important;
+	float:none !important;
+	margin:0px auto !important;
+}
+
+
 div.shop .quantity .minus,
 div.shop .quantity .plus {
 	background: #f4f4f4;

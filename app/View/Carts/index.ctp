@@ -15,11 +15,11 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                         <div class="col-md-12">
                             <div class="featured-box featured-box-secundary featured-box-cart">
                                 <div class="box-content table-responsive">
-                                    <table cellspacing="0" class="table shop_table cart">
+                                    <table width="100%" cellspacing="0" class="table shop_table cart">
                                         <thead>
                                             <tr>
-                                                <th class="product-remove"> &nbsp; </th>
-                                                <th class="product-thumbnail"> &nbsp; </th>
+                                                <th class="product-remove"> <i class="icon icon-trash-o"></i>  </th>
+                                                <th class="product-thumbnail">&nbsp;  </th>
                                                 <th class="product-name"> <?php echo MyClass::translate("Product"); ?> </th>
                                                 <th class="product-picture"> <?php echo MyClass::translate("Pictures"); ?> </th>
                                                 <th class="product-price center"> <?php echo MyClass::translate("Price"); ?> </th>
@@ -45,9 +45,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                         <a title="<?php echo MyClass::translate("Remove this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
                                                             <i class="icon icon-times"></i>
                                                         </a>
-                                                        <a title="<?php echo MyClass::translate("Edit this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>product/<?php echo $product['Product']['product_slug']; ?>/<?php echo $key_encrypt ?>">
-                                                            <i class="icon icon-edit"></i>
-                                                        </a>
+                                                       
                                                     </td>
 
                                                     <td class="product-thumbnail">
@@ -100,6 +98,14 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                                 }
                                                                 ?>
                                                             <?php } ?>
+                                                            <div class="cart-img-edit">
+                                                            
+                                                            <a title="<?php echo MyClass::translate("Edit this item"); ?>" class="btn btn-primary " href="<?php echo SITE_BASE_URL ?>product/<?php echo $product['Product']['product_slug']; ?>/<?php echo $key_encrypt ?>">
+                                                         Bilder bearbeiten    <i class="icon icon-edit"></i>
+                                                        </a>
+                                                        
+                                                            </div>
+                                                             
                                                         </div>
                                                     </td>
 
