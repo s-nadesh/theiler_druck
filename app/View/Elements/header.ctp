@@ -137,7 +137,7 @@
     
     <div style="clear:both;"></div>
     <?php if ($cms_page_menu) { ?>
-    <div style="width:100%; float: left; padding-top:10px;">
+    <div style="width:100%; float: left; padding-top:20px;">
     <div class="secondry-menu">
             <div class="container">
                 <div class="row">
@@ -174,6 +174,7 @@
         
     <?php } ?>
     <?php if ($contact_page_menu) { ?>
+     <div style="width:100%; float: left; padding-top:20px;">
         <div class="secondry-menu">
             <div class="container"> 
                 <div class="row">
@@ -206,6 +207,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     <?php } ?>
 </header>
