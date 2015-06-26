@@ -177,9 +177,9 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="container" style="border:#52616E 1px solid; border-radius:2px; border-collapse:separate; border-spacing:0; margin-top:20px;">
             <tr>
                 <td>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#52616E;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#FFFFFF;">
                         <tr>
-                            <td align="center"  style="padding:10px;">
+                            <td align="center"  style="padding:10px; border-bottom: #52616E 1px solid;">
                                 <img src="<?php echo SITE_BASE_URL?>img/theilerdrucklogo2.png" alt="<?php echo SITE_NAME?>" width="240" height="44" />
                             </td>
                         </tr>

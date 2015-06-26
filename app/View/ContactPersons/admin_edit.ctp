@@ -74,7 +74,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
                     <div class="form-group">
                         <div class="col-sm-10 col-sm-offset-2">
                             <?php
-                            echo $this->Html->image("../files/contact_persons/{$this->data['ContactPerson']['cont_pers_image']}", array('title' => $this->data['ContactPerson']['cont_pers_name'], 'alt' => $this->data['ContactPerson']['cont_pers_name']));
+                            echo $this->Html->image("../files/contact_persons/{$this->data['ContactPerson']['cont_pers_image']}", array('title' => $this->data['ContactPerson']['cont_pers_name'], 'alt' => $this->data['ContactPerson']['cont_pers_name'], 'class' => 'img-responsive'));
                             echo $this->Form->hidden('cont_pers_old_image', array('value' => $this->data['ContactPerson']['cont_pers_image']));
                             ?>
                         </div>

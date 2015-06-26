@@ -182,7 +182,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                 <legend>  <?php echo MyClass::translate("Comment to the order"); ?> </legend> 
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <textarea name="data[Summary][comment]" class="form-control" placeholder="Here you can enter a comment to your order" rows='4'></textarea>
+                                        <textarea name="data[Summary][comment]" class="form-control" placeholder="<?php echo MyClass::translate("Here you can enter a comment to your order"); ?>" rows='4'></textarea>
                                     </div>
                                 </div>
                                 <div class="row">

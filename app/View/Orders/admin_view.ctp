@@ -42,15 +42,15 @@ if ($shipping_address->identical == 1) {
 
     <div class="panel-body">
         <div class="row invoice-header">
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <h3><?php echo $user['User']['user_name'] ?></h3>
                 <span><?php echo $user['User']['user_email'] ?></span>
             </div>
-            <?php echo $this->Form->create('Order', array('id' => 'order_status_update')); ?>
-            <div class="col-sm-6">
-                <ul class="invoice-details" style="width: 280px !important">
+            <div class="col-sm-7">
+                <?php echo $this->Form->create('Order', array('id' => 'order_status_update')); ?>
+                <ul class="invoice-details">
                     <li><?php echo MyClass::translate("Order #"); ?><strong class="text-danger"><?php echo $order['Order']['order_unique_id'] ?></strong></li>
-                    <li><?php echo MyClass::translate("Date of Order"); ?>: <strong><?php echo date('d.m.Y H:i:s', strtotime($order['Order']['created'])); ?></strong></li>
+                    <li><?php echo MyClass::translate("Date of Order"); ?>: <strong><?php echo date(PHP_DATE_FORMAT, strtotime($order['Order']['created'])); ?></strong></li>
                     <li>
                         <?php echo MyClass::translate("Order Status"); ?>: 
                         <?php $order_status = MyClass::orderStatus(); ?>
@@ -69,8 +69,8 @@ if ($shipping_address->identical == 1) {
                         <input type="hidden" value="<?php echo $order['Order']['order_id'] ?>" name="data[Order][order_id]">
                     </li>
                 </ul>
+                <?php echo $this->Form->end(); ?>
             </div>
-            <?php echo $this->Form->end(); ?>
         </div>
 
         <div class="row">
