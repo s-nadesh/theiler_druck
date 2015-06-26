@@ -137,15 +137,14 @@ class AdminsController extends AppController {
                 );
                 $this->Admin->save($update);
 
-                $Email = new CakeEmail(MAILSENDBY);
-                $Email->template('forgot_password', 'email_layout')
-                        ->emailFormat('html')
-                        ->to($admin['Admin']['admin_email'])
-                        ->subject('Forgot Password Mail From - ' . SITE_NAME)
-                        ->from(SITEMAIL)
-                        ->viewVars(array('name' => $admin['Admin']['admin_name'], 'password' => $new_password))
-                        ->send();
+                $params = array(
+                    'NAME' => $admin['Admin']['admin_name'],
+                    'PASSWORD' => $new_password,
+                    'SITENAME' => SITE_NAME,
+                );
 
+                $this->sendMail(3, $admin['Admin']['admin_email'], $params);
+                
                 $this->Session->setFlash(MyClass::translate("New password has been sent to your mail."), 'flash_success');
                 $this->goAdminLogin();
             } else {

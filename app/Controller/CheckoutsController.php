@@ -225,18 +225,14 @@ class CheckoutsController extends AppController {
             $this->requestAction(array('controller' => 'orders', 'action' => 'orderpdf', $order_id, 'F'), array('return', 'bare' => false));
             $admin = $this->requestAction(array('controller' => 'admins', 'action' => 'getAdmin'));
             $filename = "files/invoices/{$order['Order']['order_unique_id']}.pdf";
-            $Email = new CakeEmail(MAILSENDBY);
-            $Email->from(
-                    array(FROM_EMAIL))
-                    ->template('invoice', 'email_layout')
-                    ->emailFormat('html')
-                    ->to($this->Auth->user('user_email'))
-                    ->attachments($filename)
-                    ->subject(MyClass::translate('Invoice').': ' . $order['Order']['order_unique_id'])
-                    ->viewVars(array(
-                        'order_id' => $order_id,
-                    ))
-                    ->send();
+            
+            $params = array(
+                'NAME' => $this->Auth->user('user_name') . ' ' . $this->Auth->user('user_lastname'),
+                'INVOICENO' => $order['Order']['order_unique_id']
+            );
+            
+            $this->sendMail(2, $this->Auth->user('user_email'), $params, $filename);
+            
             $this->Session->setFlash('Your order placed successfully.', 'flash_success');
             $this->Session->delete('Shop');
             $this->redirect(array('controller' => 'orders', 'action' => 'index'));

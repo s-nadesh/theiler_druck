@@ -4,8 +4,6 @@ App::uses('AppController', 'Controller');
 
 class EmailTemplatesController extends AppController {
 
-    public $components = array('Image');
-
     //This function will run before every action
     public function beforeFilter() {
         parent::beforeFilter();
