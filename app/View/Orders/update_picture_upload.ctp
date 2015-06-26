@@ -23,7 +23,7 @@ $uploaded_pictures = $order_item_product_value->item_picture_upload;
                         <h2><?php echo MyClass::translate("Update pictures"); ?> </h2>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-2">
-                        <a href="<?php echo SITE_BASE_URL?>orders/view/<?php echo $order['Order']['order_unique_id']?>"> <?php echo MyClass::translate("Back"); ?></a>
+                        <a href="<?php echo SITE_BASE_URL ?>orders/view/<?php echo $order['Order']['order_unique_id'] ?>"> <?php echo MyClass::translate("Back"); ?></a>
                     </div>
                 </div>
                 <div class="row">
@@ -111,6 +111,7 @@ $uploaded_pictures = $order_item_product_value->item_picture_upload;
             fileName: "myfile",
             allowedTypes: "jpg,png,pdf,eps,zip,psd",
             returnType: "json",
+            showFileCounter: false,
             onSuccess: function(files, data, xhr)
             {
                 var fileExtension = data[0].substring(data[0].lastIndexOf('.') + 1);
@@ -120,10 +121,12 @@ $uploaded_pictures = $order_item_product_value->item_picture_upload;
                     _img_src = "<?php echo SITE_BASE_URL ?>img/default-doc.gif";
                 }
                 _img = "<img class='' width='80' height='81' src='" + _img_src + "' alt='img'>";
-                _upload = $("#uploading-div");
-                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-progress').html(_img);
-                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-progress').addClass('uploaded-success');
-                $(_upload).find('.ajax-file-upload-statusbar:first .ajax-file-upload-filename').addClass('hide');
+                _filediv = $('#uploading-div .ajax-file-upload-filename').filter(function(index) {
+                    return $(this).text() === files[0];
+                });
+                _upload = _filediv.closest('.ajax-file-upload-statusbar');
+                _upload.find('.ajax-file-upload-progress').html(_img).addClass('uploaded-success');
+                _upload.find('.ajax-file-upload-filename').addClass('hide');
             },
             showDelete: true,
             onError: function(files, status, message) {

@@ -130,7 +130,7 @@ if ($shipping_address->identical == 1) {
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <p>
                                             <b><?php echo $payment_method->name; ?></b> <br>
-                                            <span><?php echo $payment_method->caption; ?></span>
+                                            <span><?php echo MyClass::newLineBreak($payment_method->caption); ?></span>
                                         </p>
                                     </div>
                                 </div>
@@ -157,8 +157,8 @@ if ($shipping_address->identical == 1) {
                                             <thead>
                                                 <tr>
                                                     <th class="product-thumbnail"> &nbsp; </th>
-                                                    <th class="product-name "> <?php echo MyClass::translate("Product"); ?> </th>
-                                                    <th class="product-name "> <?php echo MyClass::translate("Pictures"); ?> </th>
+                                                    <th class="product-name"> <?php echo MyClass::translate("Product"); ?> </th>
+                                                    <th class="product-picture"> <?php echo MyClass::translate("Pictures"); ?> </th>
                                                     <th class="product-price center"> <?php echo MyClass::translate("Price"); ?> </th>
                                                     <th class="product-quantity center"> <?php echo MyClass::translate("Quantity"); ?> </th>
                                                     <th class="product-subtotal center" align='right'> <?php echo MyClass::translate("Total"); ?> </th>
@@ -220,10 +220,12 @@ if ($shipping_address->identical == 1) {
                                                                     ?>
                                                                 <?php } ?>
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="col-xs-12">
-                                                                    <a href="<?php echo SITE_BASE_URL ?>orders/update_picture_upload/<?php echo $order['Order']['order_unique_id'] ?>/<?php echo $value['order_item_id'] ?>"> <?php echo MyClass::translate("Update pictures"); ?>  </a>
-                                                                </div>
+                                                            <br />
+                                                            <div class="cart-img-edit">
+                                                                <a title="<?php echo MyClass::translate("Edit this item"); ?>" class="btn btn-primary " href="<?php echo SITE_BASE_URL ?>orders/update_picture_upload/<?php echo $order['Order']['order_unique_id'] ?>/<?php echo $value['order_item_id'] ?>">
+                                                                    <?php echo MyClass::translate("Update pictures"); ?>
+                                                                    <i class="icon icon-edit"></i>
+                                                                </a>
                                                             </div>
                                                         </td>
 

@@ -151,7 +151,7 @@ class ProductsController extends AppController {
     public function getProducts($limit = 5) {
         $products = $this->Product->find('all', array(
             'recursive' => 0,
-            'order' => array('Product.created DESC'),
+            'order' => array('Product.product_id ASC'),
             'limit' => $limit
         ));
 

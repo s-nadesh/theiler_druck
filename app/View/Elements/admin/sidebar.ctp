@@ -74,7 +74,7 @@
             </li>
             <li class="<?php echo $marray[3] ?>">
                 <a href="<?php echo SITE_BASE_URL ?>admin/shipping_costs">
-                    <span><?php echo MyClass::translate("Shipping Costs"); ?></span><i class="icon-coin"></i>
+                    <span><?php echo MyClass::translate("Shipping Costs"); ?></span><i class="icon-truck"></i>
                 </a>
             </li>
             <li class="<?php echo $marray[5] ?>">
