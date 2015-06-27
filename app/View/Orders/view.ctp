@@ -1,6 +1,5 @@
 <?php
 echo $this->Html->css(array('theme-blog'), array('inline' => false));
-$this->Html->addCrumb(MyClass::translate("View Order"));
 
 $billing_address = MyClass::decodeJSON($order['Order']['order_billing_address']);
 $shipping_address = MyClass::decodeJSON($order['Order']['order_shipping_address']);
@@ -32,6 +31,8 @@ if ($shipping_address->identical == 1) {
     $shipping_address_phone = $shipping_address->address_phone;
     $shipping_address_mobile = $shipping_address->address_mobile;
 }
+$this->Html->addCrumb(MyClass::translate("Orders"), array('controller' => 'orders', 'action' => 'index', 'admin' => false));
+$this->Html->addCrumb(MyClass::translate("View Order"));
 ?>
 
 <div role="main" class="main shop">

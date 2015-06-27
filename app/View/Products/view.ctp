@@ -49,8 +49,11 @@ if ($cart_items_key) {
         $cart_item_old_key = $old_key;
     }
 }
+
+$this->Html->addCrumb($product['Product']['product_name']);
 ?>
 <div role="main" class="main shop">
+    <?php echo $this->element("breadcrumbs"); ?>
     <div class="container">
         <div class="row">
             <div class="col-md-6">

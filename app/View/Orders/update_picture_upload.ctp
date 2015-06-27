@@ -1,11 +1,12 @@
 <?php echo $this->Html->css(array('theme-blog', '/vendor/jQuery-File-Upload/uploadfile'), array('inline' => false)); ?>
 <?php echo $this->Html->script(array('/vendor/jQuery-File-Upload/jquery.uploadfile'), array('inline' => false)); ?>
 <?php
-$this->Html->addCrumb(MyClass::translate('Manage uploaded pictures'));
-
 $order_item = $order['OrderItem'];
 $order_item_product_value = MyClass::decodeJSON($order_item['order_item_product_value']);
 $uploaded_pictures = $order_item_product_value->item_picture_upload;
+
+$this->Html->addCrumb(MyClass::translate("View Order") . ' #' . $order['Order']['order_unique_id'], array('controller' => 'orders', 'action' => 'view', $order['Order']['order_unique_id'], 'admin' => false));
+$this->Html->addCrumb(MyClass::translate('Manage uploaded pictures'));
 ?>
 
 <div role="main" class="main shop">
