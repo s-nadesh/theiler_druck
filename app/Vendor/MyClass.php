@@ -144,7 +144,7 @@ class MyClass {
     }
 
     public static function currencyFormat($number) {
-        $result = number_format($number, 2, ',', '.');
+        $result = number_format($number, 2, ',', '\'');
         return $result . ' CHF';
     }
 

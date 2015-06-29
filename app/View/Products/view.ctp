@@ -14,7 +14,7 @@ $no_of_copies = MyClass::arrayToString(",", $no_of_copies_array);
 $paper_variants = $this->requestAction('paper_variants/getPaperVariants');
 $paper_array = array();
 foreach ($paper_variants as $paper_variant) {
-    $paper_array[$paper_variant['PaperVariant']['paper_id']] = $paper_variant['PaperVariant']['paper_rang_grm'] . '(' . $paper_variant['PaperVariant']['paper_rang_mgrm'] . 'mg ' . $paper_variant['PaperVariant']['paper_name'] . ')';
+    $paper_array[$paper_variant['PaperVariant']['paper_id']] = $paper_variant['PaperVariant']['paper_rang_grm'] . '(' . $paper_variant['PaperVariant']['paper_rang_mgrm'] . ' g/m² ' . $paper_variant['PaperVariant']['paper_name'] . ')';
 }
 $papers = MyClass::arrayToString(",", $paper_array);
 
@@ -412,7 +412,7 @@ $this->Html->addCrumb($product['Product']['product_name']);
         var good_for_print = $('input:radio[name="data[Cart][good_for_print_on_paper]"]:checked').val();
         var express = $('input:radio[name="data[Cart][express_within_4_days]"]:checked').val();
         var total = parseFloat(good_for_print) + parseFloat(express) + parseFloat(result);
-        var final_total = number_format(total, 2, ',', '.');
+        var final_total = number_format(total, 2, ',', '\'');
         $("#product-price").html(final_total + " CHF");
     }
 
