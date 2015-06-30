@@ -42,4 +42,11 @@ CKEDITOR.editorConfig = function(config) {
     config.filebrowserUploadUrl = '/theiler_druck/branches/dev1/js/kcfinder/upload.php?type=files';
     config.filebrowserImageUploadUrl = '/theiler_druck/branches/dev1/js/kcfinder/upload.php?type=images';
     config.filebrowserFlashUploadUrl = '/theiler_druck/branches/dev1/js/kcfinder/upload.php?type=flash';
+    
+    config.autoParagraph = false;
+    config.allowedContent = true;
+    
+    config.extraPlugins = 'doksoft_bootstrap_include,doksoft_bootstrap_advanced_blocks,doksoft_bootstrap_block_conf,doksoft_bootstrap_templates,doksoft_bootstrap_table_new,doksoft_bootstrap_button,doksoft_bootstrap_icons,doksoft_bootstrap_gallery,doksoft_bootstrap_badge,doksoft_bootstrap_label,doksoft_bootstrap_breadcrumbs,doksoft_bootstrap_alert';
+    
+    config.toolbar_name = [ 'doksoft_bootstrap_advanced_blocks', 'doksoft_bootstrap_block_conf', 'doksoft_bootstrap_templates', 'doksoft_bootstrap_table_new', 'doksoft_bootstrap_button', 'doksoft_bootstrap_icons', 'doksoft_bootstrap_gallery', 'doksoft_bootstrap_badge', 'doksoft_bootstrap_label', 'doksoft_bootstrap_breadcrumbs', 'doksoft_bootstrap_alert' ];
 };
