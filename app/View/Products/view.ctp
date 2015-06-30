@@ -181,8 +181,30 @@ $this->Html->addCrumb($product['Product']['product_name']);
                                 <?php echo MyClass::translate("incl. 8% VAT."); ?>
                             </span><br>
                             <span>
-                                zzgl. <a href="<?php echo SITE_BASE_URL ?>pages/informationen#versandinformationen">Versandkosten</a>
+                                zzgl. 
+                                <a href="#" data-toggle="modal" data-target="#myModal">
+                                    Versandkosten
+                                </a>
                             </span>
+                            
+                            <?php 
+                            $page = $this->requestAction('pages/getPage/10');
+                            if(!empty($page)){
+                            ?>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel"><?php echo $page['Page']['page_title']?></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                           <?php echo $page['Page']['page_content']?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                     <?php echo $this->Form->end(); ?>
@@ -477,9 +499,9 @@ $this->Html->addCrumb($product['Product']['product_name']);
             allowedTypes: "jpg,png,pdf,eps,zip,psd",
             returnType: "json",
             showFileCounter: false,
-            onSelect:function(files){ 
+            onSelect: function(files) {
                 return true;
-            },            
+            },
             onSuccess: function(files, data, xhr)
             {
                 var fileExtension = data[0].substring(data[0].lastIndexOf('.') + 1);
@@ -489,8 +511,10 @@ $this->Html->addCrumb($product['Product']['product_name']);
                     _img_src = "<?php echo SITE_BASE_URL ?>img/default-doc.gif";
                 }
                 _img = "<img class='' width='80' height='81' src='" + _img_src + "' alt='img'>";
-                
-                _filediv = $('#uploading-div .ajax-file-upload-filename').filter(function(index){return $(this).text() === files[0];});
+
+                _filediv = $('#uploading-div .ajax-file-upload-filename').filter(function(index) {
+                    return $(this).text() === files[0];
+                });
                 _upload = _filediv.closest('.ajax-file-upload-statusbar');
                 _upload.find('.ajax-file-upload-progress').html(_img).addClass('uploaded-success');
                 _upload.find('.ajax-file-upload-filename').addClass('hide');

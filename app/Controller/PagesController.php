@@ -157,7 +157,7 @@ class PagesController extends AppController {
         $this->set('contact_page_menu', true);
         $this->set('body_attr', 'class="one-page" data-target=".single-menu" data-spy="scroll" data-offset="250"');
     }
-    
+
     public function contact_form() {
         if ($this->request->is('post')) {
             if (strtolower($this->data['Page']['contact_captcha']) == strtolower($this->Session->read('Captcha.random_number'))) {
@@ -166,7 +166,7 @@ class PagesController extends AppController {
                         ->template('contact_email', 'email_layout')
                         ->emailFormat('html')
                         ->to(SITEMAIL)
-                        ->subject(MyClass::translate('Contact').': ' . $this->data['Page']['contact_regard'])
+                        ->subject(MyClass::translate('Contact') . ': ' . $this->data['Page']['contact_regard'])
                         ->viewVars(array(
                             'data' => $this->data,
                         ))
@@ -185,7 +185,7 @@ class PagesController extends AppController {
             }
             echo json_encode($ret);
             exit;
-        }else{
+        } else {
             $this->redirect(array('action' => 'contact'));
         }
     }
@@ -193,23 +193,23 @@ class PagesController extends AppController {
     public function inquiry_form() {
         if ($this->request->is('post')) {
             if (strtolower($this->data['Page']['inquiry_captcha']) == strtolower($this->Session->read('Captcha.random_number'))) {
-                if(isset($this->data['Page']['inquiry_paper_2']) && !empty($this->data['Page']['inquiry_paper_2'])){
+                if (isset($this->data['Page']['inquiry_paper_2']) && !empty($this->data['Page']['inquiry_paper_2'])) {
                     $paper_2 = array_diff($this->data['Page']['inquiry_paper_2'], array('0'));
                     $inquiry_paper_2 = implode(" , ", $paper_2);
-                }else{
+                } else {
                     $inquiry_paper_2 = '';
                 }
                 $inquiry_envelope = isset($this->data['Page']['inquiry_envelope']) ? $this->data['Page']['inquiry_envelope'] : '';
                 $inquiry_cont = isset($this->data['Page']['inquiry_cont']) ? $this->data['Page']['inquiry_cont'] : '';
                 $inquiry_prepress = isset($this->data['Page']['inquiry_prepress']) ? $this->data['Page']['inquiry_prepress'] : '';
                 $inquiry_printed = isset($this->data['Page']['inquiry_printed']) ? $this->data['Page']['inquiry_printed'] : '';
-                
+
                 $this->request->data['Page']['inquiry_paper_2'] = $inquiry_paper_2;
                 $this->request->data['Page']['inquiry_envelope'] = $inquiry_envelope;
                 $this->request->data['Page']['inquiry_cont'] = $inquiry_cont;
                 $this->request->data['Page']['inquiry_prepress'] = $inquiry_prepress;
                 $this->request->data['Page']['inquiry_printed'] = $inquiry_printed;
-                
+
                 $Email = new CakeEmail(MAILSENDBY);
                 $Email->from(array($this->data['Page']['inquiry_email'] => $this->data['Page']['inquiry_email']))
                         ->template('inquiry_email', 'email_layout')
@@ -234,9 +234,14 @@ class PagesController extends AppController {
             }
             echo json_encode($ret);
             exit;
-        }else{
+        } else {
             $this->redirect(array('action' => 'contact'));
         }
+    }
+
+    public function getPage($page_id) {
+        $page = $this->Page->findByPageId($page_id);
+        return $page;
     }
 
 }
