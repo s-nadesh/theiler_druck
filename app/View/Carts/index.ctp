@@ -45,7 +45,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                         <a title="<?php echo MyClass::translate("Remove this item"); ?>" class="remove" href="<?php echo SITE_BASE_URL ?>carts/remove/<?php echo $key_encrypt ?>">
                                                             <i class="icon icon-times"></i>
                                                         </a>
-                                                       
+
                                                     </td>
 
                                                     <td class="product-thumbnail">
@@ -100,14 +100,14 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                             <?php } ?>
                                                         </div>
                                                         <br />
-                                                            <div class="cart-img-edit">
-                                                            
+                                                        <div class="cart-img-edit">
+
                                                             <a title="<?php echo MyClass::translate("Edit this item"); ?>" class="btn btn-primary " href="<?php echo SITE_BASE_URL ?>product/<?php echo $product['Product']['product_slug']; ?>/<?php echo $key_encrypt ?>">
-                                                         Bilder bearbeiten    <i class="icon icon-edit"></i>
-                                                        </a>
-                                                        
-                                                            </div>
-                                                             
+                                                                Bilder bearbeiten    <i class="icon icon-edit"></i>
+                                                            </a>
+
+                                                        </div>
+
                                                         </div>
                                                     </td>
 
@@ -143,6 +143,23 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
+                                                <?php 
+                                                $checkbox_checked = false;
+                                                $calculation_div = "display: block";
+                                                if($shop['Additional']['self_pickup'] == 1) {
+                                                    $calculation_div = "display: none";
+                                                    $checkbox_checked = true;
+                                                }
+                                                    
+                                                echo $this->Form->input('self_pickup', array('label' => false, 'div' => false, 'type' => 'checkbox', 'id' => 'self_pickup', 'checked' => $checkbox_checked )); ?>
+                                                &nbsp;
+                                                <label for="self_pickup"><?php echo __("self pickup"); ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row shipping_calculation" style="<?php echo $calculation_div; ?>">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
                                                 <label><?php echo MyClass::translate("Country"); ?></label>
                                                 <select class="form-control">
                                                     <?php $countries = MyClass::getCountries(); ?>
@@ -153,7 +170,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row shipping_calculation" style="<?php echo $calculation_div; ?>">
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <label><?php echo MyClass::translate("Zip Code"); ?></label>
@@ -166,6 +183,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input type="submit" value="<?php echo MyClass::translate("Calculate shipping costs"); ?>" class="btn btn-default pull-right push-bottom">
@@ -260,3 +278,16 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#self_pickup").click(function(){
+            var checkbox_value = $('#self_pickup').is(":checked");
+            if(checkbox_value){
+                $(".shipping_calculation").hide();
+            } else {
+                $(".shipping_calculation").show();
+            }
+        });
+    });
+</script>

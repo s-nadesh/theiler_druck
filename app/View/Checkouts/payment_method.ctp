@@ -18,6 +18,8 @@ $billing_phone = $billing_address['address_phone'];
 $billing_mobile = $billing_address['address_mobile'];
 
 $shipping_address = $this->Session->read('Shop.Order.ShippingAddress');
+
+$shipping_self = false;
 if ($shipping_address['identical'] == 0) {
     $shipping_company_type = $shipping_address['address_company_type'];
     $shipping_company_name = $shipping_address['address_company_name'];
@@ -34,7 +36,7 @@ if ($shipping_address['identical'] == 0) {
 
     $shipping_phone = $shipping_address['address_phone'];
     $shipping_mobile = $shipping_address['address_mobile'];
-} else {
+} elseif ($shipping_address['identical'] == 1) {
     $shipping_company_type = $billing_company_type;
     $shipping_company_name = $billing_company_name;
 
@@ -50,6 +52,8 @@ if ($shipping_address['identical'] == 0) {
 
     $shipping_phone = $billing_phone;
     $shipping_mobile = $billing_mobile;
+} else {
+    $shipping_self = true;
 }
 
 if ($this->Session->check('Shop.Order.PaymentMethod')) {
@@ -112,21 +116,33 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                         <div class="featured-box featured-box-secundary default info-content">
                             <div class="box-content">
                                 <legend> <?php echo MyClass::translate("Shipping Address"); ?></legend> 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p class="address">
-                                            <?php echo MyClass::translate($shipping_title) . ' ' . $shipping_first_name . ' ' . $shipping_last_name; ?><br>
-                                            <?php echo $shipping_street; ?><br>
-                                            <?php echo $shipping_post_code . ' ' . $shipping_city; ?><br>
-                                            <?php echo $shipping_country; ?><br>
-                                        </p>
+                                <?php if ($shipping_self) { ?>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="address">
+                                                <?php echo __("Self shipping"); ?>
+                                            </p>
+                                            
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right"><?php echo MyClass::translate("Shipping Address Change"); ?></a>
+                                <?php } else { ?>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="address">
+                                                <?php echo MyClass::translate($shipping_title) . ' ' . $shipping_first_name . ' ' . $shipping_last_name; ?><br>
+                                                <?php echo $shipping_street; ?><br>
+                                                <?php echo $shipping_post_code . ' ' . $shipping_city; ?><br>
+                                                <?php echo $shipping_country; ?><br>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right"><?php echo MyClass::translate("Shipping Address Change"); ?></a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         &nbsp;

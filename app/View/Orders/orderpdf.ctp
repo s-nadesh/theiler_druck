@@ -96,6 +96,8 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                 $billing_address_phone = $billing_address->address_phone;
                 $billing_address_mobile = $billing_address->address_mobile;
 
+                $shipping_self = false;
+
                 if ($shipping_address->identical == 1) {
                     $shipping_address_name = $billing_address_name;
                     $shipping_address_street = $billing_address_street;
@@ -105,7 +107,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     $shipping_address_country = $billing_address_country;
                     $shipping_address_phone = $billing_address_phone;
                     $shipping_address_mobile = $billing_address_mobile;
-                } else {
+                } elseif ($shipping_address->identical == 0) {
                     $shipping_address_name = MyClass::translate($shipping_address->address_title) . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
                     $shipping_address_street = $shipping_address->address_street;
                     $shipping_address_additional = $shipping_address->address_additional;
@@ -114,6 +116,8 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     $shipping_address_country = $shipping_address->address_country;
                     $shipping_address_phone = $shipping_address->address_phone;
                     $shipping_address_mobile = $shipping_address->address_mobile;
+                } else {
+                    $shipping_self = true;
                 }
                 ?>
                 <td width="250" valign="top">
@@ -122,7 +126,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $billing_address_street; ?> <br>
                     <strong><?php echo MyClass::translate("Post Code"); ?>: </strong> <?php echo $billing_address_postcode; ?> <br>
                     <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $billing_address_city; ?> <br>
-                    <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?> <br>
+                    <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $billing_address_country; ?> <br>
                     <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $billing_address_phone; ?> <br>
                     <?php if ($billing_address_mobile) { ?>
                         <strong><?php echo MyClass::translate("Mobile"); ?>: </strong> <?php echo $billing_address_mobile; ?><br>
@@ -130,14 +134,18 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                 </td>
                 <td width="240" valign="top">
                     <strong><?php echo MyClass::translate("Shipping Address"); ?></strong> <br>
-                    <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $shipping_address_name; ?><br>
-                    <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $shipping_address_street; ?><br>
-                    <strong><?php echo MyClass::translate("Post Code"); ?>: </strong> <?php echo $shipping_address_postcode; ?><br>
-                    <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $shipping_address_city; ?><br>
-                    <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
-                    <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $shipping_address_phone; ?><br>
-                    <?php if ($shipping_address_mobile) { ?>
-                        <strong><?php echo MyClass::translate("Mobile"); ?>: </strong> <?php echo $shipping_address_mobile; ?><br>
+                    <?php if ($shipping_self) { ?>
+                        <strong><?php echo __("Self shipping"); ?></strong>
+                    <?php } else { ?>
+                        <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $shipping_address_name; ?><br>
+                        <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $shipping_address_street; ?><br>
+                        <strong><?php echo MyClass::translate("Post Code"); ?>: </strong> <?php echo $shipping_address_postcode; ?><br>
+                        <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $shipping_address_city; ?><br>
+                        <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
+                        <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $shipping_address_phone; ?><br>
+                        <?php if ($shipping_address_mobile) { ?>
+                            <strong><?php echo MyClass::translate("Mobile"); ?>: </strong> <?php echo $shipping_address_mobile; ?><br>
+                        <?php } ?>
                     <?php } ?>
                 </td>
             </tr>
@@ -229,7 +237,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                 <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; font-size:18px; padding:5px;"><?php echo MyClass::translate("Total Gross"); ?></td>
                 <td align="center" style="border:1px solid #000; border-top:0px; padding:5px; font-size:18px;"><?php echo MyClass::currencyFormat($order['Order']['order_total_gross']); ?></td>
             </tr>
-            
+
             <tr>
                 <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; font-size:18px; padding:5px;"><?php echo MyClass::translate("Total Amount"); ?></td>
                 <td align="center" style="border:1px solid #000; border-top:0px; padding:5px; font-size:18px;"><?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?></td>
@@ -256,7 +264,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                     <?php $admin = $this->requestAction(array('controller' => 'admins', 'action' => 'getAdmin')); ?>
                     <tr>
                         <td colspan="2" align="center" style="border:1px solid #000; padding:5px;">
-                                <?php echo $payment_method->caption; ?>
+                            <?php echo $payment_method->caption; ?>
                             <br />
                         </td>
                     </tr>

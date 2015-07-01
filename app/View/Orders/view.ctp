@@ -14,6 +14,7 @@ $billing_address_country = $billing_address->address_country;
 $billing_address_phone = $billing_address->address_phone;
 $billing_address_mobile = $billing_address->address_mobile;
 
+$shipping_self = false;
 if ($shipping_address->identical == 1) {
     $shipping_address_name = $billing_address_name;
     $shipping_address_street = $billing_address_street;
@@ -22,7 +23,7 @@ if ($shipping_address->identical == 1) {
     $shipping_address_country = $billing_address_country;
     $shipping_address_phone = $billing_address_phone;
     $shipping_address_mobile = $billing_address_mobile;
-} else {
+} elseif ($shipping_address->identical == 0) {
     $shipping_address_name = MyClass::translate($shipping_address->address_title) . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
     $shipping_address_street = $shipping_address->address_street;
     $shipping_address_additional = $shipping_address->address_additional;
@@ -30,6 +31,8 @@ if ($shipping_address->identical == 1) {
     $shipping_address_country = $shipping_address->address_country;
     $shipping_address_phone = $shipping_address->address_phone;
     $shipping_address_mobile = $shipping_address->address_mobile;
+} else {
+    $shipping_self = true;
 }
 $this->Html->addCrumb(MyClass::translate("Orders"), array('controller' => 'orders', 'action' => 'index', 'admin' => false));
 $this->Html->addCrumb(MyClass::translate("View Order"));
@@ -84,7 +87,7 @@ $this->Html->addCrumb(MyClass::translate("View Order"));
                                                     <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $billing_address_name; ?><br>
                                                     <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $billing_address_street; ?><br>
                                                     <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $billing_address_city; ?><br>
-                                                    <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
+                                                    <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $billing_address_country; ?><br>
                                                     <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $billing_address_phone; ?><br>
                                                     <?php if ($billing_address_mobile) { ?>
                                                         <strong><?php echo MyClass::translate("Mobile"); ?>: </strong> <?php echo $billing_address_mobile; ?><br>
@@ -100,18 +103,26 @@ $this->Html->addCrumb(MyClass::translate("View Order"));
                                 <div class="featured-box featured-box-secundary default info-content">
                                     <div class="box-content">
                                         <legend> <?php echo MyClass::translate("Shipping Address"); ?></legend> 
+
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <p class="address">
-                                                    <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $shipping_address_name; ?><br>
-                                                    <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $shipping_address_street; ?><br>
-                                                    <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $shipping_address_city; ?><br>
-                                                    <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
-                                                    <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $shipping_address_phone; ?><br>
-                                                    <?php if ($shipping_address_mobile) { ?>
-                                                        <strong><?php echo MyClass::translate("Mobile"); ?>: </strong> <?php echo $shipping_address_mobile; ?><br>
-                                                    <?php } ?>
-                                                </p>
+                                                <?php if ($shipping_self) { ?>
+                                                    <p class="address">
+                                                        <?php echo __("Self shipping"); ?>
+                                                    </p>
+                                                <?php } else { ?>
+                                                    <p class="address">
+                                                        <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $shipping_address_name; ?><br>
+                                                        <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $shipping_address_street; ?><br>
+                                                        <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $shipping_address_city; ?><br>
+                                                        <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $shipping_address_country; ?><br>
+                                                        <strong><?php echo MyClass::translate("Phone"); ?>: </strong> <?php echo $shipping_address_phone; ?><br>
+                                                        <?php if ($shipping_address_mobile) { ?>
+                                                            <strong><?php echo MyClass::translate("Mobile"); ?>: </strong> <?php echo $shipping_address_mobile; ?><br>
+                                                        <?php } ?>
+                                                    </p>
+                                                <?php } ?>
+
                                             </div>
                                         </div>
                                     </div>

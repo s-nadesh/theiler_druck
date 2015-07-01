@@ -104,6 +104,11 @@ class CheckoutsController extends AppController {
         if (!$this->Session->check('Shop.Order.BillingAddress')) {
             $this->redirect('billing_address');
         }
+        
+        if($this->Session->read('Shop.Additional.self_pickup') == 1){
+            $this->Session->write('Shop.Order.ShippingAddress.identical', 2); // It means self_pickup
+            $this->redirect('payment_method');
+        }
 
         if ($this->request->is('post')) {
             $target_zip_code = $this->Session->read('Shop.Additional.target_zip_code');

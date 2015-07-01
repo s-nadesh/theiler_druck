@@ -3,8 +3,8 @@
 class CartsController extends AppController {
 
     public $name = 'Carts';
-    
-    public function beforeFiler(){
+
+    public function beforeFiler() {
         parent::beforeFilter();
     }
 
@@ -168,7 +168,7 @@ class CartsController extends AppController {
             $key = MyClass::refdecryption($this->data['cartItem']);
             $filename = $this->data['fileName'];
             $filePath = CART_FILE_FOLDER . $filename;
-            
+
             $pos = array_search($filename, $this->Session->read('Shop.CartItems.' . $key . '.item_picture_upload'));
             $this->Session->delete('Shop.CartItems.' . $key . '.item_picture_upload.' . $pos);
             if (file_exists($filePath)) {
@@ -287,6 +287,15 @@ class CartsController extends AppController {
 
         $shipping_cost = MyClass::shippingCostCalculation($data['sh_cost_id'], $data['cart_total_weight']);
         $data['shipping_cost'] = $shipping_cost;
+
+        if ($product['self_pickup'] == 1) {
+            $data['self_pickup'] = 1;
+            $data['sh_cost_id'] = 0;
+            $data['target_zip_code'] = 0;
+            $data['shipping_cost'] = 0;
+        } else {
+            $data['self_pickup'] = 0;
+        }
 
         $data['cart_total_price'] = $data['good_for_print_on_paper'] + $data['express_within_4_days'] + $data['cart_sub_price_with_tax'] + $data['shipping_cost'];
 

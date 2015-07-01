@@ -16,6 +16,8 @@ $billing_address_country = $billing_address->address_country;
 $billing_address_phone = $billing_address->address_phone;
 $billing_address_mobile = $billing_address->address_mobile;
 
+$shipping_self = false;
+
 if ($shipping_address->identical == 1) {
     $shipping_address_name = $billing_address_name;
     $shipping_address_street = $billing_address_street;
@@ -24,7 +26,7 @@ if ($shipping_address->identical == 1) {
     $shipping_address_country = $billing_address_country;
     $shipping_address_phone = $billing_address_phone;
     $shipping_address_mobile = $billing_address_mobile;
-} else {
+} elseif ($shipping_address->identical == 0) {
     $shipping_address_name = MyClass::translate($shipping_address->address_title) . ' ' . $shipping_address->address_firstname . ' ' . $shipping_address->address_lastname;
     $shipping_address_street = $shipping_address->address_street;
     $shipping_address_additional = $shipping_address->address_additional;
@@ -32,6 +34,8 @@ if ($shipping_address->identical == 1) {
     $shipping_address_country = $shipping_address->address_country;
     $shipping_address_phone = $shipping_address->address_phone;
     $shipping_address_mobile = $shipping_address->address_mobile;
+} else {
+    $shipping_self = true;
 }
 ?>
 <div class="panel panel-default">
@@ -62,7 +66,7 @@ if ($shipping_address->identical == 1) {
                                     if ($status_key == $order['Order']['order_status'])
                                         $status_selected = 'selected = "selected"';
                                     ?>
-                                <option value="<?php echo $status_key; ?>" <?php echo $status_selected; ?>><?php echo MyClass::translate($status); ?></option>
+                                    <option value="<?php echo $status_key; ?>" <?php echo $status_selected; ?>><?php echo MyClass::translate($status); ?></option>
                                 <?php } ?>
                             </select>
                         </strong>
@@ -94,20 +98,27 @@ if ($shipping_address->identical == 1) {
 
             <div class="col-sm-6">
                 <h6><?php echo MyClass::translate("Shipping Address"); ?>:</h6>
-                <ul>
-                    <li> <?php echo $shipping_address_name; ?> </li>
-                    <li> <?php echo $shipping_address_street; ?> </li>
-                    <?php if ($shipping_address_additional) { ?>
-                        <li><?php echo $shipping_address_additional; ?></li>
-                    <?php } ?>
+                <?php if ($shipping_self) { ?>
+                    <ul>
+                        <li><?php echo __("Self shipping"); ?></li>
+                    </ul>
+                <?php } else { ?>
+                    <ul>
+                        <li> <?php echo $shipping_address_name; ?> </li>
+                        <li> <?php echo $shipping_address_street; ?> </li>
+                        <?php if ($shipping_address_additional) { ?>
+                            <li><?php echo $shipping_address_additional; ?></li>
+                        <?php } ?>
 
-                    <li><?php echo $shipping_address_city; ?></li>
-                    <li><?php echo $shipping_address_country; ?></li>
-                    <li><?php echo $shipping_address_phone; ?></li>
-                    <?php if ($shipping_address_mobile) { ?>
-                        <li><?php echo $shipping_address_mobile; ?></li>
-                    <?php } ?>
-                </ul>
+                        <li><?php echo $shipping_address_city; ?></li>
+                        <li><?php echo $shipping_address_country; ?></li>
+                        <li><?php echo $shipping_address_phone; ?></li>
+                        <?php if ($shipping_address_mobile) { ?>
+                            <li><?php echo $shipping_address_mobile; ?></li>
+                        <?php } ?>
+                    </ul>
+                <?php } ?>
+
             </div>
         </div>
     </div>

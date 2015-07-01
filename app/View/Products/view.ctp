@@ -81,6 +81,7 @@ $this->Html->addCrumb($product['Product']['product_name']);
                         echo $this->Form->hidden('cart_item_old_key', array('value' => $cart_item_old_key));
                     }
                     echo $this->Form->hidden('product_id', array('value' => $product['Product']['product_id']));
+                    echo $this->Form->hidden('self_pickup', array('value' => 0));
                     ?>
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('No of pages') ?></label>
