@@ -66,7 +66,7 @@ if ($shipping_address->identical == 1) {
                                     if ($status_key == $order['Order']['order_status'])
                                         $status_selected = 'selected = "selected"';
                                     ?>
-                                    <option value="<?php echo $status_key; ?>" <?php echo $status_selected; ?>><?php echo MyClass::translate($status); ?></option>
+                                    <option value="<?php echo $status_key; ?>" <?php echo $status_selected; ?>><?php echo $status; ?></option>
                                 <?php } ?>
                             </select>
                         </strong>

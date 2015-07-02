@@ -119,27 +119,32 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                             <p class="address">
                                                 <?php echo MyClass::translate("Self Pick Up"); ?>
                                             </p>
-                                            
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="<?php echo SITE_BASE_URL ?>carts" class="btn btn-lg btn-primary pull-right"><?php echo MyClass::translate("Shipping Address Change"); ?></a>
                                         </div>
                                     </div>
                                 <?php } else { ?>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p class="address">
-                                            <?php echo MyClass::translate($shipping_title) . ' ' . $shipping_first_name . ' ' . $shipping_last_name; ?><br>
-                                            <?php echo $shipping_street; ?><br>
-                                            <?php echo $shipping_post_code . ' ' . $shipping_city; ?><br>
-                                            <?php echo $shipping_country; ?><br>
-                                        </p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="address">
+                                                <?php echo MyClass::translate($shipping_title) . ' ' . $shipping_first_name . ' ' . $shipping_last_name; ?><br>
+                                                <?php echo $shipping_street; ?><br>
+                                                <?php echo $shipping_post_code . ' ' . $shipping_city; ?><br>
+                                                <?php echo $shipping_country; ?><br>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right">
-                                            <?php echo MyClass::translate("Shipping Address Change"); ?>
-                                        </a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="<?php echo SITE_BASE_URL ?>checkouts/shipping_address" class="btn btn-lg btn-primary pull-right">
+                                                <?php echo MyClass::translate("Shipping Address Change"); ?>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
                                 <?php } ?>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -168,9 +173,9 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                             </div>
                                             <div class="col-xs-3 col-sm-3 col-md-2">
                                                 <?php if ($payment_method['fee'] > 0): ?>
-                                                <p>
-                                                    <?php echo MyClass::currencyFormat($payment_method['fee']); ?><br>
-                                                </p>
+                                                    <p>
+                                                        <?php echo MyClass::currencyFormat($payment_method['fee']); ?><br>
+                                                    </p>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
@@ -258,7 +263,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                                         </td>
                                                         <td class="product-name">
                                                             <?php
-                                                             echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', $product['Product']['product_slug'], $key_encrypt));
+                                                            echo $this->Html->link($product['Product']['product_name'], array('controller' => 'products', 'action' => 'view', $product['Product']['product_slug'], $key_encrypt));
                                                             ?>
                                                             <div class="hidden-xs hidden-sm hidden-md">
                                                                 <?php

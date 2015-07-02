@@ -238,10 +238,10 @@ class MyClass {
 
     public static function orderStatus($status_id = '') {
         $status = array(
-            '1' => 'Pending',
-            '2' => 'Progress',
-            '3' => 'Completed',
-            '4' => 'Cancel',
+            '1' => self::translate('Pending'),
+            '2' => self::translate('Progress'),
+            '3' => self::translate('Completed'),
+            '4' => self::translate('Cancel'),
         );
 
         if ($status_id) {

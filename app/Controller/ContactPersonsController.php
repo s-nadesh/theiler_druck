@@ -71,7 +71,7 @@ class ContactPersonsController extends AppController {
         $contact = $this->ContactPerson->findByContPersId($id);
         if ($this->ContactPerson->delete($id, true)) {
             MyClass::fileDelete(CONTACT_PERSON_IMAGE_FOLDER . $contact['ContactPerson']['cont_pers_image']);
-            $this->Session->setFlash(__('Contact Person deleted successfully'), 'flash_success');
+            $this->Session->setFlash(MyClass::translate('Contact Person deleted successfully'), 'flash_success');
             $this->redirect(array('controller' => 'contact_persons', 'action' => 'index', 'admin' => true));
         }
     }

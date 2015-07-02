@@ -238,7 +238,7 @@ class CheckoutsController extends AppController {
             
             $this->sendMail(2, $this->Auth->user('user_email'), $params, $filename);
             
-            $this->Session->setFlash('Your order placed successfully.', 'flash_success');
+            $this->Session->setFlash(MyClass::translate('Your order placed successfully'), 'flash_success');
             $this->Session->delete('Shop');
             $this->redirect(array('controller' => 'orders', 'action' => 'index'));
         }

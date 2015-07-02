@@ -122,7 +122,12 @@ if ($this->Session->check('Shop.Order.PaymentMethod')) {
                                             <p class="address">
                                                 <?php echo MyClass::translate("Self Pick Up"); ?>
                                             </p>
-                                            
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="<?php echo SITE_BASE_URL ?>carts" class="btn btn-lg btn-primary pull-right"><?php echo MyClass::translate("Shipping Address Change"); ?></a>
                                         </div>
                                     </div>
                                 <?php } else { ?>

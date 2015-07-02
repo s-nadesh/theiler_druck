@@ -143,15 +143,16 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <?php 
+                                                <?php
                                                 $checkbox_checked = false;
                                                 $calculation_div = "display: block";
-                                                if($shop['Additional']['self_pickup'] == 1) {
+                                                if ($shop['Additional']['self_pickup'] == 1) {
                                                     $calculation_div = "display: none";
                                                     $checkbox_checked = true;
                                                 }
-                                                    
-                                                echo $this->Form->input('self_pickup', array('label' => false, 'div' => false, 'type' => 'checkbox', 'id' => 'self_pickup', 'checked' => $checkbox_checked )); ?>
+
+                                                echo $this->Form->input('self_pickup', array('label' => false, 'div' => false, 'type' => 'checkbox', 'id' => 'self_pickup', 'checked' => $checkbox_checked));
+                                                ?>
                                                 &nbsp;
                                                 <label for="self_pickup"><?php echo MyClass::translate("Self Pick Up"); ?></label>
                                             </div>
@@ -165,7 +166,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                     <?php $countries = MyClass::getCountries(); ?>
                                                     <?php foreach ($countries as $country) { ?>
                                                         <option value="<?php echo $country ?>"><?php echo $country ?></option>
-                                                    <?php } ?>
+    <?php } ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -176,7 +177,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <label><?php echo MyClass::translate("Zip Code"); ?></label>
                                                 <?php
                                                 $zip_code_list = $this->requestAction('shipping_costs/getZipCodeList');
-                                                echo $this->Form->input("sh_cost_id", array("type" => "select", "class" => "form-control", "label" => false, 'options' => $zip_code_list, "default" => $shop['Additional']['sh_cost_id']));
+                                                echo $this->Form->input("sh_cost_id", array("type" => "select", "class" => "form-control zip_code", "label" => false, 'options' => $zip_code_list, "default" => $shop['Additional']['sh_cost_id']));
                                                 echo $this->Form->hidden("good_for_print_on_paper", array('value' => $shop['Additional']['good_for_print_on_paper']));
                                                 echo $this->Form->hidden("express_within_4_days", array('value' => $shop['Additional']['express_within_4_days']));
                                                 ?>
@@ -184,11 +185,11 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                         </div>
                                     </div>
 
-                                    <div class="row">
+<!--                                    <div class="row">
                                         <div class="col-md-12">
                                             <input type="submit" value="<?php echo MyClass::translate("Calculate shipping costs"); ?>" class="btn btn-default pull-right push-bottom">
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -206,12 +207,12 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                             <tr class="cart-subtotal">
                                                 <td>
                                                     <?php echo MyClass::translate("Total Net"); ?><br>
-                                                    <?php echo MyClass::translate("incl. 8% VAT."); ?>
+    <?php echo MyClass::translate("incl. 8% VAT."); ?>
                                                 </td>
                                                 <td align="right">
                                                     <span class="amount">
                                                         <?php echo MyClass::currencyFormat($shop['Additional']['cart_sub_price_without_tax']) ?><br>
-                                                        <?php echo MyClass::currencyFormat($shop['Additional']['cart_tax']) ?>
+    <?php echo MyClass::currencyFormat($shop['Additional']['cart_tax']) ?>
                                                     </span>
                                                 </td>
                                             </tr>
@@ -224,7 +225,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                     <td> <?php echo MyClass::translate("Additional Services"); ?> </td>
                                                     <td align="right"> <?php echo MyClass::currencyFormat($additional_charge) ?> </td>
                                                 </tr>
-                                            <?php } ?>
+    <?php } ?>
 
                                             <tr class="total">
                                                 <th>
@@ -233,7 +234,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                 <td align="right">
                                                     <strong>
                                                         <span class="amount">
-                                                            <?php echo MyClass::currencyFormat($shop['Additional']['cart_total_price']) ?>
+    <?php echo MyClass::currencyFormat($shop['Additional']['cart_total_price']) ?>
                                                         </span>
                                                     </strong>
                                                 </td>
@@ -252,42 +253,52 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                             </div>
                         </div>
                     </div>
-                    <?php echo $this->Form->end(); ?>
+    <?php echo $this->Form->end(); ?>
 
                     <div class="row featured-boxes">
                         <div class="col-md-12">
                             <div class="actions-continue">
                                 <a href="<?php echo SITE_BASE_URL ?>checkouts" class="btn btn-lg btn-primary">
-                                    <?php echo MyClass::translate("Proceed to Checkout"); ?>
+    <?php echo MyClass::translate("Proceed to Checkout"); ?>
                                 </a>
                             </div>
                         </div>
                     </div>
-                <?php } else { ?>
+<?php } else { ?>
                     <div class="row featured-boxes">
                         <div class="col-md-12">
                             <div class="featured-box featured-box-secundary featured-box-cart">
                                 <div class="box-content">
-                                    <?php echo MyClass::translate("Your cart is currently empty"); ?>
+    <?php echo MyClass::translate("Your cart is currently empty"); ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <?php } ?>
+<?php } ?>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    $(document).ready(function(){
-        $("#self_pickup").click(function(){
+    $(document).ready(function() {
+        $("#self_pickup").click(function() {
             var checkbox_value = $('#self_pickup').is(":checked");
-            if(checkbox_value){
+            if (checkbox_value) {
                 $(".shipping_calculation").hide();
             } else {
                 $(".shipping_calculation").show();
             }
+
+            cart_update_form_submit();
         });
+
+        $(".zip_code").change(function() {
+            cart_update_form_submit();
+        });
+
+        function cart_update_form_submit() {
+            $("#CartUpdateForm").submit();
+        }
     });
 </script>
