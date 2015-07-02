@@ -11,6 +11,7 @@ class Order extends AppModel {
     public $hasMany = array(
         'OrderItem' => array(
             'className' => 'OrderItem',
+            'dependent' => true
         )
     );
 

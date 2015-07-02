@@ -9,7 +9,7 @@ class OrdersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny(array('index', 'view', 'update_picture_upload', 'insertOrderProductImage', 'removeOrderProductImage'));
-        $admin_auth_actions = array('admin_index', 'admin_view', 'admin_update_status');
+        $admin_auth_actions = array('admin_index', 'admin_view', 'admin_update_status', 'admin_delete');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
@@ -55,6 +55,36 @@ class OrdersController extends AppController {
                 echo "Order status can not be updated";
             }
             exit;
+        }
+    }
+
+    public function admin_delete($order_id) {
+        if (!$this->Order->exists($order_id)) {
+            throw new NotFoundException(MyClass::translate('Invalid Order'));
+        }
+
+        $order = $this->Order->findByOrderId($order_id);
+        
+        if($order['Order']['order_status'] == 2){
+            $this->redirect(array('controller' => 'orders', 'action' => 'index', 'admin' => true));
+        }
+
+        foreach ($order['OrderItem'] as $order_item) {
+            $order_item_product_value = MyClass::decodeJSON($order_item['order_item_product_value']);
+            $uploaded_pictures = $order_item_product_value->item_picture_upload;
+            if (!empty($uploaded_pictures)) {
+                foreach ($uploaded_pictures as $value) {
+                    $filePath = ORDER_FILE_FOLDER . $value;
+                    if (file_exists($filePath)) {
+                        MyClass::fileDelete($filePath);
+                    }
+                }
+            }
+        }
+        
+        if ($this->Order->delete($order_id, true)) {
+            $this->Session->setFlash(MyClass::translate('Order deleted successfully'), 'flash_success');
+            $this->redirect(array('controller' => 'orders', 'action' => 'index', 'admin' => true));
         }
     }
 
@@ -148,7 +178,7 @@ class OrdersController extends AppController {
                 $order_item = $order['OrderItem'];
                 $order_item_product_value = MyClass::decodeJSON($order_item['order_item_product_value']);
                 $uploaded_pictures = $order_item_product_value->item_picture_upload;
-                
+
                 $result = am($uploaded_pictures, (array) $fileName);
                 $order_item_product_value->item_picture_upload = $result;
                 $order_item_product_value_encode = MyClass::encodeJSON($order_item_product_value);
@@ -210,11 +240,11 @@ class OrdersController extends AppController {
             $result = am($uploaded_pictures);
             $order_item_product_value->item_picture_upload = $result;
             $order_item_product_value_encode = MyClass::encodeJSON($order_item_product_value);
-           
+
             if (file_exists($filePath)) {
                 MyClass::fileDelete($filePath);
             }
-            
+
             $orderItem = array(
                 'OrderItem' => array(
                     'order_item_id' => $this->data['orderItemID'],

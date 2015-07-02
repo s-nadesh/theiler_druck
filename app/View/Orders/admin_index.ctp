@@ -39,6 +39,11 @@
                                     <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/orders/view/<?php echo $order['Order']['order_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">
                                         <i class="icon-zoom-in"></i>
                                     </a>
+                                    <?php if ($order['Order']['order_status'] != 2) { ?>
+                                        <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/orders/delete/<?php echo $order['Order']['order_id']; ?>" data-original-title="<?php echo MyClass::translate("Delete"); ?>" onclick="return confirm('Are you sure you wish to delete?');">
+                                            <i class="icon-remove2"></i>
+                                        </a>
+                                    <?php } ?>
                                 </div>
                             </td>
                         </tr>
