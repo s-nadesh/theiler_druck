@@ -117,7 +117,7 @@ $payment_method = $this->Session->read('Shop.Order.PaymentMethod');
                                     <div class="row">
                                         <div class="col-md-12">
                                             <p class="address">
-                                                <?php echo __("Self shipping"); ?>
+                                                <?php echo MyClass::translate("Self Pick Up"); ?>
                                             </p>
                                             
                                         </div>

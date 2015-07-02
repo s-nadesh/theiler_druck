@@ -153,7 +153,7 @@ $this->Html->addCrumb(MyClass::translate('Cart'));
                                                     
                                                 echo $this->Form->input('self_pickup', array('label' => false, 'div' => false, 'type' => 'checkbox', 'id' => 'self_pickup', 'checked' => $checkbox_checked )); ?>
                                                 &nbsp;
-                                                <label for="self_pickup"><?php echo __("self pickup"); ?></label>
+                                                <label for="self_pickup"><?php echo MyClass::translate("Self Pick Up"); ?></label>
                                             </div>
                                         </div>
                                     </div>

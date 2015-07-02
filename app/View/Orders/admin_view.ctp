@@ -100,7 +100,7 @@ if ($shipping_address->identical == 1) {
                 <h6><?php echo MyClass::translate("Shipping Address"); ?>:</h6>
                 <?php if ($shipping_self) { ?>
                     <ul>
-                        <li><?php echo __("Self shipping"); ?></li>
+                        <li><?php echo MyClass::translate("Self Pick Up"); ?></li>
                     </ul>
                 <?php } else { ?>
                     <ul>

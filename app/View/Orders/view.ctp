@@ -108,7 +108,7 @@ $this->Html->addCrumb(MyClass::translate("View Order"));
                                             <div class="col-md-12">
                                                 <?php if ($shipping_self) { ?>
                                                     <p class="address">
-                                                        <?php echo __("Self shipping"); ?>
+                                                        <?php echo MyClass::translate("Self Pick Up"); ?>
                                                     </p>
                                                 <?php } else { ?>
                                                     <p class="address">

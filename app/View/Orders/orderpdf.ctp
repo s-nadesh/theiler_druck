@@ -135,7 +135,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                 <td width="240" valign="top">
                     <strong><?php echo MyClass::translate("Shipping Address"); ?></strong> <br>
                     <?php if ($shipping_self) { ?>
-                        <strong><?php echo __("Self shipping"); ?></strong>
+                        <strong><?php echo MyClass::translate("Self Pick Up"); ?></strong>
                     <?php } else { ?>
                         <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $shipping_address_name; ?><br>
                         <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $shipping_address_street; ?><br>
