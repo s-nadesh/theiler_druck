@@ -65,9 +65,9 @@ class UsersController extends AppController {
                 )
             );
             if ($this->User->save($user_update)) {
-                $this->Session->setFlash('Profile updated successfully', 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Profile updated successfully'), 'flash_success');
             } else {
-                $this->Session->setFlash('Profile can not be updated', 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Profile can not be updated'), 'flash_error');
             }
         }
         $this->data = $this->User->find('first', array('conditions' => array('User.user_id' => $this->Auth->user('user_id'))));
@@ -92,7 +92,7 @@ class UsersController extends AppController {
                     $this->Session->setFlash(MyClass::translate('Old password not matched'), 'flash_error');
                 }
             } else {
-                $this->Session->setFlash('Password does not match', 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Password does not match'), 'flash_error');
             }
         }
     }
@@ -209,7 +209,7 @@ class UsersController extends AppController {
             $this->request->data['User']['user_id'] = $user_id;
             if ($this->User->save($this->request->data)) {
 //          $user_id = $this->Page->getLastInsertID();
-                $this->Session->setFlash('User has been successfully edited', 'flash_success');
+                $this->Session->setFlash(MyClass::translate('User has been successfully edited'), 'flash_success');
                 $this->redirect(array('controller' => 'users', 'action' => 'index', 'admin' => true));
             }
         } else {

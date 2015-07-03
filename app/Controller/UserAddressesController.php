@@ -22,9 +22,9 @@ class UserAddressesController extends AppController {
             }
             
             if($this->UserAddress->save($this->request->data)){
-                $this->Session->setFlash('Billing address updated successfully', 'flash_success');
+                $this->Session->setFlash(MyClass::translate('Billing address updated successfully'), 'flash_success');
             } else {
-                $this->Session->setFlash('Billing address can not updated', 'flash_error');
+                $this->Session->setFlash(MyClass::translate('Billing address can not updated'), 'flash_error');
             }
         }
 

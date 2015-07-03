@@ -89,7 +89,7 @@ class CartsController extends AppController {
                 }
             }
             $this->Session->delete('Shop');
-            $this->Session->setFlash('Your cart is cleared', 'flash_error');
+            $this->Session->setFlash(MyClass::translate('Your cart is cleared'), 'flash_error');
         }
         $this->redirect('index');
     }
