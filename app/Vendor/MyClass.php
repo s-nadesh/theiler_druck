@@ -55,7 +55,7 @@ class MyClass {
         return $result;
     }
 
-    public static function priceCalculationPerProduct($product_id, $no_of_pages, $no_of_copies, $qunatity = 1) {
+    public static function priceCalculationPerProduct($product_id, $no_of_pages, $no_of_copies, $paper_variant_id, $qunatity = 1) {
         $model = ClassRegistry::init('ProductPrice');
 
         if ($no_of_copies < 5000) {
@@ -75,6 +75,7 @@ class MyClass {
                 'ProductPrice.product_id' => $product_id,
                 'ProductPrice.pp_no_of_pages' => $no_of_pages,
                 'ProductPrice.pp_no_of_copies' => $default_copy,
+                'ProductPrice.paper_variant_id' => $paper_variant_id,
             )
         ));
 
@@ -83,6 +84,7 @@ class MyClass {
                 'ProductPrice.product_id' => $product_id,
                 'ProductPrice.pp_no_of_pages' => $no_of_pages,
                 'ProductPrice.pp_no_of_copies' => "-1",
+                'ProductPrice.paper_variant_id' => $paper_variant_id,
             )
         ));
 

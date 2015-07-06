@@ -122,7 +122,7 @@ $this->Html->addCrumb($product['Product']['product_name']);
                     <div class="form-group">
                         <label for="inputDefault" class="col-md-3 control-label"><?php echo MyClass::translate('Paper Weight') ?></label>
                         <div class="col-md-9">
-                            <select name="data[Cart][paper_id]" class="form-control">
+                            <select name="data[Cart][paper_id]" id="paper-variant-id" class="form-control" onchange="getProductPrice()">
                                 <?php
                                 foreach ($paper_array as $paper_key => $paper_value) {
                                     $paper_value_selected = '';
@@ -421,9 +421,10 @@ $this->Html->addCrumb($product['Product']['product_name']);
         var product_id = $("#CartProductId").val();
         var no_of_pages = $("#no-of-pages").val();
         var no_of_copies = $("#no-of-copies").val();
+        var paper_variant_id = $("#paper-variant-id").val();
         var quantity = $("#CartQuantity").val();
         $.ajax({
-            url: "<?php echo SITE_BASE_URL ?>product_prices/getProductPrice/" + product_id + "/" + no_of_pages + "/" + no_of_copies + "/" + quantity,
+            url: "<?php echo SITE_BASE_URL ?>product_prices/getProductPrice/" + product_id + "/" + no_of_pages + "/" + no_of_copies + "/" + paper_variant_id + "/" + quantity,
             type: "POST",
             success: function(result) {
                 placePrice(result);

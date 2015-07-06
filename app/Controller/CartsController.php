@@ -196,8 +196,8 @@ class CartsController extends AppController {
         $data['paper_id'] = $product['paper_id'];
         $data['item_quantity'] = $product['quantity'];
 
-        $price = MyClass::priceCalculationPerProduct($data['product_id'], $data['item_product_no_of_pages'], $data['item_product_no_of_copies']);
-        $sub_price = MyClass::priceCalculationPerProduct($data['product_id'], $data['item_product_no_of_pages'], $data['item_product_no_of_copies'], $data['item_quantity']);
+        $price = MyClass::priceCalculationPerProduct($data['product_id'], $data['item_product_no_of_pages'], $data['item_product_no_of_copies'], $data['paper_id']);
+        $sub_price = MyClass::priceCalculationPerProduct($data['product_id'], $data['item_product_no_of_pages'], $data['item_product_no_of_copies'], $data['paper_id'], $data['item_quantity']);
 
         if (!$price) {
             $this->Session->setFlash('This item can not be added in your cart, because this item does have it\'s price', 'flash_error');

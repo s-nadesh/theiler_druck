@@ -36,19 +36,20 @@ class ProductPricesController extends AppController {
         }
     }
 
-    public function admin_get_pp($product_id, $product_page, $product_copy) {
+    public function admin_get_pp($product_id, $product_page, $product_copy, $paper_variant_id) {
         $result = $this->ProductPrice->find('first', array(
             'conditions' => array(
                 'ProductPrice.product_id' => $product_id,
                 'ProductPrice.pp_no_of_pages' => $product_page,
-                'ProductPrice.pp_no_of_copies' => $product_copy
+                'ProductPrice.pp_no_of_copies' => $product_copy,
+                'ProductPrice.paper_variant_id' => $paper_variant_id,
             )
         ));
         return $result;
     }
 
-    public function getProductPrice($product_id, $no_of_pages, $no_of_coipes, $quantity) {
-        $price = MyClass::priceCalculationPerProduct($product_id, $no_of_pages, $no_of_coipes, $quantity);
+    public function getProductPrice($product_id, $no_of_pages, $no_of_coipes, $paper_variant_id, $quantity) {
+        $price = MyClass::priceCalculationPerProduct($product_id, $no_of_pages, $no_of_coipes, $paper_variant_id, $quantity);
         echo $price;
         exit;
     }
