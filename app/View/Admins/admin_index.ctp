@@ -12,7 +12,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
             <?php echo $this->Html->link(MyClass::translate("Users"), array('controller' => 'users', 'action' => 'index')); ?>
             <small><?php echo MyClass::translate("Manage Users"); ?></small>
         </div>
-        <a href="#"><i class="icon-users"></i></a>
+        <a href="<?php echo SITE_BASE_URL?>admin/users"><i class="icon-users"></i></a>
         <span class="bottom-info bg-danger"><?php echo count($users) ?> <?php echo MyClass::translate('users') ?></span>
     </li>
     <li class="bg-warning">
@@ -20,7 +20,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
             <?php echo $this->Html->link(MyClass::translate('Orders history'), array('controller' => 'orders', 'action' => 'index')); ?>
             <small><?php echo MyClass::translate('Purchases statistics') ?></small>
         </div>
-        <a href="#"><i class="icon-cart2"></i></a>
+        <a href="<?php echo SITE_BASE_URL?>admin/orders"><i class="icon-cart2"></i></a>
         <span class="bottom-info bg-primary"><?php echo count($orders); ?> <?php echo MyClass::translate('orders') ?></span>
     </li>
     <li class="bg-success">
@@ -28,7 +28,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
             <?php echo $this->Html->link(MyClass::translate("Products"), array('controller' => 'products', 'action' => 'index')); ?>
             <small><?php echo MyClass::translate("Manage Products"); ?></small>
         </div>
-        <a href="#"><i class="icon-paragraph-justify2"></i></a>
+        <a href="<?php echo SITE_BASE_URL?>admin/products"><i class="icon-paragraph-justify2"></i></a>
         <span class="bottom-info bg-primary"><?php echo count($products) ?> <?php echo MyClass::translate('products') ?></span>
     </li>
 </ul>

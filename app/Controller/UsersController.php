@@ -8,7 +8,7 @@ class UsersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny(array('profile', 'change_password', 'logout'));
-        $admin_auth_actions = array('admin_index', 'admin_view', 'admin_edit');
+        $admin_auth_actions = array('admin_index', 'admin_view', 'admin_edit', 'admin_delete');
         if (in_array($this->action, $admin_auth_actions)) {
             if (!$this->Session->check('Admin.id'))
                 $this->goAdminLogin();
@@ -122,13 +122,12 @@ class UsersController extends AppController {
                 $time_valid = date('Y-m-d H:i:s');
                 $resetlink = SITE_BASE_URL . 'users/reset_password/' . $reset_link . '/' . $user['User']['user_id'];
 
-                $this->sendMail(1, $this->data['User']['user_email'], 
-                        array(
-                            'NAME' => $user['User']['user_name'],
-                            'RESET_LINK' => $resetlink,
-                            'TIME_VALID' => $time_valid
-                        ));
-                
+                $this->sendMail(1, $this->data['User']['user_email'], array(
+                    'NAME' => $user['User']['user_name'],
+                    'RESET_LINK' => $resetlink,
+                    'TIME_VALID' => $time_valid
+                ));
+
                 $this->Session->setFlash(MyClass::translate('Your Password Reset Link sent to your email address.'), 'flash_success');
                 $this->redirect('login');
             } else {
@@ -150,7 +149,7 @@ class UsersController extends AppController {
             $days = floor($seconds / 86400);
             $hours = floor(($seconds - ($days * 86400)) / 3600);
             $minutes = floor(($seconds - ($days * 86400) - ($hours * 3600)) / 60);
-            
+
             if ($minutes > 5) {
                 $this->Session->setFlash(MyClass::translate('This Reset Link Expired. Please Try again.'), 'flash_error');
                 $this->redirect('forgot_password');
@@ -219,6 +218,48 @@ class UsersController extends AppController {
         }
         $this->set('title_for_layouts', 'Edit User');
         $this->set('admin_menu', 'users');
+    }
+
+    public function admin_delete($user_id) {
+        if (!$this->User->exists($user_id)) {
+            throw new NotFoundException(MyClass::translate('Invalid User'));
+        }
+
+        $this->loadModel('Order');
+        //Check any order is "IN-PROGRESS" stage for this user.
+        $user_order_progress = $this->Order->find('first', array(
+            'conditions' => array('Order.user_id' => $user_id, 'Order.order_status' => 2)
+        ));
+
+        if (!empty($user_order_progress)) {
+            $this->Session->setFlash(MyClass::translate('This user order is IN-PROGRESS, So can not be deleted'), 'flash_error');
+            $this->redirect(array('controller' => 'users', 'action' => 'index', 'admin' => true));
+        }
+
+        $user_orders = $this->Order->findAllByUserId($user_id);
+        
+        if (!empty($user_orders)) {
+            foreach ($user_orders as $user_order) {
+                foreach ($user_order['OrderItem'] as $order_item) {
+                    $order_item_product_value = MyClass::decodeJSON($order_item['order_item_product_value']);
+                    $uploaded_pictures = $order_item_product_value->item_picture_upload;
+                    if (!empty($uploaded_pictures)) {
+                        foreach ($uploaded_pictures as $value) {
+                            $filePath = ORDER_FILE_FOLDER . $value;
+                            if (file_exists($filePath)) {
+                                MyClass::fileDelete($filePath);
+                            }
+                        }
+                    }
+                }
+                $this->Order->delete($user_order['Order']['order_id'], true);
+            }
+        }
+
+        if ($this->User->delete($user_id, true)) {
+            $this->Session->setFlash(MyClass::translate('User deleted successfully'), 'flash_success');
+            $this->redirect(array('controller' => 'users', 'action' => 'index', 'admin' => true));
+        }
     }
 
     public function admin_get_address($id) {

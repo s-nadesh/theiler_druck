@@ -29,7 +29,7 @@ class ProductQuestionsController extends AppController {
             ),
             'order' => array('ProductQuestion.created DESC')
         ));
-
+        $this->set('title_for_layout', 'Product Questions');
         $this->set(compact('unanswered_questions', 'answered_questions'));
     }
 
@@ -85,16 +85,15 @@ class ProductQuestionsController extends AppController {
         $data = $this->ProductQuestion->ProductAnswer->findByProductAnswerId($answer_id);
         if ($data) {
             $product = $this->requestAction('products/getProduct/' . $data['ProductQuestion']['product_id']);
-            $Email = new CakeEmail(MAILSENDBY);
-            $Email->from(array(SITEMAIL))
-                    ->template('question_answer', 'email_layout')
-                    ->emailFormat('html')
-                    ->to($data['ProductQuestion']['question_email'])
-                    ->subject('Antwort zum Produkt: ' . $product['Product']['product_name'])
-                    ->viewVars(array(
-                        'data' => $data,
-                    ))
-                    ->send();
+            
+            $params = array(
+                'NAME' => $data['ProductQuestion']['question_name'],
+                'QUESTION' => $data['ProductQuestion']['question_content'],
+                'ANSWER' => $data['ProductAnswer']['answer_content'],
+                'PRODUCTNAME' => $product['Product']['product_name'],
+            );
+
+            $this->sendMail(5, $data['ProductQuestion']['question_email'], $params);
         }
     }
 
@@ -132,16 +131,17 @@ class ProductQuestionsController extends AppController {
     public function askQuestionMail($data) {
         if ($data) {
             $product = $this->requestAction('products/getProduct/' . $data['ProductQuestion']['product_id']);
-            $Email = new CakeEmail(MAILSENDBY);
-            $Email->from(array($data['ProductQuestion']['question_email'] => $data['ProductQuestion']['question_name']))
-                    ->template('ask_a_question', 'email_layout')
-                    ->emailFormat('html')
-                    ->to(SITEMAIL)
-                    ->subject('Frage zum Produkt: ' . $product['Product']['product_name'])
-                    ->viewVars(array(
-                        'data' => $data,
-                    ))
-                    ->send();
+            
+            $params = array(
+                'NAME' => $data['ProductQuestion']['question_name'],
+                'EMAIL' => $data['ProductQuestion']['question_email'],
+                'PHONE' => $data['ProductQuestion']['question_phone'],
+                'QUESTION' => $data['ProductQuestion']['question_content'],
+                'PRODUCTNAME' => $product['Product']['product_name'],
+            );
+
+            $template = ClassRegistry::init('EmailTemplate')->findByTemplateId(4);
+            $this->sendMail(4, $template['EmailTemplate']['template_reply_to'], $params, '', $data['ProductQuestion']['question_email']);
         }
     }
 
