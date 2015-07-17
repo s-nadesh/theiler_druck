@@ -55,9 +55,9 @@
     </head>
 
     <body <?php if (isset($body_attr)) echo $body_attr; ?>>
-<!--        <div id="fl_menu">
-            <a href="http://www.sdv-award.ch/" target="_blank" >   <img src="<?php echo SITE_BASE_URL ?>img/sdv_small.png"  alt="" /> </a>
-        </div>-->
+        <!--        <div id="fl_menu">
+                    <a href="http://www.sdv-award.ch/" target="_blank" >   <img src="<?php echo SITE_BASE_URL ?>img/sdv_small.png"  alt="" /> </a>
+                </div>-->
         <div class="body">
             <?php echo $this->element('header'); ?>
 
@@ -67,6 +67,11 @@
         </div>
         <?php
         echo $this->Html->script(array('plugins', '/vendor/jquery.easing', '/vendor/jquery.appear', '/vendor/jquery.cookie', '/vendor/bootstrap', '/vendor/bootstrap/bootstrap-number-input', '/vendor/twitterjs/twitter', '/vendor/rs-plugin/js/jquery.themepunch.plugins.min', '/vendor/rs-plugin/js/jquery.themepunch.revolution.min', '/vendor/owl-carousel/owl.carousel', '/vendor/circle-flip-slideshow/js/jquery.flipshow', '/vendor/magnific-popup/magnific-popup', '/vendor/jquery.stellar', '/vendor/jquery.validate', '/vendor/parallax', '/vendor/nivo-slider/jquery.nivo.slider', 'views/view.home', 'theme', 'custom'));
+        ?>
+        
+        <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+
+        <?php
         //Rocket right side scroll script
 //        echo $this->Html->script(array("jquery.easing.1.3"));
         if ($this->Session->check('Config.language') && $this->Session->read('Config.language') != 'eng') {

@@ -1,20 +1,37 @@
 <?php
 $this->Html->addCrumb(MyClass::translate('Products'), array('controller' => 'products', 'action' => 'index', 'admin' => true));
 $this->Html->addCrumb(MyClass::translate('Save Product'));
+
+$tab_active1 = "active fade in";
+$tab_active2 = "fade";
+$tab_nav1 = "active";
+$tab_nav2 = "";
+
+if (isset($enable_tab)) {
+    $tab_active1 = "fade";
+    $tab_active2 = "active fade in";
+    $tab_nav1 = "";
+    $tab_nav2 = "active";
+}
 ?>
 
 <div class="tabbable page-tabs">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#product" data-toggle="tab"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate('Product'); ?> </a></li>
-        <li><a href="#product-price" data-toggle="tab"><i class="icon-coin"></i> <?php echo MyClass::translate('Product Price Calculation'); ?> </a></li>
+        <li class="<?php echo $tab_nav1?>">
+            <a href="#product" data-toggle="tab"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate('Product'); ?> </a>
+        </li>
+        <li class="<?php echo $tab_nav2?>">
+            <a href="#product-price" data-toggle="tab"><i class="icon-coin"></i> <?php echo MyClass::translate('Product Price Calculation'); ?> </a>
+        </li>
     </ul>
 
     <div class="tab-content">
 
         <!-- First tab -->
-        <div class="tab-pane active fade in" id="product">
+        <div class="tab-pane <?php echo $tab_active1; ?>" id="product">
             <?php
             echo $this->Form->create('Product', array(
+                'url' => array('controller' => 'products', 'action' => 'edit', $this->data['Product']['product_id'], 'admin' => true),
                 "class" => "form-horizontal form-bordered admin_product_form_edit",
                 "role" => "form",
                 "enctype" => "multipart/form-data"
@@ -116,7 +133,7 @@ $this->Html->addCrumb(MyClass::translate('Save Product'));
         </div>
 
         <!-- Second tab -->
-        <div class="tab-pane fade" id="product-price">
+        <div class="tab-pane <?php echo $tab_active2; ?>" id="product-price">
             <?php
             $product_id = $this->data['Product']['product_id'];
             $pages_array = $no_of_pages_decode;
@@ -126,7 +143,7 @@ $this->Html->addCrumb(MyClass::translate('Save Product'));
                 "role" => "form",
                 'url' => array('controller' => 'product_prices', 'action' => 'update_price_calculation', $product_id, 'admin' => true)
             ));
-            
+
             $paper_variant1 = $this->requestAction('paper_variants/getPaperVariant/1');
             ?>
             <div class="row">
@@ -197,7 +214,7 @@ $this->Html->addCrumb(MyClass::translate('Save Product'));
                 </div>
             </div>
             <?php echo $this->Form->end(); ?>
-            
+
             <?php
             echo $this->Form->create('ProductPrice', array(
                 "role" => "form",

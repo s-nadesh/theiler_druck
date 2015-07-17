@@ -69,7 +69,7 @@ class ProductsController extends AppController {
     }
 
     //Admin edit product
-    public function admin_edit($product_id) {
+    public function admin_edit($product_id, $tab = false) {
         if (!$this->Product->exists($product_id)) {
             throw new NotFoundException(MyClass::translate('Invalid Product'));
         }
@@ -112,6 +112,9 @@ class ProductsController extends AppController {
         } else {
             $this->data = $this->Product->findByProductId($product_id);
         }
+        $this->set('title_for_layout', MyClass::translate('Products') . " : ". $this->data['Product']['product_name']);
+        if($tab)
+            $this->set('enable_tab', true);
     }
 
     public function productImageResize($file_name) {

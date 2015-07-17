@@ -161,20 +161,20 @@ $this->Html->addCrumb($product['Product']['product_name']);
 
                     <hr class="short">
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                             <div class="row">
-                                <div class="col-xs-5 col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-xs-5 col-sm-6 col-md-6 col-lg-5">
                                     <div class="quantity">
                                         <?php echo $this->Form->input('quantity', array("type" => "number", "class" => "input-text qty text quantity_number", "title" => "Qty", "value" => $cart_product_quantity, "min" => "1", "step" => "1", 'label' => false, 'onchange' => 'getProductPrice()')); ?>
                                     </div>
                                 </div>
-                                <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-xs-7 col-sm-6 col-md-6 col-lg-7">
                                     <?php echo $this->Form->submit(MyClass::translate("Add to cart"), array("class" => "btn btn-primary btn-icon", 'div' => false)); ?>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                             <span class="price" style="font-size: 24px">
                                 <?php echo MyClass::translate("Price"); ?>: <span id="product-price"></span>
                             </span><br>
@@ -369,6 +369,7 @@ $this->Html->addCrumb($product['Product']['product_name']);
                 },
                 'data[ProductQuestion][question_content]': {
                     required: true,
+                    maxlength: 250
                 },
                 'data[ProductQuestion][captcha]': {
                     required: true,
