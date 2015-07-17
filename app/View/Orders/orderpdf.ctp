@@ -123,7 +123,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                 <td width="250" valign="top">
                     <strong><?php echo MyClass::translate("Billing Address"); ?></strong> <br>
                     <strong><?php echo MyClass::translate("Name"); ?>: </strong>  <?php echo $billing_address_name; ?> <br>
-                    <strong><?php echo MyClass::translate("Street/No"); ?>: </strong> <?php echo $billing_address_street; ?> <br>
+                    <strong><?php echo MyClass::translate("Street / No."); ?>: </strong> <?php echo $billing_address_street; ?> <br>
                     <strong><?php echo MyClass::translate("Post Code"); ?>: </strong> <?php echo $billing_address_postcode; ?> <br>
                     <strong><?php echo MyClass::translate("City"); ?>: </strong> <?php echo $billing_address_city; ?> <br>
                     <strong><?php echo MyClass::translate("Country"); ?>: </strong> <?php echo $billing_address_country; ?> <br>
@@ -158,9 +158,9 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
         <tbody>
             <tr>
                 <td colspan="2" width="200" align="center" style="border:1px solid #000; border-right:0px; padding:5px;"><?php echo MyClass::translate("Product"); ?></td>
-                <td align="center" style="border:1px solid #000; border-right:0px; padding:5px;"><?php echo MyClass::translate("Price"); ?></td>
+                <td align="center" style="border:1px solid #000; border-right:0px; padding:5px;"><?php echo MyClass::translate("Single Price"); ?></td>
                 <td align="center" style="border:1px solid #000; border-right:0px; padding:5px;"> <?php echo MyClass::translate("Quantity"); ?></td>
-                <td align="center" style="border:1px solid #000; padding:5px;"><?php echo MyClass::translate("Total"); ?></td>
+                <td align="center" style="border:1px solid #000; padding:5px;"><?php echo MyClass::translate("Gross Total"); ?><br />Inkl. 8% MwSt.</td>
             </tr>
 
             <?php
@@ -182,7 +182,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                             echo MyClass::translate("Paper Weight") . ": " . $paper_variant['PaperVariant']['paper_rang_grm'] . '<br>';
                             if ($order['Order']['order_good_for_print_on_paper'] > 0 ||
                                     $order['Order']['order_express_within_4_days'] > 0) {
-                                echo '<b>Additional Services:</b><br>';
+                                echo '<b>'.MyClass::translate("Additional Services").':</b><br>';
                             }
                             if ($order['Order']['order_good_for_print_on_paper'] > 0)
                                 echo MyClass::translate("Good For Print On Paper") . '<br>';
@@ -200,7 +200,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                         <?php echo $order_item->item_quantity; ?>
                     </td>
 
-                    <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;">
+                    <td align="right" style="border:1px solid #000; border-top:0px; padding:5px;">
                         <span class="amount">
                             <?php echo MyClass::currencyFormat($order_item->item_sub_price); ?>
                         </span>
@@ -211,7 +211,7 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
 
             <tr>
                 <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate("Shipping Cost"); ?></td>
-                <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo MyClass::currencyFormat($order['Order']['order_shipping_cost']); ?></td>
+                <td align="right" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo MyClass::currencyFormat($order['Order']['order_shipping_cost']); ?></td>
             </tr>
 
             <?php
@@ -220,13 +220,13 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
                 ?>
                 <tr>
                     <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate("Additional Services"); ?></td>
-                    <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo MyClass::currencyFormat($additional_charge) ?></td>
+                    <td align="right" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo MyClass::currencyFormat($additional_charge) ?></td>
                 </tr>
             <?php } ?>
 
             <tr>
                 <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; padding:5px;"><?php echo MyClass::translate("Total Net"); ?><br /><?php echo MyClass::translate("incl. 8% VAT."); ?></td>
-                <td align="center" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo MyClass::currencyFormat($order['Order']['order_total_net']); ?><br>
+                <td align="right" style="border:1px solid #000; border-top:0px; padding:5px;"><?php echo MyClass::currencyFormat($order['Order']['order_total_net']); ?><br>
                     <span class="summary_vat">
                         <?php echo MyClass::currencyFormat($order['Order']['order_tax']); ?>
                     </span>
@@ -235,12 +235,12 @@ $summary = MyClass::decodeJSON($order['Order']['order_summary']);
 
             <tr>
                 <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; font-size:18px; padding:5px;"><?php echo MyClass::translate("Total Gross"); ?></td>
-                <td align="center" style="border:1px solid #000; border-top:0px; padding:5px; font-size:18px;"><?php echo MyClass::currencyFormat($order['Order']['order_total_gross']); ?></td>
+                <td align="right" style="border:1px solid #000; border-top:0px; padding:5px; font-size:18px;"><?php echo MyClass::currencyFormat($order['Order']['order_total_gross']); ?></td>
             </tr>
 
             <tr>
                 <td colspan="4" align="right" style="border:1px solid #000; border-top:0px; border-right:0px; font-size:18px; padding:5px;"><?php echo MyClass::translate("Total Amount"); ?></td>
-                <td align="center" style="border:1px solid #000; border-top:0px; padding:5px; font-size:18px;"><?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?></td>
+                <td align="right" style="border:1px solid #000; border-top:0px; padding:5px; font-size:18px;"><?php echo MyClass::currencyFormat($order['Order']['order_final_amount']); ?></td>
             </tr>
 
         </tbody>

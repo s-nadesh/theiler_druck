@@ -27,7 +27,7 @@
                             <td><?php echo $user['User']['user_name']; ?></td>
                             <td><?php echo $user['User']['user_email']; ?></td>
                             <td><?php if($user['User']['user_status']==1)echo 'Active';else {echo 'Inactive';} ?></td>
-                            <td><?php echo $user['User']['created']; ?></td>
+                            <td><?php echo date(PHP_DATE_TIME_FORMAT, strtotime($user['User']['created'])); ?></td>
                             <td>
                                 <div class="table-controls">
                                     <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/users/view/<?php echo $user['User']['user_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">

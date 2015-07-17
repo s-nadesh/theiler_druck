@@ -18,6 +18,7 @@ $this->Html->addCrumb(MyClass::translate('Edit'));
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit Email Template"); ?></h6>
+                    <a href="<?php echo SITE_BASE_URL ?>admin/email_templates" class="btn btn-primary pull-right"><?php echo MyClass::translate('Back'); ?></a>
                 </div>
 
                 <div class="panel-body">

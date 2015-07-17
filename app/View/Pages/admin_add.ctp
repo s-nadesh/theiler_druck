@@ -14,6 +14,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h6 class="panel-title"><i class="icon-paragraph-justify2"></i> <?php echo MyClass::translate("Edit page content"); ?></h6>
+                    <a href="<?php echo SITE_BASE_URL ?>admin/pages" class="btn btn-primary pull-right"><?php echo MyClass::translate('Back'); ?></a>
                 </div>
 
                 <div class="panel-body">

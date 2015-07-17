@@ -25,7 +25,7 @@ $this->Html->addCrumb(MyClass::translate('View User'));
                 </tr>
                 <tr>
                     <th><?php echo MyClass::translate("User Created"); ?></th>
-                    <td><?php echo $user['User']['created'] ?></td>
+                    <td><?php echo date(PHP_DATE_TIME_FORMAT, strtotime($user['User']['created'])); ?></td>
                 </tr>
                
 

@@ -28,7 +28,7 @@
                             <td><?php echo $page['Page']['page_title']; ?></td>
                             <td><?php echo $page['Page']['page_subtitle']; ?></td>
                             <td><?php echo $page['Page']['sort_value'] ?></td>
-                            <td><?php echo $page['Page']['created']; ?></td>
+                            <td><?php echo date(PHP_DATE_TIME_FORMAT, strtotime($page['Page']['created'])); ?></td>
                             <td>
                                 <div class="table-controls">
 <!--                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/pages/view/<?php echo $page['Page']['page_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">

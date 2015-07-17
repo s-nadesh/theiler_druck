@@ -62,6 +62,7 @@ define('CART_FILE_FOLDER', 'files/cart/');
 define('ORDER_FILE_FOLDER', 'files/order/');
 
 define('PHP_DATE_FORMAT', 'd.m.Y');
+define('PHP_DATE_TIME_FORMAT', 'd.m.Y H:i:s');
 define('JS_DATE_FORMAT', 'dd.mm.yy');
 define('DB_DATE_FORMAT', 'Y-m-d');
 

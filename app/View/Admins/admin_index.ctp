@@ -186,7 +186,7 @@ $questions = ClassRegistry::init('ProductQuestion')->find('all', array('order' =
                                         </td>
                                         <td><?php echo MyClass::currencyFormat($order['Order']['order_final_amount']) ?></td>
                                         <td><?php echo MyClass::orderStatus($order['Order']['order_status']) ?> </td>
-                                        <td><?php echo $order['Order']['created'] ?></td>
+                                        <td><?php echo date(PHP_DATE_FORMAT, strtotime($order['Order']['created'])) ?></td>
                                         <td>
                                             <div class="table-controls">
                                                 <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/orders/view/<?php echo $order['Order']['order_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">

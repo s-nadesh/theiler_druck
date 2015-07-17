@@ -28,7 +28,7 @@
                             <td><?php echo $service['Service']['service_title']; ?></td>
                             <td><?php echo $service['Service']['service_caption']; ?></td>
                             <td><?php echo $service['Service']['sort_value'] ?></td>
-                            <td><?php echo $service['Service']['created']; ?></td>
+                            <td><?php echo date(PHP_DATE_TIME_FORMAT, strtotime($service['Service']['created'])); ?></td>
                             <td>
                                 <div class="table-controls">
 <!--                                    <a title="" class="btn btn-link btn-icon btn-xs tip" href="<?php echo SITE_BASE_URL ?>admin/services/view/<?php echo $service['Service']['service_id']; ?>" data-original-title="<?php echo MyClass::translate("View"); ?>">

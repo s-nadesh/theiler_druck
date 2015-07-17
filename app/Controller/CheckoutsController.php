@@ -128,7 +128,8 @@ class CheckoutsController extends AppController {
                 $this->Session->write('Shop.Order.ShippingAddress', $this->data['ShippingAddress']);
                 $this->redirect('payment_method');
             } else {
-                $this->Session->setFlash('Shipping address Zipcode must be within ' . $zip_from . '-' . $zip_to, 'flash_error');
+                $message = str_replace('{number}', $zip_from . '-' . $zip_to, MyClass::translate("Shipping address zip code must be within {number}"));
+                $this->Session->setFlash($message, 'flash_error');
             }
         }
     }
