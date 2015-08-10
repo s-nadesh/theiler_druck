@@ -16,69 +16,69 @@
                 <nav class="nav-main mega-menu shop-menu">
                     <ul class="nav nav-pills nav-main" id="mainMenu2">
                         <?php if (!$logged_in) { ?>
-                            <li class="dropdown btn btn-lg btn-primary login-btn mega-menu-item mega-menu-shop mega-menu-shop2" id="headerAccount">
-                                <a class="dropdown-toggle mobile-redirect" href="<?php echo SITE_BASE_URL ?>users/login">
-                                    <img src="<?php echo SITE_BASE_URL ?>img/key.png"  alt="" /> <?php echo MyClass::translate("Login"); ?>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div class="mega-menu-content">
-                                            <div class="row">
-                                                <div class="col-md-12">
+                        <li class="dropdown btn btn-lg btn-primary login-btn mega-menu-item mega-menu-shop mega-menu-shop2" id="headerAccount">
+                            <a class="dropdown-toggle mobile-redirect" href="<?php echo SITE_BASE_URL ?>users/login">
+                                <img src="<?php echo SITE_BASE_URL ?>img/key.png"  alt="" /> <?php echo MyClass::translate("Login"); ?>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="mega-menu-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
                                                     <?php
                                                     echo $this->Form->create('User', array(
                                                         'class' => 'user_login_popupform',
                                                         'url' => array('controller' => 'users', 'action' => 'login')
                                                     ));
                                                     ?>
-                                                    <table cellspacing="0" class="cart">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
+                                                <table cellspacing="0" class="cart">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
                                                                     <?php
                                                                     echo $this->Form->input('user_email', array('label' => false, "placeholder" => 'Email', "class" => "form-control", 'id' => 'user-email-popupform'));
                                                                     ?>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
                                                                     <?php
                                                                     echo $this->Form->password('user_password', array('label' => false, "class" => "form-control", "placeholder" => 'Password', 'id' => 'user-password-popupform'));
                                                                     ?>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="actions" colspan="6">
-                                                                    <div class="actions-continue">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <span><?php echo MyClass::translate("New here ?") ?>&nbsp;</span>
-                                                                                <a href="<?php echo SITE_BASE_URL ?>users/register">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="actions" colspan="6">
+                                                                <div class="actions-continue">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <span><?php echo MyClass::translate("New here ?") ?>&nbsp;</span>
+                                                                            <a href="<?php echo SITE_BASE_URL ?>users/register">
                                                                                     <?php echo MyClass::translate("Register now"); ?>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <input type="submit" value="<?php echo MyClass::translate("Login"); ?>" name="proceed" class="btn btn-lg pull-right btn-primary">
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <input type="submit" value="<?php echo MyClass::translate("Login"); ?>" name="proceed" class="btn btn-lg pull-right btn-primary">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                                     <?php echo $this->Form->end(); ?>
-                                                </div>
                                             </div>
                                         </div>
-                                    </li>
-                                </ul>
-                            </li>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
                         <?php } else { ?>
-                            <li class="dropdown active">
+                        <li class="dropdown active">
                                 <?php echo $this->Html->link(MyClass::translate("My Account"), array('controller' => 'users', 'action' => 'profile')); ?> 
-                            </li>
-                            <li class="dropdown active"> | </li>
-                            <li class="dropdown active">
+                        </li>
+                        <li class="dropdown active"> | </li>
+                        <li class="dropdown active">
                                 <?php echo $this->Html->link(MyClass::translate("Logout"), array('controller' => 'users', 'action' => 'logout')); ?>
-                            </li>
+                        </li>
                         <?php } ?>
                     </ul>
                 </nav> 
@@ -98,14 +98,14 @@
         </button>
     </div>
     <div class="navbar-collapse nav-main-collapse collapse primary-nav">
-    <!--<div class="navbar-collapse nav-main-collapse collapse primary-nav">-->
+        <!--<div class="navbar-collapse nav-main-collapse collapse primary-nav">-->
         <div class="container">
             <div class="clearfix"></div>
             <nav class="nav-main mega-menu">
                 <ul class="nav nav-pills nav-main" id="mainMenu">
-                    <li class="active">
-                        <a class="" href="<?php echo SITE_BASE_URL ?>"> Start </a>
-                    </li>
+<!--                    <li class="active">
+                        <a class="" href="<?php // echo SITE_BASE_URL ?>"> Start </a>
+                    </li>-->
                     <li class="active">
                         <a class="" href="<?php echo SITE_BASE_URL ?>"> Produkte </a>
                     </li>
@@ -134,19 +134,19 @@
             </nav>
         </div>
     </div>
-    
+
     <div style="clear:both;"></div>
     <?php if ($cms_page_menu) { ?>
     <div style="width:100%; float: left; padding-top:20px;">
-    <div class="secondry-menu">
+        <div class="secondry-menu">
             <div class="container">
                 <div class="row">
                     <div class="single-menu flat-menu secondry-mainnav">
                         <div class="container">
-                        <div class="secondry-btn-cont"> <button class="btn btn-responsive-nav btn-inverse secondry-btn" data-toggle="collapse" data-target=".secondary-nav">
-                                <i class="icon icon-bars"></i>
-                            </button></div>
-                            
+                            <div class="secondry-btn-cont"> <button class="btn btn-responsive-nav btn-inverse secondry-btn" data-toggle="collapse" data-target=".secondary-nav">
+                                    <i class="icon icon-bars"></i>
+                                </button></div>
+
                         </div>
                         <div class="navbar-collapse nav-main-collapse secondary-nav collapse">
                             <div class="container">
@@ -157,9 +157,9 @@
                                         foreach ($links as $k => $link) {
                                             $active_class = ($k == 0) ? 'active' : '';
                                             ?>
-                                            <li class=" <?php echo $active_class; ?>">
-                                                <a data-hash class="dropdown-toggle" href="#<?php echo strtolower($link['Page']['page_title']) ?>"> <?php echo $link['Page']['page_title'] ?> </a>
-                                            </li>
+                                        <li class=" <?php echo $active_class; ?>">
+                                            <a data-hash class="dropdown-toggle" href="#<?php echo strtolower($link['Page']['page_title']) ?>"> <?php echo $link['Page']['page_title'] ?> </a>
+                                        </li>
                                         <?php } ?>
                                     </ul>
                                 </nav>
@@ -169,12 +169,12 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
-        
+
     <?php } ?>
     <?php if ($contact_page_menu) { ?>
-     <div style="width:100%; float: left; padding-top:20px;">
+    <div style="width:100%; float: left; padding-top:20px;">
         <div class="secondry-menu">
             <div class="container"> 
                 <div class="row">
@@ -208,6 +208,6 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     <?php } ?>
 </header>

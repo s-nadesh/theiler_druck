@@ -20,7 +20,7 @@ if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
 }
 
 define('MAILSENDBY', $mailsendby);
-define('SITEMAIL', 'nadesh@arkinfotec.com');
+define('SITEMAIL', 'info@theilerdruck.ch');
 
 if (LOCALHOST) {
     define('DEBUG', 1);
@@ -35,7 +35,7 @@ if (LOCALHOST) {
     define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST']);
     define('FOLDER', '/theiler_druck/branches/dev1/');
 } else {
-    define('DOMAIN', 'http://theiler.pandawebsolution.com');
+    define('DOMAIN', 'http://zeitungsdrucker.ch');
     define('FOLDER', '/');
 }
 

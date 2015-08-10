@@ -75,10 +75,10 @@ if (LOCALHOST) {
         define('DB_DATABASE', 'theiler_druck'); // new DB structure
     }
 } else {
-    define('DB_HOSTNAME', 'localhost');
-    define('DB_USERNAME', 'pandawe1_theiler');
-    define('DB_PASSWORD', 'cZKserTl?vNa');
-    define('DB_DATABASE', 'pandawe1_theiler_druck');
+    define('DB_HOSTNAME', 'mysql5.zeitungsdrucker.ch');
+    define('DB_USERNAME', 'db321651_309');
+    define('DB_PASSWORD', 'Theilerp455w0rt303***');
+    define('DB_DATABASE', 'db321651_309');
 }
 
 class DATABASE_CONFIG {

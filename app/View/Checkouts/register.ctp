@@ -226,7 +226,7 @@
         $(".datepicker").datepicker({
             changeMonth: true,
             changeYear: true,
-            yearRange: '1970:' + new Date().getFullYear(),
+            yearRange: '1900:' + new Date().getFullYear(),
             dateFormat: '<?php echo JS_DATE_FORMAT ?>'
         });
     });

@@ -239,6 +239,8 @@ class CheckoutsController extends AppController {
             
             $this->sendMail(2, $this->Auth->user('user_email'), $params, $filename);
             
+            $this->sendMail(6, 'admin@theilerdruck.ch', $params, '', $this->Auth->user('user_email'));
+            
             $this->Session->setFlash(MyClass::translate('Your order placed successfully'), 'flash_success');
             $this->Session->delete('Shop');
             $this->redirect(array('controller' => 'orders', 'action' => 'index'));
